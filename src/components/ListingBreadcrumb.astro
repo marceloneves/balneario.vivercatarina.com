@@ -1,0 +1,26 @@
+---
+interface Props {
+	pageLabel: string;
+	parent?: { href: string; label: string };
+}
+
+const { pageLabel, parent } = Astro.props;
+---
+
+<nav class="breadcumb-wrapper single-inventory" aria-label="Trilha de navegação">
+	<div class="container">
+		<div class="breadcumb-content">
+			<ol class="breadcumb-menu">
+				<li><a href="/">Início</a></li>
+				{
+					parent && (
+						<li>
+							<a href={parent.href}>{parent.label}</a>
+						</li>
+					)
+				}
+				<li><span aria-current="page">{pageLabel}</span></li>
+			</ol>
+		</div>
+	</div>
+</nav>

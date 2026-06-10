@@ -1,0 +1,66 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { applySemanticHtml, wrapSplitPageContent } from './semantic-html.mjs';
+import { loadProperty, isSiteEligibleProperty } from './property-data.mjs';
+import { buildPropertyPageViewModel } from './property-page-content.mjs';
+import {
+	buildNeighborhoodBlogMoreLink,
+	getNeighborhoodBlogPosts,
+} from './neighborhood-blog-posts.mjs';
+import { buildNeighborhoodIntroTitle } from './neighborhood-intro.mjs';
+import { resolveNeighborhoodPageSlug } from './neighborhood-slugs.mjs';
+
+const templateRoot = join(process.cwd(), 'src');
+const shellTemplatePath = join(templateRoot, 'content/template-pages/property-details.html');
+
+let shellCache;
+
+function getShellTemplate() {
+	if (shellCache) {
+		return shellCache;
+	}
+
+	const template = readFileSync(shellTemplatePath, 'utf8');
+	const breadcrumbStart = template.indexOf('<!--==============================\n    Breadcumb');
+	const footerStart = template.indexOf('<!--==============================\n\tFooter Area');
+
+	if (breadcrumbStart === -1 || footerStart === -1) {
+		throw new Error('Não foi possível separar o template de detalhes do imóvel.');
+	}
+
+	shellCache = wrapSplitPageContent(
+		applySemanticHtml(template.slice(0, breadcrumbStart)),
+		applySemanticHtml(template.slice(footerStart)),
+	);
+
+	return shellCache;
+}
+
+function buildImovelShell() {
+	const shell = getShellTemplate();
+
+	return {
+		shellBefore: shell.before,
+		shellAfter: shell.after,
+	};
+}
+
+export function buildImovelPageContext(slug) {
+	const property = loadProperty(slug);
+
+	if (!property || !isSiteEligibleProperty(property)) {
+		return null;
+	}
+
+	const page = buildPropertyPageViewModel(property, slug);
+	const neighborhoodName = property.address?.neighborhood?.name;
+	const neighborhoodSlug = resolveNeighborhoodPageSlug(property.address?.neighborhood?.slug);
+
+	return {
+		...page,
+		neighborhoodArticles: getNeighborhoodBlogPosts(neighborhoodName, 3, neighborhoodSlug),
+		neighborhoodBlogMoreLink: buildNeighborhoodBlogMoreLink(neighborhoodName, neighborhoodSlug),
+		neighborhoodIntroTitle: buildNeighborhoodIntroTitle(neighborhoodName, neighborhoodSlug),
+		...buildImovelShell(),
+	};
+}

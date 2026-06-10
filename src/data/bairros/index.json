@@ -1,0 +1,107 @@
+{
+  "city": "balneario-camboriu",
+  "generatedAt": "2026-06-10T01:13:56.507Z",
+  "totalProperties": 0,
+  "neighborhoods": [
+    {
+      "slug": "bairrodosestados",
+      "name": "Bairro dos Estados",
+      "total": 0
+    },
+    {
+      "slug": "barranorte",
+      "name": "Barra Norte",
+      "total": 0
+    },
+    {
+      "slug": "barrasul",
+      "name": "Barra Sul",
+      "total": 0
+    },
+    {
+      "slug": "centro",
+      "name": "Centro",
+      "total": 0
+    },
+    {
+      "slug": "cristorei",
+      "name": "Cristo Rei",
+      "total": 0
+    },
+    {
+      "slug": "frentemar",
+      "name": "Frente Mar",
+      "total": 0
+    },
+    {
+      "slug": "municipios",
+      "name": "Municípios",
+      "total": 0
+    },
+    {
+      "slug": "nacoes",
+      "name": "Nações",
+      "total": 0
+    },
+    {
+      "slug": "novaesperanca",
+      "name": "Nova Esperança",
+      "total": 0
+    },
+    {
+      "slug": "passagem",
+      "name": "Passagem",
+      "total": 0
+    },
+    {
+      "slug": "pioneiros",
+      "name": "Pioneiros",
+      "total": 0
+    },
+    {
+      "slug": "praiacentral",
+      "name": "Praia Central",
+      "total": 0
+    },
+    {
+      "slug": "santaines",
+      "name": "Santa Inês",
+      "total": 0
+    },
+    {
+      "slug": "santaregina",
+      "name": "Santa Regina",
+      "total": 0
+    },
+    {
+      "slug": "saojudastadeu",
+      "name": "São Judas Tadeu",
+      "total": 0
+    },
+    {
+      "slug": "taquaras",
+      "name": "Taquaras",
+      "total": 0
+    },
+    {
+      "slug": "vilareal",
+      "name": "Vila Real",
+      "total": 0
+    },
+    {
+      "slug": "zona2",
+      "name": "Zona 2",
+      "total": 0
+    },
+    {
+      "slug": "zona3",
+      "name": "Zona 3",
+      "total": 0
+    },
+    {
+      "slug": "zona4",
+      "name": "Zona 4",
+      "total": 0
+    }
+  ]
+}

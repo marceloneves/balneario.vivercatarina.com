@@ -1,0 +1,14 @@
+---
+const { construtora } = Astro.props;
+
+if (!construtora?.paragraphs?.length) {
+	return null;
+}
+---
+
+<section class="section property-construtora">
+	<h2 class="section__title">A construtora</h2>
+	{construtora.paragraphs.map((paragraph) => (
+		<p class="about-text" set:html={paragraph} />
+	))}
+</section>

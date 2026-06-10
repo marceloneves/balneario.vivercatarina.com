@@ -1,0 +1,537 @@
+---
+import PropertyConstrutoraSection from './PropertyConstrutoraSection.astro';
+import PropertyFinancingSimulator from './PropertyFinancingSimulator.astro';
+import PropertyNeighborhoodArticles from './PropertyNeighborhoodArticles.astro';
+import PropertyOffPlanPurchaseGuide from './PropertyOffPlanPurchaseGuide.astro';
+import PropertyRegularityGuide from './PropertyRegularityGuide.astro';
+
+const { page } = Astro.props;
+---
+
+<article class="property-details space imovel-detail" aria-labelledby="property-title">
+	<h1 class="imovel-landing__sr-only" id="property-title">{page.seo.h1}</h1>
+	<section class="hero-gallery" aria-label="Galeria de fotos">
+		<div class="container">
+			<div class="hero-gallery__grid">
+				{
+					page.hero.images[0] ? (
+						<div class="hero-gallery__main">
+							<button
+								type="button"
+								class="hero-gallery__trigger gallery-trigger"
+								data-gallery-index="0"
+								aria-label="Ampliar foto principal"
+							>
+								<img
+									src={page.hero.images[0].lcpUrl}
+									srcset={page.hero.images[0].srcset}
+									sizes={page.hero.images[0].sizes}
+									alt={page.hero.images[0].alt}
+									title={page.hero.images[0].title}
+									width="800"
+									height="450"
+									fetchpriority="high"
+									decoding="async"
+								/>
+							</button>
+							<div class="hero-gallery__meta">
+								<span class="hero-gallery__badge">{page.hero.situacao}</span>
+								<span class="hero-gallery__badge">{page.hero.padrao}</span>
+							</div>
+						</div>
+					) : (
+						<div class="hero-gallery__main">
+							<img
+								src="/assets/img/explore-cites/explore-cites-bg-1.webp"
+								alt={`Vista de referência do empreendimento ${page.nav.title} em ${page.nav.neighborhood}, Balneário Camboriú — imóvel na planta`}
+								title={page.imageTitle}
+							/>
+							<div class="hero-gallery__meta">
+								<span class="hero-gallery__badge">{page.hero.situacao}</span>
+								<span class="hero-gallery__badge">{page.hero.padrao}</span>
+							</div>
+						</div>
+					)
+				}
+				<div class="hero-gallery__thumbs">
+					{
+						page.hero.images.slice(1, 5).map((image, index) => (
+							<button
+								type="button"
+								class="hero-gallery__thumb gallery-trigger"
+								data-gallery-index={index + 1}
+								aria-label={`Ampliar foto ${index + 2}`}
+							>
+								<img
+									src={image.thumbUrl}
+									srcset={image.thumbSrcset}
+									sizes={image.thumbSizes}
+									alt={image.alt}
+									title={image.title}
+									width="240"
+									height="135"
+									loading="lazy"
+									decoding="async"
+								/>
+							</button>
+						))
+					}
+				</div>
+			</div>
+			<div class="hero-gallery__footer">
+				<p class="hero-gallery__title" aria-hidden="true">{page.seo.h1}</p>
+				<div class="hero-gallery__actions">
+					{
+						page.hero.videoUrl && (
+							<a
+								href={page.hero.videoUrl}
+								class="th-btn style2 radius"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Ver vídeo
+							</a>
+						)
+					}
+					<p class="hero-gallery__count">{page.hero.totalPhotos} fotos</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="stats-bar" aria-labelledby="stats-bar-title">
+		<h2 class="imovel-landing__sr-only" id="stats-bar-title">Resumo do empreendimento</h2>
+		<div class="container stats-bar__grid">
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Preço a partir de</div>
+				<div class="stats-bar__value">{page.stats.price}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Quartos</div>
+				<div class="stats-bar__value">{page.stats.bedrooms}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Área</div>
+				<div class="stats-bar__value">{page.stats.area}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Situação</div>
+				<div class="stats-bar__value">{page.stats.situacao}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Unidades</div>
+				<div class={`stats-bar__value${page.sidebar.showUrgency ? ' stats-bar__value--urgent' : ''}`}>
+					{page.stats.unidadesRestantes ?? 'Sob consulta'}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="container layout">
+		<div class="property-main">
+			<section class="section property-about">
+				<h2 class="section__title">Sobre o empreendimento</h2>
+				<dl class="ficha-list property-about__ficha">
+					{
+						page.ficha.items.map((item) => (
+							<div>
+								<dt>{item.label}</dt>
+								<dd {...(item.liveDate ? { 'data-ficha-atualizado': true } : {})}>
+									{item.value}
+								</dd>
+							</div>
+						))
+					}
+				</dl>
+				{
+					page.descriptionHtml ? (
+						<div class="property-description property-about__text" set:html={page.descriptionHtml} />
+					) : page.sobre ? (
+						<p class="about-text property-about__text" set:html={page.sobre} />
+					) : null
+				}
+			</section>
+
+			<section class="section">
+				<h2 class="section__title">Localização e entorno</h2>
+				<p class="about-text">
+					<strong>{page.location.address}</strong>
+				</p>
+				{
+					page.location.points.length > 0 && (
+						<div class="property-location-points">
+							{page.location.points.map((point) => (
+								<div class="property-location-point">
+									<i class={point.icon} aria-hidden="true"></i>
+									<div class="property-location-point__content">
+										<span class="property-location-point__label">{point.label}</span>
+										<span class="property-location-point__distance">{point.distance}</span>
+									</div>
+								</div>
+							))}
+						</div>
+					)
+				}
+				{
+					page.location.mapEmbedUrl && (
+						<div
+							class="property-location-embed property-location-embed--lazy"
+							data-map-src={page.location.mapEmbedUrl}
+							data-map-title={`Mapa — ${page.seo.h1}`}
+						>
+							<div class="property-location-embed__placeholder">
+								<p>Mapa interativo da localização do empreendimento.</p>
+								<button type="button" class="th-btn style2 radius property-location-embed__load">
+									Carregar mapa
+								</button>
+								{
+									page.location.mapUrl && (
+										<a
+											href={page.location.mapUrl}
+											class="property-location-embed__external"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Abrir no Google Maps
+										</a>
+									)
+								}
+							</div>
+						</div>
+					)
+				}
+			</section>
+
+			<PropertyConstrutoraSection construtora={page.construtora} />
+
+			{
+				(page.highlights.length > 0 || page.comodidades.length > 0) && (
+					<section class="section">
+						<h2 class="section__title">Destaques do empreendimento</h2>
+						<div class="highlights-grid">
+							{page.highlights.map((item) => (
+								<div class="highlight-card">
+									<i class={item.icone} aria-hidden="true"></i>
+									<div class="highlight-card__content">
+										<span class="highlight-card__label">{item.titulo}</span>
+										<span class="highlight-card__description">{item.descricao}</span>
+									</div>
+								</div>
+							))}
+							{page.comodidades.map((item) => (
+								<div class="highlight-card">
+									<i class={item.icone} aria-hidden="true"></i>
+									<div class="highlight-card__content">
+										<span class="highlight-card__label">{item.nome}</span>
+										<span class="highlight-card__description">Disponível no empreendimento.</span>
+									</div>
+								</div>
+							))}
+						</div>
+					</section>
+				)
+			}
+
+			<section class="section invest-why">
+				<h2 class="section__title">Porque investir no {page.seo.h1}?</h2>
+				<div class="invest-why__card">
+					<p class="invest-why__intro" set:html={page.investWhy.intro} />
+					<ul class="invest-why__reasons">
+						{page.investWhy.reasons.map((item) => (
+							<li>
+								<span class="invest-why__reason-text" set:html={item} />
+							</li>
+						))}
+					</ul>
+				</div>
+			</section>
+
+			{
+				page.hero.images.length > 0 && (
+					<section class="section">
+						<h2 class="section__title">Galeria de fotos ({page.hero.totalPhotos})</h2>
+						<div class="photo-grid">
+							{page.hero.images.map((image, index) => (
+								<button
+									type="button"
+									class="photo-grid__item gallery-trigger"
+									data-gallery-index={index}
+									aria-label={`Ampliar foto ${index + 1}`}
+								>
+									<img
+									src={image.thumbUrl}
+									srcset={image.thumbSrcset}
+									sizes={image.thumbSizes}
+									alt={image.alt}
+									title={image.title}
+									width="240"
+									height="135"
+									loading="lazy"
+									decoding="async"
+								/>
+								</button>
+							))}
+						</div>
+					</section>
+				)
+			}
+
+			{
+				page.plantas.length > 0 && (
+					<section class="section">
+						<h2 class="section__title">Plantas disponíveis</h2>
+						{page.plantas.map((planta) => (
+							<article class="planta-card">
+								<h3 class="planta-card__title">{planta.titulo}</h3>
+
+								{
+									planta.highlights.length > 0 && (
+										<ul class="planta-card__highlights">
+											{planta.highlights.map((item) => (
+												<li>{item}</li>
+											))}
+										</ul>
+									)
+								}
+
+								<div class="planta-card__price-block">
+									<span class="planta-card__price-label">A partir de</span>
+									<strong class="planta-card__price-value">{planta.precoAPartir}</strong>
+								</div>
+
+								{planta.unidadesResumo && (
+									<p class="planta-card__units-summary">{planta.unidadesResumo}</p>
+								)}
+
+								{
+									planta.imageUrl && (
+										<div class="planta-card__image">
+											<img
+												src={planta.imageUrl}
+												alt={planta.imageAlt}
+												title={planta.imageTitle}
+												loading="lazy"
+											/>
+										</div>
+									)
+								}
+
+								<dl class="ficha-list planta-card__ficha">
+									{
+										planta.specItems.map((item) => (
+											<div>
+												<dt>{item.label}</dt>
+												<dd>{item.value}</dd>
+											</div>
+										))
+									}
+								</dl>
+							</article>
+						))}
+					</section>
+				)
+			}
+
+			<PropertyFinancingSimulator financing={page.financing} />
+
+			<PropertyOffPlanPurchaseGuide />
+
+			<PropertyRegularityGuide />
+
+			<section class="section">
+				<h2 class="section__title">Perguntas frequentes</h2>
+				{page.faq.map((item) => (
+					<details class="faq-item">
+						<summary set:html={item.pergunta} />
+						<p set:html={item.resposta} />
+					</details>
+				))}
+			</section>
+
+			<PropertyNeighborhoodArticles
+				introTitle={page.neighborhoodIntroTitle}
+				posts={page.neighborhoodArticles}
+				moreLink={page.neighborhoodBlogMoreLink}
+			/>
+
+			<p class="property-legal-note">
+				As informações desta página possuem caráter meramente informativo e não substituem a análise dos
+				documentos oficiais do empreendimento. Condições comerciais, disponibilidade e valores estão
+				sujeitos a alterações sem aviso prévio. Consulte sempre a incorporadora, o corretor responsável
+				credenciado ao CRECI e a documentação do empreendimento antes da assinatura do contrato.
+			</p>
+		</div>
+
+		<aside class="sidebar" aria-label="Informações e contato">
+			<div class="sidebar-card">
+				<div class="sidebar-card__price-box">
+					<div class="sidebar-card__label">Preço a partir de</div>
+					<div class="sidebar-card__price">{page.sidebar.price}</div>
+				</div>
+				{page.sidebar.showUrgency && <div class="sidebar-alert">Últimas unidades disponíveis</div>}
+				<form class="lead-form" id="lead-form">
+					<label for="lead-name">Nome</label>
+					<input id="lead-name" name="name" type="text" placeholder="Seu nome" required />
+					<label for="lead-phone">WhatsApp</label>
+					<input id="lead-phone" name="phone" type="tel" placeholder="(48) 98810-5199" required />
+					<label for="lead-email">E-mail</label>
+					<input id="lead-email" name="email" type="email" placeholder="Seu e-mail" required />
+					<button type="submit" class="th-btn imovel-btn-submit radius w-100">Quero mais informações</button>
+					<button
+						type="button"
+						class="th-btn imovel-btn-whatsapp radius w-100"
+						data-whatsapp-lead
+						data-whatsapp-source="property"
+						data-property-slug={page.slug}
+						data-property-title={page.seo.h1}
+					>
+						<i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+					</button>
+				</form>
+				<p class="sidebar-note">Dados protegidos. Resposta em até 1 hora.</p>
+			</div>
+		</aside>
+	</div>
+</article>
+
+{
+	page.hero.images.length > 0 && (
+		<div id="gallery-lightbox" class="gallery-lightbox" hidden>
+			<div class="gallery-lightbox__backdrop" data-gallery-close></div>
+			<button type="button" class="gallery-lightbox__close" aria-label="Fechar galeria" data-gallery-close>
+				&times;
+			</button>
+			<button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" aria-label="Foto anterior">
+				<i class="fa-solid fa-chevron-left"></i>
+			</button>
+			<button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" aria-label="Próxima foto">
+				<i class="fa-solid fa-chevron-right"></i>
+			</button>
+			<div class="gallery-lightbox__content">
+				<img
+					class="gallery-lightbox__image"
+					src={page.hero.images[0].url}
+					alt={page.hero.images[0].alt}
+					title={page.hero.images[0].title}
+				/>
+				<p class="gallery-lightbox__counter"></p>
+			</div>
+		</div>
+	)
+}
+
+<script>
+	document.querySelectorAll('.property-location-embed--lazy[data-map-src]').forEach((container) => {
+		const loadMap = () => {
+			if (container.querySelector('iframe') || !container.dataset.mapSrc) {
+				return;
+			}
+
+			const iframe = document.createElement('iframe');
+			iframe.src = container.dataset.mapSrc;
+			iframe.title = container.dataset.mapTitle || 'Mapa da localização';
+			iframe.setAttribute('loading', 'lazy');
+			iframe.setAttribute('allowfullscreen', '');
+			container.replaceChildren(iframe);
+		};
+
+		container.querySelector('.property-location-embed__load')?.addEventListener('click', loadMap);
+	});
+
+	document.querySelectorAll('[data-ficha-atualizado]').forEach((element) => {
+		element.textContent = new Intl.DateTimeFormat('pt-BR', {
+			timeZone: 'America/Sao_Paulo',
+			day: '2-digit',
+			month: '2-digit',
+			year: 'numeric',
+		}).format(new Date());
+	});
+</script>
+
+<script define:vars={{ galleryImages: page.hero.images }}>
+	const lightbox = document.getElementById('gallery-lightbox');
+
+	if (lightbox && galleryImages.length > 0 && lightbox.dataset.initialized !== 'true') {
+		lightbox.dataset.initialized = 'true';
+		const imageEl = lightbox.querySelector('.gallery-lightbox__image');
+		const counterEl = lightbox.querySelector('.gallery-lightbox__counter');
+		const prevButton = lightbox.querySelector('.gallery-lightbox__nav--prev');
+		const nextButton = lightbox.querySelector('.gallery-lightbox__nav--next');
+		let currentIndex = 0;
+
+		const showImage = (index) => {
+			currentIndex = (index + galleryImages.length) % galleryImages.length;
+			const item = galleryImages[currentIndex];
+			imageEl.src = item.url;
+			imageEl.alt = item.alt;
+			imageEl.title = item.title;
+			counterEl.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+		};
+
+		const openLightbox = (index) => {
+			showImage(index);
+			lightbox.hidden = false;
+			lightbox.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('gallery-lightbox-open');
+		};
+
+		const closeLightbox = () => {
+			lightbox.hidden = true;
+			lightbox.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('gallery-lightbox-open');
+		};
+
+		document.querySelectorAll('.gallery-trigger').forEach((trigger) => {
+			trigger.addEventListener('click', () => {
+				openLightbox(Number(trigger.dataset.galleryIndex));
+			});
+		});
+
+		prevButton?.addEventListener('click', (event) => {
+			event.stopPropagation();
+			showImage(currentIndex - 1);
+		});
+
+		nextButton?.addEventListener('click', (event) => {
+			event.stopPropagation();
+			showImage(currentIndex + 1);
+		});
+
+		lightbox.querySelectorAll('[data-gallery-close]').forEach((element) => {
+			element.addEventListener('click', closeLightbox);
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (lightbox.hidden) {
+				return;
+			}
+
+			if (event.key === 'Escape') {
+				closeLightbox();
+			}
+
+			if (event.key === 'ArrowLeft') {
+				showImage(currentIndex - 1);
+			}
+
+			if (event.key === 'ArrowRight') {
+				showImage(currentIndex + 1);
+			}
+		});
+	}
+</script>
+
+<script define:vars={{ whatsappNumber: page.whatsappNumber }}>
+	const form = document.getElementById('lead-form');
+	form?.addEventListener('submit', (event) => {
+		event.preventDefault();
+		const data = new FormData(form);
+		const name = data.get('name');
+		const phone = data.get('phone');
+		const email = data.get('email');
+		const message = encodeURIComponent(
+			`Olá! Meu nome é ${name}. Tenho interesse neste imóvel. WhatsApp: ${phone}. E-mail: ${email}.`,
+		);
+		window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+	});
+</script>

@@ -1,0 +1,21 @@
+---
+import PillerLayout from '../../layouts/PillerLayout.astro';
+import { buildBlogListingPageHtml } from '../../lib/blog-listing-page.mjs';
+import { getBlogPosts } from '../../lib/blog-posts.mjs';
+import { buildKeywords, resolvePageSeo } from '../../lib/site-seo.mjs';
+
+const seo = resolvePageSeo({ title: 'Blog', pathname: '/blog' });
+const pageHtml = buildBlogListingPageHtml(getBlogPosts(), 1);
+---
+
+<PillerLayout
+	title={seo.title}
+	bodyClass="blog-listing"
+	description={seo.description}
+	keywords={buildKeywords('blog imobiliário Balneário Camboriú', 'mercado imobiliário', 'imóveis na planta')}
+	canonicalPath="/blog"
+	disableEffects
+	stylesheets={['/css/blog-listing.css', '/css/internal-links.css']}
+>
+	<Fragment set:html={pageHtml} />
+</PillerLayout>

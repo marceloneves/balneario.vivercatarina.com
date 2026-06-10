@@ -1,0 +1,221 @@
+---
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
+import WhatsAppLeadGate from '../components/WhatsAppLeadGate.astro';
+import { SITE_NAME } from '../lib/site-contact.mjs';
+import { resolvePageSeo } from '../lib/site-seo.mjs';
+
+interface Props {
+	title: string;
+	description?: string;
+	keywords?: string;
+	bodyClass?: string;
+	disableEffects?: boolean;
+	asyncFonts?: boolean;
+	slimScripts?: boolean;
+	preloadImage?: string;
+	stylesheets?: string[];
+	ogImage?: string;
+	ogType?: string;
+	canonicalPath?: string;
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description,
+	keywords,
+	bodyClass = '',
+	disableEffects = false,
+	asyncFonts = false,
+	slimScripts = false,
+	preloadImage,
+	stylesheets = [],
+	ogImage,
+	ogType,
+	canonicalPath,
+	noindex,
+} = Astro.props;
+
+const seo = resolvePageSeo({
+	title,
+	description,
+	keywords,
+	pathname: Astro.url.pathname,
+	ogImage,
+	ogType,
+	canonicalPath,
+	noindex,
+});
+
+const isHomePage = Astro.url.pathname === '/' || Astro.url.pathname === '/index.html';
+const resolvedBodyClass = isHomePage
+	? ['home-page', bodyClass].filter(Boolean).join(' ')
+	: [bodyClass, 'site-dark-header'].filter(Boolean).join(' ');
+const deferredStylesheets = slimScripts
+	? [
+			'/assets/css/bootstrap.min.css',
+			'/css/fontawesome-imovel.css',
+			'/assets/css/style.css',
+			'/css/internal-links.css',
+		]
+	: [];
+---
+
+<!doctype html>
+<html class="no-js" lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<title>{seo.title}</title>
+		<meta name="author" content={seo.author} />
+		<meta name="publisher" content={seo.publisher} />
+		<meta name="description" content={seo.description} />
+		<meta name="keywords" content={seo.keywords} />
+		<meta name="robots" content={seo.robots} />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href={seo.canonicalUrl} />
+		<meta property="og:locale" content="pt_BR" />
+		<meta property="og:site_name" content={SITE_NAME} />
+		<meta property="og:title" content={seo.ogTitle} />
+		<meta property="og:description" content={seo.ogDescription} />
+		<meta property="og:type" content={seo.ogType} />
+		<meta property="og:url" content={seo.ogUrl} />
+		<meta property="og:image" content={seo.ogImage} />
+		<meta name="twitter:card" content={seo.twitterCard} />
+		<meta name="twitter:title" content={seo.ogTitle} />
+		<meta name="twitter:description" content={seo.ogDescription} />
+		<meta name="twitter:image" content={seo.ogImage} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+		<link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicons/apple-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicons/apple-icon-60x60.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicons/apple-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicons/apple-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicons/apple-icon-152x152.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-icon-180x180.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/android-icon-192x192.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicons/favicon-96x96.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png" />
+		<link rel="manifest" href="/assets/img/favicons/manifest.json" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="msapplication-TileImage" content="/assets/img/favicons/ms-icon-144x144.png" />
+		<meta name="theme-color" content="#FFAF00" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		{
+			preloadImage && (
+				<link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+			)
+		}
+		{
+			asyncFonts ? (
+				<>
+					<link
+						rel="preload"
+						as="style"
+						href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+					/>
+					<link
+						href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+						rel="stylesheet"
+						media="print"
+						onload="this.media='all'"
+					/>
+					<noscript>
+						<link
+							href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+							rel="stylesheet"
+						/>
+					</noscript>
+				</>
+			) : (
+				<link
+					href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+					rel="stylesheet"
+				/>
+			)
+		}
+
+		{
+			slimScripts ? (
+				deferredStylesheets.map((href) => (
+					<>
+						<link rel="preload" as="style" href={href} />
+						<link rel="stylesheet" href={href} media="print" onload="this.media='all'" />
+					</>
+				))
+			) : (
+				<>
+					<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+					<link rel="stylesheet" href="/assets/css/fontawesome.min.css" />
+					<link rel="stylesheet" href="/assets/css/style.css" />
+				</>
+			)
+		}
+		{!disableEffects && <link rel="stylesheet" href="/assets/css/magnific-popup.min.css" />}
+		{!disableEffects && <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />}
+		{stylesheets.map((href) => (
+			<link rel="stylesheet" href={href} />
+		))}
+		<link rel="stylesheet" href="/css/piller-layout-global.css" />
+		{disableEffects && <link rel="stylesheet" href="/css/piller-layout-disable-effects.css" />}
+		<slot name="head" />
+		<script is:inline src="/js/site-blog-nav.js" defer></script>
+	</head>
+	<body class={resolvedBodyClass}>
+		<a class="skip-link" href="#conteudo-principal">Ir para o conteúdo</a>
+		<slot />
+		<WhatsAppLeadGate />
+		<WhatsAppFloat />
+
+		<script is:inline src="/assets/js/vendor/jquery-3.7.1.min.js"></script>
+		{!disableEffects && <script is:inline src="/assets/js/swiper-bundle.min.js"></script>}
+		<script is:inline src="/assets/js/bootstrap.min.js"></script>
+		{!disableEffects && <script is:inline src="/assets/js/jquery.magnific-popup.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/jquery.counterup.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/tilt.jquery.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/imagesloaded.pkgd.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/isotope.pkgd.min.js"></script>}
+		{!slimScripts && <script is:inline src="/assets/js/jquery-ui.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/lenis.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/360.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/panolens.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/wow.min.js"></script>}
+		{!slimScripts && <script is:inline src="/assets/js/nice-select.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/gsap.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/ScrollTrigger.min.js"></script>}
+		{!disableEffects && <script is:inline src="/assets/js/SplitText.min.js"></script>}
+		{disableEffects && (
+			<script is:inline>
+				window.WOW = function () {
+					return { init: function () {} };
+				};
+			</script>
+		)}
+		<script is:inline>
+			window.addEventListener('DOMContentLoaded', function () {
+				document.querySelectorAll('.color-scheme, .switchIcon').forEach(function (element) {
+					element.remove();
+				});
+
+				document.querySelectorAll('.th-menu-wrapper a[href^="/"]').forEach(function (menuLink) {
+					menuLink.addEventListener('click', function () {
+						var menu = document.querySelector('.th-menu-wrapper.th-body-visible');
+
+						if (menu) {
+							menu.classList.remove('th-body-visible');
+						}
+					});
+				});
+			});
+		</script>
+		<script is:inline src="/assets/js/main.js"></script>
+	</body>
+</html>

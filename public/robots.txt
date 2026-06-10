@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /blog-details
+Disallow: /property
+
+Sitemap: https://balneario.vivercatarina.com/sitemap-index.xml

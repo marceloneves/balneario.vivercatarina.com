@@ -1,0 +1,140 @@
+---
+const groups = [
+	{
+		title: 'Antes da compra',
+		intro:
+			'Nesta fase, o comprador escolhe a unidade, reserva o imóvel e formaliza o negócio com a incorporadora antes de iniciar os pagamentos da obra.',
+		items: [
+			{
+				title: 'Escolha da unidade',
+				paragraphs: [
+					'Defina planta, andar, vista, metragem e vagas. Em bairros de orla em Balneário Camboriú, confira também o enquadramento urbanístico do projeto.',
+				],
+			},
+			{
+				title: 'Reserva da unidade',
+				paragraphs: [
+					'Muitos lançamentos permitem reservar a unidade temporariamente enquanto são analisadas as condições comerciais e o Registro de Incorporação (RI).',
+				],
+			},
+			{
+				title: 'Assinatura da proposta e do contrato',
+				paragraphs: [
+					'Assine a proposta e o contrato de promessa de compra e venda com valores, pagamentos, correção, prazo de entrega e tolerância previstos em contrato.',
+				],
+			},
+		],
+	},
+	{
+		title: 'Durante a construção',
+		intro:
+			'Com o contrato assinado, começam os pagamentos previstos e o acompanhamento da obra até a data de entrega prevista em Balneário Camboriú.',
+		items: [
+			{
+				title: 'Pagamento da entrada',
+				paragraphs: [
+					'Parte do valor é paga como entrada, em geral parcelada diretamente com a incorporadora durante a obra.',
+				],
+			},
+			{
+				title: 'Parcelas durante a obra',
+				paragraphs: [
+					'Pagamentos mensais à incorporadora ao longo da construção, com possíveis reforços conforme o cronograma do empreendimento.',
+				],
+			},
+			{
+				title: 'Correção pelo INCC',
+				paragraphs: [
+					'Parcelas e saldo devedor costumam ser corrigidos pelo INCC na fase de obras — planeje o impacto desse reajuste no orçamento.',
+				],
+			},
+			{
+				title: 'Acompanhamento da construção',
+				paragraphs: [
+					'A incorporadora informa o andamento da obra; quando permitido, visitas ao canteiro ajudam a acompanhar a evolução até a entrega.',
+				],
+			},
+		],
+	},
+	{
+		title: 'Depois da entrega',
+		intro:
+			'Após a conclusão da obra, o comprador recebe as chaves, quita o saldo, regulariza a documentação no cartório e passa a usar o imóvel com as garantias legais.',
+		items: [
+			{
+				title: 'Entrega das chaves',
+				paragraphs: [
+					'Após a obra, o Habite-se da Prefeitura de Balneário Camboriú e a averbação da construção, as chaves são entregues conforme o contrato.',
+				],
+			},
+			{
+				title: 'Financiamento do saldo devedor',
+				paragraphs: [
+					'O saldo restante pode ser quitado com recursos próprios ou financiamento bancário, sujeito à análise de crédito na data da contratação.',
+				],
+			},
+			{
+				title: 'Pagamento das despesas de transferência',
+				paragraphs: [
+					'ITBI em Balneário Camboriú, escritura e registro do imóvel formalizam a transferência da propriedade.',
+				],
+			},
+			{
+				title: 'Registro do imóvel em nome do comprador',
+				paragraphs: [
+					'A escritura ou o contrato de financiamento é registrado no 1º ou 2º RI de Balneário Camboriú, passando o imóvel oficialmente para o comprador.',
+				],
+			},
+			{
+				title: 'Garantias após a entrega',
+				paragraphs: [
+					'Após a entrega, valem as garantias legais e a assistência técnica da construtora para vícios ou defeitos, nos prazos previstos em lei.',
+				],
+			},
+		],
+	},
+];
+
+let stepNumber = 0;
+const numberedGroups = groups.map((group) => ({
+	title: group.title,
+	intro: group.intro,
+	items: group.items.map((item) => ({
+		...item,
+		step: ++stepNumber,
+	})),
+}));
+---
+
+<section class="section property-offplan-guide" id="compra-na-planta">
+	<h2 class="section__title">Como funciona a compra de um imóvel na planta?</h2>
+
+	<p class="about-text">
+		A compra na planta em Balneário Camboriú segue etapas próprias, diferentes de um imóvel pronto. Conhecer o fluxo
+		ajuda a planejar o orçamento e fechar negócio com mais segurança.
+	</p>
+
+	{
+		numberedGroups.map((group) => (
+			<div class="property-offplan-guide__group">
+				<h3 class="property-offplan-guide__group-title">{group.title}</h3>
+				<p class="property-offplan-guide__group-intro">{group.intro}</p>
+				<div class="property-offplan-guide__grid">
+					{
+						group.items.map((item) => (
+							<article class="property-offplan-guide__item">
+								<h4 class="property-offplan-guide__item-title">
+									<span class="property-offplan-guide__step" aria-hidden="true">{item.step}</span>
+									{item.title}
+								</h4>
+								{item.paragraphs.map((paragraph) => (
+									<p>{paragraph}</p>
+								))}
+							</article>
+						))
+					}
+				</div>
+			</div>
+		))
+	}
+</section>

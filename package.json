@@ -1,0 +1,33 @@
+{
+  "name": "viver-catarina",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "predev": "node scripts/generate-sitemaps.mjs",
+    "prebuild": "node scripts/generate-sitemaps.mjs && node scripts/generate-favicons.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "import:properties": "node scripts/import-properties.mjs",
+    "generate:favicons": "node scripts/generate-favicons.mjs",
+    "update:descriptions": "node scripts/update-property-descriptions.mjs",
+    "classify:kinds": "node scripts/classify-property-kinds.mjs",
+    "generate:lancamentos": "node scripts/generate-lancamentos-by-kind.mjs",
+    "generate:bairros": "node scripts/generate-bairro-listings.mjs",
+    "convert:webp": "node scripts/convert-images-to-webp.mjs",
+    "generate:image-variants": "node scripts/generate-property-image-variants.mjs",
+    "recompress:webp": "node scripts/recompress-webp.mjs"
+  },
+  "dependencies": {
+    "@astrojs/vercel": "^10.0.8",
+    "astro": "^6.4.2"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "sharp": "^0.34.5"
+  }
+}

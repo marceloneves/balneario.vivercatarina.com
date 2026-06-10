@@ -1,0 +1,28 @@
+---
+import PillerLayout from '../layouts/PillerLayout.astro';
+import bodyHtml from '../content/template-pages/contact.html?raw';
+import { applySemanticHtml } from '../lib/semantic-html.mjs';
+import { patchSiteMenu } from '../lib/site-menu.mjs';
+import { resolvePageSeo } from '../lib/site-seo.mjs';
+
+const seo = resolvePageSeo({ title: 'Contato', pathname: '/contact' });
+const bodyClass = '';
+const html = patchSiteMenu(applySemanticHtml(bodyHtml), '/contact');
+---
+
+<PillerLayout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+	canonicalPath="/contact"
+	bodyClass={bodyClass}
+	stylesheets={['/css/internal-links.css']}
+>
+	<Fragment set:html={html} />
+</PillerLayout>
+
+<style is:global>
+	.contact-form-area .contact-all-wrapper {
+		border-radius: 24px;
+	}
+</style>

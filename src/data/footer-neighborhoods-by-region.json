@@ -1,0 +1,25 @@
+[
+	{
+		"region": "Orla e Frente Mar",
+		"slugs": ["barrasul", "barranorte", "praiacentral", "frentemar", "passagem"]
+	},
+	{
+		"region": "Centro e entorno",
+		"slugs": ["centro", "nacoes", "pioneiros", "vilareal"]
+	},
+	{
+		"region": "Bairros residenciais",
+		"slugs": [
+			"bairrodosestados",
+			"novaesperanca",
+			"municipios",
+			"saojudastadeu",
+			"santaregina",
+			"santaines"
+		]
+	},
+	{
+		"region": "Zonas e entorno",
+		"slugs": ["zona2", "zona3", "zona4", "taquaras", "cristorei"]
+	}
+]

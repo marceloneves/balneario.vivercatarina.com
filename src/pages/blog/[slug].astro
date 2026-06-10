@@ -1,0 +1,9 @@
+---
+import { getBlogPosts } from '../../lib/blog-posts.mjs';
+
+export function getStaticPaths() {
+	return getBlogPosts().map((post) => ({
+		params: { slug: post.slug },
+	}));
+}
+---

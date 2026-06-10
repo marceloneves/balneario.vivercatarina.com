@@ -1,0 +1,88 @@
+---
+const items = [
+	{
+		title: 'Registro de Incorporação (RI)',
+		intro: 'Sem RI averbado no cartório competente, o lançamento não tem base legal para contratar.',
+		tasks: [
+			'Solicite o número do RI ao corretor ou à incorporadora antes de reservar a unidade.',
+			'Confira no cartório competente a matrícula do terreno, o projeto aprovado e o memorial de incorporação.',
+			'Valide se todas as unidades e áreas comuns do empreendimento constam no registro.',
+			'Não assine proposta nem contrato se o RI ainda não estiver averbado.',
+		],
+	},
+	{
+		title: 'Histórico da construtora e da incorporadora',
+		intro: 'Entregas anteriores e reputação da incorporadora revelam o risco real do negócio.',
+		tasks: [
+			'Pesquise há quanto tempo a incorporadora atua em Balneário Camboriú e quantas obras já entregou em Balneário Camboriú.',
+			'Visite empreendimentos anteriores da mesma construtora para avaliar acabamento e áreas comuns.',
+			'Consulte reclamações em órgãos de defesa do consumidor e atrasos em entregas recentes.',
+			'Verifique se há processos judiciais ou pendências relevantes envolvendo a empresa.',
+		],
+	},
+	{
+		title: 'Memorial descritivo',
+		intro: 'O memorial descritivo define o que será entregue — e prevalece sobre o material de vendas.',
+		tasks: [
+			'Peça o memorial descritivo completo e compare materiais, acabamentos e lazer com o material de vendas.',
+			'Confira se o projeto está alinhado ao zoneamento e ao Plano Diretor de Balneário Camboriú.',
+			'Exija comprovação de licenças ambientais quando o terreno estiver em área de APP ou orla.',
+			'Registre por escrito qualquer divergência entre o que foi prometido e o que consta no memorial.',
+		],
+	},
+	{
+		title: 'Patrimônio de afetação, pagamento e custos',
+		intro: 'Afetação dos recursos e custos além do preço de tabela definem a segurança e o valor total da compra.',
+		tasks: [
+			'Confirme se o empreendimento possui patrimônio de afetação registrado.',
+			'Solicite tabela detalhada com entrada, parcelas, reforços, saldo na entrega e índice de correção.',
+			'Simule o impacto do INCC nas parcelas até a data prevista de entrega das chaves.',
+			'Some ITBI, escritura, registro, taxas bancárias, condomínio e fundo de reserva no custo total.',
+		],
+	},
+	{
+		title: 'Prazo de entrega e minuta do contrato',
+		intro: 'Prazo, tolerância e cláusulas da minuta definem o que vale em atraso, correção ou distrato.',
+		tasks: [
+			'Confira a data de entrega prevista e a cláusula de tolerância de até 180 dias no contrato.',
+			'Leia índices de correção, multas por atraso, distrato e cessão de direitos na minuta.',
+			'Identifique obrigações da incorporadora e do comprador antes de assinar.',
+			'Consulte um advogado especializado em imóveis na planta se houver cláusula duvidosa.',
+		],
+	},
+	{
+		title: 'Alvará de construção',
+		intro: 'Alvará da Prefeitura comprova que a obra está autorizada a ser executada no município.',
+		tasks: [
+			'Peça cópia do alvará de construção emitido pela Prefeitura Municipal de Balneário Camboriú.',
+			'Confira se o endereço e a identificação do empreendimento coincidem com o alvará apresentado.',
+			'Verifique se o alvará está válido e compatível com o projeto aprovado no RI.',
+			'Exija atualização do documento caso haja reformulação relevante do projeto da obra.',
+		],
+	},
+];
+---
+
+<section class="section property-regularity-guide" id="empreendimento-regular">
+	<h2 class="section__title">Antes de assinar o contrato</h2>
+
+	<p class="about-text">
+		Seis verificações essenciais antes de assinar o contrato em Balneário Camboriú.
+	</p>
+
+	<div class="property-regularity-guide__card">
+		{
+			items.map((item) => (
+				<article class="property-regularity-guide__item">
+					<h3 class="property-regularity-guide__item-title">{item.title}</h3>
+					<p class="property-regularity-guide__item-intro">{item.intro}</p>
+					<ul class="property-regularity-guide__tasks">
+						{item.tasks.map((task) => (
+							<li>{task}</li>
+						))}
+					</ul>
+				</article>
+			))
+		}
+	</div>
+</section>
