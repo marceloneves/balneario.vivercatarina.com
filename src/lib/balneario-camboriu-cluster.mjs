@@ -52,9 +52,19 @@ export function linkHtml(targetSlug, { short = false } = {}) {
 
 /** Três satélites do cluster por artigo (pilar entra sempre em 1º no Leia também). */
 export const LEIA_TAMBEM = {
-	'frente-mar-quadra-mar-vista-mar-balneario-camboriu': [
+	'aluguel-temporada-balneario-camboriu-como-funciona-rende': [
+		'investir-imoveis-balneario-camboriu-valorizacao-roi',
+		'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
+		'apartamento-andar-alto-balneario-camboriu-vale-pena-vista',
+	],
+	'apartamento-andar-alto-balneario-camboriu-vale-pena-vista': [
+		'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
 		'investir-imoveis-balneario-camboriu-valorizacao-roi',
 		'comprar-imovel-na-planta-balneario-camboriu',
+	],
+	'frente-mar-quadra-mar-vista-mar-balneario-camboriu': [
+		'apartamento-andar-alto-balneario-camboriu-vale-pena-vista',
+		'investir-imoveis-balneario-camboriu-valorizacao-roi',
 		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
 	],
 	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel': [
@@ -68,9 +78,9 @@ export const LEIA_TAMBEM = {
 		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
 	],
 	'investir-imoveis-balneario-camboriu-valorizacao-roi': [
+		'aluguel-temporada-balneario-camboriu-como-funciona-rende',
 		'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
 		'comprar-imovel-na-planta-balneario-camboriu',
-		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
 	],
 	'comprar-imovel-na-planta-balneario-camboriu': [
 		'investir-imoveis-balneario-camboriu-valorizacao-roi',
@@ -140,11 +150,25 @@ export function leiaTambemSlugsForSatellite(slug) {
 }
 
 export const SATELLITE_BODY_PLAN = {
+	'aluguel-temporada-balneario-camboriu-como-funciona-rende': {
+		links: [
+			{ find: 'litoral catarinense', target: PILLAR },
+			{ find: 'para o investidor', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
+			{ find: 'coberturas de luxo', target: 'apartamento-andar-alto-balneario-camboriu-vale-pena-vista' },
+		],
+	},
+	'apartamento-andar-alto-balneario-camboriu-vale-pena-vista': {
+		links: [
+			{ find: 'mercados imobiliários', target: PILLAR },
+			{ find: 'vista panorâmica', target: 'frente-mar-quadra-mar-vista-mar-balneario-camboriu' },
+			{ find: 'Para quem investe', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
+		],
+	},
 	'frente-mar-quadra-mar-vista-mar-balneario-camboriu': {
 		links: [
 			{ find: 'litorais mais desejados', target: PILLAR },
 			{ find: 'Para o investidor', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
-			{ find: 'imóveis quadra-mar', target: 'apartamentos-a-venda-pioneiros' },
+			{ find: 'andares mais altos', target: 'apartamento-andar-alto-balneario-camboriu-vale-pena-vista' },
 		],
 	},
 	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel': {
@@ -164,7 +188,7 @@ export const SATELLITE_BODY_PLAN = {
 	'investir-imoveis-balneario-camboriu-valorizacao-roi': {
 		links: [
 			{ find: 'litoral brasileiro', target: PILLAR },
-			{ find: 'Comprar na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'locação de temporada', target: 'aluguel-temporada-balneario-camboriu-como-funciona-rende' },
 			{ find: 'padrão e frente-mar', target: 'frente-mar-quadra-mar-vista-mar-balneario-camboriu' },
 		],
 	},

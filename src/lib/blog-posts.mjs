@@ -3,6 +3,174 @@ import { buildMetaDescription } from './site-seo.mjs';
 
 export const BLOG_POSTS = [
 	{
+		slug: 'construtora-incorporadora-diferenca-balneario-camboriu',
+		title: 'Construtora x Incorporadora: Qual a Diferença e Por Que Importa',
+		excerpt:
+			'A incorporadora idealiza, viabiliza e vende o empreendimento e responde pela entrega, enquanto a construtora executa a obra; em Balneário Camboriú muitas vezes é a mesma empresa, e entender essa diferença é o que protege o comprador na planta.',
+		metaDescription:
+			'Diferença entre construtora e incorporadora em BC: papéis, registro de incorporação, responsabilidades na planta, FG Embraed Procave como empresas integradas, dicas práticas e FAQ para compradores.',
+		imageUrl: '/assets/img/blog/blog_1_31.webp',
+		datePublished: '2026-04-02',
+		dateUpdated: '2026-04-02',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Incorporadora', 'Construtora', 'Compra na Planta'],
+		href: '/blog/construtora-incorporadora-diferenca-balneario-camboriu',
+	},
+	{
+		slug: 'maiores-arranha-ceus-balneario-camboriu-quem-construiu',
+		title: 'Os Maiores Arranha-Céus de BC e Quem os Construiu',
+		excerpt:
+			'Balneário Camboriú concentra 8 dos 10 prédios mais altos do Brasil, do Yachthouse e One Tower já prontos ao futuro Senna Tower, a maioria erguida pela FG Empreendimentos, o que rendeu à cidade o apelido de Dubai brasileira.',
+		metaDescription:
+			'Maiores arranha-céus de Balneário Camboriú: Yachthouse, One Tower, Senna Tower, Infinity Coast, Epic Tower, quem construiu cada um (FG, Pasqualotto, Embraed) e FAQ sobre o skyline da Dubai brasileira.',
+		imageUrl: '/assets/img/blog/blog_1_30.webp',
+		datePublished: '2026-03-31',
+		dateUpdated: '2026-03-31',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Arranha-Céus', 'FG Empreendimentos', 'Yachthouse'],
+		href: '/blog/maiores-arranha-ceus-balneario-camboriu-quem-construiu',
+	},
+	{
+		slug: 'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini',
+		title: 'Branded Residences em BC: Armani, Pininfarina, Lamborghini e Outras Marcas',
+		excerpt:
+			'As branded residences são empreendimentos que levam a assinatura de marcas de luxo, e Balneário Camboriú se tornou o principal laboratório do conceito no Brasil, com projetos da Armani/Casa, Pininfarina, Tonino Lamborghini e outras grifes que valorizam até 35% acima do mercado.',
+		metaDescription:
+			'Branded residences em Balneário Camboriú: Armani/Casa e Tonino Lamborghini pela Embraed, Pininfarina pela Pasqualotto, Artefacto pela CK, origem do conceito, valorização de até 35% e FAQ sobre grifes no litoral catarinense.',
+		imageUrl: '/assets/img/blog/blog_1_29.webp',
+		datePublished: '2026-03-29',
+		dateUpdated: '2026-03-29',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Branded Residences', 'Armani/Casa', 'Pininfarina'],
+		href: '/blog/branded-residences-balneario-camboriu-armani-pininfarina-lamborghini',
+	},
+	{
+		slug: 'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence',
+		title: 'Como Escolher uma Incorporadora Segura em BC: Guia de Due Diligence',
+		excerpt:
+			'Escolher uma incorporadora segura em Balneário Camboriú exige verificar o registro de incorporação, o histórico de entregas, a saúde financeira e a documentação do empreendimento, etapas que protegem o comprador do maior risco da compra na planta.',
+		metaDescription:
+			'Due diligence de incorporadora em BC: registro de incorporação, histórico de entregas, saúde financeira, documentação, sinais de alerta, checklist e FAQ para comprar na planta com segurança em Balneário Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_28.webp',
+		datePublished: '2026-03-27',
+		dateUpdated: '2026-03-27',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Due Diligence', 'Incorporadoras', 'Compra na Planta'],
+		href: '/blog/como-escolher-incorporadora-segura-balneario-camboriu-due-diligence',
+	},
+	{
+		slug: 'rv-empreendimentos-outras-construtoras-balneario-camboriu',
+		title: 'RV Empreendimentos e Outras Construtoras de Destaque em Balneário Camboriú',
+		excerpt:
+			'Além das gigantes, Balneário Camboriú abriga um ecossistema de incorporadoras de peso, como a RV Empreendimentos, do grupo Rambo, e a CK Construções, da parceria com a Artefacto, que ampliam a oferta de alto padrão da cidade.',
+		metaDescription:
+			'RV Empreendimentos e outras construtoras de BC: grupo Rambo, Meridian Tower, CK Artefacto, Haacke, Silva Packer, CN, Piramidal, JMP e FAQ sobre o ecossistema de incorporadoras além das gigantes.',
+		imageUrl: '/assets/img/blog/blog_1_27.webp',
+		datePublished: '2026-03-25',
+		dateUpdated: '2026-03-25',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'RV Empreendimentos', 'Incorporadoras', 'CK Construções'],
+		href: '/blog/rv-empreendimentos-outras-construtoras-balneario-camboriu',
+	},
+	{
+		slug: 'procave-balneario-camboriu-sustentabilidade-praia-brava',
+		title: 'Procave: Sustentabilidade e Forte Presença na Praia Brava',
+		excerpt:
+			'A Procave é uma das incorporadoras mais tradicionais do litoral norte catarinense, com cerca de 47 anos de história, pioneira em sustentabilidade na construção e referência na Praia Brava, em Itajaí, e na Barra Sul de Balneário Camboriú.',
+		metaDescription:
+			'Procave em Balneário Camboriú e Praia Brava: história, sistema Pró-Sustentável, Brava Home Resort, Fischer Dreams, Ibiza Towers, Barra Sul e FAQ sobre a incorporadora sustentável do litoral norte catarinense.',
+		imageUrl: '/assets/img/blog/blog_1_26.webp',
+		datePublished: '2026-03-23',
+		dateUpdated: '2026-03-23',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Procave', 'Praia Brava', 'Sustentabilidade'],
+		href: '/blog/procave-balneario-camboriu-sustentabilidade-praia-brava',
+	},
+	{
+		slug: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
+		title: 'Pasqualotto & GT: A Construtora do Yachthouse by Pininfarina',
+		excerpt:
+			'A Pasqualotto & GT foi a sociedade que ergueu o Yachthouse by Pininfarina, o ícone de Balneário Camboriú que se tornou o maior residencial da América Latina, marcando a estreia do estúdio italiano Pininfarina na arquitetura brasileira.',
+		metaDescription:
+			'Pasqualotto & GT em Balneário Camboriú: história da sociedade, Yachthouse by Pininfarina, parceria Pininfarina, Vitra, La Città, dissolução em 2025 e FAQ sobre a construtora do maior residencial da América Latina.',
+		imageUrl: '/assets/img/blog/blog_1_25.webp',
+		datePublished: '2026-03-21',
+		dateUpdated: '2026-03-21',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Pasqualotto & GT', 'Yachthouse', 'Pininfarina'],
+		href: '/blog/pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
+	},
+	{
+		slug: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+		title: 'Embraed: Luxo Artesanal e Acabamento de Alto Padrão em Balneário Camboriú',
+		excerpt:
+			'A Embraed é a pioneira da construção de luxo em Balneário Camboriú, fundada em 1984 por Rogério Rosa, reconhecida pelo acabamento artesanal feito em centro de produção próprio e por branded residences como o Armani/Casa e o Tonino Lamborghini.',
+		metaDescription:
+			'Embraed em Balneário Camboriú: história de Rogério Rosa, acabamento artesanal, Armani/Casa Residences, Tonino Lamborghini, sustentabilidade ISO 14001 e FAQ sobre a construtora de luxo artesanal de BC.',
+		imageUrl: '/assets/img/blog/blog_1_24.webp',
+		datePublished: '2026-03-19',
+		dateUpdated: '2026-03-19',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Embraed', 'Incorporadoras', 'Branded residences'],
+		href: '/blog/embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+	},
+	{
+		slug: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		title: 'FG Empreendimentos: A Maior Construtora de Arranha-Céus do Brasil',
+		excerpt:
+			'A FG Empreendimentos é a maior incorporadora de Balneário Camboriú e a responsável por oito dos dez prédios mais altos do Brasil, incluindo o One Tower e o futuro Senna Tower, projetado para ser o maior residencial do mundo.',
+		metaDescription:
+			'FG Empreendimentos em Balneário Camboriú: história da família Graciola, One Tower, Senna Tower, Yachthouse, números, diferenciais, governança e FAQ sobre a maior construtora de arranha-céus do Brasil.',
+		imageUrl: '/assets/img/blog/blog_1_23.webp',
+		datePublished: '2026-03-17',
+		dateUpdated: '2026-03-17',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'FG Empreendimentos', 'Incorporadoras', 'Arranha-céus'],
+		href: '/blog/fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+	},
+	{
+		slug: 'grandes-incorporadoras-balneario-camboriu-guia-completo',
+		title: 'As Grandes Incorporadoras de Balneário Camboriú: Guia Completo',
+		excerpt:
+			'Balneário Camboriú é a cidade das construtoras, com incorporadoras como FG, Embraed, Pasqualotto, Procave e RV responsáveis pelos maiores arranha-céus do Brasil, e a solidez delas é o fator mais importante na compra de um imóvel na planta.',
+		metaDescription:
+			'Grandes incorporadoras de Balneário Camboriú: FG, Embraed, Pasqualotto, Procave, RV, empreendimentos icônicos, branded residences, sustentabilidade, como escolher a construtora certa e FAQ.',
+		imageUrl: '/assets/img/blog/blog_1_22.webp',
+		datePublished: '2026-03-15',
+		dateUpdated: '2026-03-15',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Incorporadoras', 'Construtoras', 'Imóvel na planta'],
+		href: '/blog/grandes-incorporadoras-balneario-camboriu-guia-completo',
+	},
+	{
+		slug: 'aluguel-temporada-balneario-camboriu-como-funciona-rende',
+		title: 'Aluguel de Temporada em Balneário Camboriú: Como Funciona e Quanto Rende',
+		excerpt:
+			'O aluguel de temporada em Balneário Camboriú rende de 9% a 14% líquidos ao ano, bem acima dos 4% a 6% do aluguel fixo, com diárias de R$ 350 a R$ 800 e picos que ultrapassam R$ 5.000 nas coberturas de luxo no verão.',
+		metaDescription:
+			'Aluguel de temporada em Balneário Camboriú: rentabilidade, diárias, ocupação, comparação com aluguel fixo, tributação, gestão, estratégia híbrida e FAQ para investir na locação por temporada em BC.',
+		imageUrl: '/assets/img/blog/blog_1_21.webp',
+		datePublished: '2026-03-13',
+		dateUpdated: '2026-03-13',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Aluguel temporada', 'Rentabilidade', 'Investimento'],
+		href: '/blog/aluguel-temporada-balneario-camboriu-como-funciona-rende',
+	},
+	{
+		slug: 'apartamento-andar-alto-balneario-camboriu-vale-pena-vista',
+		title: 'Apartamento de Andar Alto em BC: Vale a Pena Pagar Mais pela Vista?',
+		excerpt:
+			'Em Balneário Camboriú, o apartamento de andar alto vale a pena para quem busca vista panorâmica, status e máxima valorização na revenda, mas o andar baixo oferece preço menor e melhor rentabilidade de aluguel.',
+		metaDescription:
+			'Apartamento de andar alto em Balneário Camboriú: vantagens, desvantagens, coberturas, comparação com andar baixo, valorização, aluguel e FAQ para decidir se vale pagar mais pela vista.',
+		imageUrl: '/assets/img/blog/blog_1_20.webp',
+		datePublished: '2026-03-11',
+		dateUpdated: '2026-03-11',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Andar alto', 'Vista mar', 'Coberturas'],
+		href: '/blog/apartamento-andar-alto-balneario-camboriu-vale-pena-vista',
+	},
+	{
 		slug: 'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
 		title: 'Frente-Mar, Quadra-Mar e Vista Mar em BC: Entenda as Diferenças e os Preços',
 		excerpt:
@@ -10,8 +178,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Frente-mar, quadra-mar e vista mar em Balneário Camboriú: diferenças, preços, valorização, aluguel, prós e contras de cada classificação e FAQ para escolher a posição certa em relação ao mar.',
 		imageUrl: '/assets/img/blog/blog_1_19.webp',
-		datePublished: '2026-06-27',
-		dateUpdated: '2026-06-27',
+		datePublished: '2026-03-09',
+		dateUpdated: '2026-03-09',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'Frente-mar', 'Quadra-mar', 'Vista mar'],
 		href: '/blog/frente-mar-quadra-mar-vista-mar-balneario-camboriu',
@@ -24,8 +192,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'ITBI e custos de cartório em Balneário Camboriú: alíquota, base de cálculo, escritura, registro, isenções, descontos, erros comuns e FAQ sobre quanto custa além do valor do imóvel.',
 		imageUrl: '/assets/img/blog/blog_1_18.webp',
-		datePublished: '2026-06-26',
-		dateUpdated: '2026-06-26',
+		datePublished: '2026-03-07',
+		dateUpdated: '2026-03-07',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'ITBI', 'Cartório', 'Custos de transação'],
 		href: '/blog/itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel',
@@ -38,8 +206,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Como comprar imóvel financiado em Balneário Camboriú: passo a passo, SFH, SFI, SAC, Price, FGTS, regras de 2026, custos extras, dicas de aprovação e FAQ sobre financiamento imobiliário.',
 		imageUrl: '/assets/img/blog/blog_1_17.webp',
-		datePublished: '2026-06-25',
-		dateUpdated: '2026-06-25',
+		datePublished: '2026-03-05',
+		dateUpdated: '2026-03-05',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'Financiamento', 'SFH', 'FGTS'],
 		href: '/blog/como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
@@ -52,8 +220,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Comprar imóvel em Balneário Camboriú sendo estrangeiro: CPF, documentação apostilada, remessa internacional, financiamento, Golden Visa, custos extras, erros comuns e FAQ para argentinos e paraguaios.',
 		imageUrl: '/assets/img/blog/blog_1_16.webp',
-		datePublished: '2026-06-24',
-		dateUpdated: '2026-06-24',
+		datePublished: '2026-03-03',
+		dateUpdated: '2026-03-03',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'Estrangeiros', 'Compra de imóvel', 'Argentinos'],
 		href: '/blog/comprar-imovel-balneario-camboriu-estrangeiro',
@@ -66,8 +234,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Investir em imóveis em Balneário Camboriú: valorização, ROI de 19,1%, FipeZAP, fontes de retorno, estratégias, riscos, saturação do mercado e FAQ para investir com visão de longo prazo.',
 		imageUrl: '/assets/img/blog/blog_1_15.webp',
-		datePublished: '2026-06-23',
-		dateUpdated: '2026-06-23',
+		datePublished: '2026-03-01',
+		dateUpdated: '2026-03-01',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'Investimento', 'Valorização', 'ROI'],
 		href: '/blog/investir-imoveis-balneario-camboriu-valorizacao-roi',
@@ -80,8 +248,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Comprar imóvel na planta em Balneário Camboriú: vantagens, pagamento, passo a passo, registro de incorporação, INCC, riscos, custos extras e FAQ para comprar com segurança.',
 		imageUrl: '/assets/img/blog/blog_1_14.webp',
-		datePublished: '2026-06-22',
-		dateUpdated: '2026-06-22',
+		datePublished: '2026-02-27',
+		dateUpdated: '2026-02-27',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'Compra na planta', 'Lançamentos', 'Investimento'],
 		href: '/blog/comprar-imovel-na-planta-balneario-camboriu',
@@ -94,8 +262,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Custo de vida nos Pioneiros: aluguel, condomínio, IPTU, supermercado, Tarifa Zero, orçamento mensal estimado, dicas para economizar e FAQ sobre quanto custa morar no bairro.',
 		imageUrl: '/assets/img/blog/blog_1_13.webp',
-		datePublished: '2026-06-21',
-		dateUpdated: '2026-06-21',
+		datePublished: '2026-02-25',
+		dateUpdated: '2026-02-25',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Custo de vida', 'Moradia', 'Orçamento'],
 		href: '/blog/custo-de-vida-pioneiros',
@@ -108,8 +276,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Morro do Careca, Estaleiro e Estaleirinho nos Pioneiros: mirante natural, praias agrestes, Bandeira Azul, trilhas, roteiros e FAQ sobre natureza em Balneário Camboriú.',
 		imageUrl: '/assets/img/blog/blog_1_12.webp',
-		datePublished: '2026-06-20',
-		dateUpdated: '2026-06-20',
+		datePublished: '2026-02-23',
+		dateUpdated: '2026-02-23',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Morro do Careca', 'Estaleiro', 'Natureza'],
 		href: '/blog/morro-do-careca-estaleiro-natureza-pioneiros',
@@ -122,8 +290,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Guia da Barra Norte e Molhe nos Pioneiros: Deck do Pontal Norte, Praia do Canto, Praia do Buraco, Morro do Careca, Estrada da Rainha, roteiro de passeio e FAQ em Balneário Camboriú.',
 		imageUrl: '/assets/img/blog/blog_1_11.webp',
-		datePublished: '2026-06-19',
-		dateUpdated: '2026-06-19',
+		datePublished: '2026-02-21',
+		dateUpdated: '2026-02-21',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Barra Norte', 'Molhe', 'Praias'],
 		href: '/blog/barra-norte-molhe-guia-regiao-pioneiros',
@@ -136,8 +304,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Infraestrutura dos Pioneiros: Molhe da Barra Norte, Deck do Pontal Norte, comércio na Avenida do Estado, saúde, educação, mobilidade walkable e FAQ sobre o bairro em Balneário Camboriú.',
 		imageUrl: '/assets/img/blog/blog_1_10.webp',
-		datePublished: '2026-06-18',
-		dateUpdated: '2026-06-18',
+		datePublished: '2026-02-19',
+		dateUpdated: '2026-02-19',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Infraestrutura', 'Molhe', 'Barra Norte'],
 		href: '/blog/infraestrutura-pioneiros-molhe-comercio-servicos',
@@ -150,8 +318,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Pioneiros x Barra Sul: comparação de preço, m², aluguel, perfil de imóvel, estilo de vida, valorização e veredito de qual bairro escolher em Balneário Camboriú.',
 		imageUrl: '/assets/img/blog/blog_1_9.webp',
-		datePublished: '2026-06-17',
-		dateUpdated: '2026-06-17',
+		datePublished: '2026-02-17',
+		dateUpdated: '2026-02-17',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Barra Sul', 'Comparativo', 'Custo-benefício'],
 		href: '/blog/pioneiros-x-barra-sul-custo-beneficio',
@@ -164,8 +332,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Pioneiros é bom para morar? Prós e contras honestos: segurança, infraestrutura, natureza, obras, risco de perder a vista, trânsito de verão e para quem o bairro é a escolha certa.',
 		imageUrl: '/assets/img/blog/blog_1_8.webp',
-		datePublished: '2026-06-16',
-		dateUpdated: '2026-06-16',
+		datePublished: '2026-02-15',
+		dateUpdated: '2026-02-15',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Moradia', 'Qualidade de vida', 'Barra Norte'],
 		href: '/blog/pioneiros-e-bom-para-morar',
@@ -178,8 +346,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Como comprar imóvel nos Pioneiros: passo a passo, documentação, ITBI, financiamento, compra na planta, custos de transação, erros comuns e dicas para comprar bem na Barra Norte.',
 		imageUrl: '/assets/img/blog/blog_1_7.webp',
-		datePublished: '2026-06-15',
-		dateUpdated: '2026-06-15',
+		datePublished: '2026-02-13',
+		dateUpdated: '2026-02-13',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Compra', 'Financiamento', 'ITBI'],
 		href: '/blog/como-comprar-imovel-pioneiros-barra-norte',
@@ -192,8 +360,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Vale a pena investir nos Pioneiros em 2026? Fontes de retorno, pilares de valorização, estratégias, riscos, debate sobre saturação de BC e como investir bem na Barra Norte.',
 		imageUrl: '/assets/img/blog/blog_1_6.webp',
-		datePublished: '2026-06-14',
-		dateUpdated: '2026-06-14',
+		datePublished: '2026-02-11',
+		dateUpdated: '2026-02-11',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Investimento', 'Valorização', 'Mercado imobiliário'],
 		href: '/blog/vale-a-pena-investir-pioneiros',
@@ -206,8 +374,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Aluguel nos Pioneiros em 2026: valores de locação anual e temporada, diárias de pico, custos extras, contrato, investimento em locação e dicas para morar ou rentabilizar.',
 		imageUrl: '/assets/img/blog/blog_1_5.webp',
-		datePublished: '2026-06-13',
-		dateUpdated: '2026-06-13',
+		datePublished: '2026-02-09',
+		dateUpdated: '2026-02-09',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Aluguel', 'Locação', 'Mercado imobiliário'],
 		href: '/blog/aluguel-pioneiros-valores-mercado',
@@ -220,8 +388,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Apartamentos à venda nos Pioneiros por faixa de preço: 2, 3 e 4 suítes, coberturas e mansões suspensas, metragens, empreendimentos reais e como escolher a unidade certa.',
 		imageUrl: '/assets/img/blog/blog_1_4.webp',
-		datePublished: '2026-06-12',
-		dateUpdated: '2026-06-12',
+		datePublished: '2026-02-07',
+		dateUpdated: '2026-02-07',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Apartamentos', 'Mercado imobiliário', 'Alto padrão'],
 		href: '/blog/apartamentos-a-venda-pioneiros',
@@ -234,8 +402,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Preço do m² nos Pioneiros em 2026: média de R$ 23.839 na planta, faixas por tipo de imóvel, comparação com BC e Barra Sul, valorização e custos de transação.',
 		imageUrl: '/assets/img/blog/blog_1_3.webp',
-		datePublished: '2026-06-11',
-		dateUpdated: '2026-06-11',
+		datePublished: '2026-02-05',
+		dateUpdated: '2026-02-05',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Preço m²', 'Mercado imobiliário', 'Valorização'],
 		href: '/blog/preco-m2-pioneiros-bairro-em-ascensao',
@@ -248,8 +416,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Guia completo para morar nos Pioneiros, Barra Norte de Balneário Camboriú: custo de vida, valorização, Molhe Norte, Morro do Careca, mercado imobiliário e o que considerar antes de comprar ou alugar.',
 		imageUrl: '/assets/img/blog/blog_1_2.webp',
-		datePublished: '2026-06-10',
-		dateUpdated: '2026-06-10',
+		datePublished: '2026-02-03',
+		dateUpdated: '2026-02-03',
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Barra Norte', 'Moradia', 'Valorização'],
 		href: '/blog/morar-nos-pioneiros-guia-completo',
@@ -262,8 +430,8 @@ export const BLOG_POSTS = [
 		metaDescription:
 			'Guia completo para morar em Balneário Camboriú: bairros, custo de vida, arranha-céus, valorização imobiliária, infraestrutura e o que considerar antes de comprar ou alugar na Dubai brasileira.',
 		imageUrl: '/assets/img/blog/blog_1_1.webp',
-		datePublished: '2026-06-09',
-		dateUpdated: '2026-06-09',
+		datePublished: '2026-02-01',
+		dateUpdated: '2026-02-01',
 		author: 'Viver Catarina',
 		tags: ['Balneário Camboriú', 'Moradia', 'Guia da cidade', 'Arranha-céus'],
 		href: '/blog/morar-em-balneario-camboriu-guia-completo',

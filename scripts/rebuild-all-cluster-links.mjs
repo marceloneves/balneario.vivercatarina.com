@@ -18,6 +18,7 @@ const scripts = [
 	'rebuild-cachoeira-cluster-links.mjs',
 	'rebuild-compra-segura-cluster-links.mjs',
 	'rebuild-balneario-camboriu-cluster-links.mjs',
+	'rebuild-construtoras-cluster-links.mjs',
 ];
 
 let failed = false;

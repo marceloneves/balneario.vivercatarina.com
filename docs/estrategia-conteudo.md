@@ -170,4 +170,81 @@ Conhecer:
 
 ---
 
-Esse é todo o conteúdo, estratégia e as três abas. Quer começar a escrever pelo pilar-mãe de Balneário Camboriú?
+
+
+
+
+Aqui está todo o conteúdo da planilha do cluster de incorporadoras, em texto.
+
+## Aba 1 — Arquitetura
+
+**CLUSTER: Incorporadoras e Construtoras de Balneário Camboriú**
+
+Cluster especialista sobre as construtoras/incorporadoras de BC. Alta intenção de busca por marca (gente pesquisa "FG", "Embraed", "Pasqualotto" direto), decisão crítica de compra (a solidez da incorporadora define o risco na planta) e forte potencial de autoridade. Linka com todos os clusters de bairro, com "Comprar na planta em BC" e com "Investir em imóveis em BC".
+
+| Nível | Tipo | Artigo | Função no cluster |
+|---|---|---|---|
+| PILAR | Hub | As Grandes Incorporadoras de Balneário Camboriú: Guia Completo | Visão geral do mercado, quem são as líderes, critérios de escolha; linka para todos os satélites |
+| Satélite | Perfil | FG Empreendimentos: A Maior Construtora de Arranha-Céus do Brasil | História, portfólio, empreendimentos icônicos, padrão de entrega |
+| Satélite | Perfil | Embraed: Luxo Artesanal e Acabamento de Alto Padrão em BC | História, foco em acabamento, empreendimentos, branded residences |
+| Satélite | Perfil | Pasqualotto & GT: A Construtora do Yachthouse by Pininfarina | História, parceria FG, design assinado, padrão |
+| Satélite | Perfil | Procave: Sustentabilidade e Forte Presença na Praia Brava | História, Pró-Sustentável, empreendimentos, perfil |
+| Satélite | Perfil | RV Empreendimentos e Outras Construtoras de Destaque em BC | Demais incorporadoras relevantes (RV, CK, AS.Ramos, CIAPLAN, J.A. Russi, etc.) |
+| Satélite | Decisão | Como Escolher uma Incorporadora Segura em BC: Guia de Due Diligence | Histórico de entregas, registro de incorporação, saúde financeira, como avaliar |
+| Satélite | Conceito | Branded Residences em BC: Armani, Pininfarina, Lamborghini e Outras Marcas | Conceito de branded residence, marcas de luxo na construção, quem incorpora |
+| Satélite | Conceito | Os Maiores Arranha-Céus de BC e Quem os Construiu | Senna Tower, One Tower, Yachthouse, Triumph; lista por incorporadora |
+| Satélite | Decisão | Construtora x Incorporadora: Qual a Diferença e Por Que Importa | Diferença de papéis, por que afeta o risco na planta (pode reaproveitar o transversal já feito) |
+
+## Aba 2 — Incorporadoras (dados)
+
+Dados reais das incorporadoras (pesquisa web, ref. 2025-2026 — CONFIRMAR antes de publicar)
+
+| Incorporadora | Fundação | Fundador/Grupo | Empreendimentos icônicos | Diferencial | Faixa de preço |
+|---|---|---|---|---|---|
+| FG Empreendimentos | 1979 | Fábio Garcia | Yachthouse by Pininfarina, One Tower, Titanium Tower, Senna Tower, Triumph Tower, BC Big Wheel | +62 entregas; líder em arranha-céus; maiores residenciais da América Latina; LEED | Super luxo; facilidades de pagamento |
+| Embraed | 1984 | Rogério Rosa | Tonino Lamborghini Residences, Four Seasons, Acqualina, Majestic, Hyde, Aurora, Alaia, futuro Armani Casa | +47 obras, ~750 mil m²; acabamento artesanal (marcenaria própria 20 mil m²) | Média R$ 3 mi, coberturas +R$ 15 mi |
+| Pasqualotto & GT | n/d | Grupo Pasqualotto | Yachthouse by Pininfarina (com FG, arq. Carlos Ott) | Projetos de design assinado e padrão internacional | Super luxo |
+| Procave | 1978/1986 | n/d | Brava Home Resort (Praia Brava), Fischer Dreams (Barra Sul) | +20 obras, 45 anos; sistema Pró-Sustentável; forte na Praia Brava | Alto padrão; custo-benefício |
+| RV Empreendimentos | 2006 | Família Rambo (grupo Rovitex/Incofios) | Alto padrão residencial e comercial | Base em BC; atua em Joinville e Itajaí | Alto padrão |
+| Outras (RV, CK, AS.Ramos, Haacke, AG7, Mondo, CIAPLAN, J.A. Russi, ABC) | várias | vários | Diversos, do compacto premium ao alto padrão familiar | Custo-benefício (Centro/praias agrestes), R$ 20-60 mil/m² | Variado |
+
+## Aba 3 — Títulos por satélite
+
+| Satélite | Títulos / variações de palavra-chave |
+|---|---|
+| FG Empreendimentos | FG Empreendimentos BC; quem é a FG; prédios da FG; Fábio Garcia construtora; FG Big Wheel; é confiável? |
+| Embraed | Embraed BC; construtora Embraed; prédios da Embraed; Armani Casa BC; Tonino Lamborghini BC; acabamento Embraed |
+| Pasqualotto & GT | Pasqualotto construtora; quem construiu o Yachthouse; Pasqualotto GT BC; construtora do prédio do Neymar |
+| Procave | Procave BC; construtora Procave; Brava Home Resort; Fischer Dreams; Procave Praia Brava |
+| RV e outras | RV Empreendimentos BC; construtoras de BC lista; melhores construtoras Balneário; construtoras menores BC |
+| Como escolher incorporadora | como escolher construtora BC; incorporadora segura; due diligence imóvel na planta; histórico de entregas |
+| Branded Residences | branded residences BC; Armani Casa; Pininfarina BC; Lamborghini residences; prédios de marca de luxo |
+| Maiores arranha-céus | maiores prédios de BC; prédio mais alto do Brasil; Senna Tower; One Tower; arranha-céus Balneário quem construiu |
+| Construtora x incorporadora | diferença construtora incorporadora; o que é incorporadora; quem responde pela obra |
+
+## Aba 4 — Linkagem
+
+Estratégia de linkagem interna (hub-and-spoke)
+
+| Regra | Detalhe |
+|---|---|
+| Pilar → satélites | O pilar "As Grandes Incorporadoras de BC" linka para cada perfil e para os satélites de decisão/conceito |
+| Satélite → pilar | Todo satélite linka de volta para o pilar sempre |
+| Satélites ↔ laterais | Perfis de incorporadora linkam entre si quando há comparação (ex: FG x Embraed) |
+| Cluster → transversais | Linkar para "Comprar imóvel na planta em BC" e "Investir em imóveis em BC" |
+| Cluster → bairros | Perfis citam empreendimentos por bairro e linkam para o cluster do bairro (ex: Yachthouse → Barra Sul) |
+| Branded/arranha-céus → perfis | Os satélites de conceito linkam para o perfil da incorporadora de cada prédio citado |
+
+---
+
+E o resumo que veio acima da planilha:
+
+O cluster tem **1 pilar + 9 satélites**, divididos em três grupos: perfis de incorporadora (FG, Embraed, Pasqualotto, Procave, RV e outras), satélites de decisão (como escolher incorporadora segura, construtora x incorporadora) e satélites de conceito (branded residences, maiores arranha-céus).
+
+Dois pontos de decisão que levantei:
+
+O satélite **"Construtora x Incorporadora"** se sobrepõe ao transversal que ainda estava na fila. Pode deixá-lo só dentro deste cluster e tirar da lista de transversais avulsos, ou manter como transversal e remover daqui. Sugeri deixar dentro do cluster.
+
+A ordem de produção sugerida é o **pilar primeiro** ("As Grandes Incorporadoras de BC: Guia Completo"), depois os perfis por relevância (FG → Embraed → Pasqualotto → Procave → RV/outras), e por fim os satélites de decisão e conceito.
+
+Quer que eu comece o pilar em HTML (4 etapas) ou ajustar algo na arquitetura antes?

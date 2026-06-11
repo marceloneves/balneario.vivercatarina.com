@@ -107,24 +107,19 @@ export const ITACORUBI_CLUSTER_SLUGS = new Set([
 	'custo-de-vida-itacorubi-quanto-custa-morar',
 ]);
 
-export const CONSTRUTORAS_PILLAR = 'construtoras-incorporadoras-balneario-camboriu-principais-empresas';
+export const CONSTRUTORAS_PILLAR = 'grandes-incorporadoras-balneario-camboriu-guia-completo';
 
 export const CONSTRUTORAS_CLUSTER_SLUGS = new Set([
 	CONSTRUTORAS_PILLAR,
-	'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos',
-	'wkoerich-historia-obras-lancamentos-balneario-camboriu',
-	'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-	'formacco-empreendimentos-trajetoria-balneario-camboriu',
-	'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu',
-	'hantei-engenharia-balneario-camboriu-empreendimentos-atuacao',
-	'gpinho-construtora-projetos-balneario-camboriu',
-	'piemonte-construtora-balneario-camboriu-historia-empreendimentos',
-	'amg-construtora-lancamentos-obras-balneario-camboriu',
-	'racitec-empreendimentos-balneario-camboriu-incorporadora-projetos',
-	'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu',
-	'stein-empreendimentos-projetos-historia-balneario-camboriu',
-	'habitasul-balneario-camboriu-empreendimentos-incorporadora',
-	'cota-empreendimentos-obras-lancamentos-balneario-camboriu',
+	'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+	'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+	'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
+	'procave-balneario-camboriu-sustentabilidade-praia-brava',
+	'rv-empreendimentos-outras-construtoras-balneario-camboriu',
+	'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence',
+	'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini',
+	'maiores-arranha-ceus-balneario-camboriu-quem-construiu',
+	'construtora-incorporadora-diferenca-balneario-camboriu',
 ]);
 
 export const COMPRA_SEGURA_PILLAR = 'guia-definitivo-burocracia-imoveis-balneario-camboriu';
@@ -168,11 +163,13 @@ export const BALNEARIO_CAMBORIU_CLUSTER_SLUGS = new Set([
 	'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
 	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel',
 	'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
+	'apartamento-andar-alto-balneario-camboriu-vale-pena-vista',
 	'checklist-avaliar-imovel-em-balneario-camboriu',
 	'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande',
 	'morar-centro-x-praias-em-balneario-camboriu',
 	'quanto-custa-morar-em-balneario-camboriu',
 	'melhores-bairros-para-morar-em-balneario-camboriu',
+	'aluguel-temporada-balneario-camboriu-como-funciona-rende',
 ]);
 
 export const JURERE_INTERNACIONAL_PILLAR = 'morar-em-jurere-internacional-guia-completo';

@@ -1,9 +1,9 @@
 /**
- * Cluster Construtoras e Incorporadoras — pilar + satélites (sem hub de bairro).
+ * Cluster Incorporadoras e Construtoras de Balneário Camboriú — pilar + satélites.
  *
  * Regras de linkagem:
  * - Pilar: Leia também com todos os satélites publicados; sem links no corpo.
- * - Satélite: 1× pilar no corpo + 1× outro satélite do cluster no corpo; pilar de novo no Leia também.
+ * - Satélite: 1× pilar no corpo + 3× outros satélites no corpo; pilar de novo no Leia também.
  */
 
 import { BLOG_POSTS } from './blog-posts.mjs';
@@ -17,7 +17,7 @@ import {
 } from './campeche-cluster-body-links.mjs';
 import { CONSTRUTORAS_CLUSTER_SLUGS, CONSTRUTORAS_PILLAR } from './blog-cluster-slugs.mjs';
 import { shortLinkLabel } from './cluster-link-anchor.mjs';
-import { buildLeiaTambemSlugs, trimSatelliteBodyPlan } from './cluster-link-rebuild.mjs';
+import { buildLeiaTambemSlugs } from './cluster-link-rebuild.mjs';
 
 export { CONSTRUTORAS_CLUSTER_SLUGS };
 
@@ -52,60 +52,50 @@ export function linkHtml(targetSlug, { short = false } = {}) {
 
 /** Três satélites do cluster por artigo (pilar entra sempre em 1º no Leia também). */
 export const LEIA_TAMBEM = {
-	'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos': [
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'gpinho-construtora-projetos-balneario-camboriu',
+	'construtora-incorporadora-diferenca-balneario-camboriu': [
+		'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence',
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
 	],
-	'wkoerich-historia-obras-lancamentos-balneario-camboriu': [
-		'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos',
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'gpinho-construtora-projetos-balneario-camboriu',
+	'maiores-arranha-ceus-balneario-camboriu-quem-construiu': [
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
 	],
-	'cfl-empreendimentos-balneario-camboriu-perfil-projetos': [
-		'habitasul-balneario-camboriu-empreendimentos-incorporadora',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
-		'piemonte-construtora-balneario-camboriu-historia-empreendimentos',
+	'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini': [
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+		'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
+		'rv-empreendimentos-outras-construtoras-balneario-camboriu',
 	],
-	'formacco-empreendimentos-trajetoria-balneario-camboriu': [
-		'cota-empreendimentos-obras-lancamentos-balneario-camboriu',
-		'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
+	'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence': [
+		'construtora-incorporadora-diferenca-balneario-camboriu',
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
 	],
-	'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu': [
-		'cota-empreendimentos-obras-lancamentos-balneario-camboriu',
-		'formacco-empreendimentos-trajetoria-balneario-camboriu',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
+	'rv-empreendimentos-outras-construtoras-balneario-camboriu': [
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+		'procave-balneario-camboriu-sustentabilidade-praia-brava',
 	],
-	'hantei-engenharia-balneario-camboriu-empreendimentos-atuacao': [
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
+	'procave-balneario-camboriu-sustentabilidade-praia-brava': [
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+		'rv-empreendimentos-outras-construtoras-balneario-camboriu',
 	],
-	'gpinho-construtora-projetos-balneario-camboriu': [
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'piemonte-construtora-balneario-camboriu-historia-empreendimentos',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
+	'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina': [
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
+		'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini',
 	],
-	'piemonte-construtora-balneario-camboriu-historia-empreendimentos': [
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
-		'gpinho-construtora-projetos-balneario-camboriu',
+	'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao': [
+		'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus',
+		'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini',
+		'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
 	],
-	'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu': [
-		'habitasul-balneario-camboriu-empreendimentos-incorporadora',
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'formacco-empreendimentos-trajetoria-balneario-camboriu',
-	],
-	'habitasul-balneario-camboriu-empreendimentos-incorporadora': [
-		'cfl-empreendimentos-balneario-camboriu-perfil-projetos',
-		'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu',
-		'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos',
-	],
-	'cota-empreendimentos-obras-lancamentos-balneario-camboriu': [
-		'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu',
-		'formacco-empreendimentos-trajetoria-balneario-camboriu',
-		'wkoerich-historia-obras-lancamentos-balneario-camboriu',
+	'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus': [
+		'maiores-arranha-ceus-balneario-camboriu-quem-construiu',
+		'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina',
+		'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao',
 	],
 };
 
@@ -120,107 +110,99 @@ export function leiaTambemSlugsForSatellite(slug) {
 }
 
 export const SATELLITE_BODY_PLAN = {
-	'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos': {
+	'construtora-incorporadora-diferenca-balneario-camboriu': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'conforto e sustentabilidade', target: 'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu' },
-			{ find: 'histórico consolidado', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'altíssimo padrão em Jurerê', target: 'habitasul-balneario-camboriu-empreendimentos-incorporadora' },
-			{ find: 'João Paulo', target: 'hantei-engenharia-balneario-camboriu-empreendimentos-atuacao' },
-			{ find: 'visitar empreendimentos já entregues', target: 'formacco-empreendimentos-trajetoria-balneario-camboriu' },
-			{ find: 'região continental', target: 'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'Praça da Trindade', target: 'gpinho-construtora-projetos-balneario-camboriu' },
+			{ find: 'Grandes nomes da', target: PILLAR },
+			{ find: 'concebem, vendem e', target: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus' },
+			{ find: 'Embraed e Procave', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'Procave atuam', target: 'procave-balneario-camboriu-sustentabilidade-praia-brava' },
+			{ find: 'registro de incorporação', target: 'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
 		],
 	},
-	'wkoerich-historia-obras-lancamentos-balneario-camboriu': {
+	'maiores-arranha-ceus-balneario-camboriu-quem-construiu': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'PBQP-H Nível A', target: 'piemonte-construtora-balneario-camboriu-historia-empreendimentos' },
-			{ find: 'construtoras mais consolidadas', target: 'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos' },
-			{ find: 'residencial de luxo', target: 'cfl-empreendimentos-balneario-camboriu-perfil-projetos' },
-			{ find: 'tradição e contemporaneidade', target: 'hantei-engenharia-balneario-camboriu-empreendimentos-atuacao' },
-			{ find: 'pontualidade nas entregas', target: 'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu' },
+			{ find: 'incorporadoras como a', target: PILLAR },
+			{ find: 'Pasqualotto & GT', target: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina' },
+			{ find: 'da FG Empreendimentos', target: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus' },
+			{ find: 'da Embraed', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'grife Armani/Casa', target: 'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'solidez da incorporadora', target: 'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence' },
+			{ find: 'potencial de valorização', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
 		],
 	},
-	'cfl-empreendimentos-balneario-camboriu-perfil-projetos': {
+	'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'Jurerê Internacional', target: 'habitasul-balneario-camboriu-empreendimentos-incorporadora' },
-			{ find: 'Campeche', target: 'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu' },
-			{ find: 'bairro Cacupé', target: 'piemonte-construtora-balneario-camboriu-historia-empreendimentos' },
-			{ find: 'cases de sucesso', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'Terraço Cacupé', target: 'gpinho-construtora-projetos-balneario-camboriu' },
-			{ find: 'incorporadoras mais sofisticadas', target: 'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos' },
-			{ find: 'alto valor agregado', target: 'hantei-engenharia-balneario-camboriu-empreendimentos-atuacao' },
-			{ find: 'litoral catarinense', target: 'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu' },
+			{ find: 'polo de branded', target: PILLAR },
+			{ find: 'pela Embraed', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'Pasqualotto & GT', target: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina' },
+			{ find: 'CK Construções', target: 'rv-empreendimentos-outras-construtoras-balneario-camboriu' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'reputação de quem', target: 'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence' },
+			{ find: 'potencial de retorno', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
 		],
 	},
-	'formacco-empreendimentos-trajetoria-balneario-camboriu': {
+	'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'região continental', target: 'cota-empreendimentos-obras-lancamentos-balneario-camboriu' },
-			{ find: 'soluções sustentáveis', target: 'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu' },
-			{ find: 'Estreito', target: 'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'apartamentos entregues', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'arquitetura sustentável', target: 'cfl-empreendimentos-balneario-camboriu-perfil-projetos' },
-			{ find: 'Itacorubi', target: 'gpinho-construtora-projetos-balneario-camboriu' },
+			{ find: 'líderes de Balneário', target: PILLAR },
+			{ find: 'banco de terrenos', target: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus' },
+			{ find: 'Construtoras menores', target: 'rv-empreendimentos-outras-construtoras-balneario-camboriu' },
+			{ find: 'construtoras consolidadas', target: 'procave-balneario-camboriu-sustentabilidade-praia-brava' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'acabamentos e materiais', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'construtora que define', target: 'construtora-incorporadora-diferenca-balneario-camboriu' },
 		],
 	},
-	'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu': {
+	'rv-empreendimentos-outras-construtoras-balneario-camboriu': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'gestão familiar', target: 'cota-empreendimentos-obras-lancamentos-balneario-camboriu' },
-			{ find: 'Estreito', target: 'formacco-empreendimentos-trajetoria-balneario-camboriu' },
-			{ find: 'pontualidade nas entregas', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
+			{ find: 'ecossistema diverso de', target: PILLAR },
+			{ find: 'arranha-céus', target: 'maiores-arranha-ceus-balneario-camboriu-quem-construiu' },
+			{ find: 'branded residences', target: 'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini' },
+			{ find: 'Praia Brava', target: 'procave-balneario-camboriu-sustentabilidade-praia-brava' },
+			{ find: 'design de grife', target: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'análise criteriosa', target: 'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence' },
 		],
 	},
-	'hantei-engenharia-balneario-camboriu-empreendimentos-atuacao': {
+	'procave-balneario-camboriu-sustentabilidade-praia-brava': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'segmento de luxo', target: 'cfl-empreendimentos-balneario-camboriu-perfil-projetos' },
-			{ find: 'alto padrão', target: 'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos' },
-			{ find: 'design moderno', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
+			{ find: 'litoral norte catarinense', target: PILLAR },
+			{ find: 'Barra Sul de', target: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus' },
+			{ find: 'alto padrão com', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'frente-mar na', target: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina' },
+			{ find: 'construtoras concentradas em', target: 'rv-empreendimentos-outras-construtoras-balneario-camboriu' },
 		],
 	},
-	'gpinho-construtora-projetos-balneario-camboriu': {
+	'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'Piatto Cacupé', target: 'piemonte-construtora-balneario-camboriu-historia-empreendimentos' },
-			{ find: 'Trindade', target: 'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos' },
-			{ find: 'Itacorubi', target: 'formacco-empreendimentos-trajetoria-balneario-camboriu' },
+			{ find: 'referência mundial de', target: PILLAR },
+			{ find: 'torres gêmeas da', target: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus' },
+			{ find: 'alto padrão de', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'sustentabilidade', target: 'procave-balneario-camboriu-sustentabilidade-praia-brava' },
+			{ find: 'branded residence', target: 'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini' },
 		],
 	},
-	'piemonte-construtora-balneario-camboriu-historia-empreendimentos': {
+	'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'Cacupé', target: 'cfl-empreendimentos-balneario-camboriu-perfil-projetos' },
-			{ find: 'PBQP-H Nível A', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'Unna Residence', target: 'gpinho-construtora-projetos-balneario-camboriu' },
+			{ find: 'referências do luxo', target: PILLAR },
+			{ find: '270 metros', target: 'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus' },
+			{ find: 'design italiano', target: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina' },
+			{ find: 'ISO 14001', target: 'procave-balneario-camboriu-sustentabilidade-praia-brava' },
+			{ find: 'branded residences', target: 'branded-residences-balneario-camboriu-armani-pininfarina-lamborghini' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
 		],
 	},
-	'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu': {
+	'fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus': {
 		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'Certificação Lixo Zero', target: 'habitasul-balneario-camboriu-empreendimentos-incorporadora' },
-			{ find: 'Campeche', target: 'cfl-empreendimentos-balneario-camboriu-perfil-projetos' },
-			{ find: 'sustentabilidade', target: 'formacco-empreendimentos-trajetoria-balneario-camboriu' },
-			{ find: 'alto padrão', target: 'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos' },
-		],
-	},
-	'habitasul-balneario-camboriu-empreendimentos-incorporadora': {
-		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'Jurerê Internacional', target: 'cfl-empreendimentos-balneario-camboriu-perfil-projetos' },
-			{ find: 'Certificação Lixo Zero', target: 'grupo-oad-empreendimentos-mercado-imobiliario-balneario-camboriu' },
-			{ find: 'mercado de luxo', target: 'construtora-dimas-balneario-camboriu-empreendimentos-lancamentos' },
-		],
-	},
-	'cota-empreendimentos-obras-lancamentos-balneario-camboriu': {
-		links: [
-			{ find: 'patrimônio de afetação', target: PILLAR },
-			{ find: 'Estreito', target: 'rdo-empreendimentos-historia-obras-lancamentos-balneario-camboriu' },
-			{ find: 'região continental', target: 'formacco-empreendimentos-trajetoria-balneario-camboriu' },
-			{ find: 'meio século', target: 'wkoerich-historia-obras-lancamentos-balneario-camboriu' },
+			{ find: 'incorporadora de BC', target: PILLAR },
+			{ find: 'Yachthouse by Pininfarina', target: 'pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina' },
+			{ find: 'acabamentos de altíssimo', target: 'embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao' },
+			{ find: 'Barra Sul', target: 'procave-balneario-camboriu-sustentabilidade-praia-brava' },
+			{ find: 'compra na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'incorporadora é decisiva', target: 'como-escolher-incorporadora-segura-balneario-camboriu-due-diligence' },
+			{ find: 'potencial de valorização', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
+			{ find: 'oito dos dez', target: 'maiores-arranha-ceus-balneario-camboriu-quem-construiu' },
 		],
 	},
 };
@@ -268,14 +250,7 @@ export function rebuildConstrutorasArticle(rawHtml, slug) {
 		return rawHtml;
 	}
 
-	const trimmed = trimSatelliteBodyPlan(
-		plan.links,
-		slug,
-		PILLAR,
-		SATELLITE_SLUGS,
-		SATELLITE_BODY_PLAN,
-		LEIA_TAMBEM[slug] ?? defaultLeiaSatellites(slug),
-	).filter(({ target }) => publishedSlugs.has(target));
+	const trimmed = plan.links.filter(({ target }) => publishedSlugs.has(target));
 	let linked = trimmed.length ? applyPlan(content, { links: trimmed }) : content;
 	linked = stripHeadingAnchors(linked);
 
