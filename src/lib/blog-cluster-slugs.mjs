@@ -55,6 +55,23 @@ export const CENTRO_CLUSTER_SLUGS = new Set([
 	'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia',
 ]);
 
+export const PIONEIROS_PILLAR = 'morar-nos-pioneiros-guia-completo';
+
+export const PIONEIROS_CLUSTER_SLUGS = new Set([
+	PIONEIROS_PILLAR,
+	'preco-m2-pioneiros-bairro-em-ascensao',
+	'apartamentos-a-venda-pioneiros',
+	'aluguel-pioneiros-valores-mercado',
+	'vale-a-pena-investir-pioneiros',
+	'como-comprar-imovel-pioneiros-barra-norte',
+	'pioneiros-e-bom-para-morar',
+	'pioneiros-x-barra-sul-custo-beneficio',
+	'infraestrutura-pioneiros-molhe-comercio-servicos',
+	'barra-norte-molhe-guia-regiao-pioneiros',
+	'morro-do-careca-estaleiro-natureza-pioneiros',
+	'custo-de-vida-pioneiros',
+]);
+
 export const INGLESES_PILLAR = 'morar-nos-ingleses-guia-completo';
 
 export const INGLESES_CLUSTER_SLUGS = new Set([
@@ -141,11 +158,16 @@ export const BALNEARIO_CAMBORIU_PILLAR = 'morar-em-balneario-camboriu-guia-compl
 
 export const BALNEARIO_CAMBORIU_CLUSTER_SLUGS = new Set([
 	BALNEARIO_CAMBORIU_PILLAR,
+	'investir-imoveis-balneario-camboriu-valorizacao-roi',
+	'comprar-imovel-balneario-camboriu-estrangeiro',
+	'comprar-imovel-na-planta-balneario-camboriu',
 	'balneario-camboriu-trabalho-remoto-guia-nomade-digital',
 	'apartamento-ou-casa-balneario-camboriu-qual-melhor-escolha',
 	'quanto-custa-construir-casa-balneario-camboriu-terreno-obra-documentacao',
 	'mudar-para-balneario-camboriu-guia-vindo-outro-estado',
 	'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
+	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel',
+	'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
 	'checklist-avaliar-imovel-em-balneario-camboriu',
 	'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande',
 	'morar-centro-x-praias-em-balneario-camboriu',

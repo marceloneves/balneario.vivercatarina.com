@@ -1,9 +1,51 @@
 ---
-import { getBlogPosts } from '../../lib/blog-posts.mjs';
+import PillerLayout from '../../layouts/PillerLayout.astro';
+import { buildBlogArticlePageHtml } from '../../lib/blog-article-page.mjs';
+import { getBlogPost, getBlogPosts } from '../../lib/blog-posts.mjs';
+
+const blogBodyModules = import.meta.glob('../../content/blog/*.html', {
+	query: '?raw',
+	import: 'default',
+	eager: true,
+});
+
+function getBlogBody(slug) {
+	return blogBodyModules[`../../content/blog/${slug}.html`] ?? '';
+}
 
 export function getStaticPaths() {
 	return getBlogPosts().map((post) => ({
 		params: { slug: post.slug },
 	}));
 }
+
+const { slug } = Astro.params;
+const post = getBlogPost(slug);
+
+if (!post) {
+	throw new Error('Artigo do blog não encontrado.');
+}
+
+const rawBody = getBlogBody(slug);
+
+if (!rawBody) {
+	throw new Error(`Conteúdo HTML não encontrado para o artigo: ${slug}`);
+}
+
+const page = buildBlogArticlePageHtml(post, rawBody);
 ---
+
+<PillerLayout
+	title={page.title}
+	description={page.description}
+	keywords={page.keywords}
+	ogImage={post.imageUrl}
+	ogType="article"
+	canonicalPath={`/blog/${slug}`}
+	bodyClass="blog-article-page"
+	stylesheets={['/css/blog-article.css', '/css/internal-links.css']}
+>
+	<Fragment set:html={page.shell.before} />
+	<Fragment set:html={page.articleHtml} />
+	<Fragment set:html={page.shell.after} />
+</PillerLayout>

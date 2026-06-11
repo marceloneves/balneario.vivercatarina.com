@@ -7,6 +7,7 @@ import {
 	CANASVIEIRAS_CLUSTER_SLUGS,
 	CENTRO_CLUSTER_SLUGS,
 	BALNEARIO_CAMBORIU_CLUSTER_SLUGS,
+	PIONEIROS_CLUSTER_SLUGS,
 	INGLESES_CLUSTER_SLUGS,
 	ITACORUBI_CLUSTER_SLUGS,
 	JURERE_INTERNACIONAL_CLUSTER_SLUGS,
@@ -20,6 +21,7 @@ export {
 	CANASVIEIRAS_CLUSTER_SLUGS,
 	CENTRO_CLUSTER_SLUGS,
 	BALNEARIO_CAMBORIU_CLUSTER_SLUGS,
+	PIONEIROS_CLUSTER_SLUGS,
 	INGLESES_CLUSTER_SLUGS,
 	ITACORUBI_CLUSTER_SLUGS,
 	JURERE_INTERNACIONAL_CLUSTER_SLUGS,
@@ -40,6 +42,7 @@ export const BLOG_CLUSTERS = [
 	{ id: 'cachoeira-do-bom-jesus', label: 'Cachoeira do Bom Jesus', slugSet: CACHOEIRA_CLUSTER_SLUGS },
 	{ id: 'canasvieiras', label: 'Canasvieiras', slugSet: CANASVIEIRAS_CLUSTER_SLUGS },
 	{ id: 'centro', label: 'Centro', slugSet: CENTRO_CLUSTER_SLUGS },
+	{ id: 'pioneiros', label: 'Pioneiros', slugSet: PIONEIROS_CLUSTER_SLUGS },
 	{ id: 'ingleses', label: 'Ingleses', slugSet: INGLESES_CLUSTER_SLUGS },
 	{ id: 'itacorubi', label: 'Itacorubi', slugSet: ITACORUBI_CLUSTER_SLUGS },
 	{

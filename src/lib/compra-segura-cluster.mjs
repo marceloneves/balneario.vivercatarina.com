@@ -143,11 +143,9 @@ export const SATELLITE_BODY_PLAN = {
 	},
 	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel': {
 		links: [
-			{ find: 'compra financiada', target: PILLAR },
-			{ find: 'transfere a propriedade', target: 'itbi-cartorio-santa-catarina-rito-transferencia-propriedade' },
-			{ find: 'matrícula atualizada', target: 'documentacao-comprar-imovel-santa-catarina-checklist' },
-			{ find: 'financiamento bancário', target: 'financiamento-imobiliario-balneario-camboriu-sfh-sbpe-fgts' },
-			{ find: 'Registro de Imóveis', target: 'posse-escritura-publica-propriedade-legal-balneario-camboriu' },
+			{ find: 'compra financiada', target: 'como-comprar-imovel-balneario-camboriu-financiamento-documentacao' },
+			{ find: 'litoral catarinense', target: 'morar-em-balneario-camboriu-guia-completo' },
+			{ find: 'custos de transação', target: 'comprar-imovel-na-planta-balneario-camboriu' },
 		],
 	},
 	'itbi-cartorio-santa-catarina-rito-transferencia-propriedade': {

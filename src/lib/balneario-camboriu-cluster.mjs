@@ -52,6 +52,31 @@ export function linkHtml(targetSlug, { short = false } = {}) {
 
 /** Três satélites do cluster por artigo (pilar entra sempre em 1º no Leia também). */
 export const LEIA_TAMBEM = {
+	'frente-mar-quadra-mar-vista-mar-balneario-camboriu': [
+		'investir-imoveis-balneario-camboriu-valorizacao-roi',
+		'comprar-imovel-na-planta-balneario-camboriu',
+		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
+	],
+	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel': [
+		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
+		'comprar-imovel-na-planta-balneario-camboriu',
+		'comprar-imovel-balneario-camboriu-estrangeiro',
+	],
+	'comprar-imovel-balneario-camboriu-estrangeiro': [
+		'comprar-imovel-na-planta-balneario-camboriu',
+		'investir-imoveis-balneario-camboriu-valorizacao-roi',
+		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
+	],
+	'investir-imoveis-balneario-camboriu-valorizacao-roi': [
+		'frente-mar-quadra-mar-vista-mar-balneario-camboriu',
+		'comprar-imovel-na-planta-balneario-camboriu',
+		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
+	],
+	'comprar-imovel-na-planta-balneario-camboriu': [
+		'investir-imoveis-balneario-camboriu-valorizacao-roi',
+		'comprar-imovel-balneario-camboriu-estrangeiro',
+		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
+	],
 	'balneario-camboriu-trabalho-remoto-guia-nomade-digital': [
 		'quanto-custa-morar-em-balneario-camboriu',
 		'melhores-bairros-para-morar-em-balneario-camboriu',
@@ -73,9 +98,9 @@ export const LEIA_TAMBEM = {
 		'morar-centro-x-praias-em-balneario-camboriu',
 	],
 	'como-comprar-imovel-balneario-camboriu-financiamento-documentacao': [
-		'checklist-avaliar-imovel-em-balneario-camboriu',
-		'apartamento-ou-casa-balneario-camboriu-qual-melhor-escolha',
-		'quanto-custa-morar-em-balneario-camboriu',
+		'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel',
+		'comprar-imovel-na-planta-balneario-camboriu',
+		'comprar-imovel-balneario-camboriu-estrangeiro',
 	],
 	'checklist-avaliar-imovel-em-balneario-camboriu': [
 		'como-comprar-imovel-balneario-camboriu-financiamento-documentacao',
@@ -115,6 +140,41 @@ export function leiaTambemSlugsForSatellite(slug) {
 }
 
 export const SATELLITE_BODY_PLAN = {
+	'frente-mar-quadra-mar-vista-mar-balneario-camboriu': {
+		links: [
+			{ find: 'litorais mais desejados', target: PILLAR },
+			{ find: 'Para o investidor', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
+			{ find: 'imóveis quadra-mar', target: 'apartamentos-a-venda-pioneiros' },
+		],
+	},
+	'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel': {
+		links: [
+			{ find: 'litoral catarinense', target: PILLAR },
+			{ find: 'compra financiada', target: 'como-comprar-imovel-balneario-camboriu-financiamento-documentacao' },
+			{ find: 'custos de transação', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+		],
+	},
+	'comprar-imovel-balneario-camboriu-estrangeiro': {
+		links: [
+			{ find: 'litoral brasileiro', target: PILLAR },
+			{ find: 'imóvel na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'imposto municipal de', target: 'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel' },
+		],
+	},
+	'investir-imoveis-balneario-camboriu-valorizacao-roi': {
+		links: [
+			{ find: 'litoral brasileiro', target: PILLAR },
+			{ find: 'Comprar na planta', target: 'comprar-imovel-na-planta-balneario-camboriu' },
+			{ find: 'padrão e frente-mar', target: 'frente-mar-quadra-mar-vista-mar-balneario-camboriu' },
+		],
+	},
+	'comprar-imovel-na-planta-balneario-camboriu': {
+		links: [
+			{ find: 'litoral catarinense', target: PILLAR },
+			{ find: 'custos de transação', target: 'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel' },
+			{ find: 'pagamento parcelado', target: 'como-comprar-imovel-balneario-camboriu-financiamento-documentacao' },
+		],
+	},
 	'balneario-camboriu-trabalho-remoto-guia-nomade-digital': {
 		links: [
 			{ find: 'nômades digitais', target: PILLAR },
@@ -149,10 +209,9 @@ export const SATELLITE_BODY_PLAN = {
 	},
 	'como-comprar-imovel-balneario-camboriu-financiamento-documentacao': {
 		links: [
-			{ find: 'variáveis adicionais', target: PILLAR },
-			{ find: 'matrícula atualizada', target: 'checklist-avaliar-imovel-em-balneario-camboriu' },
-			{ find: 'imóvel pronto e o na planta', target: 'apartamento-ou-casa-balneario-camboriu-qual-melhor-escolha' },
-			{ find: 'mesmo orçamento compra realidades', target: 'quanto-custa-morar-em-balneario-camboriu' },
+			{ find: 'litoral brasileiro', target: PILLAR },
+			{ find: 'valorização dos imóveis', target: 'investir-imoveis-balneario-camboriu-valorizacao-roi' },
+			{ find: 'imposto municipal de', target: 'itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel' },
 		],
 	},
 	'checklist-avaliar-imovel-em-balneario-camboriu': {

@@ -12,6 +12,7 @@ const scripts = [
 	'rebuild-jurere-cluster-links.mjs',
 	'rebuild-canasvieiras-cluster-links.mjs',
 	'rebuild-centro-cluster-links.mjs',
+	'rebuild-pioneiros-cluster-links.mjs',
 	'rebuild-ingleses-cluster-links.mjs',
 	'rebuild-itacorubi-cluster-links.mjs',
 	'rebuild-cachoeira-cluster-links.mjs',

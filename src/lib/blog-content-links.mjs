@@ -152,6 +152,11 @@ const BLOG_PHRASE_RULES = normalizeBlogPhraseRules([
 		slug: 'morar-em-balneario-camboriu-guia-completo',
 	},
 	{
+		text: 'Morar nos Pioneiros',
+		href: '/blog/morar-nos-pioneiros-guia-completo',
+		slug: 'morar-nos-pioneiros-guia-completo',
+	},
+	{
 		text: 'guia completo de Balneário Camboriú',
 		href: '/blog/morar-em-balneario-camboriu-guia-completo',
 		slug: 'morar-em-balneario-camboriu-guia-completo',
@@ -667,6 +672,7 @@ import {
 } from './blog-cluster-slugs.mjs';
 import { CANASVIEIRAS_CLUSTER_SLUGS } from './canasvieiras-cluster.mjs';
 import { CENTRO_CLUSTER_SLUGS } from './centro-cluster.mjs';
+import { PIONEIROS_CLUSTER_SLUGS } from './pioneiros-cluster.mjs';
 import { INGLESES_CLUSTER_SLUGS } from './ingleses-cluster.mjs';
 import { ITACORUBI_CLUSTER_SLUGS } from './itacorubi-cluster.mjs';
 import { JURERE_INTERNACIONAL_CLUSTER_SLUGS } from './jurere-internacional-cluster.mjs';
@@ -710,6 +716,7 @@ function buildNeighborhoodRules(currentSlug) {
 		CANASVIEIRAS_CLUSTER_SLUGS.has(currentSlug) || CACHOEIRA_CLUSTER_SLUGS.has(currentSlug);
 	const skipItacorubiHub = ITACORUBI_CLUSTER_SLUGS.has(currentSlug);
 	const skipCentroHub = CENTRO_CLUSTER_SLUGS.has(currentSlug);
+	const skipPioneirosHub = PIONEIROS_CLUSTER_SLUGS.has(currentSlug);
 	const skipInglesesHub = INGLESES_CLUSTER_SLUGS.has(currentSlug);
 
 	return [...NEIGHBORHOODS]
@@ -720,6 +727,7 @@ function buildNeighborhoodRules(currentSlug) {
 				!(skipCanasvieirasHub && slug === 'canasvieiras') &&
 				!(skipItacorubiHub && slug === 'itacorubi') &&
 				!(skipCentroHub && slug === 'centro') &&
+				!(skipPioneirosHub && slug === 'pioneiros') &&
 				!(skipInglesesHub && slug === 'ingleses'),
 		)
 		.sort((a, b) => b.name.length - a.name.length)
@@ -753,6 +761,7 @@ export function applyArticleInlineLinks(html, currentSlug = '') {
 		BALNEARIO_CAMBORIU_CLUSTER_SLUGS.has(currentSlug) ||
 		ITACORUBI_CLUSTER_SLUGS.has(currentSlug) ||
 		CENTRO_CLUSTER_SLUGS.has(currentSlug) ||
+		PIONEIROS_CLUSTER_SLUGS.has(currentSlug) ||
 		INGLESES_CLUSTER_SLUGS.has(currentSlug)
 	) {
 		return html;

@@ -8,6 +8,7 @@ const CENTRO_NEIGHBORHOOD_SLUG = 'centro';
 const ITACORUBI_NEIGHBORHOOD_SLUG = 'itacorubi';
 const JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG = 'jurereinternacional';
 const INGLESES_NEIGHBORHOOD_SLUG = 'ingleses';
+const PIONEIROS_NEIGHBORHOOD_SLUG = 'pioneiros';
 
 /** Artigo pilar do cluster Ingleses. */
 const INGLESES_PILLAR_SLUG = 'morar-nos-ingleses-guia-completo';
@@ -55,6 +56,24 @@ const CENTRO_SATELLITE_SLUGS = [
 ];
 
 const CENTRO_PROPERTY_ARTICLE_SLUGS = [CENTRO_PILLAR_SLUG, ...CENTRO_SATELLITE_SLUGS];
+
+/** Artigo pilar do cluster Pioneiros. */
+const PIONEIROS_PILLAR_SLUG = 'morar-nos-pioneiros-guia-completo';
+
+const PIONEIROS_PROPERTY_ARTICLE_SLUGS = [
+	PIONEIROS_PILLAR_SLUG,
+	'preco-m2-pioneiros-bairro-em-ascensao',
+	'apartamentos-a-venda-pioneiros',
+	'aluguel-pioneiros-valores-mercado',
+	'vale-a-pena-investir-pioneiros',
+	'como-comprar-imovel-pioneiros-barra-norte',
+	'pioneiros-e-bom-para-morar',
+	'pioneiros-x-barra-sul-custo-beneficio',
+	'infraestrutura-pioneiros-molhe-comercio-servicos',
+	'barra-norte-molhe-guia-regiao-pioneiros',
+	'morro-do-careca-estaleiro-natureza-pioneiros',
+	'custo-de-vida-pioneiros',
+];
 
 /** Artigo pilar do cluster Itacorubi. */
 const ITACORUBI_PILLAR_SLUG = 'morar-no-itacorubi-guia-completo';
@@ -127,6 +146,7 @@ const NEIGHBORHOOD_SLUG_TO_CLUSTER_ID = {
 	[CAMPECHE_NEIGHBORHOOD_SLUG]: 'campeche',
 	[CANASVIEIRAS_NEIGHBORHOOD_SLUG]: 'canasvieiras',
 	[CENTRO_NEIGHBORHOOD_SLUG]: 'centro',
+	[PIONEIROS_NEIGHBORHOOD_SLUG]: 'pioneiros',
 	[INGLESES_NEIGHBORHOOD_SLUG]: 'ingleses',
 	[ITACORUBI_NEIGHBORHOOD_SLUG]: 'itacorubi',
 	[JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG]: 'jurere-internacional',
@@ -175,6 +195,13 @@ function isJurereInternacionalNeighborhood(neighborhoodName, neighborhoodSlug) {
 		slug === JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG ||
 		name === 'jurere internacional'
 	);
+}
+
+function isPioneirosNeighborhood(neighborhoodName, neighborhoodSlug) {
+	const slug = normalizeText(neighborhoodSlug);
+	const name = normalizeText(neighborhoodName);
+
+	return slug === PIONEIROS_NEIGHBORHOOD_SLUG || name === 'pioneiros';
 }
 
 function isInglesesNeighborhood(neighborhoodName, neighborhoodSlug) {
@@ -279,6 +306,10 @@ export function getNeighborhoodBlogPosts(neighborhoodName, limit = 3, neighborho
 
 	if (isCentroNeighborhood(neighborhoodName, neighborhoodSlug)) {
 		return getPostsBySlugs(CENTRO_PROPERTY_ARTICLE_SLUGS, limit);
+	}
+
+	if (isPioneirosNeighborhood(neighborhoodName, neighborhoodSlug)) {
+		return getPostsBySlugs(PIONEIROS_PROPERTY_ARTICLE_SLUGS, limit);
 	}
 
 	if (isItacorubiNeighborhood(neighborhoodName, neighborhoodSlug)) {
