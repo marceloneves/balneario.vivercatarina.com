@@ -9,6 +9,7 @@ const ITACORUBI_NEIGHBORHOOD_SLUG = 'itacorubi';
 const JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG = 'jurereinternacional';
 const INGLESES_NEIGHBORHOOD_SLUG = 'ingleses';
 const PIONEIROS_NEIGHBORHOOD_SLUG = 'pioneiros';
+const BARRA_SUL_NEIGHBORHOOD_SLUG = 'barrasul';
 
 /** Artigo pilar do cluster Ingleses. */
 const INGLESES_PILLAR_SLUG = 'morar-nos-ingleses-guia-completo';
@@ -56,6 +57,26 @@ const CENTRO_SATELLITE_SLUGS = [
 ];
 
 const CENTRO_PROPERTY_ARTICLE_SLUGS = [CENTRO_PILLAR_SLUG, ...CENTRO_SATELLITE_SLUGS];
+
+/** Artigo pilar do cluster Barra Sul. */
+const BARRA_SUL_PILLAR_SLUG = 'morar-na-barra-sul-balneario-camboriu-guia-completo';
+
+const BARRA_SUL_PROPERTY_ARTICLE_SLUGS = [
+	BARRA_SUL_PILLAR_SLUG,
+	'preco-m2-barra-sul-balneario-camboriu-quanto-custa',
+	'apartamentos-a-venda-barra-sul-balneario-camboriu',
+	'coberturas-luxo-barra-sul-balneario-camboriu',
+	'aluguel-barra-sul-temporada-valores-mercado',
+	'vale-a-pena-investir-barra-sul-balneario-camboriu',
+	'como-comprar-imovel-barra-sul-balneario-camboriu',
+	'barra-sul-e-bom-para-morar',
+	'barra-sul-x-centro-x-pioneiros-comparativo',
+	'arranha-ceus-barra-sul-senna-tower',
+	'infraestrutura-barra-sul-comercio-mobilidade',
+	'praia-barra-sul-molhe-guia-orla',
+	'gastronomia-vida-noturna-barra-sul',
+	'custo-de-vida-barra-sul-quanto-custa-morar',
+];
 
 /** Artigo pilar do cluster Pioneiros. */
 const PIONEIROS_PILLAR_SLUG = 'morar-nos-pioneiros-guia-completo';
@@ -146,6 +167,7 @@ const NEIGHBORHOOD_SLUG_TO_CLUSTER_ID = {
 	[CAMPECHE_NEIGHBORHOOD_SLUG]: 'campeche',
 	[CANASVIEIRAS_NEIGHBORHOOD_SLUG]: 'canasvieiras',
 	[CENTRO_NEIGHBORHOOD_SLUG]: 'centro',
+	[BARRA_SUL_NEIGHBORHOOD_SLUG]: 'barra-sul',
 	[PIONEIROS_NEIGHBORHOOD_SLUG]: 'pioneiros',
 	[INGLESES_NEIGHBORHOOD_SLUG]: 'ingleses',
 	[ITACORUBI_NEIGHBORHOOD_SLUG]: 'itacorubi',
@@ -195,6 +217,13 @@ function isJurereInternacionalNeighborhood(neighborhoodName, neighborhoodSlug) {
 		slug === JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG ||
 		name === 'jurere internacional'
 	);
+}
+
+function isBarraSulNeighborhood(neighborhoodName, neighborhoodSlug) {
+	const slug = normalizeText(neighborhoodSlug);
+	const name = normalizeText(neighborhoodName);
+
+	return slug === BARRA_SUL_NEIGHBORHOOD_SLUG || name === 'barra sul';
 }
 
 function isPioneirosNeighborhood(neighborhoodName, neighborhoodSlug) {
@@ -306,6 +335,10 @@ export function getNeighborhoodBlogPosts(neighborhoodName, limit = 3, neighborho
 
 	if (isCentroNeighborhood(neighborhoodName, neighborhoodSlug)) {
 		return getPostsBySlugs(CENTRO_PROPERTY_ARTICLE_SLUGS, limit);
+	}
+
+	if (isBarraSulNeighborhood(neighborhoodName, neighborhoodSlug)) {
+		return getPostsBySlugs(BARRA_SUL_PROPERTY_ARTICLE_SLUGS, limit);
 	}
 
 	if (isPioneirosNeighborhood(neighborhoodName, neighborhoodSlug)) {

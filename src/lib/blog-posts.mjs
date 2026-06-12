@@ -3,6 +3,202 @@ import { buildMetaDescription } from './site-seo.mjs';
 
 export const BLOG_POSTS = [
 	{
+		slug: 'morar-na-barra-sul-balneario-camboriu-guia-completo',
+		title: 'Morar na Barra Sul: Guia do Bairro Mais Luxuoso de Balneário Camboriú',
+		excerpt:
+			'Morar na Barra Sul significa viver no endereço mais valorizado de Balneário Camboriú, com arranha-céus de luxo, orla junto ao molhe e infraestrutura premium para quem busca exclusividade à beira-mar.',
+		metaDescription:
+			'Guia completo para morar na Barra Sul, bairro mais luxuoso de Balneário Camboriú: perfil do morador, preços, infraestrutura, investimento, prós e contras, custo de vida e FAQ.',
+		imageUrl: '/assets/img/blog/blog_1_32.webp',
+		datePublished: '2026-06-12',
+		dateUpdated: '2026-06-12',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Luxo', 'Imóveis'],
+		href: '/blog/morar-na-barra-sul-balneario-camboriu-guia-completo',
+	},
+	{
+		slug: 'preco-m2-barra-sul-balneario-camboriu-quanto-custa',
+		title: 'Preço do m² na Barra Sul: Quanto Custa o Bairro Mais Caro de BC',
+		excerpt:
+			'O preço do m² na Barra Sul está entre os mais altos do litoral catarinense, com faixas estimadas de R$ 12 mil a R$ 45 mil por metro quadrado conforme padrão, vista e localização na orla.',
+		metaDescription:
+			'Preço do m² na Barra Sul de Balneário Camboriú: faixas por padrão, comparativos com outros bairros, custos adicionais, valorização e FAQ para compradores de alto padrão.',
+		imageUrl: '/assets/img/blog/blog_1_33.webp',
+		datePublished: '2026-06-14',
+		dateUpdated: '2026-06-14',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Preço m²', 'Imóveis'],
+		href: '/blog/preco-m2-barra-sul-balneario-camboriu-quanto-custa',
+	},
+	{
+		slug: 'apartamentos-a-venda-barra-sul-balneario-camboriu',
+		title: 'Apartamentos à Venda na Barra Sul: O Que Esperar em Cada Faixa de Preço',
+		excerpt:
+			'Comprar apartamento na Barra Sul exige entender o que cada faixa de preço entrega, do compacto no miolo do bairro à cobertura frente-mar na Avenida Atlântica.',
+		metaDescription:
+			'Apartamentos à venda na Barra Sul: faixas de R$ 900 mil a R$ 15 mi+, tipologias, microterritórios, comparativos e FAQ para comprar no bairro mais caro de BC.',
+		imageUrl: '/assets/img/blog/blog_1_34.webp',
+		datePublished: '2026-06-16',
+		dateUpdated: '2026-06-16',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Apartamentos', 'Imóveis'],
+		href: '/blog/apartamentos-a-venda-barra-sul-balneario-camboriu',
+	},
+	{
+		slug: 'coberturas-luxo-barra-sul-balneario-camboriu',
+		title: 'Apartamentos de Luxo na Barra Sul: Coberturas e Alto Padrão Frente-Mar',
+		excerpt:
+			'Os apartamentos de luxo na Barra Sul concentram coberturas duplex, unidades frente-mar e plantas amplas assinadas pelas principais construtoras do litoral catarinense.',
+		metaDescription:
+			'Coberturas e apartamentos de luxo na Barra Sul: faixas de preço, frente-mar x quadra-mar, padrão construtivo, custos e FAQ para compradores de altíssimo padrão em BC.',
+		imageUrl: '/assets/img/blog/blog_1_35.webp',
+		datePublished: '2026-06-18',
+		dateUpdated: '2026-06-18',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Luxo', 'Coberturas'],
+		href: '/blog/coberturas-luxo-barra-sul-balneario-camboriu',
+	},
+	{
+		slug: 'aluguel-barra-sul-temporada-valores-mercado',
+		title: 'Aluguel na Barra Sul: Temporada e Valores do Mercado de Luxo',
+		excerpt:
+			'O aluguel na Barra Sul está entre os mais altos de Santa Catarina, com diárias premium na alta temporada e contratos anuais voltados ao público de alto padrão.',
+		metaDescription:
+			'Aluguel na Barra Sul: valores de temporada e anual, sazonalidade, tipologias, comparativos e FAQ sobre locação no mercado de luxo de Balneário Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_36.webp',
+		datePublished: '2026-06-20',
+		dateUpdated: '2026-06-20',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Aluguel', 'Temporada'],
+		href: '/blog/aluguel-barra-sul-temporada-valores-mercado',
+	},
+	{
+		slug: 'vale-a-pena-investir-barra-sul-balneario-camboriu',
+		title: 'Investir na Barra Sul: Vale a Pena? Análise de Valorização e Retorno',
+		excerpt:
+			'Investir na Barra Sul tende a valer a pena para quem busca preservação de patrimônio e valorização consistente no mercado de luxo de Balneário Camboriú.',
+		metaDescription:
+			'Vale a pena investir na Barra Sul? Análise de valorização, rentabilidade, cenários de retorno, riscos e FAQ para investidores imobiliários em BC.',
+		imageUrl: '/assets/img/blog/blog_1_37.webp',
+		datePublished: '2026-06-22',
+		dateUpdated: '2026-06-22',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Investimento', 'Imóveis'],
+		href: '/blog/vale-a-pena-investir-barra-sul-balneario-camboriu',
+	},
+	{
+		slug: 'como-comprar-imovel-barra-sul-balneario-camboriu',
+		title: 'Como Comprar Imóvel na Barra Sul: Passo a Passo do Alto Padrão',
+		excerpt:
+			'Comprar imóvel na Barra Sul exige planejamento financeiro, análise da construtora e due diligence jurídica em um mercado de tickets entre os mais elevados do Brasil.',
+		metaDescription:
+			'Como comprar imóvel na Barra Sul: passo a passo, documentação, na planta x pronto, faixas de preço, custos extras e FAQ para aquisição segura em BC.',
+		imageUrl: '/assets/img/blog/blog_1_38.webp',
+		datePublished: '2026-06-24',
+		dateUpdated: '2026-06-24',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Compra', 'Imóveis'],
+		href: '/blog/como-comprar-imovel-barra-sul-balneario-camboriu',
+	},
+	{
+		slug: 'barra-sul-e-bom-para-morar',
+		title: 'Barra Sul é Bom para Morar? Prós, Contras e o Que Ninguém Te Conta',
+		excerpt:
+			'Morar na Barra Sul significa viver no endereço mais valorizado de Balneário Camboriú, com vista para o mar e acesso ao molhe, mas envolve custos elevados e sazonalidade intensa.',
+		metaDescription:
+			'A Barra Sul é boa para morar? Prós, contras, custo de vida, perfil de morador, comparativos e FAQ honesto sobre moradia no bairro de luxo de BC.',
+		imageUrl: '/assets/img/blog/blog_1_39.webp',
+		datePublished: '2026-06-26',
+		dateUpdated: '2026-06-26',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Moradia', 'Qualidade de Vida'],
+		href: '/blog/barra-sul-e-bom-para-morar',
+	},
+	{
+		slug: 'barra-sul-x-centro-x-pioneiros-comparativo',
+		title: 'Barra Sul x Centro x Pioneiros: Qual Bairro de BC Vale Mais a Pena',
+		excerpt:
+			'Decidir entre Barra Sul, Centro e Pioneiros envolve preço por metro quadrado, estilo de vida e objetivo de moradia ou investimento em Balneário Camboriú.',
+		metaDescription:
+			'Barra Sul x Centro x Pioneiros: comparativo de preços, perfil, valorização, aluguel e FAQ para escolher o melhor bairro de Balneário Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_40.webp',
+		datePublished: '2026-06-28',
+		dateUpdated: '2026-06-28',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Centro', 'Pioneiros'],
+		href: '/blog/barra-sul-x-centro-x-pioneiros-comparativo',
+	},
+	{
+		slug: 'arranha-ceus-barra-sul-senna-tower',
+		title: 'Os Arranha-céus da Barra Sul: Senna Tower e os Prédios Mais Altos do Brasil',
+		excerpt:
+			'A Barra Sul concentra os prédios mais altos de Balneário Camboriú, incluindo a Senna Tower projetada para ultrapassar 500 metros de altura.',
+		metaDescription:
+			'Arranha-céus da Barra Sul: Senna Tower, One Tower, Yachthouse, faixas de preço, construtoras e FAQ sobre o skyline mais vertical do litoral brasileiro.',
+		imageUrl: '/assets/img/blog/blog_1_41.webp',
+		datePublished: '2026-06-30',
+		dateUpdated: '2026-06-30',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Arranha-céus', 'Senna Tower'],
+		href: '/blog/arranha-ceus-barra-sul-senna-tower',
+	},
+	{
+		slug: 'infraestrutura-barra-sul-comercio-mobilidade',
+		title: 'Infraestrutura da Barra Sul: Comércio, Mobilidade e Serviços',
+		excerpt:
+			'A infraestrutura da Barra Sul combina comércio premium, mobilidade fluida entre praia e centro e serviços completos no bairro mais sofisticado de Balneário Camboriú.',
+		metaDescription:
+			'Infraestrutura da Barra Sul: comércio, mobilidade, serviços, faixas de preço, comparativos e FAQ sobre viver no bairro de luxo de BC.',
+		imageUrl: '/assets/img/blog/blog_1_42.webp',
+		datePublished: '2026-07-02',
+		dateUpdated: '2026-07-02',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Infraestrutura', 'Serviços'],
+		href: '/blog/infraestrutura-barra-sul-comercio-mobilidade',
+	},
+	{
+		slug: 'praia-barra-sul-molhe-guia-orla',
+		title: 'Praia da Barra Sul: Guia Completo da Orla e do Molhe',
+		excerpt:
+			'A Praia da Barra Sul marca o encontro do mar com a foz do Rio Camboriú, protegida pelo icônico molhe e valorizada como um dos trechos mais cobiçados da orla de BC.',
+		metaDescription:
+			'Praia da Barra Sul: guia da orla, molhe, engordamento da praia, imóveis, faixas de preço e FAQ sobre o trecho mais nobre de Balneário Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_43.webp',
+		datePublished: '2026-07-04',
+		dateUpdated: '2026-07-04',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Praia', 'Molhe'],
+		href: '/blog/praia-barra-sul-molhe-guia-orla',
+	},
+	{
+		slug: 'gastronomia-vida-noturna-barra-sul',
+		title: 'Restaurantes na Barra Sul: Guia da Vida Noturna e Gastronomia',
+		excerpt:
+			'A Barra Sul reúne restaurantes premium, bares à beira-mar e casas noturnas de alto padrão, formando um dos polos gastronômicos mais sofisticados de Balneário Camboriú.',
+		metaDescription:
+			'Gastronomia e vida noturna na Barra Sul: restaurantes, bares, faixas de preço, polos gastronômicos e FAQ sobre onde comer e sair no bairro de luxo de BC.',
+		imageUrl: '/assets/img/blog/blog_1_44.webp',
+		datePublished: '2026-07-06',
+		dateUpdated: '2026-07-06',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Gastronomia', 'Vida Noturna'],
+		href: '/blog/gastronomia-vida-noturna-barra-sul',
+	},
+	{
+		slug: 'custo-de-vida-barra-sul-quanto-custa-morar',
+		title: 'Custo de Vida na Barra Sul: Quanto Custa Morar no Bairro de Luxo',
+		excerpt:
+			'Morar na Barra Sul exige um orçamento mensal elevado, com condomínio, alimentação premium e serviços proporcionais ao padrão do bairro mais caro de Balneário Camboriú.',
+		metaDescription:
+			'Custo de vida na Barra Sul: condomínio, alimentação, serviços, faixas mensais por perfil, comparativos e FAQ sobre quanto custa morar no bairro de luxo de BC.',
+		imageUrl: '/assets/img/blog/blog_1_45.webp',
+		datePublished: '2026-07-08',
+		dateUpdated: '2026-07-08',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra Sul', 'Custo de Vida', 'Moradia'],
+		href: '/blog/custo-de-vida-barra-sul-quanto-custa-morar',
+	},
+	{
 		slug: 'construtora-incorporadora-diferenca-balneario-camboriu',
 		title: 'Construtora x Incorporadora: Qual a Diferença e Por Que Importa',
 		excerpt:
@@ -309,20 +505,6 @@ export const BLOG_POSTS = [
 		author: 'Viver Catarina',
 		tags: ['Pioneiros', 'Infraestrutura', 'Molhe', 'Barra Norte'],
 		href: '/blog/infraestrutura-pioneiros-molhe-comercio-servicos',
-	},
-	{
-		slug: 'pioneiros-x-barra-sul-custo-beneficio',
-		title: 'Pioneiros x Barra Sul: Luxo com Melhor Custo-Benefício em Balneário Camboriú',
-		excerpt:
-			'Na disputa entre Pioneiros e Barra Sul, o primeiro entrega alto padrão com metro quadrado quase pela metade e melhor potencial de valorização, enquanto a Barra Sul oferece o prestígio máximo e os arranha-céus mais icônicos do Brasil.',
-		metaDescription:
-			'Pioneiros x Barra Sul: comparação de preço, m², aluguel, perfil de imóvel, estilo de vida, valorização e veredito de qual bairro escolher em Balneário Camboriú.',
-		imageUrl: '/assets/img/blog/blog_1_9.webp',
-		datePublished: '2026-02-17',
-		dateUpdated: '2026-02-17',
-		author: 'Viver Catarina',
-		tags: ['Pioneiros', 'Barra Sul', 'Comparativo', 'Custo-benefício'],
-		href: '/blog/pioneiros-x-barra-sul-custo-beneficio',
 	},
 	{
 		slug: 'pioneiros-e-bom-para-morar',

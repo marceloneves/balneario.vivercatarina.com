@@ -55,6 +55,25 @@ export const CENTRO_CLUSTER_SLUGS = new Set([
 	'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia',
 ]);
 
+export const BARRA_SUL_PILLAR = 'morar-na-barra-sul-balneario-camboriu-guia-completo';
+
+export const BARRA_SUL_CLUSTER_SLUGS = new Set([
+	BARRA_SUL_PILLAR,
+	'preco-m2-barra-sul-balneario-camboriu-quanto-custa',
+	'apartamentos-a-venda-barra-sul-balneario-camboriu',
+	'coberturas-luxo-barra-sul-balneario-camboriu',
+	'aluguel-barra-sul-temporada-valores-mercado',
+	'vale-a-pena-investir-barra-sul-balneario-camboriu',
+	'como-comprar-imovel-barra-sul-balneario-camboriu',
+	'barra-sul-e-bom-para-morar',
+	'barra-sul-x-centro-x-pioneiros-comparativo',
+	'arranha-ceus-barra-sul-senna-tower',
+	'infraestrutura-barra-sul-comercio-mobilidade',
+	'praia-barra-sul-molhe-guia-orla',
+	'gastronomia-vida-noturna-barra-sul',
+	'custo-de-vida-barra-sul-quanto-custa-morar',
+]);
+
 export const PIONEIROS_PILLAR = 'morar-nos-pioneiros-guia-completo';
 
 export const PIONEIROS_CLUSTER_SLUGS = new Set([
