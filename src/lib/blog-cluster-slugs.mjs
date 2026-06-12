@@ -53,6 +53,38 @@ export const CENTRO_CLUSTER_SLUGS = new Set([
 	'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
 ]);
 
+export const ARIRIBA_PILLAR = 'morar-no-aririba-balneario-camboriu-guia-completo';
+
+export const ARIRIBA_CLUSTER_SLUGS = new Set([
+	ARIRIBA_PILLAR,
+	'preco-m2-aririba-balneario-camboriu-quanto-custa',
+	'apartamentos-a-venda-aririba-balneario-camboriu',
+	'vale-a-pena-investir-aririba-balneario-camboriu',
+	'aluguel-aririba-balneario-camboriu-valores-mercado',
+	'aririba-balneario-camboriu-e-bom-para-morar',
+	'custo-de-vida-aririba-balneario-camboriu-quanto-custa-morar',
+]);
+
+export const NACOES_PILLAR = 'morar-no-nacoes-balneario-camboriu-guia-completo';
+
+export const NACOES_CLUSTER_SLUGS = new Set([
+	NACOES_PILLAR,
+	'preco-m2-nacoes-balneario-camboriu-quanto-custa',
+	'apartamentos-compactos-a-venda-nacoes-balneario-camboriu',
+	'nacoes-balneario-camboriu-e-bom-para-morar',
+	'custo-de-vida-nacoes-balneario-camboriu-quanto-custa-morar',
+]);
+
+export const BARRA_PILLAR = 'morar-na-barra-balneario-camboriu-guia-completo';
+
+export const BARRA_CLUSTER_SLUGS = new Set([
+	BARRA_PILLAR,
+	'preco-m2-barra-balneario-camboriu-quanto-custa',
+	'apartamentos-a-venda-barra-balneario-camboriu',
+	'barra-balneario-camboriu-e-bom-para-morar',
+	'custo-de-vida-barra-balneario-camboriu-quanto-custa-morar',
+]);
+
 export const BARRA_SUL_PILLAR = 'morar-na-barra-sul-balneario-camboriu-guia-completo';
 
 export const BARRA_SUL_CLUSTER_SLUGS = new Set([

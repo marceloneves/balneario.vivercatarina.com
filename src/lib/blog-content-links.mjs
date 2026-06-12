@@ -672,6 +672,9 @@ import {
 } from './blog-cluster-slugs.mjs';
 import { CANASVIEIRAS_CLUSTER_SLUGS } from './canasvieiras-cluster.mjs';
 import { CENTRO_CLUSTER_SLUGS } from './centro-cluster.mjs';
+import { ARIRIBA_CLUSTER_SLUGS } from './aririba-cluster.mjs';
+import { NACOES_CLUSTER_SLUGS } from './nacoes-cluster.mjs';
+import { BARRA_CLUSTER_SLUGS } from './barra-cluster.mjs';
 import { PIONEIROS_CLUSTER_SLUGS } from './pioneiros-cluster.mjs';
 import { BARRA_SUL_CLUSTER_SLUGS } from './barra-sul-cluster.mjs';
 import { INGLESES_CLUSTER_SLUGS } from './ingleses-cluster.mjs';
@@ -717,6 +720,8 @@ function buildNeighborhoodRules(currentSlug) {
 		CANASVIEIRAS_CLUSTER_SLUGS.has(currentSlug) || CACHOEIRA_CLUSTER_SLUGS.has(currentSlug);
 	const skipItacorubiHub = ITACORUBI_CLUSTER_SLUGS.has(currentSlug);
 	const skipCentroHub = CENTRO_CLUSTER_SLUGS.has(currentSlug);
+	const skipAriribaHub = ARIRIBA_CLUSTER_SLUGS.has(currentSlug);
+	const skipNacoesHub = NACOES_CLUSTER_SLUGS.has(currentSlug);
 	const skipBarraSulHub = BARRA_SUL_CLUSTER_SLUGS.has(currentSlug);
 	const skipPioneirosHub = PIONEIROS_CLUSTER_SLUGS.has(currentSlug);
 	const skipInglesesHub = INGLESES_CLUSTER_SLUGS.has(currentSlug);
@@ -729,6 +734,8 @@ function buildNeighborhoodRules(currentSlug) {
 				!(skipCanasvieirasHub && slug === 'canasvieiras') &&
 				!(skipItacorubiHub && slug === 'itacorubi') &&
 				!(skipCentroHub && slug === 'centro') &&
+				!(skipAriribaHub && slug === 'aririba') &&
+				!(skipNacoesHub && slug === 'nacoes') &&
 				!(skipBarraSulHub && slug === 'barrasul') &&
 				!(skipPioneirosHub && slug === 'pioneiros') &&
 				!(skipInglesesHub && slug === 'ingleses'),
@@ -764,6 +771,8 @@ export function applyArticleInlineLinks(html, currentSlug = '') {
 		BALNEARIO_CAMBORIU_CLUSTER_SLUGS.has(currentSlug) ||
 		ITACORUBI_CLUSTER_SLUGS.has(currentSlug) ||
 		CENTRO_CLUSTER_SLUGS.has(currentSlug) ||
+		NACOES_CLUSTER_SLUGS.has(currentSlug) ||
+		BARRA_CLUSTER_SLUGS.has(currentSlug) ||
 		BARRA_SUL_CLUSTER_SLUGS.has(currentSlug) ||
 		PIONEIROS_CLUSTER_SLUGS.has(currentSlug) ||
 		INGLESES_CLUSTER_SLUGS.has(currentSlug)

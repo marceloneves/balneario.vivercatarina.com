@@ -353,6 +353,244 @@ export const BLOG_POSTS = [
 		href: '/blog/custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
 	},
 	{
+		slug: 'morar-no-aririba-balneario-camboriu-guia-completo',
+		title: 'Morar no Ariribá: Guia do Bairro que Mais Valorizou em BC',
+		excerpt:
+			'Morar no Ariribá significa viver em um dos bairros de maior valorização de Balneário Camboriú, com Praia do Ariribá, infraestrutura completa e forte potencial de retorno sobre investimento.',
+		metaDescription:
+			'Guia completo para morar no Ariribá: valorização, preços, perfil dos imóveis, prós e contras, custo de vida, investimento e FAQ sobre o bairro que mais valorizou em BC.',
+		imageUrl: '/assets/img/blog/blog_1_57.webp',
+		datePublished: '2026-07-04',
+		dateUpdated: '2026-07-04',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Moradia', 'Imóveis'],
+		href: '/blog/morar-no-aririba-balneario-camboriu-guia-completo',
+	},
+	{
+		slug: 'preco-m2-aririba-balneario-camboriu-quanto-custa',
+		title: 'Preço do m² no Ariribá: O Bairro Líder de Valorização de BC',
+		excerpt:
+			'O preço do m² no Ariribá varia entre R$ 9 mil e R$ 20 mil ou mais, refletindo o bairro de maior valorização percentual de Balneário Camboriú nos últimos anos.',
+		metaDescription:
+			'Preço do m² no Ariribá: faixas por tipologia, comparativos com outros bairros, fatores de precificação, cenários de investimento e FAQ para compradores.',
+		imageUrl: '/assets/img/blog/blog_1_58.webp',
+		datePublished: '2026-07-06',
+		dateUpdated: '2026-07-06',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Preço m²', 'Imóveis'],
+		href: '/blog/preco-m2-aririba-balneario-camboriu-quanto-custa',
+	},
+	{
+		slug: 'apartamentos-a-venda-aririba-balneario-camboriu',
+		title: 'Apartamentos à Venda no Ariribá: O Que Esperar por Faixa de Preço',
+		excerpt:
+			'Comprar apartamento no Ariribá exige entender faixas de R$ 600 mil a R$ 6 milhões ou mais, conforme distância da praia, padrão construtivo e tipologia do imóvel.',
+		metaDescription:
+			'Apartamentos à venda no Ariribá: faixas de entrada, intermediária e premium, tipologias, comparativos, custos extras e FAQ para comprar no bairro valorizado.',
+		imageUrl: '/assets/img/blog/blog_1_59.webp',
+		datePublished: '2026-07-08',
+		dateUpdated: '2026-07-08',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Apartamentos', 'Imóveis'],
+		href: '/blog/apartamentos-a-venda-aririba-balneario-camboriu',
+	},
+	{
+		slug: 'vale-a-pena-investir-aririba-balneario-camboriu',
+		title: 'Investir no Ariribá: Por Que a Valorização de 28% em 2025 Coloca o Bairro no Radar',
+		excerpt:
+			'Investir no Ariribá combina valorização acelerada, ticket de entrada mais acessível que a orla central e demanda por locação em um dos bairros que mais crescem em BC.',
+		metaDescription:
+			'Vale a pena investir no Ariribá? Análise da valorização de 28% em 2025, faixas de preço, cenários de retorno, riscos e FAQ para investidores imobiliários.',
+		imageUrl: '/assets/img/blog/blog_1_60.webp',
+		datePublished: '2026-07-10',
+		dateUpdated: '2026-07-10',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Investimento', 'Imóveis'],
+		href: '/blog/vale-a-pena-investir-aririba-balneario-camboriu',
+	},
+	{
+		slug: 'aluguel-aririba-balneario-camboriu-valores-mercado',
+		title: 'Aluguel no Ariribá: Valores e Mercado no Bairro Mais Valorizado de BC',
+		excerpt:
+			'O aluguel no Ariribá varia de R$ 1.800 a R$ 25.000 ou mais por mês, com forte demanda anual e picos expressivos de temporada próximos à praia.',
+		metaDescription:
+			'Aluguel no Ariribá: valores anuais e de temporada, tipologias, custo total de ocupação, comparativos e FAQ sobre locação no bairro valorizado.',
+		imageUrl: '/assets/img/blog/blog_1_61.webp',
+		datePublished: '2026-07-12',
+		dateUpdated: '2026-07-12',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Aluguel', 'Temporada'],
+		href: '/blog/aluguel-aririba-balneario-camboriu-valores-mercado',
+	},
+	{
+		slug: 'aririba-balneario-camboriu-e-bom-para-morar',
+		title: 'Ariribá é Bom para Morar? Prós e Contras do Bairro que Conquistou BC',
+		excerpt:
+			'O Ariribá entrega proximidade com o mar, infraestrutura consolidada e valorização acelerada, mas envolve custos crescentes, obras e trânsito sazonal no verão.',
+		metaDescription:
+			'O Ariribá é bom para morar? Prós, contras, perfil de morador, faixas de preço, comparativos com outros bairros e FAQ honesto sobre moradia na região.',
+		imageUrl: '/assets/img/blog/blog_1_62.webp',
+		datePublished: '2026-07-14',
+		dateUpdated: '2026-07-14',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Moradia', 'Qualidade de Vida'],
+		href: '/blog/aririba-balneario-camboriu-e-bom-para-morar',
+	},
+	{
+		slug: 'custo-de-vida-aririba-balneario-camboriu-quanto-custa-morar',
+		title: 'Custo de Vida no Ariribá: Quanto Custa Morar no Bairro que Mais Valorizou em BC',
+		excerpt:
+			'Morar no Ariribá exige orçamento mensal estimado entre R$ 6 mil e R$ 18 mil para famílias, com moradia e condomínio como os principais pesos do custo de vida.',
+		metaDescription:
+			'Custo de vida no Ariribá: aluguel, condomínio, alimentação, faixas mensais por perfil, comparativos e FAQ sobre quanto custa morar no bairro valorizado.',
+		imageUrl: '/assets/img/blog/blog_1_63.webp',
+		datePublished: '2026-07-16',
+		dateUpdated: '2026-07-16',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Ariribá', 'Custo de Vida', 'Moradia'],
+		href: '/blog/custo-de-vida-aririba-balneario-camboriu-quanto-custa-morar',
+	},
+	{
+		slug: 'morar-no-nacoes-balneario-camboriu-guia-completo',
+		title: 'Morar no Bairro das Nações: Guia do Bairro dos Compactos de Balneário Camboriú',
+		excerpt:
+			'Morar no bairro das Nações significa viver no endereço dos apartamentos compactos de Balneário Camboriú, com praia próxima, ticket acessível e forte vocação para locação e investimento.',
+		metaDescription:
+			'Guia completo para morar no Nações: perfil dos compactos, preços, infraestrutura, prós e contras, investimento, custo de vida e FAQ sobre o bairro dos compactos de BC.',
+		imageUrl: '/assets/img/blog/blog_1_64.webp',
+		datePublished: '2026-07-18',
+		dateUpdated: '2026-07-18',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Nações', 'Moradia', 'Imóveis'],
+		href: '/blog/morar-no-nacoes-balneario-camboriu-guia-completo',
+	},
+	{
+		slug: 'preco-m2-nacoes-balneario-camboriu-quanto-custa',
+		title: 'Preço do m² no Nações: Quanto Custa Comprar um Imóvel no Bairro dos Compactos',
+		excerpt:
+			'O preço do m² no Nações varia entre R$ 8 mil e R$ 14 mil ou mais, refletindo o bairro dos compactos de Balneário Camboriú com boa liquidez e entrada mais acessível que a orla nobre.',
+		metaDescription:
+			'Preço do m² no Nações: faixas por tipologia, comparativos com outros bairros, custos extras, investimento em locação e FAQ para compradores.',
+		imageUrl: '/assets/img/blog/blog_1_65.webp',
+		datePublished: '2026-07-20',
+		dateUpdated: '2026-07-20',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Nações', 'Preço m²', 'Imóveis'],
+		href: '/blog/preco-m2-nacoes-balneario-camboriu-quanto-custa',
+	},
+	{
+		slug: 'apartamentos-compactos-a-venda-nacoes-balneario-camboriu',
+		title: 'Apartamentos Compactos à Venda no Nações: Ideais para Investir em Balneário Camboriú',
+		excerpt:
+			'Apartamentos compactos à venda no Nações concentram studios e unidades de um dormitório com alta liquidez, ticket de entrada acessível e forte demanda por locação em BC.',
+		metaDescription:
+			'Compactos à venda no Nações: studios, tipologias, faixas de preço, rentabilidade, comparativos e FAQ para investir no bairro dos compactos de BC.',
+		imageUrl: '/assets/img/blog/blog_1_66.webp',
+		datePublished: '2026-07-22',
+		dateUpdated: '2026-07-22',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Nações', 'Apartamentos', 'Investimento'],
+		href: '/blog/apartamentos-compactos-a-venda-nacoes-balneario-camboriu',
+	},
+	{
+		slug: 'nacoes-balneario-camboriu-e-bom-para-morar',
+		title: 'Nações é Bom para Morar? Prós e Contras Reais do Bairro dos Compactos de BC',
+		excerpt:
+			'O bairro das Nações entrega localização estratégica e imóveis compactos com bom custo-benefício, mas exige atenção a ruído, metragens reduzidas e variação de padrão entre ruas.',
+		metaDescription:
+			'O Nações é bom para morar? Prós, contras, perfil de morador, faixas de preço, comparativos e FAQ honesto sobre moradia no bairro dos compactos de BC.',
+		imageUrl: '/assets/img/blog/blog_1_67.webp',
+		datePublished: '2026-07-24',
+		dateUpdated: '2026-07-24',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Nações', 'Moradia', 'Qualidade de Vida'],
+		href: '/blog/nacoes-balneario-camboriu-e-bom-para-morar',
+	},
+	{
+		slug: 'custo-de-vida-nacoes-balneario-camboriu-quanto-custa-morar',
+		title: 'Custo de Vida no Nações: Quanto Custa Morar no Bairro das Nações em BC',
+		excerpt:
+			'Morar no Nações custa em média entre R$ 3.500 e R$ 7.000 por mês para quem aluga um compacto, com moradia, condomínio e estilo de vida como principais variáveis.',
+		metaDescription:
+			'Custo de vida no Nações: aluguel, condomínio, alimentação, faixas mensais por perfil, comparativos e FAQ sobre quanto custa morar no bairro dos compactos.',
+		imageUrl: '/assets/img/blog/blog_1_68.webp',
+		datePublished: '2026-07-26',
+		dateUpdated: '2026-07-26',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Nações', 'Custo de Vida', 'Moradia'],
+		href: '/blog/custo-de-vida-nacoes-balneario-camboriu-quanto-custa-morar',
+	},
+	{
+		slug: 'morar-na-barra-balneario-camboriu-guia-completo',
+		title: 'Morar na Barra: Guia do Bairro à Beira do Rio Camboriú em Balneário Camboriú',
+		excerpt:
+			'Morar na Barra significa viver à beira do Rio Camboriú, com tradição pesqueira, praias reservadas e valorização crescente, longe da verticalização extrema do Centro e distinto da Barra Sul.',
+		metaDescription:
+			'Guia completo para morar na Barra de BC: localização, imóveis, preços, prós e contras, investimento, custo de vida e FAQ sobre o bairro à beira do Rio Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_69.webp',
+		datePublished: '2026-08-01',
+		dateUpdated: '2026-08-01',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra', 'Moradia', 'Imóveis'],
+		href: '/blog/morar-na-barra-balneario-camboriu-guia-completo',
+	},
+	{
+		slug: 'preco-m2-barra-balneario-camboriu-quanto-custa',
+		title: 'Preço do m² na Barra: Quanto Custa Comprar um Imóvel à Beira do Rio Camboriú',
+		excerpt:
+			'O preço do m² na Barra varia entre R$ 8 mil e R$ 16 mil ou mais, refletindo a escassez de terrenos à beira do Rio Camboriú e a valorização do bairro histórico de Balneário Camboriú.',
+		metaDescription:
+			'Preço do m² na Barra: faixas por tipologia, comparativos com outros bairros, terrenos, custos extras e FAQ para compradores no bairro à beira do rio.',
+		imageUrl: '/assets/img/blog/blog_1_70.webp',
+		datePublished: '2026-08-03',
+		dateUpdated: '2026-08-03',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra', 'Preço m²', 'Imóveis'],
+		href: '/blog/preco-m2-barra-balneario-camboriu-quanto-custa',
+	},
+	{
+		slug: 'apartamentos-a-venda-barra-balneario-camboriu',
+		title: 'Apartamentos à Venda na Barra: O Que Esperar por Faixa de Preço em BC',
+		excerpt:
+			'Apartamentos à venda na Barra partem de cerca de R$ 450 mil em unidades compactas e sobem até R$ 6 milhões ou mais em alto padrão com vista para o rio ou o mar.',
+		metaDescription:
+			'Apartamentos à venda na Barra: faixas de entrada, intermediária e luxo, tipologias, comparativos, custos extras e FAQ para comprar no bairro à beira do Rio Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_71.webp',
+		datePublished: '2026-08-05',
+		dateUpdated: '2026-08-05',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra', 'Apartamentos', 'Imóveis'],
+		href: '/blog/apartamentos-a-venda-barra-balneario-camboriu',
+	},
+	{
+		slug: 'barra-balneario-camboriu-e-bom-para-morar',
+		title: 'Barra é Bom para Morar? Prós e Contras de Viver à Beira do Rio Camboriú',
+		excerpt:
+			'A Barra entrega tranquilidade, contato com rio e mar e valorização patrimonial, mas exige atenção a acesso, dependência de carro e comércio limitado dentro do bairro.',
+		metaDescription:
+			'A Barra é bom para morar? Prós, contras, perfil de morador, faixas de preço, comparativos e FAQ honesto sobre moradia no bairro à beira do Rio Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_72.webp',
+		datePublished: '2026-08-07',
+		dateUpdated: '2026-08-07',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra', 'Moradia', 'Qualidade de Vida'],
+		href: '/blog/barra-balneario-camboriu-e-bom-para-morar',
+	},
+	{
+		slug: 'custo-de-vida-barra-balneario-camboriu-quanto-custa-morar',
+		title: 'Custo de Vida na Barra: Quanto Custa Morar no Bairro à Beira do Rio Camboriú',
+		excerpt:
+			'Morar na Barra custa em média entre R$ 4.500 e R$ 9.000 por mês para casal, com moradia, transporte e estilo de vida como principais variáveis do orçamento.',
+		metaDescription:
+			'Custo de vida na Barra: aluguel, condomínio, alimentação, transporte, faixas mensais por perfil e FAQ sobre quanto custa morar à beira do Rio Camboriú.',
+		imageUrl: '/assets/img/blog/blog_1_73.webp',
+		datePublished: '2026-08-09',
+		dateUpdated: '2026-08-09',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Barra', 'Custo de Vida', 'Moradia'],
+		href: '/blog/custo-de-vida-barra-balneario-camboriu-quanto-custa-morar',
+	},
+	{
 		slug: 'construtora-incorporadora-diferenca-balneario-camboriu',
 		title: 'Construtora x Incorporadora: Qual a Diferença e Por Que Importa',
 		excerpt:

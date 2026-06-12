@@ -10,6 +10,8 @@ const JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG = 'jurereinternacional';
 const INGLESES_NEIGHBORHOOD_SLUG = 'ingleses';
 const PIONEIROS_NEIGHBORHOOD_SLUG = 'pioneiros';
 const BARRA_SUL_NEIGHBORHOOD_SLUG = 'barrasul';
+const ARIRIBA_NEIGHBORHOOD_SLUG = 'aririba';
+const NACOES_NEIGHBORHOOD_SLUG = 'nacoes';
 
 /** Artigo pilar do cluster Ingleses. */
 const INGLESES_PILLAR_SLUG = 'morar-nos-ingleses-guia-completo';
@@ -55,6 +57,32 @@ const CENTRO_SATELLITE_SLUGS = [
 ];
 
 const CENTRO_PROPERTY_ARTICLE_SLUGS = [CENTRO_PILLAR_SLUG, ...CENTRO_SATELLITE_SLUGS];
+
+/** Artigo pilar do cluster Ariribá. */
+const ARIRIBA_PILLAR_SLUG = 'morar-no-aririba-balneario-camboriu-guia-completo';
+
+const ARIRIBA_SATELLITE_SLUGS = [
+	'preco-m2-aririba-balneario-camboriu-quanto-custa',
+	'apartamentos-a-venda-aririba-balneario-camboriu',
+	'vale-a-pena-investir-aririba-balneario-camboriu',
+	'aluguel-aririba-balneario-camboriu-valores-mercado',
+	'aririba-balneario-camboriu-e-bom-para-morar',
+	'custo-de-vida-aririba-balneario-camboriu-quanto-custa-morar',
+];
+
+const ARIRIBA_PROPERTY_ARTICLE_SLUGS = [ARIRIBA_PILLAR_SLUG, ...ARIRIBA_SATELLITE_SLUGS];
+
+/** Artigo pilar do cluster Nações. */
+const NACOES_PILLAR_SLUG = 'morar-no-nacoes-balneario-camboriu-guia-completo';
+
+const NACOES_SATELLITE_SLUGS = [
+	'preco-m2-nacoes-balneario-camboriu-quanto-custa',
+	'apartamentos-compactos-a-venda-nacoes-balneario-camboriu',
+	'nacoes-balneario-camboriu-e-bom-para-morar',
+	'custo-de-vida-nacoes-balneario-camboriu-quanto-custa-morar',
+];
+
+const NACOES_PROPERTY_ARTICLE_SLUGS = [NACOES_PILLAR_SLUG, ...NACOES_SATELLITE_SLUGS];
 
 /** Artigo pilar do cluster Barra Sul. */
 const BARRA_SUL_PILLAR_SLUG = 'morar-na-barra-sul-balneario-camboriu-guia-completo';
@@ -170,6 +198,8 @@ const NEIGHBORHOOD_SLUG_TO_CLUSTER_ID = {
 	[INGLESES_NEIGHBORHOOD_SLUG]: 'ingleses',
 	[ITACORUBI_NEIGHBORHOOD_SLUG]: 'itacorubi',
 	[JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG]: 'jurere-internacional',
+	[ARIRIBA_NEIGHBORHOOD_SLUG]: 'aririba',
+	[NACOES_NEIGHBORHOOD_SLUG]: 'nacoes',
 };
 
 function normalizeText(value) {
@@ -215,6 +245,20 @@ function isJurereInternacionalNeighborhood(neighborhoodName, neighborhoodSlug) {
 		slug === JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG ||
 		name === 'jurere internacional'
 	);
+}
+
+function isAriribaNeighborhood(neighborhoodName, neighborhoodSlug) {
+	const slug = normalizeText(neighborhoodSlug);
+	const name = normalizeText(neighborhoodName);
+
+	return slug === ARIRIBA_NEIGHBORHOOD_SLUG || name === 'aririba';
+}
+
+function isNacoesNeighborhood(neighborhoodName, neighborhoodSlug) {
+	const slug = normalizeText(neighborhoodSlug);
+	const name = normalizeText(neighborhoodName);
+
+	return slug === NACOES_NEIGHBORHOOD_SLUG || name === 'nacoes';
 }
 
 function isBarraSulNeighborhood(neighborhoodName, neighborhoodSlug) {
@@ -333,6 +377,14 @@ export function getNeighborhoodBlogPosts(neighborhoodName, limit = 3, neighborho
 
 	if (isCentroNeighborhood(neighborhoodName, neighborhoodSlug)) {
 		return getPostsBySlugs(CENTRO_PROPERTY_ARTICLE_SLUGS, limit);
+	}
+
+	if (isAriribaNeighborhood(neighborhoodName, neighborhoodSlug)) {
+		return getPostsBySlugs(ARIRIBA_PROPERTY_ARTICLE_SLUGS, limit);
+	}
+
+	if (isNacoesNeighborhood(neighborhoodName, neighborhoodSlug)) {
+		return getPostsBySlugs(NACOES_PROPERTY_ARTICLE_SLUGS, limit);
 	}
 
 	if (isBarraSulNeighborhood(neighborhoodName, neighborhoodSlug)) {
