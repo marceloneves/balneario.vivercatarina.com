@@ -24,7 +24,7 @@
 
 			try {
 				const data = new FormData(form);
-				const response = await fetch('/api/whatsapp-leads', {
+				const response = await fetch('/api/whatsapp-leads.php', {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({
