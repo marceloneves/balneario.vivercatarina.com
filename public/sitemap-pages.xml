@@ -56,6 +56,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://balneario.vivercatarina.com/blog/pagina-6</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://balneario.vivercatarina.com/blog/pagina-7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://balneario.vivercatarina.com/lancamentos/pagina-2</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>

@@ -54,63 +54,53 @@ export function linkHtml(targetSlug, { short = false } = {}) {
 }
 
 export const LEIA_TAMBEM = {
-	'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel': [
-		'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco',
-		'investir-imovel-centro-balneario-camboriu-locacao-valorizacao',
+	'preco-m2-centro-balneario-camboriu-quanto-custa': [
+		'apartamentos-a-venda-centro-balneario-camboriu',
+		'vale-a-pena-investir-centro-balneario-camboriu',
 		'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
 	],
-	'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco': [
-		'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
-		'investir-imovel-centro-balneario-camboriu-locacao-valorizacao',
-		'como-comprar-imovel-centro-balneario-camboriu-financiamento',
+	'apartamentos-a-venda-centro-balneario-camboriu': [
+		'preco-m2-centro-balneario-camboriu-quanto-custa',
+		'verticalizacao-centro-balneario-camboriu-praia-central',
+		'como-comprar-imovel-centro-balneario-camboriu',
 	],
 	'aluguel-centro-balneario-camboriu-valores-mercado': [
-		'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
-		'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco',
+		'preco-m2-centro-balneario-camboriu-quanto-custa',
 		'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
+		'vale-a-pena-investir-centro-balneario-camboriu',
 	],
-	'investir-imovel-centro-balneario-camboriu-locacao-valorizacao': [
-		'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
+	'vale-a-pena-investir-centro-balneario-camboriu': [
+		'preco-m2-centro-balneario-camboriu-quanto-custa',
 		'aluguel-centro-balneario-camboriu-valores-mercado',
-		'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco',
+		'apartamentos-a-venda-centro-balneario-camboriu',
 	],
-	'como-comprar-imovel-centro-balneario-camboriu-financiamento': [
-		'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
-		'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco',
-		'investir-imovel-centro-balneario-camboriu-locacao-valorizacao',
+	'como-comprar-imovel-centro-balneario-camboriu': [
+		'preco-m2-centro-balneario-camboriu-quanto-custa',
+		'apartamentos-a-venda-centro-balneario-camboriu',
+		'vale-a-pena-investir-centro-balneario-camboriu',
 	],
 	'centro-balneario-camboriu-e-bom-para-morar': [
-		'centro-x-beira-mar-onde-morar-balneario-camboriu',
-		'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
-		'investir-imovel-centro-balneario-camboriu-locacao-valorizacao',
-	],
-	'centro-x-beira-mar-onde-morar-balneario-camboriu': [
-		'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
-		'centro-balneario-camboriu-e-bom-para-morar',
-		'aluguel-centro-balneario-camboriu-valores-mercado',
+		'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
+		'infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
+		'praia-central-balneario-camboriu-guia-orla',
 	],
 	'infraestrutura-centro-balneario-camboriu-comercio-mobilidade': [
 		'centro-balneario-camboriu-e-bom-para-morar',
-		'centro-x-beira-mar-onde-morar-balneario-camboriu',
-		'seguranca-centro-balneario-camboriu-como-e-morar',
+		'praia-central-balneario-camboriu-guia-orla',
+		'verticalizacao-centro-balneario-camboriu-praia-central',
 	],
-	'seguranca-centro-balneario-camboriu-como-e-morar': [
-		'centro-balneario-camboriu-e-bom-para-morar',
-		'infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
-		'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco',
+	'verticalizacao-centro-balneario-camboriu-praia-central': [
+		'praia-central-balneario-camboriu-guia-orla',
+		'preco-m2-centro-balneario-camboriu-quanto-custa',
+		'vale-a-pena-investir-centro-balneario-camboriu',
 	],
-	'escolas-saude-centro-balneario-camboriu-opcoes': [
-		'centro-balneario-camboriu-e-bom-para-morar',
+	'praia-central-balneario-camboriu-guia-orla': [
 		'infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
-		'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
+		'verticalizacao-centro-balneario-camboriu-praia-central',
+		'centro-balneario-camboriu-e-bom-para-morar',
 	],
 	'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar': [
 		'aluguel-centro-balneario-camboriu-valores-mercado',
-		'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia',
-		'centro-x-beira-mar-onde-morar-balneario-camboriu',
-	],
-	'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia': [
-		'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
 		'infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
 		'centro-balneario-camboriu-e-bom-para-morar',
 	],
@@ -121,118 +111,90 @@ export function leiaTambemSlugsForSatellite(slug) {
 }
 
 export const SATELLITE_BODY_PLAN = {
-	'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel': {
+	'preco-m2-centro-balneario-camboriu-quanto-custa': {
 		links: [
-			{ find: 'renda de locação', target: PILLAR },
-			{ find: 'apartamentos compactos', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
-			{ find: 'custos fixos', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
-			{ find: 'valorização contínua', target: 'investir-imovel-centro-balneario-camboriu-locacao-valorizacao' },
-			{ find: 'apartamentos compactos', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
+			{ find: 'coração da cidade', target: PILLAR },
+			{ find: 'valorização imobiliária', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
+			{ find: 'locação por temporada', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
+			{ find: 'comprar na planta', target: 'como-comprar-imovel-centro-balneario-camboriu' },
 		],
 	},
-	'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco': {
+	'apartamentos-a-venda-centro-balneario-camboriu': {
 		links: [
-			{ find: 'praticidade urbana', target: PILLAR },
-			{ find: 'custo por metro', target: 'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel' },
-			{ find: 'locação anual', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
-			{ find: 'custo de reforma', target: 'como-comprar-imovel-centro-balneario-camboriu-financiamento' },
+			{ find: 'morar no Centro', target: PILLAR },
+			{ find: 'metro quadrado', target: 'preco-m2-centro-balneario-camboriu-quanto-custa' },
+			{ find: 'locação por temporada', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
+			{ find: 'investimento imobiliário', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
 		],
 	},
 	'aluguel-centro-balneario-camboriu-valores-mercado': {
 		links: [
-			{ find: 'imposto de marinha', target: PILLAR },
-			{ find: 'imóveis mobiliados', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
-			{ find: 'valor total da locação', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
-			{ find: 'por metro quadrado', target: 'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel' },
+			{ find: 'coração da cidade', target: PILLAR },
+			{ find: 'valorização imobiliária', target: 'preco-m2-centro-balneario-camboriu-quanto-custa' },
+			{ find: 'investimento imobiliário', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
+			{ find: 'custo de vida', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
 		],
 	},
-	'investir-imovel-centro-balneario-camboriu-locacao-valorizacao': {
+	'vale-a-pena-investir-centro-balneario-camboriu': {
 		links: [
+			{ find: 'coração de Balneário Camboriú', target: PILLAR },
 			{ find: 'locação anual', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
-			{ find: 'yield líquido', target: 'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel' },
-			{ find: 'custo do financiamento', target: 'como-comprar-imovel-centro-balneario-camboriu-financiamento' },
-			{ find: 'Studios reformados', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
+			{ find: 'apartamentos à venda', target: 'apartamentos-a-venda-centro-balneario-camboriu' },
+			{ find: 'preço por metro quadrado', target: 'preco-m2-centro-balneario-camboriu-quanto-custa' },
 		],
 	},
-	'como-comprar-imovel-centro-balneario-camboriu-financiamento': {
+	'como-comprar-imovel-centro-balneario-camboriu': {
 		links: [
-			{ find: 'faixa real de imóveis', target: 'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel' },
-			{ find: 'tipo de imóvel', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
-			{ find: 'prédios antigos', target: PILLAR },
-			{ find: 'composição de renda', target: 'investir-imovel-centro-balneario-camboriu-locacao-valorizacao' },
+			{ find: 'Centro de Balneário Camboriú', target: PILLAR },
+			{ find: 'imóvel na planta', target: 'preco-m2-centro-balneario-camboriu-quanto-custa' },
+			{ find: 'estilo de vida', target: 'centro-balneario-camboriu-e-bom-para-morar' },
+			{ find: 'valorização imobiliária', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
 		],
 	},
 	'centro-balneario-camboriu-e-bom-para-morar': {
 		links: [
-			{ find: 'mais movimentada e prática', target: PILLAR },
-			{ find: 'valorização consistente', target: 'investir-imovel-centro-balneario-camboriu-locacao-valorizacao' },
-			{ find: 'polo cultural', target: 'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia' },
-			{ find: 'Custo de vida', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
-		],
-	},
-	'centro-x-beira-mar-onde-morar-balneario-camboriu': {
-		links: [
-			{ find: 'metro quadrado gira', target: 'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel' },
-			{ find: 'conveniência e efervescência', target: 'centro-balneario-camboriu-e-bom-para-morar' },
-			{ find: 'cultura e gastronomia', target: 'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia' },
-			{ find: 'principal nó de transporte', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
+			{ find: 'Centro de Balneário Camboriú', target: PILLAR },
+			{ find: 'investir em imóveis', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
+			{ find: 'infraestrutura urbana', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
+			{ find: 'custo de vida', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
 		],
 	},
 	'infraestrutura-centro-balneario-camboriu-comercio-mobilidade': {
 		links: [
-			{ find: 'vida nas ruas', target: PILLAR },
-			{ find: 'gargalo das pontes', target: 'centro-x-beira-mar-onde-morar-balneario-camboriu' },
-			{ find: 'vaga escriturada', target: 'como-comprar-imovel-centro-balneario-camboriu-financiamento' },
-			{ find: 'entorno do TICEN', target: 'seguranca-centro-balneario-camboriu-como-e-morar' },
+			{ find: 'coração da cidade', target: PILLAR },
+			{ find: 'apartamentos à venda', target: 'apartamentos-a-venda-centro-balneario-camboriu' },
+			{ find: 'valorização imobiliária', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
+			{ find: 'estilo de vida', target: 'centro-balneario-camboriu-e-bom-para-morar' },
 		],
 	},
-	'seguranca-centro-balneario-camboriu-como-e-morar': {
+	'verticalizacao-centro-balneario-camboriu-praia-central': {
 		links: [
-			{ find: 'crime de oportunidade', target: PILLAR },
-			{ find: 'entorno do TICEN', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
-			{ find: 'comerciais esvaziam', target: 'centro-balneario-camboriu-e-bom-para-morar' },
-			{ find: 'portaria, controle', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
+			{ find: 'coração pulsante', target: PILLAR },
+			{ find: 'valorização patrimonial', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
+			{ find: 'locação por temporada', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
+			{ find: 'Praia Central', target: 'praia-central-balneario-camboriu-guia-orla' },
 		],
 	},
-	'escolas-saude-centro-balneario-camboriu-opcoes': {
+	'praia-central-balneario-camboriu-guia-orla': {
 		links: [
-			{ find: 'escola e hospital perto', target: PILLAR },
-			{ find: 'barulho e área verde', target: 'centro-balneario-camboriu-e-bom-para-morar' },
-			{ find: 'estrutura de serviços', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
-			{ find: 'mensalidades escolares', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
+			{ find: 'coração da cidade', target: PILLAR },
+			{ find: 'valorização constante', target: 'vale-a-pena-investir-centro-balneario-camboriu' },
+			{ find: 'locação de temporada', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
+			{ find: 'infraestrutura urbana', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
 		],
 	},
 	'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar': {
 		links: [
-			{ find: 'passagem mais cara', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
-			{ find: 'viver a pé', target: PILLAR },
-			{ find: 'vida cultural', target: 'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia' },
-			{ find: 'comparação simplista', target: 'centro-x-beira-mar-onde-morar-balneario-camboriu' },
-		],
-	},
-	'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia': {
-		links: [
-			{ find: 'custo zero', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
-			{ find: 'estacionar no Centro', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
-			{ find: 'quem mora ali', target: PILLAR },
-			{ find: 'morar no Centro', target: 'centro-balneario-camboriu-e-bom-para-morar' },
+			{ find: 'coração da cidade', target: PILLAR },
+			{ find: 'aluguel anual', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
+			{ find: 'Barra Sul', target: 'barra-sul-x-centro-x-pioneiros-comparativo' },
+			{ find: 'viver a pé', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
 		],
 	},
 };
 
 export const PILLAR_BODY_PLAN = {
-	links: [
-		{ find: 'Mercado Público', target: 'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia' },
-		{ find: 'locação anual', target: 'aluguel-centro-balneario-camboriu-valores-mercado' },
-		{ find: 'Para quem investe', target: 'investir-imovel-centro-balneario-camboriu-locacao-valorizacao' },
-		{ find: 'metros quadrados', target: 'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel' },
-		{ find: 'lançamentos residenciais', target: 'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco' },
-		{ find: 'perfis de comprador', target: 'como-comprar-imovel-centro-balneario-camboriu-financiamento' },
-		{ find: 'trânsito intenso', target: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade' },
-		{ find: 'bom para morar', target: 'centro-balneario-camboriu-e-bom-para-morar' },
-		{ find: 'Educação e saúde na região', target: 'escolas-saude-centro-balneario-camboriu-opcoes' },
-		{ find: 'dependência do carro', target: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar' },
-	],
+	links: [],
 };
 
 export function renderLeiaTambem(slugs) {
@@ -269,7 +231,6 @@ export function renderHubBlock(slug) {
 </div>`;
 }
 
-/** Rodapé do pilar: todos os satélites, título "Leia também". */
 export function renderExploreBlock() {
 	const published = SATELLITE_SLUGS.filter((slug) => blogTitleBySlug.has(slug));
 	if (!published.length) {

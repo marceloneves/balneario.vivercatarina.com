@@ -42,18 +42,16 @@ const INGLESES_PROPERTY_ARTICLE_SLUGS = [INGLESES_PILLAR_SLUG, ...INGLESES_SATEL
 const CENTRO_PILLAR_SLUG = 'morar-no-centro-balneario-camboriu-guia-completo';
 
 const CENTRO_SATELLITE_SLUGS = [
-	'preco-m2-centro-balneario-camboriu-quanto-custa-comprar-imovel',
-	'apartamentos-a-venda-centro-balneario-camboriu-faixas-preco',
+	'preco-m2-centro-balneario-camboriu-quanto-custa',
+	'apartamentos-a-venda-centro-balneario-camboriu',
 	'aluguel-centro-balneario-camboriu-valores-mercado',
-	'investir-imovel-centro-balneario-camboriu-locacao-valorizacao',
-	'como-comprar-imovel-centro-balneario-camboriu-financiamento',
+	'vale-a-pena-investir-centro-balneario-camboriu',
+	'como-comprar-imovel-centro-balneario-camboriu',
 	'centro-balneario-camboriu-e-bom-para-morar',
-	'centro-x-beira-mar-onde-morar-balneario-camboriu',
 	'infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
-	'seguranca-centro-balneario-camboriu-como-e-morar',
-	'escolas-saude-centro-balneario-camboriu-opcoes',
+	'verticalizacao-centro-balneario-camboriu-praia-central',
+	'praia-central-balneario-camboriu-guia-orla',
 	'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
-	'o-que-fazer-centro-balneario-camboriu-cultura-gastronomia',
 ];
 
 const CENTRO_PROPERTY_ARTICLE_SLUGS = [CENTRO_PILLAR_SLUG, ...CENTRO_SATELLITE_SLUGS];

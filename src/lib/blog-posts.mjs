@@ -199,6 +199,160 @@ export const BLOG_POSTS = [
 		href: '/blog/custo-de-vida-barra-sul-quanto-custa-morar',
 	},
 	{
+		slug: 'morar-no-centro-balneario-camboriu-guia-completo',
+		title: 'Morar no Centro de Balneário Camboriú: Guia do Coração da Cidade',
+		excerpt:
+			'Morar no Centro de Balneário Camboriú significa viver no ponto mais valorizado da cidade, com Praia Central, Avenida Atlântica e infraestrutura completa a poucos passos.',
+		metaDescription:
+			'Guia completo para morar no Centro de Balneário Camboriú: perfil do morador, preços, infraestrutura, investimento, prós e contras, custo de vida e FAQ.',
+		imageUrl: '/assets/img/blog/blog_1_46.webp',
+		datePublished: '2026-06-12',
+		dateUpdated: '2026-06-12',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Moradia', 'Imóveis'],
+		href: '/blog/morar-no-centro-balneario-camboriu-guia-completo',
+	},
+	{
+		slug: 'preco-m2-centro-balneario-camboriu-quanto-custa',
+		title: 'Preço do m² no Centro de Balneário Camboriú: Quanto Custa Comprar um Imóvel',
+		excerpt:
+			'O preço do m² no Centro de Balneário Camboriú varia entre R$ 12 mil e R$ 40 mil ou mais, conforme vista, andar e padrão construtivo na orla mais valorizada da cidade.',
+		metaDescription:
+			'Preço do m² no Centro de BC: faixas por padrão, comparativos com outros bairros, custos adicionais, valorização e FAQ para compradores.',
+		imageUrl: '/assets/img/blog/blog_1_47.webp',
+		datePublished: '2026-06-14',
+		dateUpdated: '2026-06-14',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Preço m²', 'Imóveis'],
+		href: '/blog/preco-m2-centro-balneario-camboriu-quanto-custa',
+	},
+	{
+		slug: 'apartamentos-a-venda-centro-balneario-camboriu',
+		title: 'Apartamentos à Venda no Centro de Balneário Camboriú: O Que Esperar por Faixa de Preço',
+		excerpt:
+			'Comprar apartamento no Centro de BC exige entender o que cada faixa de preço entrega, do studio nas quadras internas à cobertura frente-mar na Avenida Atlântica.',
+		metaDescription:
+			'Apartamentos à venda no Centro de BC: faixas de R$ 450 mil a R$ 40 mi+, tipologias, microterritórios, comparativos e FAQ para comprar no coração da cidade.',
+		imageUrl: '/assets/img/blog/blog_1_48.webp',
+		datePublished: '2026-06-16',
+		dateUpdated: '2026-06-16',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Apartamentos', 'Imóveis'],
+		href: '/blog/apartamentos-a-venda-centro-balneario-camboriu',
+	},
+	{
+		slug: 'aluguel-centro-balneario-camboriu-valores-mercado',
+		title: 'Aluguel no Centro de Balneário Camboriú: Valores e Mercado Imobiliário Atualizado',
+		excerpt:
+			'O aluguel no Centro de Balneário Camboriú varia de R$ 2.500 a R$ 20.000 ou mais, com forte demanda anual e de temporada na região mais disputada da cidade.',
+		metaDescription:
+			'Aluguel no Centro de BC: valores anuais e de temporada, sazonalidade, tipologias, comparativos e FAQ sobre locação no coração da cidade.',
+		imageUrl: '/assets/img/blog/blog_1_49.webp',
+		datePublished: '2026-06-18',
+		dateUpdated: '2026-06-18',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Aluguel', 'Temporada'],
+		href: '/blog/aluguel-centro-balneario-camboriu-valores-mercado',
+	},
+	{
+		slug: 'vale-a-pena-investir-centro-balneario-camboriu',
+		title: 'Investir no Centro de Balneário Camboriú: Liquidez, Valorização e o Que Realmente Importa',
+		excerpt:
+			'Investir no Centro de Balneário Camboriú combina alta liquidez de revenda, valorização consistente e demanda permanente no metro quadrado mais disputado do litoral catarinense.',
+		metaDescription:
+			'Vale a pena investir no Centro de BC? Análise de liquidez, valorização, rentabilidade, riscos e FAQ para investidores imobiliários.',
+		imageUrl: '/assets/img/blog/blog_1_50.webp',
+		datePublished: '2026-06-20',
+		dateUpdated: '2026-06-20',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Investimento', 'Imóveis'],
+		href: '/blog/vale-a-pena-investir-centro-balneario-camboriu',
+	},
+	{
+		slug: 'como-comprar-imovel-centro-balneario-camboriu',
+		title: 'Como Comprar Imóvel no Centro de Balneário Camboriú: O Guia Definitivo',
+		excerpt:
+			'Comprar imóvel no Centro de Balneário Camboriú exige método, orçamento realista e due diligence em um dos mercados mais aquecidos e valorizados do Sul do Brasil.',
+		metaDescription:
+			'Como comprar imóvel no Centro de BC: passo a passo, documentação, na planta x pronto, faixas de preço, custos extras e FAQ para aquisição segura.',
+		imageUrl: '/assets/img/blog/blog_1_51.webp',
+		datePublished: '2026-06-22',
+		dateUpdated: '2026-06-22',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Compra', 'Imóveis'],
+		href: '/blog/como-comprar-imovel-centro-balneario-camboriu',
+	},
+	{
+		slug: 'centro-balneario-camboriu-e-bom-para-morar',
+		title: 'Centro de Balneário Camboriú é Bom para Morar? Prós, Contras e o Que Ninguém Te Conta',
+		excerpt:
+			'Morar no Centro de Balneário Camboriú entrega praticidade urbana à beira-mar, mas envolve custos elevados, trânsito sazonal e movimento intenso na alta temporada.',
+		metaDescription:
+			'O Centro de BC é bom para morar? Prós, contras, custo de vida, perfil de morador, comparativos e FAQ honesto sobre moradia no coração da cidade.',
+		imageUrl: '/assets/img/blog/blog_1_52.webp',
+		datePublished: '2026-06-24',
+		dateUpdated: '2026-06-24',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Moradia', 'Qualidade de Vida'],
+		href: '/blog/centro-balneario-camboriu-e-bom-para-morar',
+	},
+	{
+		slug: 'infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
+		title: 'Infraestrutura do Centro de Balneário Camboriú: Avenida Atlântica, Shoppings e Serviços',
+		excerpt:
+			'A infraestrutura do Centro de Balneário Camboriú concentra orla revitalizada, shoppings, rede de saúde e mobilidade caminhável no bairro mais completo da cidade.',
+		metaDescription:
+			'Infraestrutura do Centro de BC: Avenida Atlântica, shoppings, saúde, mobilidade, faixas de preço e FAQ sobre viver no coração da cidade.',
+		imageUrl: '/assets/img/blog/blog_1_53.webp',
+		datePublished: '2026-06-26',
+		dateUpdated: '2026-06-26',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Infraestrutura', 'Serviços'],
+		href: '/blog/infraestrutura-centro-balneario-camboriu-comercio-mobilidade',
+	},
+	{
+		slug: 'verticalizacao-centro-balneario-camboriu-praia-central',
+		title: 'Morar Perto da Praia Central de Balneário Camboriú: Guia da Verticalização no Centro',
+		excerpt:
+			'Morar perto da Praia Central significa viver entre os arranha-céus mais altos do Brasil, com conveniência máxima e valorização patrimonial na orla do Centro de BC.',
+		metaDescription:
+			'Verticalização no Centro de BC: frente-mar x quadra-mar, arranha-céus, faixas de preço, construtoras e FAQ sobre morar perto da Praia Central.',
+		imageUrl: '/assets/img/blog/blog_1_54.webp',
+		datePublished: '2026-06-28',
+		dateUpdated: '2026-06-28',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Verticalização', 'Praia Central'],
+		href: '/blog/verticalizacao-centro-balneario-camboriu-praia-central',
+	},
+	{
+		slug: 'praia-central-balneario-camboriu-guia-orla',
+		title: 'Praia Central de Balneário Camboriú: Guia Completo da Orla',
+		excerpt:
+			'A Praia Central é a orla mais emblemática de Santa Catarina, com 6 km de extensão, calçadão revitalizado e os arranha-céus que definem o skyline de Balneário Camboriú.',
+		metaDescription:
+			'Praia Central de BC: guia da orla, alargamento da faixa de areia, imóveis, faixas de preço, locação e FAQ sobre o cartão-postal da cidade.',
+		imageUrl: '/assets/img/blog/blog_1_55.webp',
+		datePublished: '2026-06-30',
+		dateUpdated: '2026-06-30',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Praia Central', 'Orla'],
+		href: '/blog/praia-central-balneario-camboriu-guia-orla',
+	},
+	{
+		slug: 'custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
+		title: 'Custo de Vida no Centro de Balneário Camboriú: Quanto Custa Morar na Região',
+		excerpt:
+			'Morar no Centro de Balneário Camboriú exige orçamento mensal elevado, com moradia, condomínio e serviços proporcionais ao endereço mais valorizado da cidade.',
+		metaDescription:
+			'Custo de vida no Centro de BC: aluguel, condomínio, alimentação, faixas mensais por perfil, comparativos e FAQ sobre quanto custa morar na região.',
+		imageUrl: '/assets/img/blog/blog_1_56.webp',
+		datePublished: '2026-07-02',
+		dateUpdated: '2026-07-02',
+		author: 'Viver Catarina',
+		tags: ['Balneário Camboriú', 'Centro', 'Custo de Vida', 'Moradia'],
+		href: '/blog/custo-de-vida-centro-balneario-camboriu-quanto-custa-morar',
+	},
+	{
 		slug: 'construtora-incorporadora-diferenca-balneario-camboriu',
 		title: 'Construtora x Incorporadora: Qual a Diferença e Por Que Importa',
 		excerpt:
