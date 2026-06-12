@@ -27,3 +27,4 @@ Site em [Astro](https://astro.build) para imóveis na planta em Balneário Cambo
 | `npm run import:properties` | Importa imóveis para `src/data/imoveis/` |
 | `npm run generate:lancamentos` | Regenera listagens por tipo |
 | `npm run generate:bairros` | Regenera listagens por bairro |
+
