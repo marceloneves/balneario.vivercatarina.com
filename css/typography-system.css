@@ -1,0 +1,350 @@
+/* Sistema tipográfico — industrial/construção (Inter + Bebas Neue + Fraunces) */
+
+:root {
+	/* Paleta */
+	--black: #0a0a0a;
+	--ink: #1a1a1a;
+	--charcoal: #333;
+	--bone: #f5f2ed;
+	--paper: #fafaf7;
+	--white: #fff;
+	--safety: #FFAF00;
+	--rust-dark: #8a2e0f;
+	--border: #d4cfc2;
+	--border-strong: #2b2b2b;
+	--light-on-dark: #eae7e0;
+	--muted-on-dark: #bdbab3;
+
+	/* Famílias */
+	--body-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--title-font: "Bebas Neue", "Arial Narrow", sans-serif;
+	--section-title-font: "Arial Narrow", sans-serif;
+	--accent-font: "Fraunces", Georgia, serif;
+
+	/* Ponte para tokens do template Piller */
+	--theme-color: var(--safety);
+	--theme-color2: var(--safety);
+	--theme-color3: var(--safety);
+	--title-color: var(--ink);
+	--body-color: var(--charcoal);
+	--smoke-color: var(--bone);
+	--smoke-color2: var(--paper);
+	--black-color: var(--black);
+	--black-color2: var(--black);
+	--white-color: var(--white);
+	--yellow-color: var(--safety);
+	--th-border-color: var(--border);
+	--th-border-color2: var(--border-strong);
+	--gray-color2: var(--border);
+}
+
+/* --- Base / corpo --- */
+body {
+	font-family: var(--body-font);
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.6;
+	color: var(--charcoal);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+p {
+	font-family: var(--body-font);
+	font-weight: 500;
+	color: var(--charcoal);
+	line-height: 1.6;
+}
+
+.lead,
+p.lead,
+.typo-lead,
+.vivercatarina-block__lead,
+.property-regularity-guide__lead,
+.property-offplan-guide__group-intro {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.55;
+}
+
+/* --- Display / títulos (Bebas Neue) --- */
+h1,
+.h1,
+.hero-title {
+	font-family: var(--title-font);
+	font-weight: 400;
+	font-size: clamp(48px, 7vw, 98px);
+	line-height: 0.95;
+	letter-spacing: 0.005em;
+	color: var(--ink);
+	text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+	h1,
+	.h1,
+	.hero-title {
+		font-size: clamp(40px, 9vw, 58px);
+	}
+}
+
+h1 em,
+.h1 em,
+.hero-title em {
+	font-family: var(--accent-font);
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	color: var(--safety);
+	text-transform: none;
+}
+
+h2,
+.h2,
+.sec-title {
+	font-family: var(--title-font);
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0.005em;
+	color: var(--ink);
+	text-transform: uppercase;
+}
+
+.landing-section-title,
+.imovel-landing .section__title,
+.imovel-landing .vivercatarina-block__title,
+.imovel-landing .property-regularity-guide__title,
+.imovel-landing .property-offplan-guide__group-title,
+.imovel-landing .vivercatarina-consultant__title {
+	font-family: var(--section-title-font);
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	color: var(--black);
+	text-transform: none;
+}
+
+.imovel-landing .property-offplan-guide__download-title,
+.imovel-landing .property-regularity-guide__download-title {
+	font-family: var(--section-title-font);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: 0.02em;
+	text-transform: none;
+}
+
+h2,
+.h2 {
+	font-size: clamp(28px, 3.5vw, 48px);
+}
+
+.sec-title {
+	font-size: clamp(32px, 4vw, 52px);
+}
+
+h3,
+.h3 {
+	font-family: var(--title-font);
+	font-weight: 400;
+	font-size: clamp(24px, 2.8vw, 36px);
+	line-height: 1;
+	color: var(--ink);
+	text-transform: uppercase;
+}
+
+.imovel-landing .property-offplan-guide__group-title {
+	font-family: var(--section-title-font);
+	font-weight: 700;
+	font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+	line-height: 1.15;
+	color: var(--black);
+	text-transform: none;
+}
+
+h4,
+.h4,
+.box-title {
+	font-family: var(--title-font);
+	font-weight: 400;
+	font-size: 28px;
+	line-height: 1;
+	color: var(--ink);
+	text-transform: uppercase;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+	font-family: var(--body-font);
+	font-weight: 700;
+	color: var(--ink);
+	line-height: 1.35;
+}
+
+h5,
+.h5 {
+	font-size: 18px;
+}
+
+h6,
+.h6 {
+	font-size: 16px;
+}
+
+h2 em,
+.h2 em,
+h3 em,
+.h3 em,
+.sec-title em,
+.vivercatarina-block__title em,
+.section__title em,
+.property-regularity-guide__title em,
+.property-offplan-guide__group-title em {
+	font-family: var(--accent-font);
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	color: var(--safety);
+	text-transform: none;
+}
+
+/* --- Números de destaque --- */
+.counter-number,
+.box-number,
+.stats-bar__value,
+.property-regularity-guide__index {
+	font-family: var(--title-font);
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 1;
+}
+
+/* --- Etiquetas / eyebrows --- */
+.sub-title,
+.property-regularity-guide__eyebrow,
+.vivercatarina-urgency,
+.typo-eyebrow {
+	font-family: var(--body-font);
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	color: var(--safety);
+}
+
+/* --- Botões --- */
+.th-btn,
+.imovel-btn-submit,
+button.th-btn,
+a.th-btn {
+	font-family: var(--body-font) !important;
+	font-size: 13px !important;
+	font-weight: 700 !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.12em !important;
+	line-height: 1 !important;
+}
+
+/* --- Navegação --- */
+.main-menu a,
+.th-header .header-links a,
+.th-menu-wrapper .main-menu a {
+	font-family: var(--body-font);
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+}
+
+.header-logo,
+.header-logo a {
+	font-family: var(--title-font);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+/* --- Formulários --- */
+input,
+select,
+textarea,
+.form-control,
+.form-select,
+.nice-select,
+.sidebar-card input,
+.sidebar-card select,
+.sidebar-card textarea,
+.sidebar-card label {
+	font-family: var(--body-font);
+	font-size: 14px;
+	font-weight: 500;
+}
+
+/* --- Micro-texto --- */
+small,
+.text-micro,
+.typo-micro,
+.copyright-text,
+.copyright-wrap .copyright-text,
+.disclaimer,
+.vivercatarina-page-notice small {
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.45;
+}
+
+/* --- Links --- */
+a {
+	color: var(--rust-dark);
+}
+
+a:hover {
+	color: var(--ink);
+}
+
+.th-btn,
+.th-btn:hover,
+a.th-btn,
+a.th-btn:hover {
+	color: var(--white);
+}
+
+/* --- Tipografia sobre fundo escuro --- */
+.hero-title,
+.hero-style1 .hero-title,
+.hero-2-content .hero-title,
+.bg-black2 h1,
+.bg-black2 .h1,
+.bg-black2 h2,
+.bg-black2 .h2,
+.bg-black2 .sec-title {
+	color: var(--white);
+}
+
+.hero-style1 .sub-title,
+.hero-2-content .sub-title,
+.bg-black2 .sub-title,
+[class*="hero"] .sub-title {
+	color: var(--safety);
+}
+
+.bg-black2 p,
+.hero-style1 p.lead,
+.hero-2-content p.lead {
+	color: var(--light-on-dark);
+}
+
+.bg-black2 p {
+	color: var(--muted-on-dark);
+}
+
+/* --- Card titles secundários (corpo bold) --- */
+.highlight-card__label,
+.property-offplan-guide__item-title,
+.property-regularity-guide__card-title,
+.vivercatarina-faq__item summary {
+	font-family: var(--body-font);
+	font-weight: 700;
+	color: var(--ink);
+}

@@ -1,0 +1,121 @@
+# Viver Catarina
+
+> Portal especializado em lançamentos imobiliários e imóveis na planta em Balneário Camboriú, Santa Catarina.
+
+O Viver Catarina conecta compradores a apartamentos, casas em condomínio e loteamentos em Balneário Camboriú. Cada empreendimento tem ficha técnica, plantas, preços e contato via WhatsApp.
+
+Contato: contato@vivercatarina.com | WhatsApp (48) 98810-5199
+
+## Páginas principais
+
+- [Início](https://balneario.vivercatarina.com/): home com lançamentos em destaque e bairros
+- [Lançamentos](https://balneario.vivercatarina.com/lancamentos): listagem de imóveis novos em Balneário Camboriú
+- [Bairros](https://balneario.vivercatarina.com/bairros): imóveis por bairro e faixa de preço
+- [Quem Somos](https://balneario.vivercatarina.com/about): missão, diferenciais e contato
+- [Blog](https://balneario.vivercatarina.com/blog): conteúdo sobre bairros e mercado local
+- [Glossário](https://balneario.vivercatarina.com/glossario): termos essenciais para comprar imóvel na planta
+
+## Lançamentos por tipo
+
+- [Apartamentos](https://balneario.vivercatarina.com/lancamentos/apartamentos)
+- [Casas em condomínio](https://balneario.vivercatarina.com/lancamentos/casas-em-condominio)
+- [Loteamento](https://balneario.vivercatarina.com/lancamentos/loteamento)
+- [Pré-lançamento](https://balneario.vivercatarina.com/lancamentos/pre-lancamento)
+- [Em lançamento](https://balneario.vivercatarina.com/lancamentos/lancamento)
+- [Pronto para morar](https://balneario.vivercatarina.com/lancamentos/pronto-para-morar)
+
+## Bairros em destaque
+
+- [Bairro dos Estados](https://balneario.vivercatarina.com/bairro/bairrodosestados): imóveis na planta no bairro
+- [Barra Norte](https://balneario.vivercatarina.com/bairro/barranorte): imóveis na planta no bairro
+- [Barra Sul](https://balneario.vivercatarina.com/bairro/barrasul): imóveis na planta no bairro
+- [Centro](https://balneario.vivercatarina.com/bairro/centro): imóveis na planta no bairro
+- [Cristo Rei](https://balneario.vivercatarina.com/bairro/cristorei): imóveis na planta no bairro
+- [Frente Mar](https://balneario.vivercatarina.com/bairro/frentemar): imóveis na planta no bairro
+- [Municípios](https://balneario.vivercatarina.com/bairro/municipios): imóveis na planta no bairro
+- [Nações](https://balneario.vivercatarina.com/bairro/nacoes): imóveis na planta no bairro
+- [Nova Esperança](https://balneario.vivercatarina.com/bairro/novaesperanca): imóveis na planta no bairro
+- [Passagem](https://balneario.vivercatarina.com/bairro/passagem): imóveis na planta no bairro
+- [Pioneiros](https://balneario.vivercatarina.com/bairro/pioneiros): imóveis na planta no bairro
+- [Praia Central](https://balneario.vivercatarina.com/bairro/praiacentral): imóveis na planta no bairro
+
+## Blog
+
+- [Morar na Barra Sul: Guia do Bairro Mais Luxuoso de Balneário Camboriú](https://balneario.vivercatarina.com/blog/morar-na-barra-sul-balneario-camboriu-guia-completo)
+- [Preço do m² na Barra Sul: Quanto Custa o Bairro Mais Caro de BC](https://balneario.vivercatarina.com/blog/preco-m2-barra-sul-balneario-camboriu-quanto-custa)
+- [Apartamentos à Venda na Barra Sul: O Que Esperar em Cada Faixa de Preço](https://balneario.vivercatarina.com/blog/apartamentos-a-venda-barra-sul-balneario-camboriu)
+- [Apartamentos de Luxo na Barra Sul: Coberturas e Alto Padrão Frente-Mar](https://balneario.vivercatarina.com/blog/coberturas-luxo-barra-sul-balneario-camboriu)
+- [Aluguel na Barra Sul: Temporada e Valores do Mercado de Luxo](https://balneario.vivercatarina.com/blog/aluguel-barra-sul-temporada-valores-mercado)
+- [Investir na Barra Sul: Vale a Pena? Análise de Valorização e Retorno](https://balneario.vivercatarina.com/blog/vale-a-pena-investir-barra-sul-balneario-camboriu)
+- [Como Comprar Imóvel na Barra Sul: Passo a Passo do Alto Padrão](https://balneario.vivercatarina.com/blog/como-comprar-imovel-barra-sul-balneario-camboriu)
+- [Barra Sul é Bom para Morar? Prós, Contras e o Que Ninguém Te Conta](https://balneario.vivercatarina.com/blog/barra-sul-e-bom-para-morar)
+- [Barra Sul x Centro x Pioneiros: Qual Bairro de BC Vale Mais a Pena](https://balneario.vivercatarina.com/blog/barra-sul-x-centro-x-pioneiros-comparativo)
+- [Os Arranha-céus da Barra Sul: Senna Tower e os Prédios Mais Altos do Brasil](https://balneario.vivercatarina.com/blog/arranha-ceus-barra-sul-senna-tower)
+- [Infraestrutura da Barra Sul: Comércio, Mobilidade e Serviços](https://balneario.vivercatarina.com/blog/infraestrutura-barra-sul-comercio-mobilidade)
+- [Praia da Barra Sul: Guia Completo da Orla e do Molhe](https://balneario.vivercatarina.com/blog/praia-barra-sul-molhe-guia-orla)
+- [Restaurantes na Barra Sul: Guia da Vida Noturna e Gastronomia](https://balneario.vivercatarina.com/blog/gastronomia-vida-noturna-barra-sul)
+- [Custo de Vida na Barra Sul: Quanto Custa Morar no Bairro de Luxo](https://balneario.vivercatarina.com/blog/custo-de-vida-barra-sul-quanto-custa-morar)
+- [Morar no Centro de Balneário Camboriú: Guia do Coração da Cidade](https://balneario.vivercatarina.com/blog/morar-no-centro-balneario-camboriu-guia-completo)
+- [Preço do m² no Centro de Balneário Camboriú: Quanto Custa Comprar um Imóvel](https://balneario.vivercatarina.com/blog/preco-m2-centro-balneario-camboriu-quanto-custa)
+- [Apartamentos à Venda no Centro de Balneário Camboriú: O Que Esperar por Faixa de Preço](https://balneario.vivercatarina.com/blog/apartamentos-a-venda-centro-balneario-camboriu)
+- [Aluguel no Centro de Balneário Camboriú: Valores e Mercado Imobiliário Atualizado](https://balneario.vivercatarina.com/blog/aluguel-centro-balneario-camboriu-valores-mercado)
+- [Investir no Centro de Balneário Camboriú: Liquidez, Valorização e o Que Realmente Importa](https://balneario.vivercatarina.com/blog/vale-a-pena-investir-centro-balneario-camboriu)
+- [Como Comprar Imóvel no Centro de Balneário Camboriú: O Guia Definitivo](https://balneario.vivercatarina.com/blog/como-comprar-imovel-centro-balneario-camboriu)
+- [Centro de Balneário Camboriú é Bom para Morar? Prós, Contras e o Que Ninguém Te Conta](https://balneario.vivercatarina.com/blog/centro-balneario-camboriu-e-bom-para-morar)
+- [Infraestrutura do Centro de Balneário Camboriú: Avenida Atlântica, Shoppings e Serviços](https://balneario.vivercatarina.com/blog/infraestrutura-centro-balneario-camboriu-comercio-mobilidade)
+- [Morar Perto da Praia Central de Balneário Camboriú: Guia da Verticalização no Centro](https://balneario.vivercatarina.com/blog/verticalizacao-centro-balneario-camboriu-praia-central)
+- [Praia Central de Balneário Camboriú: Guia Completo da Orla](https://balneario.vivercatarina.com/blog/praia-central-balneario-camboriu-guia-orla)
+- [Custo de Vida no Centro de Balneário Camboriú: Quanto Custa Morar na Região](https://balneario.vivercatarina.com/blog/custo-de-vida-centro-balneario-camboriu-quanto-custa-morar)
+- [Morar no Ariribá: Guia do Bairro que Mais Valorizou em BC](https://balneario.vivercatarina.com/blog/morar-no-aririba-balneario-camboriu-guia-completo)
+- [Preço do m² no Ariribá: O Bairro Líder de Valorização de BC](https://balneario.vivercatarina.com/blog/preco-m2-aririba-balneario-camboriu-quanto-custa)
+- [Apartamentos à Venda no Ariribá: O Que Esperar por Faixa de Preço](https://balneario.vivercatarina.com/blog/apartamentos-a-venda-aririba-balneario-camboriu)
+- [Investir no Ariribá: Por Que a Valorização de 28% em 2025 Coloca o Bairro no Radar](https://balneario.vivercatarina.com/blog/vale-a-pena-investir-aririba-balneario-camboriu)
+- [Aluguel no Ariribá: Valores e Mercado no Bairro Mais Valorizado de BC](https://balneario.vivercatarina.com/blog/aluguel-aririba-balneario-camboriu-valores-mercado)
+- [Ariribá é Bom para Morar? Prós e Contras do Bairro que Conquistou BC](https://balneario.vivercatarina.com/blog/aririba-balneario-camboriu-e-bom-para-morar)
+- [Custo de Vida no Ariribá: Quanto Custa Morar no Bairro que Mais Valorizou em BC](https://balneario.vivercatarina.com/blog/custo-de-vida-aririba-balneario-camboriu-quanto-custa-morar)
+- [Morar no Bairro das Nações: Guia do Bairro dos Compactos de Balneário Camboriú](https://balneario.vivercatarina.com/blog/morar-no-nacoes-balneario-camboriu-guia-completo)
+- [Preço do m² no Nações: Quanto Custa Comprar um Imóvel no Bairro dos Compactos](https://balneario.vivercatarina.com/blog/preco-m2-nacoes-balneario-camboriu-quanto-custa)
+- [Apartamentos Compactos à Venda no Nações: Ideais para Investir em Balneário Camboriú](https://balneario.vivercatarina.com/blog/apartamentos-compactos-a-venda-nacoes-balneario-camboriu)
+- [Nações é Bom para Morar? Prós e Contras Reais do Bairro dos Compactos de BC](https://balneario.vivercatarina.com/blog/nacoes-balneario-camboriu-e-bom-para-morar)
+- [Custo de Vida no Nações: Quanto Custa Morar no Bairro das Nações em BC](https://balneario.vivercatarina.com/blog/custo-de-vida-nacoes-balneario-camboriu-quanto-custa-morar)
+- [Morar na Barra: Guia do Bairro à Beira do Rio Camboriú em Balneário Camboriú](https://balneario.vivercatarina.com/blog/morar-na-barra-balneario-camboriu-guia-completo)
+- [Preço do m² na Barra: Quanto Custa Comprar um Imóvel à Beira do Rio Camboriú](https://balneario.vivercatarina.com/blog/preco-m2-barra-balneario-camboriu-quanto-custa)
+- [Apartamentos à Venda na Barra: O Que Esperar por Faixa de Preço em BC](https://balneario.vivercatarina.com/blog/apartamentos-a-venda-barra-balneario-camboriu)
+- [Barra é Bom para Morar? Prós e Contras de Viver à Beira do Rio Camboriú](https://balneario.vivercatarina.com/blog/barra-balneario-camboriu-e-bom-para-morar)
+- [Custo de Vida na Barra: Quanto Custa Morar no Bairro à Beira do Rio Camboriú](https://balneario.vivercatarina.com/blog/custo-de-vida-barra-balneario-camboriu-quanto-custa-morar)
+- [Construtora x Incorporadora: Qual a Diferença e Por Que Importa](https://balneario.vivercatarina.com/blog/construtora-incorporadora-diferenca-balneario-camboriu)
+- [Os Maiores Arranha-Céus de BC e Quem os Construiu](https://balneario.vivercatarina.com/blog/maiores-arranha-ceus-balneario-camboriu-quem-construiu)
+- [Branded Residences em BC: Armani, Pininfarina, Lamborghini e Outras Marcas](https://balneario.vivercatarina.com/blog/branded-residences-balneario-camboriu-armani-pininfarina-lamborghini)
+- [Como Escolher uma Incorporadora Segura em BC: Guia de Due Diligence](https://balneario.vivercatarina.com/blog/como-escolher-incorporadora-segura-balneario-camboriu-due-diligence)
+- [RV Empreendimentos e Outras Construtoras de Destaque em Balneário Camboriú](https://balneario.vivercatarina.com/blog/rv-empreendimentos-outras-construtoras-balneario-camboriu)
+- [Procave: Sustentabilidade e Forte Presença na Praia Brava](https://balneario.vivercatarina.com/blog/procave-balneario-camboriu-sustentabilidade-praia-brava)
+- [Pasqualotto & GT: A Construtora do Yachthouse by Pininfarina](https://balneario.vivercatarina.com/blog/pasqualotto-gt-balneario-camboriu-yachthouse-pininfarina)
+- [Embraed: Luxo Artesanal e Acabamento de Alto Padrão em Balneário Camboriú](https://balneario.vivercatarina.com/blog/embaed-balneario-camboriu-luxo-artesanal-acabamento-alto-padrao)
+- [FG Empreendimentos: A Maior Construtora de Arranha-Céus do Brasil](https://balneario.vivercatarina.com/blog/fg-empreendimentos-balneario-camboriu-maior-construtora-arranha-ceus)
+- [As Grandes Incorporadoras de Balneário Camboriú: Guia Completo](https://balneario.vivercatarina.com/blog/grandes-incorporadoras-balneario-camboriu-guia-completo)
+- [Aluguel de Temporada em Balneário Camboriú: Como Funciona e Quanto Rende](https://balneario.vivercatarina.com/blog/aluguel-temporada-balneario-camboriu-como-funciona-rende)
+- [Apartamento de Andar Alto em BC: Vale a Pena Pagar Mais pela Vista?](https://balneario.vivercatarina.com/blog/apartamento-andar-alto-balneario-camboriu-vale-pena-vista)
+- [Frente-Mar, Quadra-Mar e Vista Mar em BC: Entenda as Diferenças e os Preços](https://balneario.vivercatarina.com/blog/frente-mar-quadra-mar-vista-mar-balneario-camboriu)
+- [ITBI e Custos de Cartório em Balneário Camboriú: Quanto Custa Além do Imóvel](https://balneario.vivercatarina.com/blog/itbi-custos-cartorio-balneario-camboriu-quanto-custa-alem-imovel)
+- [Como Comprar Imóvel em Balneário Camboriú: Financiamento e Passo a Passo](https://balneario.vivercatarina.com/blog/como-comprar-imovel-balneario-camboriu-financiamento-documentacao)
+- [Comprar Imóvel em BC Sendo Estrangeiro: Guia para Argentinos e Paraguaios](https://balneario.vivercatarina.com/blog/comprar-imovel-balneario-camboriu-estrangeiro)
+- [Investir em Imóveis em Balneário Camboriú: Guia Definitivo de Valorização e ROI](https://balneario.vivercatarina.com/blog/investir-imoveis-balneario-camboriu-valorizacao-roi)
+- [Comprar Imóvel na Planta em Balneário Camboriú: Guia Completo e Vantagens](https://balneario.vivercatarina.com/blog/comprar-imovel-na-planta-balneario-camboriu)
+- [Custo de Vida nos Pioneiros: Quanto Custa Morar no Bairro](https://balneario.vivercatarina.com/blog/custo-de-vida-pioneiros)
+- [Morro do Careca e Estaleiro: Natureza nos Pioneiros e no Entorno de Balneário Camboriú](https://balneario.vivercatarina.com/blog/morro-do-careca-estaleiro-natureza-pioneiros)
+- [Barra Norte e Molhe: Guia da Região dos Pioneiros em Balneário Camboriú](https://balneario.vivercatarina.com/blog/barra-norte-molhe-guia-regiao-pioneiros)
+- [Infraestrutura dos Pioneiros: Molhe Norte, Comércio e Serviços](https://balneario.vivercatarina.com/blog/infraestrutura-pioneiros-molhe-comercio-servicos)
+- [Pioneiros é Bom para Morar? Prós, Contras e o Que Ninguém Te Conta](https://balneario.vivercatarina.com/blog/pioneiros-e-bom-para-morar)
+- [Como Comprar Imóvel nos Pioneiros / Barra Norte: Passo a Passo Completo](https://balneario.vivercatarina.com/blog/como-comprar-imovel-pioneiros-barra-norte)
+- [Vale a Pena Investir nos Pioneiros? A Grande Aposta de 2026 em Balneário Camboriú](https://balneario.vivercatarina.com/blog/vale-a-pena-investir-pioneiros)
+- [Aluguel nos Pioneiros: Valores e Mercado em Balneário Camboriú](https://balneario.vivercatarina.com/blog/aluguel-pioneiros-valores-mercado)
+- [Apartamentos à Venda nos Pioneiros: O Que Esperar por Faixa de Preço](https://balneario.vivercatarina.com/blog/apartamentos-a-venda-pioneiros)
+- [Preço do m² nos Pioneiros: Quanto Custa o Bairro em Ascensão de Balneário Camboriú](https://balneario.vivercatarina.com/blog/preco-m2-pioneiros-bairro-em-ascensao)
+- [Morar nos Pioneiros: Guia do Bairro que Mais Cresce em Balneário Camboriú](https://balneario.vivercatarina.com/blog/morar-nos-pioneiros-guia-completo)
+- [Morar em Balneário Camboriú: Guia Completo da Cidade dos Arranha-céus](https://balneario.vivercatarina.com/blog/morar-em-balneario-camboriu-guia-completo)
+
+## Optional
+
+- [Contato](https://balneario.vivercatarina.com/contact): formulário e informações de contato
+- [Sitemap](https://balneario.vivercatarina.com/sitemap-index.xml): índice de URLs públicas do site
+- [Robots](https://balneario.vivercatarina.com/robots.txt): regras de rastreamento para buscadores

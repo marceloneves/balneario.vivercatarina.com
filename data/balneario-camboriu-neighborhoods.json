@@ -1,0 +1,22 @@
+[
+	{ "name": "Centro", "slug": "centro" },
+	{ "name": "Barra Sul", "slug": "barrasul" },
+	{ "name": "Barra Norte", "slug": "barranorte" },
+	{ "name": "Praia Central", "slug": "praiacentral" },
+	{ "name": "Nações", "slug": "nacoes" },
+	{ "name": "Pioneiros", "slug": "pioneiros" },
+	{ "name": "Vila Real", "slug": "vilareal" },
+	{ "name": "Bairro dos Estados", "slug": "bairrodosestados" },
+	{ "name": "Nova Esperança", "slug": "novaesperanca" },
+	{ "name": "Municípios", "slug": "municipios" },
+	{ "name": "São Judas Tadeu", "slug": "saojudastadeu" },
+	{ "name": "Santa Regina", "slug": "santaregina" },
+	{ "name": "Santa Inês", "slug": "santaines" },
+	{ "name": "Frente Mar", "slug": "frentemar" },
+	{ "name": "Passagem", "slug": "passagem" },
+	{ "name": "Taquaras", "slug": "taquaras" },
+	{ "name": "Cristo Rei", "slug": "cristorei" },
+	{ "name": "Zona 2", "slug": "zona2" },
+	{ "name": "Zona 3", "slug": "zona3" },
+	{ "name": "Zona 4", "slug": "zona4" }
+]
