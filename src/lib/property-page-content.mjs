@@ -949,28 +949,11 @@ function extractRegistro(property) {
 }
 
 const COASTAL_NEIGHBORHOODS = new Set([
-	'armacao',
-	'barra-da-lagoa',
-	'cacupe',
-	'cachoeira-do-bom-jesus',
-	'campeche',
-	'canasvieiras',
-	'coqueiros',
-	'ingleses',
-	'ingleses-do-rio-vermelho',
-	'jurere',
-	'morro-das-pedras',
-	'ponta-das-canas',
-	'prainha',
-	'ribeirao-da-ilha',
-	'santo-antonio-de-lisboa',
-]);
-
-const UFSC_NEIGHBORHOODS = new Set([
-	'agronomica',
-	'carvoeira',
-	'corrego-grande',
-	'trindade',
+	'barranorte',
+	'barrasul',
+	'frentemar',
+	'praiacentral',
+	'taquaras',
 ]);
 
 const LOCATION_POI_DEFINITIONS = [
@@ -1009,23 +992,13 @@ const LOCATION_POI_DEFINITIONS = [
 		defaultDistance: 'no entorno',
 	},
 	{
-		label: 'UFSC',
-		icon: 'fa-solid fa-graduation-cap',
-		patterns: [
-			/(\d+)\s*(?:m|metros?|km)\s*(?:da|de)\s*UFSC/i,
-			/UFSC\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
-		],
-		defaultDistance: 'a cerca de 1 km',
-		neighborhoods: UFSC_NEIGHBORHOODS,
-	},
-	{
 		label: 'Beira-mar',
 		icon: 'fa-solid fa-water',
 		patterns: [
 			/(\d+)\s*(?:m|metros?|km)\s*(?:da|de)\s*beira[- ]?mar/i,
 			/beira[- ]?mar\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
 		],
-		neighborhoods: new Set(['agronomica', 'centro', 'coqueiros', 'trindade']),
+		neighborhoods: COASTAL_NEIGHBORHOODS,
 	},
 	{
 		label: 'Centro',
@@ -1077,80 +1050,38 @@ function extractLocationDistance(text, patterns) {
 	return null;
 }
 
+const DEFAULT_SHOPPING_KEY = 'shopping-balneario-camboriu';
+
 const BALNEARIO_CAMBORIU_SHOPPING_CENTERS = {
 	'shopping-balneario-camboriu': 'Shopping Balneário Camboriú',
-	beiramar: 'Beiramar Shopping',
-	'vila-romana': 'Vila Romana',
+	atlantico: 'Atlântico Shopping',
 };
 
-const NEAREST_SHOPPING_BY_NEIGHBORHOOD = {
-	ingleses: 'shopping-balneario-camboriu',
-	'ingleses-do-rio-vermelho': 'shopping-balneario-camboriu',
-	canasvieiras: 'shopping-balneario-camboriu',
-	jurere: 'shopping-balneario-camboriu',
-	'jurere-internacional': 'shopping-balneario-camboriu',
-	'cachoeira-do-bom-jesus': 'shopping-balneario-camboriu',
-	'ponta-das-canas': 'shopping-balneario-camboriu',
-	'barra-da-lagoa': 'shopping-balneario-camboriu',
-	'lagoa-da-conceicao': 'shopping-balneario-camboriu',
-	'praia-brava': 'shopping-balneario-camboriu',
-	'rio-vermelho': 'shopping-balneario-camboriu',
-	carvoeira: 'vila-romana',
-	'corrego-grande': 'vila-romana',
-	coqueiros: 'vila-romana',
-	trindade: 'vila-romana',
-	pantanal: 'vila-romana',
-	cacupe: 'vila-romana',
-	armacao: 'vila-romana',
-	'morro-das-pedras': 'vila-romana',
-	campeche: 'vila-romana',
-	'ribeirao-da-ilha': 'vila-romana',
-	'santo-antonio-de-lisboa': 'vila-romana',
-	'rio-tavares': 'vila-romana',
-	centro: 'beiramar',
-	agronomica: 'beiramar',
-	estreito: 'beiramar',
-	capoeiras: 'beiramar',
-	balneario: 'beiramar',
-	'santa-monica': 'beiramar',
-	'saco-grande': 'beiramar',
-	abraao: 'beiramar',
-	'joao-paulo': 'beiramar',
-	itacorubi: 'beiramar',
-	'vargem-grande': 'beiramar',
-};
+const SHOPPING_BC_NAME = /shopping\s+balne[aá]rio\s+cambori[uú]|balne[aá]rio\s+cambori[uú]\s+shopping/i;
+const SHOPPING_ATLANTICO_NAME = /atl[aâ]ntico\s+shopping|shopping\s+atl[aâ]ntico/i;
 
 const BALNEARIO_CAMBORIU_SHOPPING_PATTERNS = [
 	{
 		name: 'Shopping Balneário Camboriú',
 		distancePatterns: [
-			/(\d+)\s*(?:m|metros?|km)\s*(?:do|de)\s*shopping\s+balneario-camboriu/i,
-			/shopping\s+balneario-camboriu\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
+			/(\d+)\s*(?:m|metros?|km)\s*(?:do|de)\s*shopping\s+balne[aá]rio\s+cambori[uú]/i,
+			/shopping\s+balne[aá]rio\s+cambori[uú]\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
 		],
-		mentionPattern: /shopping\s+balneario-camboriu/i,
+		mentionPattern: SHOPPING_BC_NAME,
 	},
 	{
-		name: 'Beiramar Shopping',
+		name: 'Atlântico Shopping',
 		distancePatterns: [
-			/(\d+)\s*(?:m|metros?|km)\s*(?:do|de)\s*(?:beiramar\s+shopping|shopping\s+beira\s*mar)/i,
-			/(?:beiramar\s+shopping|shopping\s+beira\s*mar)\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
+			/(\d+)\s*(?:m|metros?|km)\s*(?:do|de)\s*atl[aâ]ntico\s+shopping/i,
+			/atl[aâ]ntico\s+shopping\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
 		],
-		mentionPattern: /beiramar\s+shopping|shopping\s+beira\s*mar/i,
-	},
-	{
-		name: 'Vila Romana',
-		distancePatterns: [
-			/(\d+)\s*(?:m|metros?|km)\s*(?:do|de)\s*vila\s+romana/i,
-			/vila\s+romana\s*(?:a\s+)?(?:cerca\s+de\s+)?(\d+)\s*(m|metros?|km)/i,
-		],
-		mentionPattern: /vila\s+romana/i,
+		mentionPattern: SHOPPING_ATLANTICO_NAME,
 	},
 ];
 
-function resolveNearestShoppingName(neighborhoodSlug) {
-	const shoppingKey =
-		NEAREST_SHOPPING_BY_NEIGHBORHOOD[neighborhoodSlug] || 'beiramar';
-	return BALNEARIO_CAMBORIU_SHOPPING_CENTERS[shoppingKey];
+/** Balneário Camboriú é compacta: o Shopping Balneário Camboriú atende toda a cidade. */
+function resolveNearestShoppingName() {
+	return BALNEARIO_CAMBORIU_SHOPPING_CENTERS[DEFAULT_SHOPPING_KEY];
 }
 
 function buildShoppingDistance(text, neighborhoodSlug) {
@@ -1169,7 +1100,7 @@ function buildShoppingDistance(text, neighborhoodSlug) {
 		}
 	}
 
-	return `${resolveNearestShoppingName(neighborhoodSlug)} (mais próximo)`;
+	return `${resolveNearestShoppingName()} (mais próximo)`;
 }
 
 function buildLocationPoints(property) {

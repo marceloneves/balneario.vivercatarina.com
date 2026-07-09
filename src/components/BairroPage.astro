@@ -3,6 +3,9 @@ import PillerLayout from '../layouts/PillerLayout.astro';
 import BairroIntroSection from './BairroIntroSection.astro';
 import PropertyListingTabs from './PropertyListingTabs.astro';
 import { buildBairroPageContext } from '../lib/bairro-page.mjs';
+import { buildItemListSchema } from '../lib/site-schema.mjs';
+import { SITE_URL } from '../lib/site-contact.mjs';
+import bairroCoords from '../data/bairro-coords.json';
 
 const { slug, page } = Astro.props;
 const context = buildBairroPageContext(slug, page);
@@ -12,6 +15,29 @@ if (!context) {
 }
 
 const hasProperties = context.allProperties.length > 0;
+const listingItemList = buildItemListSchema(
+	(context.properties ?? []).map((property) => ({
+		url: `/imovel/${property.slug}`,
+		name: property.title,
+	})),
+	{ name: `Imóveis na planta em ${context.listing.name}` },
+);
+
+const coords = bairroCoords[slug];
+const placeSchema = coords
+	? {
+			'@context': 'https://schema.org',
+			'@type': 'Place',
+			'@id': `${SITE_URL}/bairro/${slug}#place`,
+			name: `${context.listing.name}, Balneário Camboriú`,
+			geo: { '@type': 'GeoCoordinates', latitude: coords.lat, longitude: coords.lng },
+			containedInPlace: {
+				'@type': 'City',
+				name: 'Balneário Camboriú',
+				address: { '@type': 'PostalAddress', addressRegion: 'SC', addressCountry: 'BR' },
+			},
+		}
+	: null;
 ---
 
 <PillerLayout
@@ -19,15 +45,20 @@ const hasProperties = context.allProperties.length > 0;
 	description={context.seo.description}
 	keywords={context.seo.keywords}
 	canonicalPath={context.seo.canonicalPath}
-	bodyClass="bairro-listing"
+	bodyClass={`bairro-listing bairro-listing--${slug}`}
 	disableEffects
+	jsonLd={[listingItemList, placeSchema].filter(Boolean)}
 >
 	<Fragment set:html={context.shellBefore} />
-	<BairroIntroSection
-		name={context.listing.name}
-		paragraphs={context.introParagraphs}
-		hasProperties={hasProperties}
-	/>
+	<div class="row">
+		<div class="col-xl-8 col-lg-12">
+			<BairroIntroSection
+				name={context.listing.name}
+				paragraphs={context.introParagraphs}
+				hasProperties={hasProperties}
+			/>
+		</div>
+	</div>
 	<PropertyListingTabs
 		properties={context.properties}
 		allProperties={context.allProperties}

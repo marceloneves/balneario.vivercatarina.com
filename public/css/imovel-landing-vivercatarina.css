@@ -1,0 +1,3470 @@
+/* Layout ViverCatarina — usa tokens de typography-system.css */
+
+.imovel-landing.imovel-landing-vivercatarina {
+	--section-title-font: "Arial Narrow", sans-serif;
+	--vivercatarina-sticky-top: calc(96px + 28px);
+	--vivercatarina-card-surface: color-mix(in srgb, var(--bone) 38%, var(--white-color));
+	--vivercatarina-btn-border-width: 2px;
+	--vivercatarina-hero-contact-border-width: 4px;
+	--vivercatarina-highlight-card-border-width: 5px;
+	--vivercatarina-highlight-card-border-width-black: 2px;
+	--vivercatarina-subtitle-size: clamp(23.8px, 2.975vw, 40.8px);
+	--vivercatarina-subtitle-size-md: clamp(1.105rem, 1.87vw, 1.445rem);
+	--vivercatarina-subtitle-size-lg: clamp(1.445rem, 2.72vw, 2.019rem);
+	--vivercatarina-subtitle-size-sidebar: clamp(18.7px, 2.04vw, 23.8px);
+	--vivercatarina-text-size: 16px;
+	--vivercatarina-text-line: 1.6;
+	--vivercatarina-list-line: 1.6;
+	--vivercatarina-text-lead-size: 18px;
+	--vivercatarina-text-small-size: 15px;
+	--vivercatarina-paragraph-gap: 14px;
+	--vivercatarina-list-gap: 18px;
+	--body-color: var(--charcoal);
+	--title-color: var(--black);
+}
+
+body.imovel-landing.imovel-landing-vivercatarina {
+	font-family: var(--body-font);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page {
+	font-family: var(--body-font);
+	background: var(--white-color);
+	color: var(--body-color);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.imovel-landing-vivercatarina .stats-bar {
+	background: var(--black-color);
+	border-bottom: 1px solid color-mix(in srgb, var(--white-color) 12%, transparent);
+}
+
+.imovel-landing-vivercatarina .stats-bar__grid {
+	grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 0.85fr) minmax(0, 1.5fr) minmax(0, 0.85fr);
+}
+
+.imovel-landing-vivercatarina .stats-bar__item {
+	min-width: 0;
+	padding: 18px 20px;
+	border-right-color: color-mix(in srgb, var(--white-color) 12%, transparent);
+}
+
+.imovel-landing-vivercatarina .stats-bar__label {
+	font-family: var(--body-font);
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: normal;
+	color: color-mix(in srgb, var(--white-color) 72%, transparent);
+	white-space: nowrap;
+}
+
+.imovel-landing-vivercatarina .stats-bar__value {
+	font-family: var(--title-font);
+	font-size: 36px;
+	font-weight: 400;
+	letter-spacing: 0.005em;
+	line-height: 1;
+	color: var(--white-color);
+	white-space: nowrap;
+}
+
+.imovel-landing-vivercatarina .stats-bar__value--urgent {
+	color: var(--theme-color2);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page img {
+	max-width: 100%;
+	height: auto;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover {
+	position: relative;
+	padding: 0;
+	overflow: hidden;
+	min-height: clamp(520px, 62vh, 720px);
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__head {
+	position: absolute;
+	top: 48px;
+	bottom: 24px;
+	left: 0;
+	right: auto;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10px;
+	width: fit-content;
+	max-width: 100%;
+	pointer-events: none;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__head > * {
+	pointer-events: auto;
+}
+
+.imovel-landing-vivercatarina .hero-gallery__title-overlay {
+	margin: 0 !important;
+	padding: 20px 32px 6px;
+	width: fit-content;
+	max-width: calc(100vw - 420px);
+	background: rgba(0, 0, 0, 0.82);
+	color: var(--white-color) !important;
+	font-family: var(--title-font) !important;
+	font-size: clamp(48px, 7vw, 98px) !important;
+	font-weight: 400 !important;
+	line-height: 0.95 !important;
+	letter-spacing: 0.005em;
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+	.imovel-landing-vivercatarina .hero-gallery__title-overlay {
+		max-width: calc(100vw - 32px);
+		font-size: clamp(40px, 9vw, 58px) !important;
+	}
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay {
+	position: static;
+	width: fit-content;
+	max-width: 100%;
+	margin: auto 0 0;
+	padding: 0;
+	border: 0;
+	background: transparent !important;
+	text-align: left;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay::before {
+	display: none !important;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-content {
+	display: inline-block;
+	width: fit-content;
+	max-width: 100%;
+	padding: 8px 14px 8px 16px;
+	border-radius: 0;
+	background: rgba(0, 0, 0, 0.85);
+	text-align: left;
+	align-self: flex-start;
+	margin: 0;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 4px 0;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu li,
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu a,
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu span {
+	color: rgba(255, 255, 255, 0.92);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu a {
+	cursor: pointer;
+	pointer-events: auto;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu a:hover {
+	color: var(--theme-color2);
+	text-decoration: none;
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu li::after {
+	border-right-color: rgba(255, 255, 255, 0.55);
+	border-bottom-color: rgba(255, 255, 255, 0.55);
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu li:last-child::after {
+	display: none !important;
+	content: none !important;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover::after {
+	display: none;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-trigger,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background: none;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-trigger {
+	cursor: default;
+	min-height: clamp(520px, 62vh, 720px);
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-trigger img,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-image {
+	width: 100%;
+	height: 100%;
+	min-height: clamp(520px, 62vh, 720px);
+	object-fit: cover;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__meta {
+	position: static;
+	z-index: 2;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-left: 16px;
+}
+
+.imovel-landing-vivercatarina .hero-gallery__badge {
+	background: var(--theme-color2);
+	color: var(--title-color);
+	padding: 6px 14px;
+	border-radius: 0;
+	font-size: 13px;
+	font-weight: 700;
+	font-family: var(--body-font);
+	line-height: 1.2;
+	letter-spacing: normal;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-footer {
+	position: absolute;
+	left: 24px;
+	right: 24px;
+	bottom: 24px;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__count {
+	margin: 0;
+	color: var(--white-color);
+	text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay {
+	position: relative;
+	z-index: 3;
+	min-height: clamp(520px, 62vh, 720px);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-top: clamp(32px, 4vw, 56px);
+	padding-bottom: clamp(32px, 4vw, 56px);
+	pointer-events: none;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay .sidebar--hero,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay .sidebar-card,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay a,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay button,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay input,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay label,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay select,
+.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay textarea {
+	pointer-events: auto;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .sidebar--hero {
+	position: relative;
+	top: auto;
+	width: min(360px, 100%);
+	margin-left: auto;
+}
+
+.imovel-landing-vivercatarina .hero-gallery--cover .sidebar--hero .sidebar-card {
+	margin-bottom: 0;
+	box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18);
+	border: var(--vivercatarina-hero-contact-border-width) solid var(--safety);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page h1 {
+	font-family: var(--title-font);
+	color: var(--title-color);
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	line-height: 1;
+	text-transform: none;
+}
+
+/* Subtítulos de seção: Arial Narrow (Bebas só tem maiúsculas — não renderiza title case) */
+.imovel-landing-vivercatarina .landing-section-title,
+.imovel-landing-vivercatarina .vivercatarina-page h2,
+.imovel-landing-vivercatarina .vivercatarina-block__title,
+.imovel-landing-vivercatarina .section__title,
+.imovel-landing-vivercatarina .property-regularity-guide__title,
+.imovel-landing-vivercatarina .property-offplan-guide__group-title,
+.imovel-landing-vivercatarina .vivercatarina-consultant__title,
+.imovel-landing-vivercatarina .property-offplan-guide .section__title {
+	font-family: var(--section-title-font) !important;
+	font-size: var(--vivercatarina-subtitle-size);
+	color: var(--title-color);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	line-height: 1.1;
+	text-transform: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page h1 em,
+.imovel-landing-vivercatarina .vivercatarina-page h2 em,
+.imovel-landing-vivercatarina .vivercatarina-block__title em,
+.imovel-landing-vivercatarina .section__title em,
+.imovel-landing-vivercatarina .property-regularity-guide__title em,
+.imovel-landing-vivercatarina .property-offplan-guide__group-title em {
+	font-family: var(--accent-font);
+	font-style: italic;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	color: var(--safety);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__item-title,
+.imovel-landing-vivercatarina .highlight-card__label {
+	font-family: var(--body-font);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	line-height: 1.35;
+	color: var(--ink);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide__card-title {
+	font-family: var(--body-font);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	line-height: 1.3;
+	color: var(--ink);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page p,
+.imovel-landing-vivercatarina .vivercatarina-page li,
+.imovel-landing-vivercatarina .vivercatarina-page dd,
+.imovel-landing-vivercatarina .vivercatarina-page blockquote,
+.imovel-landing-vivercatarina .vivercatarina-text,
+.imovel-landing-vivercatarina .about-text,
+.imovel-landing-vivercatarina .property-description,
+.imovel-landing-vivercatarina .property-description p,
+.imovel-landing-vivercatarina .property-description li,
+.imovel-landing-vivercatarina .property-regularity-guide__lead,
+.imovel-landing-vivercatarina .property-regularity-guide__card-intro,
+.imovel-landing-vivercatarina .property-regularity-guide__tasks li,
+.imovel-landing-vivercatarina .property-offplan-guide__group-intro,
+.imovel-landing-vivercatarina .property-offplan-guide__item p,
+.imovel-landing-vivercatarina .highlight-card__description,
+.imovel-landing-vivercatarina .vivercatarina-intro__subtitle,
+.imovel-landing-vivercatarina .vivercatarina-intro__address,
+.imovel-landing-vivercatarina .vivercatarina-consultant__text,
+.imovel-landing-vivercatarina .vivercatarina-faq__answer,
+.imovel-landing-vivercatarina .vivercatarina-block__lead,
+.imovel-landing-vivercatarina .planta-card,
+.imovel-landing-vivercatarina .vivercatarina-feature-pill,
+.imovel-landing-vivercatarina .vivercatarina-similar-card__body,
+.imovel-landing-vivercatarina .hero-gallery__count {
+	font-family: var(--body-font);
+	color: var(--charcoal);
+	font-weight: 500;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page p,
+.imovel-landing-vivercatarina .vivercatarina-text,
+.imovel-landing-vivercatarina .property-description,
+.imovel-landing-vivercatarina .property-description p,
+.imovel-landing-vivercatarina .about-text,
+.imovel-landing-vivercatarina .property-offplan-guide__group-intro,
+.imovel-landing-vivercatarina .property-offplan-guide__item p,
+.imovel-landing-vivercatarina .property-regularity-guide__lead,
+.imovel-landing-vivercatarina .property-regularity-guide__card-intro,
+.imovel-landing-vivercatarina .vivercatarina-block__lead,
+.imovel-landing-vivercatarina .vivercatarina-intro__subtitle,
+.imovel-landing-vivercatarina .vivercatarina-intro__address,
+.imovel-landing-vivercatarina .vivercatarina-consultant__text,
+.imovel-landing-vivercatarina .planta-card,
+.imovel-landing-vivercatarina .vivercatarina-feature-pill {
+	font-size: var(--vivercatarina-text-size);
+}
+
+
+.imovel-landing-vivercatarina .vivercatarina-page p,
+.imovel-landing-vivercatarina .vivercatarina-text,
+.imovel-landing-vivercatarina .property-description p,
+.imovel-landing-vivercatarina .about-text,
+.imovel-landing-vivercatarina .property-offplan-guide__group-intro,
+.imovel-landing-vivercatarina .property-offplan-guide__item p,
+.imovel-landing-vivercatarina .property-regularity-guide__lead,
+.imovel-landing-vivercatarina .property-regularity-guide__card-intro,
+.imovel-landing-vivercatarina .vivercatarina-block__lead {
+	margin: 0 0 var(--vivercatarina-paragraph-gap);
+}
+
+.imovel-landing-vivercatarina .property-description li,
+.imovel-landing-vivercatarina .property-regularity-guide__tasks li,
+.imovel-landing-vivercatarina .vivercatarina-char-list li {
+	font-size: var(--vivercatarina-text-size);
+	line-height: var(--vivercatarina-list-line);
+	letter-spacing: normal;
+}
+
+.imovel-landing-vivercatarina .property-description ul,
+.imovel-landing-vivercatarina .property-description ol,
+.imovel-landing-vivercatarina .property-regularity-guide__tasks,
+.imovel-landing-vivercatarina .vivercatarina-char-list {
+	margin: 0 0 var(--vivercatarina-list-gap);
+	padding: 0;
+}
+
+.imovel-landing-vivercatarina .property-description li,
+.imovel-landing-vivercatarina .property-regularity-guide__tasks li {
+	margin-bottom: 8px;
+}
+
+.imovel-landing-vivercatarina .property-description li:last-child,
+.imovel-landing-vivercatarina .property-regularity-guide__tasks li:last-child,
+.imovel-landing-vivercatarina .vivercatarina-char-list li:last-child {
+	margin-bottom: 0;
+}
+
+.imovel-landing-vivercatarina .property-description ul,
+.imovel-landing-vivercatarina .property-description ol {
+	padding-left: 22px;
+}
+
+.imovel-landing-vivercatarina .highlight-card__description,
+.imovel-landing-vivercatarina .vivercatarina-faq__answer,
+.imovel-landing-vivercatarina .vivercatarina-faq__answer p {
+	font-size: var(--vivercatarina-text-small-size);
+	line-height: 1.65;
+	letter-spacing: normal;
+}
+
+.imovel-landing-vivercatarina .highlight-card__label,
+.imovel-landing-vivercatarina .property-offplan-guide__item-title {
+	font-size: 17px;
+	line-height: 1.3;
+	letter-spacing: 0.02em;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-urgency {
+	font-family: var(--body-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--rust-dark);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__title-block {
+	display: inline-block;
+	max-width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__divider {
+	display: block;
+	height: 3px;
+	width: 100%;
+	margin: 12px 0 0;
+	border: 0;
+	background-color: var(--safety);
+	opacity: 1;
+}
+
+.imovel-landing-vivercatarina .th-btn,
+.imovel-landing-vivercatarina .imovel-btn-submit,
+.imovel-landing-vivercatarina .sidebar-card input,
+.imovel-landing-vivercatarina .sidebar-card select,
+.imovel-landing-vivercatarina .sidebar-card textarea,
+.imovel-landing-vivercatarina .sidebar-card label {
+	font-family: var(--body-font);
+}
+
+.imovel-landing-vivercatarina .sidebar-card .lead-form input {
+	border-radius: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero {
+	position: relative;
+	width: 100%;
+	background: var(--smoke-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__image {
+	display: block;
+	width: 100%;
+	max-height: 520px;
+	object-fit: cover;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero--brand {
+	background: var(--black-color);
+	color: var(--white-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__brand-inner {
+	max-width: var(--main-container, 1180px);
+	margin: 0 auto;
+	padding: clamp(48px, 8vw, 96px) 24px;
+	display: grid;
+	gap: 14px;
+	justify-items: start;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__brand-badge {
+	padding: 7px 14px;
+	border-radius: 999px;
+	background: var(--theme-color2);
+	color: var(--white-color);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero--brand .vivercatarina-hero__brand-name {
+	margin: 0;
+	font-size: clamp(2rem, 5vw, 3.25rem);
+	line-height: 1.05;
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	color: var(--white-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__brand-meta {
+	margin: 0;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 1.05rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px 14px;
+	padding: 14px 24px;
+	background: var(--white-color);
+	border-bottom: 1px solid var(--th-border-color);
+	font-size: 0.95rem;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__meta-sep {
+	color: var(--th-border-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-hero__badge {
+	margin-left: auto;
+	padding: 6px 12px;
+	border-radius: 999px;
+	background: var(--theme-color2);
+	color: var(--white-color);
+	font-size: 0.85rem;
+	font-weight: 700;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-wrap {
+	max-width: var(--main-container, 1180px);
+	margin: 0 auto;
+	padding: 48px 24px 96px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 360px;
+	gap: 40px;
+	align-items: start;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-main {
+	min-width: 0;
+	width: 100%;
+}
+
+/* Mesma largura em todas as seções do conteúdo */
+.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.vivercatarina-intro,
+	.vivercatarina-about,
+	.vivercatarina-block,
+	.section,
+	.property-offplan-guide,
+	.property-regularity-guide,
+	.vivercatarina-page-notice
+) {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.vivercatarina-text,
+	.about-text,
+	.property-description,
+	.vivercatarina-block__lead,
+	.property-offplan-guide__group-intro,
+	.property-regularity-guide__lead,
+	.property-regularity-guide__card-intro,
+	.vivercatarina-page-notice p
+) {
+	max-width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.photo-grid,
+	.photo-mosaic,
+	.highlights-grid,
+	.vivercatarina-highlights,
+	.property-regularity-guide--contec .property-regularity-guide__table,
+	.property-regularity-guide--split .property-offplan-guide__group--shade,
+	.property-offplan-guide--split .property-offplan-guide__group--shade
+) {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* body { overflow-x: hidden } do tema vira scroll-container e quebra o sticky
+   do card de contato. clip contém o overflow horizontal sem criar
+   scroll-container — preserva o position: sticky. */
+body.imovel-landing {
+	overflow-x: clip;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky {
+	position: sticky;
+	top: var(--vivercatarina-sticky-top);
+	align-self: start;
+	z-index: 4;
+	width: 100%;
+	max-width: 360px;
+	justify-self: end;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky .sidebar {
+	position: static;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky .sidebar-card {
+	margin-bottom: 0;
+	padding: 24px;
+	border: var(--vivercatarina-hero-contact-border-width) solid var(--safety);
+	border-radius: 0;
+	background: var(--white-color);
+	box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky .sidebar-card__title,
+.imovel-landing-vivercatarina .sidebar--hero .sidebar-card__title {
+	margin: 0 0 16px;
+	font-family: var(--section-title-font);
+	font-size: var(--vivercatarina-subtitle-size-sidebar);
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	color: var(--black);
+	text-transform: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky .sidebar-card__price-box,
+.imovel-landing-vivercatarina .sidebar--hero .sidebar-card__price-box {
+	background: var(--black-color);
+	color: var(--white-color);
+	padding: 16px 18px;
+	border-radius: 0;
+	margin-bottom: 16px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky .sidebar-card__label,
+.imovel-landing-vivercatarina .sidebar--hero .sidebar-card__label {
+	font-size: 14px;
+	color: var(--light-on-dark);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky .sidebar-card__price,
+.imovel-landing-vivercatarina .sidebar--hero .sidebar-card__price {
+	font-family: var(--title-font);
+	font-size: 36px;
+	font-weight: 400;
+	line-height: 1;
+	color: var(--white-color);
+	margin-top: 8px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro {
+	margin-bottom: 48px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__title-block + .vivercatarina-intro__subtitle,
+.imovel-landing-vivercatarina .vivercatarina-intro__title-block + .vivercatarina-intro__address {
+	margin-top: 16px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__title {
+	margin: 0;
+	font-size: clamp(48px, 7vw, 98px);
+	line-height: 0.95;
+	letter-spacing: 0.005em;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__title--scaled {
+	font-size: clamp(
+		calc(48px * var(--vivercatarina-title-scale, 1)),
+		calc(7vw * var(--vivercatarina-title-scale, 1)),
+		calc(98px * var(--vivercatarina-title-scale, 1))
+	);
+}
+
+@media (max-width: 640px) {
+	.imovel-landing-vivercatarina .vivercatarina-intro__title {
+		font-size: clamp(40px, 9vw, 58px);
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-intro__title--scaled {
+		font-size: clamp(
+			calc(40px * var(--vivercatarina-title-scale, 1)),
+			calc(9vw * var(--vivercatarina-title-scale, 1)),
+			calc(58px * var(--vivercatarina-title-scale, 1))
+		);
+	}
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__subtitle {
+	margin: 0 0 8px;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-intro__address {
+	margin: 0;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block {
+	margin-bottom: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block__title,
+.imovel-landing-vivercatarina .section__title {
+	margin: 0 0 16px;
+	font-size: var(--vivercatarina-subtitle-size);
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	text-transform: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block__lead,
+.imovel-landing-vivercatarina .vivercatarina-text {
+	margin: 0 0 14px;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plans-empty {
+	margin: 0 0 16px;
+	padding: 36px 24px;
+	border-radius: 0;
+	background: var(--smoke-color);
+	border: 1px solid var(--th-border-color);
+	text-align: center;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plans-empty svg {
+	margin: 0 auto 12px;
+	color: var(--body-color);
+	opacity: 0.6;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plans-empty strong {
+	display: block;
+	color: var(--title-color);
+	font-size: 1.05rem;
+	margin-bottom: 6px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plans-empty p {
+	margin: 0;
+	font-size: 0.95rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plans-empty--above-card {
+	margin-bottom: 20px;
+	max-width: 100%;
+	padding: 24px 20px;
+	text-align: left;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plans-empty--above-card svg {
+	margin: 0 0 10px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-grid .planta-card--large {
+	margin-bottom: 0;
+	padding: 18px 20px 20px;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color);
+	border-radius: 0;
+	background: var(--white-color);
+	box-shadow: 0 4px 24px rgba(10, 10, 10, 0.06);
+	max-width: 100%;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__visual {
+	margin-bottom: 18px;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__image {
+	max-width: none;
+	width: 100%;
+	margin-bottom: 0;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color);
+	border-radius: 0;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__image img {
+	width: 100%;
+	min-height: 280px;
+	max-height: 420px;
+	object-fit: contain;
+}
+
+.imovel-landing-vivercatarina .planta-card__image-trigger {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: zoom-in;
+}
+
+.imovel-landing-vivercatarina .planta-card__image-trigger:focus-visible {
+	outline: 2px solid var(--theme-color);
+	outline-offset: 2px;
+}
+
+.imovel-landing-vivercatarina .planta-card__image-trigger:hover img {
+	opacity: 0.92;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__image--placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	min-height: 280px;
+	padding: 28px 20px;
+	color: var(--body-color);
+	text-align: center;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__image--placeholder svg {
+	opacity: 0.45;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__image--placeholder span {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__summary {
+	margin-bottom: 4px;
+}
+
+.imovel-landing-vivercatarina .planta-card--large .planta-card__ficha {
+	margin-top: 18px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 20px;
+	max-width: 100%;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab {
+	appearance: none;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color);
+	border-radius: 0;
+	background: var(--white-color);
+	color: var(--body-color);
+	padding: 10px 18px;
+	font-family: var(--body-font);
+	font-size: 0.92rem;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab:hover,
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab:focus-visible {
+	border-color: var(--black-color);
+	color: var(--title-color);
+	outline: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab.is-active,
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab[aria-selected='true'] {
+	background: var(--theme-color2);
+	border-color: var(--black-color);
+	color: var(--black-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	justify-content: stretch;
+	gap: 14px;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-plantas-filter {
+	width: 100%;
+	max-width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-units-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-unit-card {
+	display: grid;
+	gap: 4px;
+	padding: 16px 18px;
+	border: 1px solid var(--th-border-color);
+	border-radius: 0;
+	background: var(--white-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-unit-card strong {
+	font-size: 1rem;
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-unit-card span {
+	font-size: 0.95rem;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-split {
+	display: grid;
+	gap: 28px 40px;
+	align-items: start;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-price-block {
+	margin-bottom: 28px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-price-block .vivercatarina-lead-box {
+	max-width: 520px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-split--details {
+	grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights {
+	margin-top: 96px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights .highlights-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-auto-rows: auto;
+	gap: 10px;
+	align-items: stretch;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights .highlight-card {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	width: 100%;
+	min-width: 0;
+	height: 100%;
+	min-height: 0;
+	padding: 12px 14px;
+	border-top: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-right: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-bottom: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-left: var(--vivercatarina-highlight-card-border-width) solid var(--theme-color2);
+	border-radius: 0;
+	background: var(--smoke-color);
+	box-sizing: border-box;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights .highlight-card i {
+	flex-shrink: 0;
+	width: 20px;
+	/* Mesma caixa de linha do label (15px × 1.3): centra o ícone na primeira
+	   linha do título em vez de no card inteiro. */
+	line-height: 19.5px;
+	color: var(--black-color);
+	font-size: 18px;
+	text-align: center;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights .highlight-card__content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 4px;
+	min-width: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights .highlight-card__label {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	font-size: 15px;
+	line-height: 1.3;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-highlights .highlight-card__description {
+	display: block;
+	overflow: visible;
+	font-size: 14px;
+	line-height: 1.45;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location {
+	display: grid;
+	gap: 24px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__intro {
+	min-width: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__map {
+	min-width: 0;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__map .vivercatarina-map {
+	width: 100%;
+	min-height: 360px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__map .vivercatarina-map iframe {
+	width: 100%;
+	min-height: 360px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-split__col--aside {
+	padding: 24px;
+	border-radius: 0;
+	border: 1px solid var(--th-border-color);
+	background: var(--white-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-price-label {
+	margin: 0 0 6px;
+	font-size: 0.95rem;
+	color: var(--body-color);
+	font-weight: 600;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-price-value {
+	margin: 0 0 12px;
+	font-family: var(--title-font);
+	font-size: clamp(1.75rem, 3vw, 2.25rem);
+	font-weight: 700;
+	color: var(--title-color);
+	line-height: 1.2;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-urgency {
+	margin: 0 0 20px;
+	color: var(--theme-color2);
+	font-weight: 700;
+	font-size: 0.95rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-lead-box {
+	padding: 24px;
+	border-radius: 0;
+	background: var(--smoke-color);
+	border: 1px solid var(--th-border-color);
+	display: grid;
+	gap: 12px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-lead-box__title {
+	margin: 0;
+	font-size: 1.15rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-lead-box__text {
+	margin: 0;
+	color: var(--body-color);
+	line-height: 1.6;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-char-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	gap: 10px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-char-list li {
+	position: relative;
+	padding-left: 18px;
+	color: var(--charcoal);
+	font-weight: 500;
+	font-size: 0.95rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-char-list li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.55em;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--theme-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-link {
+	border: 0;
+	background: transparent;
+	padding: 12px 0 0;
+	color: var(--theme-color2);
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-link:hover {
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-footnote {
+	margin: 14px 0 0;
+	font-size: 0.82rem;
+	line-height: 1.6;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-listing-agency {
+	display: inline-flex;
+	align-items: center;
+	gap: 16px;
+	width: fit-content;
+	max-width: 100%;
+	/* Fica logo abaixo do texto de descrição do empreendimento. */
+	margin-top: 24px;
+	padding: 14px 18px;
+	border: 1px solid var(--th-border-color);
+	border-radius: 0;
+	background: var(--white, #fff);
+	box-shadow: 0 1px 2px rgba(16, 24, 32, 0.04), 0 8px 24px rgba(16, 24, 32, 0.05);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-listing-agency__icon {
+	display: grid;
+	place-items: center;
+	flex: none;
+	width: 44px;
+	height: 44px;
+	border-radius: 0;
+	background: color-mix(in srgb, var(--theme-color2) 12%, transparent);
+	color: var(--theme-color2);
+	font-size: 1.05rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-listing-agency__body {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	min-width: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-listing-agency__label {
+	font-family: var(--body-font);
+	font-size: 0.68rem;
+	font-weight: 600;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+	color: var(--body-color);
+	opacity: 0.65;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-listing-agency__name {
+	font-family: var(--body-font);
+	font-size: 1.06rem;
+	font-weight: 700;
+	line-height: 1.25;
+	letter-spacing: -0.005em;
+	color: var(--title-color, var(--body-color));
+}
+
+.imovel-landing-vivercatarina .vivercatarina-listing-agency__creci {
+	flex: none;
+	margin-left: 6px;
+	padding: 5px 12px;
+	border-radius: 0;
+	background: var(--smoke-color, #f2f3f5);
+	border: 1px solid var(--th-border-color);
+	color: var(--title-color, #000);
+	font-family: var(--body-font);
+	font-size: 0.82rem;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+	.imovel-landing-vivercatarina .vivercatarina-listing-agency {
+		flex-wrap: wrap;
+	}
+	.imovel-landing-vivercatarina .vivercatarina-listing-agency__creci {
+		margin-left: 60px;
+	}
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page-notice {
+	margin-top: 56px;
+	padding-top: 28px;
+	border-top: 1px solid var(--th-border-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page-notice p {
+	margin: 0;
+	max-width: 100%;
+	font-family: var(--body-font);
+	font-size: 0.88rem;
+	line-height: 1.65;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-page-notice p + p {
+	margin-top: 14px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sep {
+	border: 0;
+	border-top: 1px solid var(--th-border-color);
+	margin: 56px 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-sep--units,
+.imovel-landing-vivercatarina .vivercatarina-sep--photos,
+.imovel-landing-vivercatarina .vivercatarina-sep--builder,
+.imovel-landing-vivercatarina .vivercatarina-sep--guides,
+.imovel-landing-vivercatarina .vivercatarina-sep--regularity,
+.imovel-landing-vivercatarina .vivercatarina-sep--faq,
+.imovel-landing-vivercatarina .vivercatarina-sep--why {
+	margin-top: 72px;
+	margin-bottom: 40px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block--units {
+	margin-top: 56px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block--location {
+	margin-top: 56px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-section--photos {
+	margin-top: 56px;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic {
+	display: grid;
+	gap: 8px;
+	padding: 8px;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color);
+	background: var(--smoke-color);
+	box-sizing: border-box;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic__item {
+	margin: 0;
+	padding: 0;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color);
+	border-radius: 0;
+	overflow: hidden;
+	background: var(--white-color);
+	cursor: zoom-in;
+	font: inherit;
+	color: inherit;
+	text-align: inherit;
+	width: 100%;
+	min-height: 0;
+	transition: opacity 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic__item:hover {
+	opacity: 0.92;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic__item:focus-visible {
+	outline: 3px solid var(--theme-color2);
+	outline-offset: 2px;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic__item img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--count-1 {
+	grid-template-columns: 1fr;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--count-1 .photo-mosaic__item {
+	aspect-ratio: 16 / 9;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--count-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--count-2 .photo-mosaic__item {
+	aspect-ratio: 4 / 3;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--count-4 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--count-4 .photo-mosaic__item {
+	aspect-ratio: 4 / 3;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--many {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-auto-rows: minmax(132px, 168px);
+	grid-auto-flow: dense;
+}
+
+.imovel-landing-vivercatarina .photo-mosaic--many .photo-mosaic__item:first-child {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block--builder {
+	margin-top: 56px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block--why {
+	margin-top: 56px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-wrap .property-offplan-guide {
+	margin-top: 56px;
+	margin-bottom: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-wrap .property-regularity-guide {
+	margin-top: 56px;
+	margin-bottom: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block--units .vivercatarina-block__title {
+	margin-bottom: 20px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-units__intro {
+	margin: 0 0 28px;
+	max-width: 72ch;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-photos__count {
+	margin: 0 0 20px;
+	color: var(--body-color);
+	font-size: 0.95rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-gallery-card {
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	overflow: hidden;
+	border: 1px solid var(--th-border-color);
+	aspect-ratio: 4 / 3;
+	background: var(--smoke-color);
+	cursor: zoom-in;
+	font: inherit;
+	color: inherit;
+	text-align: inherit;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-gallery-card:focus-visible {
+	outline: 3px solid var(--theme-color2);
+	outline-offset: 3px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-gallery-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-feature-pills {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: 18px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-feature-pill {
+	display: flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 10px 14px;
+	border-radius: 0;
+	background: var(--smoke-color);
+	color: var(--title-color);
+	font-size: 0.92rem;
+	font-weight: 600;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__intro .vivercatarina-text:first-child {
+	margin-top: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__address {
+	margin: 16px 0;
+	font-weight: 600;
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__points {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__point {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	max-width: 100%;
+	padding: 6px 14px 6px 6px;
+	border-radius: 0;
+	border-top: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-right: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-bottom: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-left: var(--vivercatarina-highlight-card-border-width) solid var(--theme-color2);
+	background: var(--smoke-color);
+	box-sizing: border-box;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__point-icon {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background: transparent;
+	color: var(--black-color);
+	font-size: 0.95rem;
+	line-height: 1;
+	box-shadow: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__point-text {
+	min-width: 0;
+	font-size: var(--vivercatarina-text-size);
+	line-height: 1.35;
+	color: var(--charcoal);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__point-distance {
+	font-weight: 600;
+	color: var(--ink);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-location__point-label {
+	font-weight: 500;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-map {
+	border-radius: 0;
+	overflow: hidden;
+	border: 3px solid var(--black-color);
+	min-height: 360px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-map iframe {
+	display: block;
+	width: 100%;
+	min-height: 360px;
+	border: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card {
+	display: grid;
+	gap: 0;
+	border: 1px solid var(--th-border-color);
+	border-radius: 0;
+	overflow: hidden;
+	text-decoration: none;
+	color: inherit;
+	background: var(--white-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__media {
+	aspect-ratio: 4 / 3;
+	background: var(--smoke-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__media-fallback {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	background: var(--smoke-color);
+	color: var(--body-color);
+	font-size: 0.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__body {
+	padding: 14px;
+	display: grid;
+	gap: 6px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__tag {
+	font-size: 0.78rem;
+	font-weight: 700;
+	color: var(--theme-color2);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__body h3 {
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.35;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-similar-card__body p {
+	margin: 0;
+	color: var(--body-color);
+	font-size: 0.92rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-consultant {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 24px;
+	border-radius: 0;
+	background: var(--smoke-color);
+	border: 1px solid var(--th-border-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-consultant__title {
+	margin: 0 0 8px;
+	font-size: 1.35rem;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-consultant__text {
+	margin: 0;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-consultant__button {
+	width: auto;
+	min-width: 220px;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-submit {
+	background-color: var(--theme-color2) !important;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color) !important;
+	border-color: var(--black-color) !important;
+	color: var(--black-color) !important;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-submit:hover,
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-submit:focus,
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-submit:active {
+	background-color: var(--theme-color) !important;
+	border-color: var(--black-color) !important;
+	color: var(--title-color) !important;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-whatsapp {
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color) !important;
+	border-color: var(--black-color) !important;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-whatsapp:hover,
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-whatsapp:focus,
+.imovel-landing.imovel-landing-vivercatarina .imovel-btn-whatsapp:active {
+	border-color: var(--black-color) !important;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .vivercatarina-consultant__button.imovel-btn-submit {
+	background-color: var(--theme-color2) !important;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color) !important;
+	border-color: var(--black-color) !important;
+	color: var(--black-color) !important;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .vivercatarina-consultant__button.imovel-btn-submit:hover,
+.imovel-landing.imovel-landing-vivercatarina .vivercatarina-consultant__button.imovel-btn-submit:focus,
+.imovel-landing.imovel-landing-vivercatarina .vivercatarina-consultant__button.imovel-btn-submit:active {
+	background-color: var(--theme-color) !important;
+	border-color: var(--black-color) !important;
+	color: var(--title-color) !important;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block[aria-labelledby='vivercatarina-faq-title'] {
+	width: 100%;
+	max-width: 100%;
+	margin-top: 56px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-block[aria-labelledby='vivercatarina-faq-title'] .vivercatarina-block__title {
+	margin-bottom: 24px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq {
+	display: grid;
+	gap: 12px;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item {
+	border: 1px solid var(--th-border-color);
+	border-radius: 0;
+	background: var(--white-color);
+	overflow: hidden;
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item:hover {
+	border-color: color-mix(in srgb, var(--theme-color2) 28%, var(--th-border-color));
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item[open] {
+	border-color: color-mix(in srgb, var(--theme-color2) 40%, var(--th-border-color));
+	box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+	cursor: pointer;
+	padding: 18px 22px;
+	font-family: var(--body-font);
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1.3;
+	letter-spacing: 0.02em;
+	list-style: none;
+	user-select: none;
+	color: var(--ink);
+	transition: color 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary h3 {
+	margin: 0;
+	flex: 1;
+	font: inherit;
+	color: inherit;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary::-webkit-details-marker {
+	display: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary::marker {
+	content: '';
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary::after {
+	content: '+';
+	flex-shrink: 0;
+	font-family: var(--body-font);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1;
+	color: color-mix(in srgb, var(--theme-color2) 72%, var(--title-color));
+	transition:
+		color 0.2s ease,
+		transform 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary:hover::after,
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary:focus-visible::after {
+	color: var(--theme-color2);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item summary:focus-visible {
+	outline: 2px solid color-mix(in srgb, var(--theme-color2) 45%, transparent);
+	outline-offset: 2px;
+	border-radius: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item[open] summary {
+	padding-bottom: 16px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__item[open] summary::after {
+	content: '+';
+	color: var(--theme-color2);
+	transform: rotate(45deg);
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__answer {
+	padding: 0 22px 22px;
+	font-family: var(--body-font);
+	color: var(--charcoal);
+	font-size: 15px;
+	line-height: 1.65;
+	font-weight: 500;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__answer p {
+	margin: 0 0 12px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__answer p:last-child {
+	margin-bottom: 0;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__answer a {
+	color: var(--theme-color2);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-faq__answer a:hover {
+	color: var(--title-color);
+	text-decoration: underline;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-links {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-links a {
+	display: inline-flex;
+	padding: 10px 14px;
+	border-radius: 0;
+	background: var(--smoke-color);
+	color: var(--title-color);
+	text-decoration: none;
+	font-size: 0.92rem;
+	font-weight: 600;
+}
+
+.imovel-landing-vivercatarina .vivercatarina-links a:hover {
+	background: var(--theme-color);
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__item {
+	padding: 20px;
+	border: 1px solid var(--th-border-color);
+	border-radius: 0;
+	background: none;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__item-title {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	margin-bottom: 10px;
+	font-family: var(--title-font);
+	font-size: 16px;
+	font-weight: 700;
+	color: var(--title-color);
+	line-height: 1.35;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__step {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 999px;
+	background: var(--theme-color2);
+	color: var(--white-color);
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__item-intro {
+	margin-bottom: 12px;
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__tasks {
+	gap: 8px;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__tasks li {
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__tasks li::before {
+	color: var(--theme-color2);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__eyebrow {
+	margin: 0 0 10px;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: capitalize;
+	color: var(--theme-color2);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__title {
+	margin: 0 0 10px;
+	font-family: var(--section-title-font) !important;
+	font-size: var(--vivercatarina-subtitle-size-lg);
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--title-color);
+	max-width: 100%;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__lead {
+	margin: 0 0 52px;
+	max-width: 100%;
+	font-size: var(--vivercatarina-text-size);
+	line-height: 1.6;
+	font-weight: 500;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1px;
+	overflow: hidden;
+	border-radius: 0;
+	background: var(--th-border-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table-cell {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-height: 100%;
+	padding: 32px;
+	background: var(--white-color);
+	transition: background-color 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table-cell:hover {
+	background: var(--smoke-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 48px;
+	height: 48px;
+	border-radius: 0;
+	background: color-mix(in srgb, var(--theme-color2) 14%, var(--white-color));
+	color: var(--theme-color2);
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table-cell:hover .property-regularity-guide__table-icon {
+	background: var(--theme-color2);
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__index {
+	font-family: var(--title-font);
+	font-size: 1.625rem;
+	font-weight: 800;
+	line-height: 1;
+	color: color-mix(in srgb, var(--theme-color2) 18%, var(--th-border-color));
+	transition: color 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table-cell:hover .property-regularity-guide__index {
+	color: var(--theme-color2);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__card-title {
+	margin: 4px 0 0;
+	font-size: var(--vivercatarina-text-lead-size);
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__card-intro {
+	margin: 0;
+	font-size: var(--vivercatarina-text-size);
+	line-height: 1.6;
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__card-intro + .property-regularity-guide__card-intro {
+	margin-top: 8px;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__tasks {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 6px;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__tasks li {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	align-items: start;
+	gap: 8px;
+	font-size: var(--vivercatarina-text-size);
+	line-height: var(--vivercatarina-list-line);
+	color: var(--body-color);
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__tasks li::before {
+	content: '✓';
+	margin-top: 0.05em;
+	color: var(--theme-color2);
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+@media (min-width: 600px) {
+	.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 992px) {
+	.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__table {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group--split {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-body {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+	align-items: start;
+	width: 100%;
+}
+
+@media (min-width: 900px) {
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-body {
+		grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+		gap: 16px;
+		align-items: stretch;
+	}
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group--shade {
+	padding: 28px 24px;
+	border-radius: 0;
+	background: var(--smoke-color);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group--split + .property-offplan-guide__group--split {
+	margin-top: 48px;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .about-text:last-of-type + .property-offplan-guide__group--split {
+	margin-top: 32px;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__group-body {
+	display: block;
+	width: 100%;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__steps {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 8px;
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+	height: auto;
+	min-height: 0;
+	max-height: none;
+}
+
+@media (min-width: 768px) {
+	.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__steps {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__steps .property-offplan-guide__item {
+	flex: initial;
+	width: 100%;
+	min-width: 0;
+	height: auto;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item-title,
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item-label,
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item p {
+	white-space: normal;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item-label {
+	white-space: normal;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item p {
+	font-size: 15px;
+	line-height: 1.45;
+}
+
+.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item-title {
+	flex-wrap: wrap;
+	white-space: normal;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-wrap,
+.imovel-landing-vivercatarina .property-regularity-guide__download-wrap {
+	margin-top: 48px;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-card,
+.imovel-landing-vivercatarina .property-regularity-guide__download-card {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 24px 28px;
+	border: 0;
+	border-radius: 0;
+	background: var(--black-color);
+	color: var(--light-on-dark);
+	font: inherit;
+	text-align: left;
+	appearance: none;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-card:hover,
+.imovel-landing-vivercatarina .property-regularity-guide__download-card:hover {
+	background: color-mix(in srgb, var(--black-color) 88%, var(--white-color));
+	box-shadow: 0 12px 32px rgba(10, 10, 10, 0.24);
+	transform: none;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-card:focus-visible,
+.imovel-landing-vivercatarina .property-regularity-guide__download-card:focus-visible {
+	outline: 2px solid var(--safety);
+	outline-offset: 2px;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-visual,
+.imovel-landing-vivercatarina .property-regularity-guide__download-visual {
+	flex-shrink: 0;
+	display: grid;
+	place-items: center;
+	width: 120px;
+	height: 140px;
+	border-radius: 0;
+	background: linear-gradient(145deg, #fff 0%, #f3f5f8 100%);
+	border: 1px solid var(--th-border-color);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-ebook,
+.imovel-landing-vivercatarina .property-regularity-guide__download-illustration {
+	display: block;
+	width: 92px;
+	height: auto;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-content,
+.imovel-landing-vivercatarina .property-regularity-guide__download-content {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	min-width: 0;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-badge,
+.imovel-landing-vivercatarina .property-regularity-guide__download-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 10px;
+	border-radius: 0;
+	background: transparent;
+	color: var(--safety);
+	font-family: var(--body-font);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	line-height: 1.2;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-title,
+.imovel-landing-vivercatarina .property-regularity-guide__download-title {
+	font-family: var(--section-title-font);
+	font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--white-color);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-text,
+.imovel-landing-vivercatarina .property-regularity-guide__download-text {
+	font-family: var(--body-font);
+	font-size: var(--vivercatarina-text-size);
+	font-weight: 500;
+	line-height: var(--vivercatarina-text-line);
+	color: var(--muted-on-dark);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-action,
+.imovel-landing-vivercatarina .property-regularity-guide__download-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 4px;
+	font-family: var(--body-font);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--safety);
+	line-height: 1.2;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-action i,
+.imovel-landing-vivercatarina .property-regularity-guide__download-action i {
+	font-size: 0.9em;
+	transition: transform 0.2s ease;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__download-card:hover .property-offplan-guide__download-action i,
+.imovel-landing-vivercatarina .property-regularity-guide__download-card:hover .property-regularity-guide__download-action i {
+	transform: translateY(2px);
+}
+
+@media (max-width: 640px) {
+	.imovel-landing-vivercatarina .property-offplan-guide__download-card,
+	.imovel-landing-vivercatarina .property-regularity-guide__download-card {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+		padding: 18px 16px;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide__download-visual,
+	.imovel-landing-vivercatarina .property-regularity-guide__download-visual {
+		width: 100%;
+		height: 128px;
+	}
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .about-text:last-of-type + .property-offplan-guide__group--split {
+	margin-top: 32px;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-header {
+	min-width: 0;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-media {
+	min-width: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 0;
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 240px;
+	max-height: 300px;
+	object-fit: cover;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 8px;
+	font-family: var(--title-font);
+	font-size: var(--vivercatarina-subtitle-size-md);
+	font-weight: 400;
+	line-height: 1;
+	letter-spacing: 0.02em;
+	text-transform: capitalize;
+	color: var(--title-color);
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-intro {
+	margin-bottom: 0;
+	font-style: normal;
+	max-width: 100%;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 8px;
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+	height: 100%;
+	min-height: 240px;
+	max-height: 300px;
+	justify-self: stretch;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps .property-offplan-guide__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1 1 0;
+	width: 100%;
+	min-width: 100%;
+	box-sizing: border-box;
+}
+
+.imovel-landing-vivercatarina .property-offplan-guide__grid {
+	gap: 16px;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__item {
+	padding: 12px 14px;
+	border-radius: 0;
+	border-top: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-right: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-bottom: var(--vivercatarina-highlight-card-border-width-black) solid var(--black-color);
+	border-left: var(--vivercatarina-highlight-card-border-width) solid var(--theme-color2);
+	background: var(--vivercatarina-card-surface);
+	box-sizing: border-box;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-title {
+	margin-bottom: 4px;
+	font-size: 15px;
+	line-height: 1.2;
+	gap: 8px;
+	flex-wrap: nowrap;
+	white-space: nowrap;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-label {
+	flex: 0 1 auto;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item p {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.2;
+	white-space: nowrap;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__step {
+	background: transparent;
+	color: var(--black-color);
+	width: 20px;
+	height: 20px;
+	font-size: 10px;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__step i {
+	font-size: 0.62rem;
+	line-height: 1;
+}
+
+@media (max-width: 991px) {
+	.imovel-landing-vivercatarina .stats-bar__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.imovel-landing-vivercatarina .stats-bar__item:first-child {
+		grid-column: 1 / -1;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-gallery-grid,
+	.imovel-landing-vivercatarina .vivercatarina-highlights .highlights-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.imovel-landing-vivercatarina .photo-mosaic--many {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-auto-rows: minmax(120px, 150px);
+	}
+}
+
+@media (max-width: 767px) {
+	.imovel-landing-vivercatarina .stats-bar__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.imovel-landing-vivercatarina .stats-bar__item:first-child {
+		grid-column: auto;
+	}
+
+	.imovel-landing-vivercatarina .photo-mosaic--count-2,
+	.imovel-landing-vivercatarina .photo-mosaic--count-4 {
+		grid-template-columns: 1fr;
+	}
+
+	.imovel-landing-vivercatarina .photo-mosaic--many {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-auto-rows: minmax(112px, 140px);
+	}
+
+	.imovel-landing-vivercatarina .photo-mosaic--many .photo-mosaic__item:first-child {
+		grid-column: span 2;
+		grid-row: span 1;
+		aspect-ratio: 16 / 9;
+	}
+}
+
+@media (min-width: 900px) {
+	.imovel-landing-vivercatarina .vivercatarina-units-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-similar-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 1199px) {
+	/* O head cobre todo o hero e o card de contato sobe -48px para dentro dele.
+	   Sem isto o breadcrumb, colado no rodapé do hero por `margin: auto 0 0`,
+	   ficaria por cima do card. Em tablet fica junto ao título. */
+	.imovel-landing-vivercatarina .hero-gallery--cover .breadcumb-wrapper--hero-overlay {
+		margin-top: 4px;
+	}
+
+	.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-sidebar-sticky {
+		position: static;
+		max-width: none;
+		order: -1;
+		margin-bottom: 32px;
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover {
+		min-height: 0;
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover {
+		position: relative;
+		min-height: 360px;
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-trigger,
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-trigger img,
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__cover-image {
+		min-height: 360px;
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__overlay {
+		min-height: 0;
+		display: block;
+		padding-top: 0;
+		padding-bottom: 24px;
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover .sidebar--hero {
+		width: 100%;
+		margin-top: -48px;
+	}
+}
+
+@media (max-width: 899px) {
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group--shade {
+		padding: 28px 20px;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-media {
+		max-width: none;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-media {
+		height: auto;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-media img {
+		height: auto;
+		min-height: 200px;
+		max-height: 260px;
+		object-fit: cover;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps {
+		display: flex;
+		width: 100%;
+		height: auto;
+		min-height: 0;
+		max-height: none;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps .property-offplan-guide__item {
+		flex: none;
+	}
+
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-title,
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-label,
+	.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item p {
+		white-space: normal;
+	}
+
+	.imovel-landing-vivercatarina .property-regularity-guide--grid .property-regularity-guide__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__title,
+	.imovel-landing-vivercatarina .property-regularity-guide--contec .property-regularity-guide__lead {
+		max-width: none;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-split--details {
+		grid-template-columns: 1fr;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-hero__badge {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 767px) {
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__head {
+		top: 12px;
+		left: 0;
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__meta {
+		margin-left: 12px;
+	}
+
+	.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-content {
+		padding-left: 12px;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-wrap {
+		padding-inline: 16px;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-units-grid,
+	.imovel-landing-vivercatarina .vivercatarina-gallery-grid,
+	.imovel-landing-vivercatarina .vivercatarina-highlights .highlights-grid,
+	.imovel-landing-vivercatarina .vivercatarina-feature-pills,
+	.imovel-landing-vivercatarina .vivercatarina-links,
+	.imovel-landing-vivercatarina .vivercatarina-similar-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-faq__item summary {
+		padding: 14px 16px;
+		font-size: var(--vivercatarina-text-size);
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-faq__answer {
+		padding: 0 16px 16px;
+		font-size: var(--vivercatarina-text-small-size);
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-consultant {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.imovel-landing-vivercatarina .vivercatarina-consultant__button {
+		width: 100%;
+	}
+}
+
+/* Sobrescreve style.css — conteúdo ViverCatarina */
+body.imovel-landing.imovel-landing-vivercatarina {
+	font-family: var(--body-font);
+	color: var(--charcoal);
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main {
+	font-family: var(--body-font);
+	font-size: var(--vivercatarina-text-size);
+	line-height: var(--vivercatarina-text-line);
+	letter-spacing: normal;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.property-description,
+	.vivercatarina-text,
+	.about-text,
+	.property-offplan-guide,
+	.property-regularity-guide,
+	.vivercatarina-faq,
+	.vivercatarina-highlights,
+	.vivercatarina-block,
+	.vivercatarina-consultant,
+	.vivercatarina-page-notice,
+	.section
+) :where(p),
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-location__intro p {
+	font-family: var(--body-font) !important;
+	font-size: 20px !important;
+	line-height: 1.7 !important;
+	font-weight: 500 !important;
+	letter-spacing: normal !important;
+	color: var(--charcoal) !important;
+	margin: 0 0 14px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .property-description {
+	padding-right: 6rem !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-payment .vivercatarina-payment__flow {
+	margin-left: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-payment__note,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-page-notice p,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-page-notice {
+	font-style: italic !important;
+}
+
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.property-description,
+	.vivercatarina-text,
+	.about-text,
+	.property-offplan-guide,
+	.property-regularity-guide,
+	.vivercatarina-faq,
+	.vivercatarina-highlights,
+	.vivercatarina-block,
+	.vivercatarina-consultant,
+	.vivercatarina-page-notice,
+	.section
+) :where(li) {
+	font-family: var(--body-font) !important;
+	font-size: 16px !important;
+	line-height: 1.6 !important;
+	font-weight: 500 !important;
+	letter-spacing: normal !important;
+	color: var(--charcoal) !important;
+	margin-bottom: 8px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.property-description,
+	.vivercatarina-text,
+	.about-text,
+	.property-offplan-guide,
+	.property-regularity-guide,
+	.vivercatarina-faq,
+	.vivercatarina-highlights,
+	.vivercatarina-block,
+	.vivercatarina-consultant,
+	.vivercatarina-page-notice,
+	.section
+) :where(ul, ol) {
+	margin: 0 0 18px 22px !important;
+	padding: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.property-description,
+	.vivercatarina-text,
+	.about-text,
+	.property-offplan-guide,
+	.property-regularity-guide,
+	.vivercatarina-faq,
+	.vivercatarina-highlights,
+	.vivercatarina-block,
+	.vivercatarina-consultant,
+	.vivercatarina-page-notice,
+	.section
+) :where(strong) {
+	color: var(--ink) !important;
+	font-weight: 700 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main :is(
+	.property-description,
+	.vivercatarina-text,
+	.about-text,
+	.property-offplan-guide,
+	.property-regularity-guide,
+	.vivercatarina-faq,
+	.vivercatarina-highlights,
+	.vivercatarina-block,
+	.vivercatarina-consultant,
+	.vivercatarina-page-notice,
+	.section
+) :is(h3, h4, h5, h6) {
+	font-family: var(--body-font) !important;
+	font-weight: 700 !important;
+	font-size: 17px !important;
+	line-height: 1.3 !important;
+	letter-spacing: 0.02em !important;
+	text-transform: none !important;
+	color: var(--ink) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .property-offplan-guide__item-title,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .highlight-card__label,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .property-regularity-guide__card-title,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-faq__item summary,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-char-list li {
+	font-family: var(--body-font) !important;
+	font-weight: 700 !important;
+	color: var(--ink) !important;
+	letter-spacing: 0.02em !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .highlight-card__label {
+	font-size: 18px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .highlight-card__description {
+	font-size: 16px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-text {
+	font-size: 20px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .about-text:not(.property-description),
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-text:not(.property-description) {
+	padding-right: 6rem !important;
+}
+
+/* O recuo de 6rem é medida de leitura para o desktop. Em telas estreitas ele
+   come ~25% da largura, então o texto usa a linha inteira. */
+@media (max-width: 1199px) {
+	body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .property-description,
+	body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .about-text:not(.property-description),
+	body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-text:not(.property-description) {
+		padding-right: 0 !important;
+	}
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-faq__answer,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-faq__answer :where(p, li, span) {
+	font-size: 20px !important;
+	line-height: 1.65 !important;
+	color: var(--charcoal) !important;
+	font-weight: 500 !important;
+	letter-spacing: normal !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main h1.vivercatarina-intro__title {
+	font-family: var(--title-font) !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.005em !important;
+	line-height: 0.95 !important;
+	text-transform: uppercase !important;
+	color: var(--black) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main :is(
+	h2.vivercatarina-block__title,
+	h2.section__title,
+	h2.property-regularity-guide__title,
+	h2.vivercatarina-consultant__title,
+	h3.property-offplan-guide__group-title,
+	.property-offplan-guide .section__title
+) {
+	font-family: var(--section-title-font) !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.02em !important;
+	line-height: 1.1 !important;
+	text-transform: none !important;
+	color: var(--black) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__download-card .property-offplan-guide__download-title,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__download-card .property-regularity-guide__download-title {
+	font-family: var(--section-title-font) !important;
+	font-weight: 700 !important;
+	text-transform: none !important;
+	letter-spacing: 0.02em !important;
+	line-height: 1.15 !important;
+	color: var(--white-color) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina #guide-download-modal .whatsapp-lead-modal__title,
+body.imovel-landing.imovel-landing-vivercatarina #regularity-checklist-modal .whatsapp-lead-modal__title {
+	font-family: var(--section-title-font) !important;
+	font-weight: 700 !important;
+	text-transform: none !important;
+	letter-spacing: 0.02em !important;
+	color: var(--title-color) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main h3.property-offplan-guide__group-title {
+	font-size: var(--vivercatarina-subtitle-size-md) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-intro {
+	max-width: 100% !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .property-regularity-guide__index {
+	font-family: var(--title-font) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .stats-bar__label {
+	font-family: var(--body-font) !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	letter-spacing: normal !important;
+	color: color-mix(in srgb, var(--white-color) 72%, transparent) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .stats-bar__value {
+	font-family: var(--title-font) !important;
+	font-size: 36px !important;
+	font-weight: 400 !important;
+	letter-spacing: 0.005em !important;
+	line-height: 1 !important;
+	color: var(--white-color) !important;
+	white-space: nowrap !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .stats-bar__value--urgent {
+	color: var(--theme-color2) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .hero-gallery__badge {
+	background: var(--theme-color2) !important;
+	color: var(--title-color) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay {
+	background: transparent !important;
+	border-bottom: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-content {
+	background: rgba(0, 0, 0, 0.85) !important;
+	text-align: left !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu a {
+	pointer-events: auto !important;
+	cursor: pointer !important;
+	text-decoration: none !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu a:hover {
+	text-decoration: none !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu li:last-child::after {
+	display: none !important;
+	content: none !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu li,
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu a,
+body.imovel-landing.imovel-landing-vivercatarina .breadcumb-wrapper--hero-overlay .breadcumb-menu span {
+	color: rgba(255, 255, 255, 0.92) !important;
+	font-size: 14px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-char-list,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .property-regularity-guide__tasks,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-location__points {
+	margin: 20px 0 0 0 !important;
+	padding: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: stretch !important;
+	gap: 8px !important;
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: 100% !important;
+	height: 100% !important;
+	min-height: 240px !important;
+	max-height: 300px !important;
+	justify-self: stretch !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item {
+	padding: 12px 14px !important;
+	border-radius: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-title {
+	font-size: 15px !important;
+	margin-bottom: 6px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-title,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-label,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item p {
+	white-space: nowrap !important;
+	overflow: visible !important;
+	text-overflow: clip !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item p {
+	font-size: 15px !important;
+	line-height: 1.2 !important;
+	margin: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__group-media img {
+	min-height: 240px !important;
+	max-height: 300px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps .property-offplan-guide__item {
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	flex: 1 1 0 !important;
+	width: 100% !important;
+	min-width: 100% !important;
+	max-width: none !important;
+	min-height: 0 !important;
+	box-sizing: border-box !important;
+}
+
+@media (max-width: 899px) {
+	body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__steps {
+		display: flex !important;
+		width: 100% !important;
+		min-width: 0 !important;
+	}
+
+	body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-title,
+	body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item-label,
+	body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide--split .property-offplan-guide__item p {
+		white-space: normal !important;
+	}
+}
+
+/* Cards — cantos retos (sobrescreve imovel-landing.css) */
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card,
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card__price-box,
+body.imovel-landing.imovel-landing-vivercatarina .planta-card,
+body.imovel-landing.imovel-landing-vivercatarina .planta-card__image,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__item,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__card {
+	border-radius: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .planta-card,
+body.imovel-landing.imovel-landing-vivercatarina .planta-card__image {
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color) !important;
+	border-color: var(--black-color) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__disclaimer {
+	font-style: italic !important;
+}
+
+/* Linha de espaço acima do disclaimer — especificidade p/ vencer o reset
+   .vivercatarina-main :is(...) :where(p){margin-top:0!important} */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .financing-simulator__disclaimer {
+	margin-top: 24px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-block--builder .vivercatarina-location__point-text {
+	font-size: 20px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__item-label,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__item p,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__item-label,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__card-title,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__card-intro {
+	font-size: 20px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-location__point-text {
+	font-size: 20px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__result span {
+	font-size: 16px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__result strong {
+	font-size: 24px !important;
+	font-family: var(--body-font) !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__result--highlight strong,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .financing-simulator__result--highlight strong {
+	color: #fff !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card .lead-form input {
+	border-radius: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card .lead-form label,
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card .lead-form input,
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card .lead-form select,
+body.imovel-landing.imovel-landing-vivercatarina .sidebar-card .lead-form textarea {
+	font-size: 18px !important;
+}
+
+/* Botões — cantos retos e borda preta */
+body.imovel-landing.imovel-landing-vivercatarina .th-btn,
+body.imovel-landing.imovel-landing-vivercatarina .th-btn.radius,
+body.imovel-landing.imovel-landing-vivercatarina .th-btn.radius2,
+body.imovel-landing.imovel-landing-vivercatarina .imovel-btn-submit,
+body.imovel-landing.imovel-landing-vivercatarina .imovel-btn-whatsapp,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-consultant__button,
+body.imovel-landing.imovel-landing-vivercatarina .gallery-lightbox__close,
+body.imovel-landing.imovel-landing-vivercatarina .gallery-lightbox__nav,
+body.imovel-landing.imovel-landing-vivercatarina #guide-download-modal .whatsapp-lead-modal__submit,
+body.imovel-landing.imovel-landing-vivercatarina #guide-download-modal .guide-download-modal__done,
+body.imovel-landing.imovel-landing-vivercatarina #regularity-checklist-modal .whatsapp-lead-modal__submit,
+body.imovel-landing.imovel-landing-vivercatarina #regularity-checklist-modal .regularity-checklist-modal__done {
+	border: var(--vivercatarina-btn-border-width) solid var(--black-color) !important;
+	border-color: var(--black-color) !important;
+	border-radius: 0 !important;
+}
+
+/* Botões amarelos — texto preto */
+body.imovel-landing.imovel-landing-vivercatarina .imovel-btn-submit,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-consultant__button.imovel-btn-submit,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab.is-active,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-plantas-filter__tab[aria-selected='true'],
+body.imovel-landing.imovel-landing-vivercatarina #guide-download-modal .whatsapp-lead-modal__submit,
+body.imovel-landing.imovel-landing-vivercatarina #guide-download-modal .guide-download-modal__done,
+body.imovel-landing.imovel-landing-vivercatarina #regularity-checklist-modal .whatsapp-lead-modal__submit,
+body.imovel-landing.imovel-landing-vivercatarina #regularity-checklist-modal .regularity-checklist-modal__done {
+	color: var(--black-color) !important;
+}
+
+/* Popups — cantos retos */
+body.imovel-landing.imovel-landing-vivercatarina .whatsapp-lead-modal__dialog,
+body.imovel-landing.imovel-landing-vivercatarina .whatsapp-lead-modal__form input,
+body.imovel-landing.imovel-landing-vivercatarina .gallery-lightbox__image {
+	border-radius: 0 !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .gallery-lightbox__caption {
+	margin: 12px 0 0;
+	color: var(--white-color);
+	font-size: 0.9375rem;
+	text-align: center;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__steps {
+	display: grid !important;
+	grid-template-columns: 1fr !important;
+	align-items: stretch !important;
+	height: auto !important;
+	min-height: 0 !important;
+	max-height: none !important;
+	gap: 16px !important;
+}
+
+@media (min-width: 768px) {
+	body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__steps {
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	}
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-regularity-guide__steps .property-offplan-guide__item {
+	display: flex !important;
+	flex: initial !important;
+	width: 100% !important;
+	min-width: 0 !important;
+	max-width: none !important;
+	height: auto !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item-title,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item-label,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item p {
+	white-space: normal !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide--split .property-offplan-guide__item p {
+	line-height: 1.45 !important;
+}
+
+/* Condições de pagamento — fluxo em passos */
+.imovel-landing-vivercatarina .vivercatarina-payment__flow {
+	list-style: none;
+	margin: 20px 0 0 0 !important;
+	padding: 0 !important;
+	display: grid;
+	gap: 12px;
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__step {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 16px;
+	border: 1px solid var(--th-border-color);
+	background: var(--white-color);
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__num {
+	flex: 0 0 auto;
+	width: 32px;
+	height: 32px;
+	display: grid;
+	place-items: center;
+	background: var(--safety);
+	color: var(--title-color);
+	font-weight: 700;
+	border-radius: 999px;
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__step-title {
+	margin: 0;
+	font-weight: 600;
+	color: var(--title-color);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 8px;
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__value {
+	color: var(--title-color);
+	background: rgba(255, 175, 0, 0.18);
+	padding: 2px 8px;
+	font-weight: 700;
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__detail {
+	margin: 4px 0 0;
+	font-size: 14px;
+	color: var(--body-color);
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__badges {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 16px;
+}
+.imovel-landing-vivercatarina .vivercatarina-payment__badge {
+	font-size: 13px;
+	font-weight: 600;
+	padding: 6px 12px;
+	border: 1px solid var(--th-border-color);
+	color: var(--title-color);
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-payment__note {
+	font-size: 12px;
+}
+
+/* Linha de espaço acima da nota — especificidade p/ vencer o reset de p */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .vivercatarina-payment__note {
+	margin-top: 24px !important;
+}
+
+/* Espaçamento padrão das seções novas (igual units/location: 56px) */
+.imovel-landing-vivercatarina .vivercatarina-payment,
+.imovel-landing-vivercatarina #simulador-financiamento {
+	margin-top: 56px;
+}
+
+/* Cards institucionais da rede (Sobre a Incorporadora) — layout dos cards de
+   "Antes de Assinar", com número em destaque. */
+.imovel-landing-vivercatarina .vivercatarina-rede-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 16px;
+	margin-top: 24px;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-rede-stat__num {
+	width: auto !important;
+	min-width: 64px !important;
+	height: auto !important;
+	padding: 6px 16px !important;
+	border-radius: 0 !important;
+	background: var(--theme-color2) !important;
+	color: var(--title-color) !important;
+	font-family: var(--title-font) !important;
+	font-size: 30px !important;
+	font-weight: 700 !important;
+	line-height: 1.1 !important;
+}
+.imovel-landing-vivercatarina .vivercatarina-rede-stat .property-offplan-guide__item-label {
+	font-weight: 600;
+}
+
+/* Espaço compacto entre os blocos das seções de guia (Como Funciona a Compra E
+   Antes de Assinar): grupos antes/durante/depois, documentação, contrato e o
+   download do ebook. Vence as regras de 48px/32px do tema. */
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide .property-offplan-guide__group + .property-offplan-guide__group,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide .property-offplan-guide__group--split + .property-offplan-guide__group--split,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide .about-text:last-of-type + .property-offplan-guide__group--split,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__download-wrap,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide .property-offplan-guide__group + .property-offplan-guide__group,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide .property-offplan-guide__group--split + .property-offplan-guide__group--split,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide .about-text:last-of-type + .property-offplan-guide__group--split,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__download-wrap {
+	margin-top: 16px !important;
+}
+
+/* Simulador de financiamento: cantos retos, igual ao resto da landing */
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__summary,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__grid,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__field input,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__field select,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__results,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__result,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__result-card {
+	border-radius: 0 !important;
+}
+
+/* Campos e rótulos: mesma fonte do texto principal (20px) */
+body.imovel-landing.imovel-landing-vivercatarina .ficha-list dt,
+body.imovel-landing.imovel-landing-vivercatarina .ficha-list dd {
+	font-size: 20px !important;
+}
+
+/* Só os valores (dd) da ficha em negrito; rótulos (dt) permanecem normais */
+body.imovel-landing.imovel-landing-vivercatarina .ficha-list dd {
+	font-weight: 700 !important;
+}
+
+/* FAQ: resposta sem <p>, aponta direto no elemento */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-faq__answer,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-faq__answer p {
+	font-size: 20px !important;
+}
+
+/* Badges/highlights do card de planta: sem radius, fonte 20px */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-main .planta-card__highlights li {
+	border-radius: 0 !important;
+	font-size: 20px !important;
+}
+
+/* "A partir de" no card de planta: fonte maior */
+body.imovel-landing.imovel-landing-vivercatarina .planta-card__price-label {
+	font-size: 22px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .planta-card__price-value {
+	font-size: 36px !important;
+}
+
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__field span,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__field label,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__field input,
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__field select {
+	font-size: 20px !important;
+}
+
+/* Card do simulador com a mesma moldura do mapa (3px preta) */
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator {
+	border: 3px solid var(--black-color) !important;
+}
+
+/* Localização: menos espaço entre intro, mapa e pontos */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-location {
+	gap: 12px !important;
+}
+
+/* Um pouco mais de respiro entre as seções da landing (56px -> 72px) */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter,
+  body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-block--units,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-block--location,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-block--builder,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-block--why,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-section--photos,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-payment,
+body.imovel-landing.imovel-landing-vivercatarina #simulador-financiamento,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide,
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide {
+	margin-top: 96px !important;
+}
+
+/* Newsletter CTA — estilo do card "baixar ebook" com cores invertidas */
+body.imovel-landing.imovel-landing-vivercatarina .property-regularity-guide__download-card--invert {
+	background: var(--white-color) !important;
+	color: var(--title-color) !important;
+	border: 3px solid var(--black-color) !important;
+	cursor: default !important;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__content {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__badge {
+	align-self: flex-start;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--title-color) !important;
+	background: var(--theme-color2);
+	padding: 4px 10px;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__title {
+	font-family: var(--section-title-font, var(--title-font));
+	font-size: 22px !important;
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--title-color) !important;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__text {
+	font-size: 20px !important;
+	color: var(--body-color) !important;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__visual {
+	background: var(--smoke-color) !important;
+	border: 1px solid var(--th-border-color) !important;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__form {
+	display: grid;
+	gap: 10px;
+	margin-top: 16px;
+	width: 100%;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__form input {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid var(--th-border-color);
+	border-radius: 0 !important;
+	font: inherit;
+	box-sizing: border-box;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__form input:focus {
+	outline: 2px solid color-mix(in srgb, var(--theme-color2) 35%, transparent);
+	border-color: var(--theme-color2);
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__submit {
+	border-radius: 0 !important;
+	margin-top: 2px;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__error {
+	margin: 4px 0 0;
+	color: #c0392b;
+	font-size: 13px;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-newsletter__success {
+	margin: 8px 0 0;
+	font-weight: 600;
+	color: var(--title-color);
+}
+
+/* Badges do simulador no padrão da landing: retangulares (cantos retos),
+   laranja + texto escuro. */
+body.imovel-landing.imovel-landing-vivercatarina .financing-simulator__badge {
+	background: var(--theme-color2) !important;
+	color: var(--title-color) !important;
+	border-radius: 0 !important;
+	font-weight: 600 !important;
+}
+
+/* Números/steps quadrados nas seções de condições e guias */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-payment__num,
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__step {
+	border-radius: 0 !important;
+}
+
+/* Número do cabeçalho dos grupos (fases) quadrado, não círculo */
+body.imovel-landing.imovel-landing-vivercatarina .property-offplan-guide__phase {
+	border-radius: 0 !important;
+}
+
+/* Data de última atualização no topo da landing */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-intro__updated {
+	margin: 8px 0 0;
+	font-size: 13px;
+	color: var(--body-color);
+}
+
+/* Mapa mais alto na landing */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-map,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-map iframe,
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-location__map .vivercatarina-map iframe {
+	min-height: 480px !important;
+}
+
+/* Espaço entre "Última atualização"/subtítulo e o endereço */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-intro__address {
+	margin-top: 10px !important;
+}
+
+/* Outros imóveis do bairro: 3 colunas (1 no mobile) + espaçamento de seção */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-similar {
+	margin-top: 96px !important;
+}
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-similar-grid {
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+@media (max-width: 768px) {
+	body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-similar-grid {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+/* Cards de outros imóveis: moldura preta fina (padrão da landing) */
+body.imovel-landing.imovel-landing-vivercatarina .vivercatarina-similar-card {
+	border: 1px solid var(--black-color) !important;
+}
+
+/* Mobile: breadcrumb no rodapé da imagem do hero, logo acima do card de
+   contato. O head é limitado à altura do cover (min-height 360px) menos o
+   topo (12px) e o avanço do card (-48px), então `margin-top: auto` encosta o
+   breadcrumb no fim da foto sem invadir o card. */
+@media (max-width: 767px) {
+	.imovel-landing-vivercatarina .hero-gallery--cover .hero-gallery__head {
+		bottom: auto;
+		height: calc(360px - 12px - 48px);
+	}
+
+	.imovel-landing-vivercatarina .hero-gallery--cover .breadcumb-wrapper--hero-overlay {
+		margin-top: auto;
+		margin-bottom: 8px;
+	}
+}

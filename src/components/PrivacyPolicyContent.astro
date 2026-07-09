@@ -1,0 +1,178 @@
+---
+import { SITE_NAME, SITE_EMAIL, SITE_CITY } from '../lib/site-contact.mjs';
+
+const updatedAt = '24 de junho de 2026';
+---
+
+<nav class="breadcumb-wrapper single-inventory" aria-label="Trilha de navegação">
+	<div class="container">
+		<div class="breadcumb-content">
+			<ol class="breadcumb-menu">
+				<li><a href="/">Início</a></li>
+				<li><span aria-current="page">Política de Privacidade</span></li>
+			</ol>
+		</div>
+	</div>
+</nav>
+
+<section class="space overflow-hidden legal-page" aria-labelledby="privacy-title">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-9 col-lg-10">
+				<div class="title-area text-center mb-40">
+					<p class="sub-title"><span class="double-line"></span> Proteção de dados</p>
+					<h1 class="sec-title" id="privacy-title">Política de Privacidade</h1>
+					<p class="sec-text">Última atualização: {updatedAt}</p>
+				</div>
+
+				<div class="legal-content">
+					<p>
+						Esta Política de Privacidade descreve como o portal {SITE_NAME} trata os dados
+						pessoais coletados em <strong>balneario.vivercatarina.com</strong>, em
+						conformidade com a Lei nº 13.709/2018 (Lei Geral de Proteção de Dados — LGPD).
+					</p>
+
+					<h2>1. Quem é o controlador</h2>
+					<p>
+						O {SITE_NAME} é um portal de divulgação de lançamentos imobiliários em {SITE_CITY}
+						e região. Para assuntos relativos a dados pessoais, contate o encarregado pelo
+						e-mail <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>.
+					</p>
+
+					<h2>2. Dados que coletamos</h2>
+					<h3>2.1. Dados fornecidos diretamente por você</h3>
+					<p>Coletamos apenas os dados que você fornece de forma voluntária ao entrar em contato:</p>
+					<ul>
+						<li><strong>Dados de contato:</strong> nome, telefone/WhatsApp e e-mail informados nos formulários de interesse.</li>
+						<li><strong>Conteúdo da mensagem:</strong> o empreendimento ou bairro de interesse e o que você nos escreve.</li>
+					</ul>
+					<h3>2.2. Dados coletados automaticamente</h3>
+					<p>
+						Não utilizamos cookies de rastreamento, pixels de publicidade nem ferramentas de
+						analytics que identifiquem você. Os formulários do site não armazenam dados em
+						servidor: ao enviar, abrimos o WhatsApp ou seu cliente de e-mail para que a
+						mensagem seja transmitida por você ao nosso atendimento.
+					</p>
+
+					<h2>3. Finalidade e base legal</h2>
+					<div class="legal-table-wrap">
+						<table>
+							<caption>Finalidades do tratamento e respectivas bases legais (art. 7º da LGPD)</caption>
+							<thead>
+								<tr><th>Finalidade</th><th>Base legal</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>Responder ao seu contato e prestar informações sobre imóveis e empreendimentos</td><td>Consentimento do titular (art. 7º, I)</td></tr>
+								<tr><td>Dar andamento ao atendimento comercial relativo ao interesse manifestado por você</td><td>Legítimo interesse para responder solicitações (art. 7º, IX)</td></tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h2>4. Compartilhamento de dados</h2>
+					<p>
+						O atendimento é realizado por corretores parceiros devidamente registrados no
+						CRECI, com quem seus dados de contato podem ser compartilhados exclusivamente
+						para responder ao seu interesse. Ao optar pelo botão de WhatsApp, sua mensagem
+						trafega pela plataforma WhatsApp/Meta, que possui política de privacidade própria
+						e pode envolver transferência internacional de dados. Não vendemos seus dados.
+					</p>
+
+					<h2>5. Retenção e segurança</h2>
+					<p>
+						Como o site não mantém banco de dados de leads, não há retenção de dados pessoais
+						em nossos servidores. As mensagens recebidas pelos canais de atendimento são
+						mantidas pelo tempo necessário ao atendimento e tratadas com confidencialidade.
+					</p>
+
+					<h2>6. Seus direitos</h2>
+					<p>Nos termos do art. 18 da LGPD, você pode, a qualquer momento, solicitar:</p>
+					<ul>
+						<li>confirmação da existência de tratamento e acesso aos seus dados;</li>
+						<li>correção de dados incompletos, inexatos ou desatualizados;</li>
+						<li>anonimização, bloqueio ou eliminação de dados desnecessários;</li>
+						<li>informação sobre com quem compartilhamos seus dados;</li>
+						<li>revogação do consentimento.</li>
+					</ul>
+					<p>Para exercer esses direitos, escreva para <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>.</p>
+
+					<h2>7. Cookies</h2>
+					<p>
+						O uso de cookies é detalhado em nossa
+						<a href="/politica-de-cookies">Política de Cookies</a>.
+					</p>
+
+					<h2>8. Alterações</h2>
+					<p>
+						Esta política pode ser atualizada a qualquer momento. A data da última revisão
+						consta no topo desta página.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.legal-page .sec-title,
+	.legal-page .sub-title,
+	.legal-content h2,
+	.legal-content h3 {
+		font-family: 'Plus Jakarta Sans', sans-serif;
+		color: #1a1a1a;
+	}
+	.legal-content h2 {
+		font-size: 1.6rem;
+		line-height: 1.3;
+		margin-top: 2.25rem;
+		margin-bottom: 0.75rem;
+	}
+	.legal-content h3 {
+		font-size: 1.2rem;
+		line-height: 1.35;
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.legal-content ul,
+	.legal-content p {
+		margin-bottom: 1rem;
+	}
+	.legal-content,
+	.legal-content p,
+	.legal-content li,
+	.legal-content td {
+		font-family: 'Inter', sans-serif;
+		color: #554b4b;
+	}
+	@media (max-width: 575px) {
+		.legal-content h2 { font-size: 1.4rem; }
+		.legal-content h3 { font-size: 1.1rem; }
+	}
+
+	.legal-table-wrap {
+		overflow-x: auto;
+		margin: 1.5rem 0;
+	}
+	.legal-content table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95rem;
+	}
+	.legal-content caption {
+		caption-side: top;
+		text-align: left;
+		font-weight: 600;
+		color: var(--title-color);
+		margin-bottom: 0.5rem;
+	}
+	.legal-content th,
+	.legal-content td {
+		border: 1px solid var(--th-border-color);
+		padding: 0.6rem 0.75rem;
+		text-align: left;
+		vertical-align: top;
+	}
+	.legal-content thead th {
+		background-color: var(--smoke-color);
+		color: var(--title-color);
+	}
+</style>

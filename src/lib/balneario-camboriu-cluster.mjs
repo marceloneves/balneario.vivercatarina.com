@@ -14,7 +14,7 @@ import {
 	stripClusterBridge,
 	stripHeadingAnchors,
 	stripRelatedBlocks,
-} from './campeche-cluster-body-links.mjs';
+} from './cluster-body-links.mjs';
 import { BALNEARIO_CAMBORIU_CLUSTER_SLUGS, BALNEARIO_CAMBORIU_PILLAR } from './blog-cluster-slugs.mjs';
 import { shortLinkLabel } from './cluster-link-anchor.mjs';
 import { buildLeiaTambemSlugs } from './cluster-link-rebuild.mjs';
@@ -117,11 +117,6 @@ export const LEIA_TAMBEM = {
 		'quanto-custa-morar-em-balneario-camboriu',
 		'melhores-bairros-para-morar-em-balneario-camboriu',
 	],
-	'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande': [
-		'melhores-bairros-para-morar-em-balneario-camboriu',
-		'quanto-custa-morar-em-balneario-camboriu',
-		'checklist-avaliar-imovel-em-balneario-camboriu',
-	],
 	'morar-centro-x-praias-em-balneario-camboriu': [
 		'quanto-custa-morar-em-balneario-camboriu',
 		'melhores-bairros-para-morar-em-balneario-camboriu',
@@ -135,7 +130,6 @@ export const LEIA_TAMBEM = {
 	'melhores-bairros-para-morar-em-balneario-camboriu': [
 		'quanto-custa-morar-em-balneario-camboriu',
 		'morar-centro-x-praias-em-balneario-camboriu',
-		'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande',
 	],
 };
 
@@ -228,7 +222,6 @@ export const SATELLITE_BODY_PLAN = {
 			{ find: 'definir moradia em Balneário Camboriú', target: PILLAR },
 			{ find: 'uma das capitais mais caras do Brasil', target: 'quanto-custa-morar-em-balneario-camboriu' },
 			{ find: 'quatro regiões de Balneário Camboriú', target: 'melhores-bairros-para-morar-em-balneario-camboriu' },
-			{ find: 'Continente e Centro', target: 'morar-centro-x-praias-em-balneario-camboriu' },
 		],
 	},
 	'como-comprar-imovel-balneario-camboriu-financiamento-documentacao': {
@@ -243,15 +236,6 @@ export const SATELLITE_BODY_PLAN = {
 			{ find: 'geografia de ilha', target: PILLAR },
 			{ find: 'matrícula do imóvel', target: 'como-comprar-imovel-balneario-camboriu-financiamento-documentacao' },
 			{ find: 'IPTU', target: 'quanto-custa-morar-em-balneario-camboriu' },
-			{ find: 'região universitária', target: 'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande' },
-		],
-	},
-	'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande': {
-		links: [
-			{ find: 'estudante da UFSC', target: PILLAR },
-			{ find: 'apartamento de um quarto', target: 'quanto-custa-morar-em-balneario-camboriu' },
-			{ find: 'ao lado da UFSC', target: 'melhores-bairros-para-morar-em-balneario-camboriu' },
-			{ find: 'região universitária exige estratégia', target: 'checklist-avaliar-imovel-em-balneario-camboriu' },
 		],
 	},
 	'morar-centro-x-praias-em-balneario-camboriu': {
@@ -275,7 +259,6 @@ export const SATELLITE_BODY_PLAN = {
 			{ find: 'Ilha do Silício', target: PILLAR },
 			{ find: 'custos fixos além da moradia', target: 'quanto-custa-morar-em-balneario-camboriu' },
 			{ find: 'região continental', target: 'morar-centro-x-praias-em-balneario-camboriu' },
-			{ find: 'presença da UFSC', target: 'morar-perto-da-ufsc-trindade-carvoeira-corrego-grande' },
 		],
 	},
 };
@@ -303,7 +286,7 @@ export function renderExploreBlock() {
 	return renderLeiaTambem(PUBLISHED_SATELLITE_SLUGS);
 }
 
-export function rebuildFlorianopolisArticle(rawHtml, slug) {
+export function rebuildBalnearioCamboriuArticle(rawHtml, slug) {
 	let html = stripRelatedBlocks(rawHtml);
 	html = stripClusterBridge(html);
 	html = stripBodyAnchors(html);

@@ -9,12 +9,12 @@ const accordionId = 'homeFaqAccordion';
 			<div class="col-lg-5 col-xl-5">
 				<div class="title-area text-left">
 					<p class="sub-title"><span class="double-line"></span> Perguntas frequentes</p>
-					<h2 class="sec-title" id="home-faq-title">Dúvidas sobre imóveis na planta em Balneário Camboriú</h2>
+					<h2 class="sec-title bairro-listing-title" id="home-faq-title">Dúvidas sobre imóveis na planta em <span class="bairro-name-accent">Balneário Camboriú</span></h2>
 					<p class="sec-text">
 						Respostas sobre bairros, praias e centro, fases de lançamento e o que considerar
 						antes de comprar um imóvel novo em Balneário Camboriú.
 					</p>
-					<a href="/contact" class="th-btn pill style3">Fale conosco</a>
+					<a href="/contact" class="th-btn home-faq-cta">Fale conosco</a>
 				</div>
 			</div>
 			<div class="col-lg-7 col-xl-7">
@@ -69,5 +69,37 @@ const accordionId = 'homeFaqAccordion';
 
 	.home-faq-section .sec-text {
 		margin-bottom: 1.5rem;
+	}
+
+	/* Itens da FAQ com moldura preta (cantos retos, no padrão da home). */
+	.home-faq-section .accordion-card {
+		border: 1px solid #000000 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+	}
+	.home-faq-section .accordion-card + .accordion-card {
+		margin-top: 12px;
+	}
+
+	/* CTA "Fale conosco": fundo reto escuro + letras amarelas; hover inverte. */
+	.home-faq-section .home-faq-cta {
+		border-radius: 0 !important;
+		background-color: var(--title-color) !important;
+		border: 2px solid var(--title-color) !important;
+		color: var(--theme-color) !important;
+		transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+	}
+
+	/* Neutraliza o preenchimento animado padrão do tema (::before/::after). */
+	.home-faq-section .home-faq-cta::before,
+	.home-faq-section .home-faq-cta::after {
+		display: none !important;
+	}
+
+	.home-faq-section .home-faq-cta:hover,
+	.home-faq-section .home-faq-cta:focus-visible {
+		background-color: var(--theme-color) !important;
+		border-color: var(--theme-color) !important;
+		color: var(--title-color) !important;
 	}
 </style>

@@ -26,7 +26,8 @@ function localDigits($phone) {
 }
 
 $name = trim((string)($body['name'] ?? ''));
-$isNewsletter = in_array($body['source'] ?? '', ['blog-hub-campeche', 'blog-hub-jurere-internacional'], true);
+// Os hubs de bairro do blog (blog-hub-<cluster>) pedem só nome e e-mail.
+$isNewsletter = strncmp((string)($body['source'] ?? ''), 'blog-hub-', 9) === 0;
 
 if (strlen($name) < 2) {
     http_response_code(400);

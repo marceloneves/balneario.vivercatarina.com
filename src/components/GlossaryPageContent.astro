@@ -68,7 +68,7 @@ const introText = applyGlossaryInlineLinks(
 					{
 						groups.map(({ letter, terms }) => (
 							<section class="glossary-group" id={`glossary-letter-${letter}`} data-letter={letter}>
-								<h3 class="glossary-group-title">{letter}</h3>
+								<h2 class="glossary-group-title">{letter}</h2>
 								<dl class="glossary-list">
 									{
 										terms.map(({ term, slug, definition }) => (
@@ -97,7 +97,7 @@ const introText = applyGlossaryInlineLinks(
 					<p class="sec-text mb-3">
 						Quer comparar lançamentos na planta em Balneário Camboriú com as informações certas?
 					</p>
-					<a href="/lancamentos" class="th-btn style2 pill me-2 mb-2">Ver lançamentos</a>
+					<a href="/lancamentos/apartamentos" class="th-btn style2 pill me-2 mb-2">Ver lançamentos</a>
 					<a href="/contact" class="th-btn pill mb-2">Falar com especialista</a>
 				</div>
 			</div>

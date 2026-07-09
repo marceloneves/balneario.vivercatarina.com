@@ -408,26 +408,8 @@ const CORE_GLOSSARY_TERMS = [
 			'Aumento do valor do imóvel ao longo do tempo, influenciado por localização, fase da obra, mercado e entrega da infraestrutura do bairro. Motivo comum de compra na planta.',
 	},
 	{
-		term: 'Continente x Ilha',
-		slug: 'continente-x-ilha',
-		definition:
-			'Divisão geográfica e de mercado de Balneário Camboriú. A Ilha concentra boa parte dos bairros nobres, universitários e litorâneos; o Continente oferece acesso rodoviário, preços distintos e dinâmica própria de bairros como Estreito, Capoeiras e Coqueiros.',
-	},
-	{
-		term: 'Beira-Mar Norte',
-		slug: 'beira-mar-norte',
-		definition:
-			'Corredor urbano à beira da Baía Norte, entre Coqueiros e a região da Agronômica. É referência de valorização, mobilidade e qualidade de vida em Balneário Camboriú, com forte demanda residencial e comercial.',
-	},
-	{
-		term: 'Região universitária',
-		slug: 'regiao-universitaria',
-		definition:
-			'Entorno da UFSC e do campus da Trindade, incluindo bairros como Trindade, Carvoeira e Córrego Grande. Mercado aquecido por estudantes, professores e investidores de locação.',
-	},
-	{
 		term: 'Zoneamento urbano de Balneário Camboriú',
-		slug: 'zoneamento-urbano-da-ilha',
+		slug: 'zoneamento-urbano-balneario-camboriu',
 		definition:
 			'Regras da Prefeitura de Balneário Camboriú que limitam altura, densidade e uso do solo em bairros de Balneário Camboriú. Impactam diretamente quantos pavimentos, unidades e vagas um empreendimento na planta pode ter.',
 	},
@@ -450,34 +432,10 @@ const CORE_GLOSSARY_TERMS = [
 			'Conurbação formada por Balneário Camboriú e municípios vizinhos, como São José e Palhoça. Compradores comparam opções em Balneário Camboriú com empreendimentos no entorno metropolitano.',
 	},
 	{
-		term: 'Mobilidade ilha–continente',
-		slug: 'mobilidade-ilha-continente',
-		definition:
-			'Deslocamento entre a Ilha e o Continente pelas pontes (Hercílio Luz, Colombo Salles, Pedro Ivo) e corredores viários. Horários de pico influenciam escolha de bairro na compra na planta.',
-	},
-	{
 		term: 'Padrão compacto (studios e 1 dormitório)',
 		slug: 'padrao-compacto-studios',
 		definition:
 			'Tipologias menores, comuns em Balneário Camboriú em bairros centrais e universitários. Atendem investidores, singles e casal sem filhos, com ticket de entrada mais baixo na planta.',
-	},
-	{
-		term: 'Mercado de locação estudantil',
-		slug: 'mercado-locacao-estudantil',
-		definition:
-			'Segmento de aluguel voltado ao público da UFSC, UDESC e demais instituições. Alta rotatividade e demanda constante em bairros próximos aos campi.',
-	},
-	{
-		term: 'Litoral norte de Balneário Camboriú',
-		slug: 'litoral-norte-da-ilha',
-		definition:
-			'Faixa costeira que inclui Ingleses, Canasvieiras, Jurerê, Ponta das Canas e Cachoeira do Bom Jesus. Mercado misto de moradia, segunda residência e investimento em locação.',
-	},
-	{
-		term: 'Entorno da Lagoa da Conceição',
-		slug: 'entorno-lagoa-da-conceicao',
-		definition:
-			'Região em torno da Lagoa da Conceição, incluindo Barra da Lagoa, Lagoa da Conceição e Morro das Pedras. Perfil de compradores que valorizam natureza, esporte e vida noturna.',
 	},
 	{
 		term: 'Registro de Imóveis de Balneário Camboriú',

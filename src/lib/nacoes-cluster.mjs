@@ -12,7 +12,7 @@ import {
 	stripClusterBridge,
 	stripHeadingAnchors,
 	stripRelatedBlocks,
-} from './campeche-cluster-body-links.mjs';
+} from './cluster-body-links.mjs';
 import { NACOES_CLUSTER_SLUGS, NACOES_PILLAR } from './blog-cluster-slugs.mjs';
 import { shortLinkLabel } from './cluster-link-anchor.mjs';
 import { buildLeiaTambemSlugs, trimSatelliteBodyPlan } from './cluster-link-rebuild.mjs';

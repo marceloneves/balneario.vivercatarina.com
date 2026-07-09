@@ -1,0 +1,41 @@
+---
+const { page, placement = 'sidebar' } = Astro.props;
+const formId = placement === 'hero' ? 'lead-form-hero' : 'lead-form-sidebar';
+const fieldPrefix = placement === 'hero' ? 'lead-hero' : 'lead-sidebar';
+---
+
+<aside
+	class:list={['sidebar', placement === 'hero' && 'sidebar--hero']}
+	aria-label="Informações e contato"
+>
+	<div class="sidebar-card">
+		<h3 class="sidebar-card__title">Fale conosco</h3>
+		{
+			page.stats?.price && (
+				<div class="sidebar-card__price-box">
+					<div class="sidebar-card__label">Preço a partir de</div>
+					<div class="sidebar-card__price">{page.stats.price}</div>
+				</div>
+			)
+		}
+		{page.sidebar.showUrgency && <div class="sidebar-alert">Últimas unidades disponíveis</div>}
+		<form class="lead-form" id={formId}>
+			<label for={`${fieldPrefix}-name`}>Nome</label>
+			<input id={`${fieldPrefix}-name`} name="name" type="text" placeholder="Seu nome" required />
+			<label for={`${fieldPrefix}-phone`}>WhatsApp</label>
+			<input id={`${fieldPrefix}-phone`} name="phone" type="tel" placeholder="(48) 99999-9999" required />
+			<button
+				type="button"
+				class="th-btn imovel-btn-whatsapp radius w-100"
+				data-whatsapp-lead
+				data-whatsapp-source="property"
+				data-property-slug={page.slug}
+				data-property-title={page.seo.h1}
+			>
+				<i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+			</button>
+			<p class="form-consent-note" style="font-size:11px;line-height:1.45;margin:8px 0 0;color:var(--body-color);text-align:center;">Ao enviar, você concorda em ser contatado via WhatsApp/e-mail. Veja nossa <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
+		</form>
+		<p class="sidebar-note" style="font-size:11px;line-height:1.45;margin:10px 0 0;color:var(--body-color);text-align:center;">Dados protegidos. Resposta em até 15 minutos.</p>
+	</div>
+</aside>

@@ -5,32 +5,20 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-	CAMPECHE_CLUSTER_SLUGS,
-	CANASVIEIRAS_CLUSTER_SLUGS,
 	CENTRO_CLUSTER_SLUGS,
 	PIONEIROS_CLUSTER_SLUGS,
-	INGLESES_CLUSTER_SLUGS,
-	ITACORUBI_CLUSTER_SLUGS,
 	COMPRA_SEGURA_CLUSTER_SLUGS,
-	CACHOEIRA_CLUSTER_SLUGS,
 	BALNEARIO_CAMBORIU_CLUSTER_SLUGS,
-	JURERE_INTERNACIONAL_CLUSTER_SLUGS,
 } from '../src/lib/blog-cluster-slugs.mjs';
 import { findCrossClusterBlogLinks } from '../src/lib/cluster-link-rebuild.mjs';
 
 const blogDir = join(process.cwd(), 'src/content/blog');
 
 const CLUSTERS = [
-	{ name: 'Campeche', slugs: CAMPECHE_CLUSTER_SLUGS },
-	{ name: 'Canasvieiras', slugs: CANASVIEIRAS_CLUSTER_SLUGS },
 	{ name: 'Centro', slugs: CENTRO_CLUSTER_SLUGS },
 	{ name: 'Pioneiros', slugs: PIONEIROS_CLUSTER_SLUGS },
-	{ name: 'Ingleses', slugs: INGLESES_CLUSTER_SLUGS },
-	{ name: 'Itacorubi', slugs: ITACORUBI_CLUSTER_SLUGS },
-	{ name: 'Cachoeira', slugs: CACHOEIRA_CLUSTER_SLUGS },
 	{ name: 'Compra Segura', slugs: COMPRA_SEGURA_CLUSTER_SLUGS },
 	{ name: 'Balneário Camboriú', slugs: BALNEARIO_CAMBORIU_CLUSTER_SLUGS },
-	{ name: 'Jurerê Internacional', slugs: JURERE_INTERNACIONAL_CLUSTER_SLUGS },
 ];
 
 const violations = [];

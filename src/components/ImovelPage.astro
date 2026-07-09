@@ -1,7 +1,8 @@
 ---
 import PillerLayout from '../layouts/PillerLayout.astro';
-import PropertyLandingPage from './PropertyLandingPage.astro';
+import PropertyLandingPageViverCatarina from './PropertyLandingPageViverCatarina.astro';
 import { buildImovelPageContext } from '../lib/imovel-page.mjs';
+import { versionedAsset } from '../lib/asset-version.mjs';
 
 const { slug } = Astro.props;
 const page = buildImovelPageContext(slug);
@@ -9,6 +10,10 @@ const page = buildImovelPageContext(slug);
 	if (!page) {
 		return Astro.redirect('/404');
 	}
+
+const breadcrumbParent = page.neighborhoodSlug
+	? { href: `/bairro/${page.neighborhoodSlug}`, label: page.nav.neighborhood }
+	: { href: '/lancamentos/apartamentos', label: 'Lançamentos' };
 ---
 
 <PillerLayout
@@ -17,18 +22,24 @@ const page = buildImovelPageContext(slug);
 	keywords={page.seo.keywords}
 	ogImage={page.seo.ogImage}
 	canonicalPath={`/imovel/${page.slug}`}
-	bodyClass="imovel-landing"
+	bodyClass="imovel-landing imovel-landing-vivercatarina"
 	disableEffects
 	asyncFonts
 	slimScripts
 	preloadImage={page.hero.images[0]?.lcpUrl}
+	breadcrumb={[
+		{ name: 'Início', url: '/' },
+		{ name: breadcrumbParent.label, url: breadcrumbParent.href },
+		{ name: page.nav.title, url: `/imovel/${page.slug}` },
+	]}
 >
 	<Fragment slot="head">
-		<link rel="stylesheet" href="/css/imovel-landing.css" />
+		<link rel="stylesheet" href={versionedAsset('/css/imovel-landing.css')} />
+		<link rel="stylesheet" href={versionedAsset('/css/imovel-landing-vivercatarina.css')} />
 		{page.seo.jsonLd && <script type="application/ld+json" set:html={JSON.stringify(page.seo.jsonLd)} />}
 	</Fragment>
 
 	<Fragment set:html={page.shellBefore} />
-	<PropertyLandingPage page={page} />
+	<PropertyLandingPageViverCatarina page={page} breadcrumbParent={breadcrumbParent} />
 	<Fragment set:html={page.shellAfter} />
 </PillerLayout>

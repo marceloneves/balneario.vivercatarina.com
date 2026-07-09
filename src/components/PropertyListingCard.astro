@@ -16,8 +16,12 @@ const isGrid = variant === 'grid';
 					<a href={property.detailUrl} class="thumb-link">
 						<img
 							src={property.imageUrl}
+							srcset={property.imageSrcset ?? undefined}
+							sizes={property.imageSizes ?? undefined}
 							alt={property.imageAlt ?? property.title}
 							title={property.imageTitle ?? property.title}
+							loading="lazy"
+							decoding="async"
 						/>
 						<div class="popular-badge">
 							<img src="/assets/img/icon/sell_rent_icon.svg" alt="" aria-hidden="true" />
@@ -27,9 +31,9 @@ const isGrid = variant === 'grid';
 				</div>
 				<div class="property-content">
 					<div class="media-body">
-						<h3 class="box-title">
+						<h2 class="box-title">
 							<a href={property.detailUrl}>{property.title}</a>
-						</h3>
+						</h2>
 						<div class="box-text">
 							<div class="icon">
 								<img src="/assets/img/icon/popular-location.svg" alt="" aria-hidden="true" />
@@ -64,7 +68,7 @@ const isGrid = variant === 'grid';
 						)}
 					</ul>
 					<div class="property-bottom">
-						<h6 class="box-title">{property.priceLabel}</h6>
+						<p class="box-title property-price">{property.priceLabel}</p>
 						<a class="th-btn sm style3 pill" href={property.detailUrl}>
 							Ver mais
 						</a>
@@ -84,8 +88,12 @@ const isGrid = variant === 'grid';
 					<a href={property.detailUrl} class="thumb-link">
 						<img
 							src={property.imageUrl}
+							srcset={property.imageSrcset ?? undefined}
+							sizes={property.imageSizes ?? undefined}
 							alt={property.imageAlt ?? property.title}
 							title={property.imageTitle ?? property.title}
+							loading="lazy"
+							decoding="async"
 						/>
 						<div class="popular-badge">
 							<img src="/assets/img/icon/sell_rent_icon.svg" alt="" aria-hidden="true" />
@@ -95,9 +103,9 @@ const isGrid = variant === 'grid';
 				</div>
 				<div class="property-content">
 					<div class="media-body">
-						<h3 class="box-title">
+						<h2 class="box-title">
 							<a href={property.detailUrl}>{property.title}</a>
-						</h3>
+						</h2>
 						<div class="box-text">
 							<div class="icon">
 								<img src="/assets/img/icon/popular-location.svg" alt="" aria-hidden="true" />
@@ -132,7 +140,7 @@ const isGrid = variant === 'grid';
 						)}
 					</ul>
 					<div class="property-bottom">
-						<h6 class="box-title">{property.priceLabel}</h6>
+						<p class="box-title property-price">{property.priceLabel}</p>
 						<a class="th-btn sm style3 pill" href={property.detailUrl}>
 							Ver mais
 						</a>
@@ -142,3 +150,13 @@ const isGrid = variant === 'grid';
 		</div>
 	)
 }
+
+<style>
+	/* Mesmo creme dos cards de bairro na área de texto do card de imóvel
+	   (listagens de lançamentos, bairro e abas). Também no card todo, pra não
+	   sobrar branco embaixo da imagem no list-style. */
+	.popular-list-1,
+	.property-content {
+		background: #F5F2ED;
+	}
+</style>

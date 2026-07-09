@@ -1,6 +1,11 @@
 ---
-const { neighborhoods, variant = 'home' } = Astro.props;
+const { neighborhoods, neighborhoodRegions = [], variant = 'home' } = Astro.props;
 const isListing = variant === 'listing';
+// Na home, agrupa por região quando houver dados; senão, um único grupo.
+const regionGroups =
+	neighborhoodRegions.length > 0
+		? neighborhoodRegions
+		: [{ region: null, neighborhoods }];
 ---
 
 {
@@ -10,44 +15,50 @@ const isListing = variant === 'listing';
 			aria-labelledby="home-bairros-title"
 		>
 			<div class="container">
-				<div class="th-sort-bar property-style">
-					<div class="row justify-content-between align-items-center">
-						<div class="col-md">
-							<h1 class="box-title text-start bairro-listing-title" id="home-bairros-title">
-								Bairros em Balneário Camboriú
+				<div class="row justify-content-center">
+					<div class="col-xl-8">
+						<div class="title-area text-center mb-40">
+							<p class="sub-title"><span class="double-line"></span> Balneário Camboriú</p>
+							<h1 class="sec-title" id="home-bairros-title">
+								Bairros em <span class="bairro-name-accent">Balneário Camboriú</span>
 							</h1>
+							<p class="box-text">
+								Encontre o lançamento imobiliário em Balneário Camboriú ideal para você
+							</p>
 						</div>
 					</div>
 				</div>
-				<p class="box-text bairros-listing-lead mb-4">
-					Encontre o lançamento imobiliário em Balneário Camboriú ideal para você
-				</p>
-				<div class="row gy-30 justify-content-center">
+				<ul
+					class="row gy-30 justify-content-start home-cities-list home-cities-list--side"
+					aria-label="Bairros de Balneário Camboriú"
+				>
 					{
 						neighborhoods.map((neighborhood) => (
-							<div class="col-xl-3 col-lg-4 col-md-6">
+							<li class="col-xl-4 col-lg-4 col-md-6">
 								<article class="gallery-card h-100">
 									<a href={neighborhood.href} class="gallery-card-link">
-										<div class="gallery-img">
+										<div class="gallery-img gallery-img--side">
 											<img
 												src={neighborhood.imageUrl}
 												alt={`Vista do bairro ${neighborhood.name} em Balneário Camboriú para comprar imóvel na planta`}
 												title={`${neighborhood.name}, Balneário Camboriú`}
+												width="400"
+												height="300"
 												loading="lazy"
 											/>
-											<div class="gallery-content">
-												<div class="gallery-content-wrapper">
-													<p class="box-text">Balneário Camboriú, SC</p>
-													<h2 class="box-title">{neighborhood.name}</h2>
-												</div>
+										</div>
+										<div class="gallery-content">
+											<div class="gallery-content-wrapper">
+												<h2 class="box-title">{neighborhood.name}</h2>
+												{neighborhood.blurb && <p class="city-blurb">{neighborhood.blurb}</p>}
 											</div>
 										</div>
 									</a>
 								</article>
-							</div>
+							</li>
 						))
 					}
-				</div>
+				</ul>
 			</div>
 		</section>
 	) : (
@@ -64,7 +75,7 @@ const isListing = variant === 'listing';
 								Balneário Camboriú
 							</p>
 							<h2 class="sec-title mb-2" id="home-bairros-title">
-								Bairros para Comprar Imóveis na Planta
+								Bairros para Comprar<br /><span class="bairro-name-accent">Imóveis na Planta</span>
 							</h2>
 							<p class="box-text">
 								Encontre o lançamento imobiliário em Balneário Camboriú ideal para você
@@ -74,40 +85,168 @@ const isListing = variant === 'listing';
 				</div>
 			</div>
 			<div class="container pb-5">
-				<div class="row gy-30 justify-content-center">
-					{
-						neighborhoods.map((neighborhood) => (
-							<div class="col-xl-3 col-lg-4 col-md-6">
-								<article class="gallery-card h-100">
-									<a href={neighborhood.href} class="gallery-card-link">
-										<div class="gallery-img">
-											<img
-												src={neighborhood.imageUrl}
-												alt={`Vista do bairro ${neighborhood.name} em Balneário Camboriú para comprar imóvel na planta`}
-												title={`${neighborhood.name}, Balneário Camboriú`}
-												loading="lazy"
-											/>
-											<div class="gallery-content">
-												<div class="gallery-content-wrapper">
-													<p class="box-text">Balneário Camboriú, SC</p>
-													<h2 class="box-title">{neighborhood.name}</h2>
+				{
+					regionGroups.map((group) => (
+						<div class="home-region-group">
+							{group.region && (
+								<h3 class="home-region-title">{group.region}</h3>
+							)}
+							<ul
+								class="row gy-30 justify-content-start home-cities-list home-cities-list--side"
+								aria-label={group.region ? `Bairros — ${group.region}` : 'Bairros de Balneário Camboriú'}
+							>
+								{group.neighborhoods.map((neighborhood) => (
+									<li class="col-xl-4 col-lg-4 col-md-6">
+										<article class="gallery-card h-100">
+											<a href={neighborhood.href} class="gallery-card-link">
+												<div class="gallery-img gallery-img--side">
+													<img
+														src={neighborhood.imageUrl}
+														alt={`Vista do bairro ${neighborhood.name} em Balneário Camboriú para comprar imóvel na planta`}
+														title={`${neighborhood.name}, Balneário Camboriú`}
+														width="400"
+														height="300"
+														loading="lazy"
+													/>
 												</div>
-											</div>
-										</div>
-									</a>
-								</article>
-							</div>
-						))
-					}
-				</div>
+												<div class="gallery-content">
+													<div class="gallery-content-wrapper">
+														<h2 class="box-title">{neighborhood.name}</h2>
+														{neighborhood.blurb && <p class="city-blurb">{neighborhood.blurb}</p>}
+													</div>
+												</div>
+											</a>
+										</article>
+									</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
 			</div>
 		</section>
 	)
 }
 
+<style is:global>
+	/* Fontes self-hosted do vivercatarina.com para os cards de bairro ficarem
+	   idênticos aos cards de cidade (título Plus Jakarta Sans, texto Inter).
+	   Arquivos já presentes em /public/assets/fonts/google/. */
+	@font-face {
+		font-family: 'Plus Jakarta Sans';
+		font-style: normal;
+		font-weight: 200 800;
+		font-display: swap;
+		src: url(/assets/fonts/google/plusjakartasans-latin-normal.woff2) format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	@font-face {
+		font-family: 'Plus Jakarta Sans';
+		font-style: normal;
+		font-weight: 200 800;
+		font-display: swap;
+		src: url(/assets/fonts/google/plusjakartasans-latin-ext-normal.woff2) format('woff2');
+		unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	@font-face {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url(/assets/fonts/google/inter-latin-normal.woff2) format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	@font-face {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url(/assets/fonts/google/inter-latin-ext-normal.woff2) format('woff2');
+		unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	}
+	/* Fallbacks com métricas ajustadas (evita salto de layout), igual ao site de origem. */
+	@font-face {
+		font-family: 'Plus Jakarta Sans Fallback';
+		src: local('Arial');
+		ascent-override: 87.66%;
+		descent-override: 18.75%;
+		line-gap-override: 0%;
+		size-adjust: 118.41%;
+	}
+	@font-face {
+		font-family: 'Inter Fallback';
+		src: local('Arial');
+		ascent-override: 90.44%;
+		descent-override: 22.52%;
+		line-gap-override: 0%;
+		size-adjust: 107.12%;
+	}
+</style>
+
 <style>
+	/* Mais respiro nas laterais da seção de cards. */
+	.home-bairros-section .container {
+		padding-left: clamp(16px, 4vw, 72px);
+		padding-right: clamp(16px, 4vw, 72px);
+	}
+
+	/* Espaço acima do título na página /bairros (listagem). */
+	.th-blog-wrapper.home-bairros-section {
+		padding-top: 70px !important;
+	}
+
+	/* 5 cards por linha a partir de telas grandes (apenas listagem vertical;
+	   os cards horizontais da home usam 4 por linha). */
+	@media (min-width: 1200px) {
+		.home-bairros-section .row.gy-30:not(.home-cities-list--side) > [class*='col-'] {
+			flex: 0 0 20%;
+			max-width: 20%;
+		}
+	}
+
 	.home-bairros-section .gallery-card {
 		height: 100%;
+		/* Deixa a faixa amarela (box-shadow) aparecer; o tema seta
+		   overflow:hidden no card e clipava a faixa. */
+		overflow: visible;
+	}
+
+	/* Efeito esfumaçado preto somente na área do nome, na base do card (listagem). */
+	.home-bairros-section .gallery-content {
+		z-index: 2;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: auto;
+		width: 100%;
+		transform: none;
+		border-radius: 0;
+		padding: 0;
+		background: linear-gradient(
+			to top,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 0.85) 45%,
+			rgba(0, 0, 0, 0.4) 80%,
+			rgba(0, 0, 0, 0) 100%
+		);
+	}
+
+	.home-bairros-section .gallery-content-wrapper {
+		padding: 28px 16px 12px;
+	}
+
+	/* Remove o fundo branco que aparecia atrás do nome no hover. */
+	.home-bairros-section .gallery-content-wrapper::before {
+		display: none;
+	}
+
+	/* Nome menor dentro da faixa, branco (amarelo no hover) — listagem. */
+	.home-bairros-section .gallery-content .box-title {
+		display: block;
+		font-size: 18px;
+		line-height: 1.2;
+		font-weight: 600;
+		color: #ffffff;
 	}
 
 	.home-bairros-section .gallery-card-link {
@@ -124,6 +263,19 @@ const isListing = variant === 'listing';
 		width: 100%;
 		max-height: none;
 		height: auto;
+		border-radius: 0;
+		/* Borda cinza + faixa amarela por fora (esquerda e embaixo) — listagem. */
+		border: 1px solid #888888;
+		box-shadow: -6px 6px 0 0 var(--theme-color);
+	}
+
+	.home-bairros-section .gallery-img img {
+		border-radius: 0;
+	}
+
+	/* Remove o escurecimento global da imagem; só a faixa do nome fica escura. */
+	.home-bairros-section .gallery-img::before {
+		display: none;
 	}
 
 	.home-bairros-section .gallery-img img {
@@ -134,17 +286,172 @@ const isListing = variant === 'listing';
 		height: 100%;
 		object-fit: cover;
 		object-position: center;
-		transition: transform 0.4s ease;
+		filter: brightness(1.12) saturate(1.06);
+		transition: transform 0.4s ease, filter 0.4s ease;
 	}
 
 	.home-bairros-section .gallery-card-link:hover .gallery-img img,
 	.home-bairros-section .gallery-card-link:focus-visible .gallery-img img {
-		transform: scale(1.03);
+		transform: scale(1.05);
+		filter: brightness(1.2) saturate(1.1);
+	}
+
+	/* No hover, o nome vira amarelo da marca (listagem). */
+	.home-bairros-section .gallery-card .gallery-img:hover .gallery-content .box-title,
+	.home-bairros-section .gallery-card-link:hover .gallery-content .box-title,
+	.home-bairros-section .gallery-card-link:focus-visible .gallery-content .box-title {
+		color: var(--theme-color);
 	}
 
 	.home-bairros-section .gallery-card-link:focus-visible {
 		outline: 2px solid var(--theme-color);
 		outline-offset: 4px;
-		border-radius: 16px;
+		border-radius: 8px;
+	}
+
+	/* ===== Home: cards de bairro no estilo exato dos cards de cidade do
+	   vivercatarina.com: imagem à esquerda (1/3), nome à direita (2/3), borda
+	   preta 2px + sombra amarela deslocada (-6px 6px), área de texto creme
+	   #F5F2ED com nome à esquerda, foto com tom âmbar da marca. ===== */
+	.home-bairros-section .home-cities-list {
+		list-style: none;
+		padding-left: 0.75rem;
+		margin-bottom: 0;
+	}
+
+	/* Segmentação por região: espaço entre grupos + título em badge amarelo. */
+	.home-bairros-section .home-region-group + .home-region-group {
+		margin-top: 3.25rem;
+	}
+
+	.home-bairros-section .home-region-title {
+		display: inline-block;
+		margin-bottom: 1.75rem;
+		padding: 4px 12px;
+		font-size: 1.4rem;
+		font-weight: 700;
+		font-style: italic;
+		color: var(--title-color);
+		background: var(--theme-color);
+		box-shadow: -4px 4px 0 0 #000000;
+	}
+
+	/* Card vira linha horizontal; borda e faixa amarela envolvem o card todo. */
+	.home-bairros-section .home-cities-list--side .gallery-card-link {
+		display: flex;
+		align-items: stretch;
+		position: relative;
+		min-height: 96px;
+		border: 1px solid #000000;
+		background-color: color-mix(in srgb, var(--theme-color) 8%, #ffffff);
+	}
+
+	/* Barra amarela fina à esquerda, deslocada pra fora com folga (não engrossa,
+	   só afasta pra esquerda). */
+	.home-bairros-section .home-cities-list--side .gallery-card-link::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: -8px;
+		right: 100%;
+		margin-right: 2px;
+		width: 6px;
+		background: var(--theme-color);
+		z-index: 0;
+	}
+
+	/* Barra amarela fina embaixo, deslocada pra baixo com folga (não engrossa,
+	   só desce). */
+	.home-bairros-section .home-cities-list--side .gallery-card-link::after {
+		content: "";
+		position: absolute;
+		left: -8px;
+		right: 8px;
+		top: 100%;
+		margin-top: 2px;
+		height: 6px;
+		background: var(--theme-color);
+		z-index: 0;
+	}
+
+	.home-bairros-section .gallery-img--side {
+		overflow: hidden;
+	}
+
+	/* Hover: zoom na imagem + remove o tom âmbar (cor natural). */
+	.home-bairros-section .home-cities-list--side .gallery-card-link:hover .gallery-img img,
+	.home-bairros-section .home-cities-list--side .gallery-card-link:focus-visible .gallery-img img {
+		transform: scale(1.08);
+		filter: none;
+	}
+
+	.home-bairros-section .home-cities-list--side .gallery-card-link:hover .gallery-img::after,
+	.home-bairros-section .home-cities-list--side .gallery-card-link:focus-visible .gallery-img::after {
+		opacity: 0;
+	}
+
+	/* Imagem ocupa 1/3 da esquerda; sem borda/sombra próprias. */
+	.home-bairros-section .gallery-img--side {
+		flex: 0 0 33.333%;
+		max-width: 33.333%;
+		align-self: stretch;
+		aspect-ratio: auto;
+		border: none;
+		box-shadow: none;
+	}
+
+	/* Nome + descrição curta nos 2/3 da direita. */
+	.home-bairros-section .home-cities-list--side .gallery-content {
+		flex: 1 1 auto;
+		position: static;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		/* Creme dos sites de cidade só na área de texto (nome + descrição). */
+		background: #F5F2ED;
+		padding: 0;
+	}
+	.home-bairros-section .home-cities-list--side .gallery-content-wrapper {
+		padding: 12px 16px;
+		text-align: left;
+	}
+	.home-bairros-section .home-cities-list--side .gallery-content .box-title {
+		/* Mesma fonte de título do vivercatarina.com (cards de cidade).
+		   !important vence a regra global que força var(--body-font). */
+		font-family: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', Arial, sans-serif !important;
+		font-size: 18px;
+		font-weight: 700;
+		color: #1a1a1a;
+		margin-bottom: 4px;
+	}
+	/* Blurb de info-gain por bairro (fato local + reforço de SEO). */
+	.home-bairros-section .home-cities-list--side .city-blurb {
+		/* Mesma fonte de texto do vivercatarina.com (cards de cidade). */
+		font-family: 'Inter', 'Inter Fallback', Arial, sans-serif;
+		margin: 0;
+		font-size: 12.5px;
+		line-height: 1.35;
+		color: #4a4a4a;
+	}
+
+	/* Foto com tom âmbar da marca para padronizar imagens de origens diferentes. */
+	.home-bairros-section .home-cities-list--side .gallery-img img {
+		filter: sepia(0.5) saturate(1.32) hue-rotate(-10deg) brightness(1.02);
+	}
+	.home-bairros-section .home-cities-list--side .gallery-img::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: var(--theme-color);
+		mix-blend-mode: multiply;
+		opacity: 0.14;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	/* Hover: nome permanece escuro (fundo já é claro). */
+	.home-bairros-section .home-cities-list--side .gallery-card-link:hover .gallery-content .box-title,
+	.home-bairros-section .home-cities-list--side .gallery-card-link:focus-visible .gallery-content .box-title {
+		color: #1a1a1a;
 	}
 </style>

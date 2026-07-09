@@ -1,4 +1,6 @@
 ---
+import { toTitleCase } from '../lib/title-case.mjs';
+
 const { financing } = Astro.props;
 const { defaults, resumo, fgts, mcmv, permuta } = financing;
 ---
@@ -6,7 +8,9 @@ const { defaults, resumo, fgts, mcmv, permuta } = financing;
 {
 	financing.enabled && (
 		<section class="section" id="simulador-financiamento">
-			<h2 class="section__title">Simulador de financiamento</h2>
+			<h2 class="section__title landing-section-title">
+				{toTitleCase('Simulador de financiamento')}
+			</h2>
 
 			<div class="card financing-simulator">
 			{resumo && <p class="financing-simulator__summary">{resumo}</p>}

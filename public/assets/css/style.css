@@ -85,27 +85,40 @@ Version: 1.0.0
 /*------------------- 1.2. Function -------------------*/
 /*------------------- 1.3. Variable-------------------*/
 :root {
-  --theme-color: #FFAF00;
-  --theme-color2: #FE8900;
-  --theme-color3: #FFC000;
-  --title-color: #1A1A1A;
-  --body-color: #554B4B;
-  --smoke-color: #F6F2F1;
-  --smoke-color2: #F5F5F5;
-  --black-color: #111827;
-  --black-color2: #1B1B1B;
+  --black: #0A0A0A;
+  --ink: #1A1A1A;
+  --charcoal: #333;
+  --bone: #F5F2ED;
+  --paper: #FAFAF7;
+  --white: #FFF;
+  --safety: #FFAF00;
+  --rust-dark: #8A2E0F;
+  --border: #D4CFC2;
+  --border-strong: #2B2B2B;
+  --light-on-dark: #EAE7E0;
+  --muted-on-dark: #BDBAB3;
+  --theme-color: var(--safety);
+  --theme-color2: var(--safety);
+  --theme-color3: var(--safety);
+  --title-color: var(--ink);
+  --body-color: var(--charcoal);
+  --smoke-color: var(--bone);
+  --smoke-color2: var(--paper);
+  --black-color: var(--black);
+  --black-color2: var(--black);
   --gray-color: #03060E;
-  --gray-color2: #E4E4E5;
-  --white-color: #ffffff;
+  --gray-color2: var(--border);
+  --white-color: var(--white);
   --light-color: #bdbdbd;
-  --yellow-color: #FFB539;
+  --yellow-color: var(--safety);
   --success-color: #28a745;
   --error-color: #dc3545;
-  --th-border-color: #D8DDE1;
-  --th-border-color2: #303030;
+  --th-border-color: var(--border);
+  --th-border-color2: var(--border-strong);
   --dark-color: #021526;
-  --title-font: "Plus Jakarta Sans", serif;
-  --body-font: "Inter", serif;
+  --title-font: "Bebas Neue", "Arial Narrow", sans-serif;
+  --body-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --accent-font: "Fraunces", Georgia, serif;
   --icon-font: "Font Awesome 6 Pro";
   --main-container: 1620px;
   --container-gutters: 30px;
@@ -9217,6 +9230,14 @@ ol.wp-block-rss {
 .copyright-wrap.bg-title .copyright-text a:hover {
   color: var(--theme-color);
 }
+.copyright-credit {
+  margin: 0.75rem 0 0;
+  color: var(--white-color) !important;
+  line-height: 1.3;
+}
+.copyright-credit strong {
+  color: var(--white-color) !important;
+}
 .copyright-wrap .footer-default-copy-right {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11640,7 +11661,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child > .th-pos
 }
 .hero-inner.hero-style1 .hero-1-content .bottom .content i {
   font-size: 14px;
-  color: #FFA439;
+  color: #FFAF00;
 }
 .hero-inner.hero-style1 .hero-1-content .bottom .content .review-title {
   font-size: 18px;
@@ -14070,7 +14091,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child > .th-pos
 }
 .hero-4 .bottom .content i {
   font-size: 14px;
-  color: #FFA439;
+  color: #FFAF00;
 }
 .hero-4 .bottom .content .review-title {
   font-size: 18px;
@@ -14455,7 +14476,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child > .th-pos
   }
 }
 .hero-5 .hero-inner .top .th-social i {
-  color: #FFA439;
+  color: #FFAF00;
 }
 .hero-5 .hero-inner .top .review-title {
   font-weight: 500;
@@ -15502,7 +15523,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child > .th-pos
 }
 .hero-10-img .hero10-review .bottom .content .th-social i {
   font-size: 13px;
-  color: #FFA439;
+  color: #FFAF00;
 }
 .hero-10-img .img-box3 {
   -ms-flex-item-align: end;
@@ -21939,7 +21960,7 @@ input {
 }
 .testi-item .box-review i {
   font-size: 24px;
-  color: #FFA439;
+  color: #FFAF00;
 }
 .testi-item .box-review .rating {
   font-weight: 600;
@@ -22106,7 +22127,7 @@ input {
 }
 .testi-bottom-item .bottom .content .th-social i {
   font-size: 13px;
-  color: #FFA439;
+  color: #FFAF00;
 }
 
 /* Medium Large devices */

@@ -1,0 +1,102 @@
+/* Bloco "Lançamentos da [empresa]" ao fim do artigo de construtora.
+   Os cards devem ficar IDÊNTICOS aos da home
+   (.home-lancamentos-section .popular-list-1 em piller-layout-global.css).
+   Como a página do artigo carrega blog-article.css / typography-system.css /
+   piller-layout-global.css, aqui: (1) replicamos as mesmas regras da home e
+   (2) revertemos o que o CSS do artigo injeta nos cards (radius, cor de link
+   laranja, cor de texto, tamanho de fonte). */
+
+.cl-launches {
+	margin: 48px 0 8px;
+	padding-top: 32px;
+	border-top: 1px solid var(--th-border-color, #e6e8ec);
+}
+
+.cl-launches__title {
+	font-size: 1.5rem;
+	line-height: 1.25;
+	margin: 0 0 6px;
+	color: var(--title-color, #0e1c2b);
+}
+
+.cl-launches__intro {
+	margin: 0 0 24px;
+	color: var(--body-color, #5b6573);
+	font-size: 1rem;
+}
+
+/* ===== Moldura do card = home (sem radius, borda preta, sem sombra) ===== */
+.cl-launches .popular-list-1 {
+	border: 1px solid var(--black-color) !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	overflow: hidden;
+}
+
+.cl-launches .popular-list-1 .thumb-wrapper,
+.cl-launches .popular-list-1 .thumb-wrapper img,
+.cl-launches .popular-list-1 .thumb-link,
+.cl-launches .popular-list-1 .thumb-wrapper::before {
+	border-radius: 0 !important;
+}
+
+/* Zoom no hover da imagem (como na home) */
+.cl-launches .popular-list-1 .thumb-wrapper .thumb-link > img {
+	transition: transform 0.4s ease !important;
+}
+
+.cl-launches .popular-list-1:hover .thumb-wrapper .thumb-link > img {
+	transform: scale(1.08) !important;
+}
+
+/* ===== Badge: o corpo do artigo infla o <p>; volta ao tamanho da home ===== */
+.cl-launches .popular-list-1 .thumb-wrapper .popular-badge p {
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	line-height: 1.6 !important;
+}
+
+/* ===== Tipografia dos cards = home ===== */
+.cl-launches .popular-list-1 .box-title,
+.cl-launches .popular-list-1 .box-text {
+	font-family: var(--body-font) !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+}
+
+.cl-launches .popular-list-1 .box-title:not(.property-price) {
+	font-size: 21px !important;
+	line-height: 1.35 !important;
+}
+
+.cl-launches .popular-list-1 .box-title.property-price {
+	font-size: 16px !important;
+	line-height: 1 !important;
+}
+
+/* Cor do texto secundário = home (o artigo usa cor de corpo diferente) */
+.cl-launches .popular-list-1 .box-text,
+.cl-launches .popular-list-1 .property-featured li {
+	color: #333 !important;
+}
+
+/* ===== Cores: o artigo pinta TODO link do corpo de laranja (#b36b00).
+   Reverte título e botão do card para as cores da home. ===== */
+.cl-launches .popular-list-1 .property-content .box-title a,
+.cl-launches .popular-list-1 .property-content .box-title a:visited {
+	color: var(--title-color) !important;
+	font-weight: 700 !important;
+}
+
+.cl-launches .popular-list-1 .property-content .box-title a:hover {
+	color: var(--theme-color) !important;
+}
+
+.cl-launches .popular-list-1 .property-content .th-btn,
+.cl-launches .popular-list-1 .property-content .th-btn:visited {
+	color: var(--black-color) !important;
+}
+
+.cl-launches .popular-list-1 .property-content .th-btn:hover {
+	color: var(--theme-color) !important;
+}

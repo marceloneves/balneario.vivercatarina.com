@@ -18,7 +18,7 @@ const CONSTRUTORA_PROFILES = [
 		displayName: 'Lumis',
 		matchers: [/lumis/i],
 		summary:
-			'A Lumis é incorporadora com atuação em lançamentos de médio e alto padrão em bairros como Campeche e outras regiões de Balneário Camboriú.',
+			'A Lumis é incorporadora com atuação em lançamentos de médio e alto padrão em Balneário Camboriú.',
 	},
 	{
 		id: 'luma',

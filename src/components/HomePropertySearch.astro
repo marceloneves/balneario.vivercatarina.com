@@ -1,7 +1,7 @@
 ---
 import HomePropertyFilterFields from './HomePropertyFilterFields.astro';
 
-const { kinds, neighborhoods } = Astro.props;
+const { kinds, neighborhoods, construtoras = [] } = Astro.props;
 ---
 
 <section class="search-area" aria-label="Busca de imóveis">
@@ -13,6 +13,7 @@ const { kinds, neighborhoods } = Astro.props;
 						<HomePropertyFilterFields
 							kinds={kinds}
 							neighborhoods={neighborhoods}
+							construtoras={construtoras}
 							idPrefix="home-search"
 							showSubmit={true}
 						/>
@@ -36,24 +37,19 @@ const { kinds, neighborhoods } = Astro.props;
 		form.addEventListener('submit', (event) => {
 			event.preventDefault();
 
-			const kindSelect = form.querySelector('[name="kind"]');
-			const neighborhoodSelect = form.querySelector('[name="neighborhood"]');
-			const kindOption = kindSelect?.selectedOptions[0];
-			const neighborhoodOption = neighborhoodSelect?.selectedOptions[0];
-			const neighborhoodHref = neighborhoodOption?.dataset.href;
-			const kindHref = kindOption?.dataset.href;
+			const kind = form.querySelector('[name="kind"]')?.value || '';
+			const neighborhood = form.querySelector('[name="neighborhood"]')?.value || '';
+			const construtora = form.querySelector('[name="construtora"]')?.value || '';
+			const priceMinRaw = Number(form.querySelector('[name="priceMin"]')?.value) || 0;
+			const priceMinEl = form.querySelector<HTMLInputElement>('[name="priceMin"]');
+			const priceMin = priceMinEl && priceMinRaw > Number(priceMinEl.min) ? priceMinRaw : 0;
+			const search = (form.querySelector('[name="search"]')?.value || '').trim();
 
-			if (neighborhoodHref) {
-				window.location.href = neighborhoodHref;
-				return;
-			}
-
-			if (kindHref) {
-				window.location.href = kindHref;
-				return;
-			}
-
-			window.location.href = '/lancamentos';
+			document.dispatchEvent(
+				new CustomEvent('home-property-filter', {
+					detail: { kind, neighborhood, construtora, priceMin, search },
+				}),
+			);
 		});
 	}
 

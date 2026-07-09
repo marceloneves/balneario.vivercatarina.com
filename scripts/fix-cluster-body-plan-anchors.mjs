@@ -1,6 +1,6 @@
 /**
  * Sugere encurtamento de `find` nos planos de cluster (máx. 3 palavras).
- * Uso: node scripts/fix-cluster-body-plan-anchors.mjs [campeche|jurere|canasvieiras]
+ * Uso: node scripts/fix-cluster-body-plan-anchors.mjs [centro|nacoes|barra-sul|pioneiros|aririba|barra]
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

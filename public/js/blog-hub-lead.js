@@ -5,7 +5,7 @@
 		const neighborhoodName =
 			form.dataset.neighborhoodName || 'este bairro';
 		const leadSource =
-			form.dataset.leadSource || 'blog-hub-campeche';
+			form.dataset.leadSource || 'blog-hub';
 
 		form.addEventListener('submit', async (event) => {
 			event.preventDefault();

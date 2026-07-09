@@ -692,7 +692,7 @@
 
     /*----------- 11. Magnific Popup ----------*/
     /* magnificPopup img view */
-    $(".popup-image").magnificPopup({
+    $.fn.magnificPopup && $(".popup-image").magnificPopup({
         type: "image",
         mainClass: "mfp-zoom-in",
         removalDelay: 260,
@@ -702,7 +702,7 @@
     });
 
     $(document).ready(function() {
-        $('.popular-popup-image').magnificPopup({
+        $.fn.magnificPopup && $('.popular-popup-image').magnificPopup({
             type: 'image',
             gallery: {
                 enabled: true 
@@ -718,12 +718,12 @@
 
 
     /* magnificPopup video view */
-    $(".popup-video").magnificPopup({
+    $.fn.magnificPopup && $(".popup-video").magnificPopup({
         type: "iframe",
     });
 
     /* magnificPopup video view */
-    $(".popup-content").magnificPopup({
+    $.fn.magnificPopup && $(".popup-content").magnificPopup({
         type: "inline",
         midClick: true,
     });
@@ -767,19 +767,19 @@
 
     var postionHandler = "[data-sec-pos]";
     if ($(postionHandler).length) {
-        $(postionHandler).imagesLoaded(function () {
+        $.fn.imagesLoaded && $(postionHandler).imagesLoaded(function () {
             $(postionHandler).sectionPosition("data-sec-pos", "data-pos-for");
         });
     }
 
     /*----------- 14. Filter ----------*/
-    $(".filter-active").imagesLoaded(function () {
+    $.fn.imagesLoaded && $(".filter-active").imagesLoaded(function () {
         var $filter = ".filter-active",
             $filterItem = ".filter-item",
             $filterMenu = ".filter-menu-active";
 
         if ($($filter).length > 0) {
-            var $grid = $($filter).isotope({
+            var $grid = $.fn.isotope && $($filter).isotope({
                 itemSelector: $filterItem,
                 filter: "*",
                 masonry: {
@@ -805,7 +805,7 @@
         }
     });
 
-    $(".masonary-active, .woocommerce-Reviews .comment-list").imagesLoaded(
+    $.fn.imagesLoaded && $(".masonary-active, .woocommerce-Reviews .comment-list").imagesLoaded(
         function () {
             var $filter =
                     ".masonary-active, .woocommerce-Reviews .comment-list",
@@ -813,7 +813,7 @@
                     ".filter-item, .woocommerce-Reviews .comment-list li";
 
             if ($($filter).length > 0) {
-                $($filter).isotope({
+                $.fn.isotope && $($filter).isotope({
                     itemSelector: $filterItem,
                     filter: "*",
                     masonry: {
@@ -823,7 +823,7 @@
                 });
             }
             $('[data-bs-toggle="tab"]').on("shown.bs.tab", function (e) {
-                $($filter).isotope({
+                $.fn.isotope && $($filter).isotope({
                     filter: "*",
                 });
             });
@@ -952,7 +952,7 @@
     $(".logo-animation").lettering();
 
     /*----------- 14. Counter Up ----------*/
-    $(".counter-number").counterUp({
+    $.fn.counterUp && $(".counter-number").counterUp({
         delay: 10,
         time: 1000,
     });
@@ -1130,7 +1130,7 @@
 
     /*----------- 19. Tilt Active ----------*/
 
-    $(".tilt-active").tilt({
+    $.fn.tilt && $(".tilt-active").tilt({
         maxTilt: 7,
         perspective: 1000,
     });

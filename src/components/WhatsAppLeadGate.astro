@@ -1,6 +1,12 @@
+---
+import { SITE_NAME, SITE_WHATSAPP_NUMBER } from '../lib/site-contact.mjs';
+---
+
 <div
 	id="whatsapp-lead-modal"
 	class="whatsapp-lead-modal"
+	data-whatsapp-number={SITE_WHATSAPP_NUMBER}
+	data-site-name={SITE_NAME}
 	hidden
 >
 	<div class="whatsapp-lead-modal__backdrop" data-whatsapp-lead-close></div>
@@ -32,11 +38,12 @@
 				type="tel"
 				autocomplete="tel"
 				inputmode="tel"
-				placeholder="+55 48 98810-5199"
+				placeholder="+55 48 99999-9999"
 				required
 			/>
 			<p id="whatsapp-lead-error" class="whatsapp-lead-modal__error" hidden></p>
 			<button type="submit" class="whatsapp-lead-modal__submit">Continuar no WhatsApp</button>
+			<p class="form-consent-note" style="font-size:11px;line-height:1.45;margin:8px 0 0;color:var(--body-color);text-align:center;">Ao enviar, você concorda em ser contatado via WhatsApp/e-mail. Veja nossa <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
 		</form>
 	</div>
 </div>
@@ -65,7 +72,7 @@
 		position: relative;
 		width: min(100%, 26rem);
 		padding: 1.5rem;
-		border-radius: 1rem;
+		border-radius: 0;
 		background: #fff;
 		box-shadow: 0 24px 48px rgba(3, 6, 14, 0.18);
 	}
@@ -109,7 +116,7 @@
 		width: 100%;
 		padding: 0.75rem 0.875rem;
 		border: 1px solid var(--th-border-color, #e5e8ec);
-		border-radius: 0.625rem;
+		border-radius: 0;
 		font: inherit;
 	}
 
@@ -127,7 +134,7 @@
 	.whatsapp-lead-modal__submit {
 		margin-top: 0.35rem;
 		border: 0;
-		border-radius: 999px;
+		border-radius: 0;
 		padding: 0.85rem 1rem;
 		background: #25d366;
 		color: #fff;
@@ -152,12 +159,54 @@
 
 	const PHONE_PREFIX = '+55 ';
 
+	const WHATSAPP_NUMBER = modal?.dataset.whatsappNumber || '';
+	const SITE_LABEL = modal?.dataset.siteName || 'Viver Catarina';
+
 	let pendingContext = {
 		source: 'float',
 		pageUrl: window.location.href,
 		propertySlug: null,
 		propertyTitle: null,
 	};
+
+	// Mesma mensagem que o PHP montava em redirectUrl — agora o WhatsApp abre
+	// antes do registro do lead, então a URL precisa existir aqui.
+	function buildWhatsAppUrl(name, propertyTitle) {
+		const message = propertyTitle
+			? `Olá! Meu nome é ${name}. Tenho interesse no imóvel ${propertyTitle}.`
+			: `Olá! Meu nome é ${name}. Vim pelo site ${SITE_LABEL} e gostaria de mais informações.`;
+
+		return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+	}
+
+	// Abre em nova aba para a página seguir viva e o registro do lead completar.
+	// window.open precisa acontecer dentro do gesto de clique, antes de qualquer await.
+	// Sem 'noopener' nas features: com ela, window.open devolve null mesmo tendo
+	// aberto a aba, e o fallback abaixo navegaria a página atual também.
+	function openWhatsApp(url) {
+		const opened = window.open(url, '_blank');
+
+		if (opened) {
+			opened.opener = null;
+			return;
+		}
+
+		// Popup bloqueado de fato: usa a aba atual (keepalive mantém o POST do lead).
+		window.location.href = url;
+	}
+
+	// Best-effort: o lead nunca bloqueia o WhatsApp. keepalive mantém o POST vivo
+	// mesmo se o popup for bloqueado e a aba atual navegar para o wa.me.
+	function registerLead(payload) {
+		return fetch('/api/whatsapp-leads.php', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload),
+			keepalive: true,
+		}).catch(() => {
+			/* silencioso — o contato já foi aberto no WhatsApp */
+		});
+	}
 
 	function formatPhoneMask(value) {
 		let digits = String(value || '').replace(/\D/g, '');
@@ -234,6 +283,36 @@
 		errorBox.hidden = false;
 	}
 
+	function submitInlineLead(trigger, source) {
+		// Botões fora do float ficam dentro de um form com nome/telefone — envia
+		// direto pro WhatsApp, sem abrir o popup.
+		const formEl = trigger.closest('form');
+		const name = formEl?.querySelector('[name="name"]')?.value?.trim();
+		const phone = formEl?.querySelector('[name="phone"]')?.value?.trim();
+		// Email é opcional aqui, mas quando presente é o que habilita o cadastro no ElasticEmail.
+		const email = formEl?.querySelector('[name="email"]')?.value?.trim() || null;
+
+		if (!name || !phone) {
+			formEl?.reportValidity?.();
+			(name ? formEl?.querySelector('[name="phone"]') : formEl?.querySelector('[name="name"]'))?.focus();
+			return;
+		}
+
+		const propertyTitle = trigger.dataset.propertyTitle || null;
+
+		openWhatsApp(buildWhatsAppUrl(name, propertyTitle));
+
+		registerLead({
+			name,
+			phone,
+			email,
+			source,
+			pageUrl: window.location.href,
+			propertySlug: trigger.dataset.propertySlug || null,
+			propertyTitle,
+		});
+	}
+
 	document.addEventListener('click', (event) => {
 		const trigger = event.target.closest('[data-whatsapp-lead]');
 
@@ -243,11 +322,19 @@
 
 		event.preventDefault();
 
-		openModal({
-			source: trigger.dataset.whatsappSource || 'float',
-			propertySlug: trigger.dataset.propertySlug || null,
-			propertyTitle: trigger.dataset.propertyTitle || null,
-		});
+		const source = trigger.dataset.whatsappSource || 'float';
+
+		// Popup só no botão flutuante; demais botões enviam direto.
+		if (source === 'float') {
+			openModal({
+				source,
+				propertySlug: trigger.dataset.propertySlug || null,
+				propertyTitle: trigger.dataset.propertyTitle || null,
+			});
+			return;
+		}
+
+		submitInlineLead(trigger, source);
 	});
 
 	modal?.querySelectorAll('[data-whatsapp-lead-close]').forEach((element) => {
@@ -294,7 +381,7 @@
 
 	resetPhoneInput();
 
-	form?.addEventListener('submit', async (event) => {
+	form?.addEventListener('submit', (event) => {
 		event.preventDefault();
 
 		if (!submitButton) {
@@ -303,35 +390,25 @@
 
 		errorBox.hidden = true;
 		errorBox.textContent = '';
-		submitButton.disabled = true;
 
-		try {
-			const response = await fetch('/api/whatsapp-leads.php', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({
-					name: nameInput?.value,
-					phone: phoneInput?.value,
-					source: pendingContext.source,
-					pageUrl: pendingContext.pageUrl,
-					propertySlug: pendingContext.propertySlug,
-					propertyTitle: pendingContext.propertyTitle,
-				}),
-			});
+		const name = nameInput?.value?.trim();
+		const phone = phoneInput?.value?.trim();
 
-			const payload = await response.json();
-
-			if (!response.ok) {
-				showError(payload.error || 'Não foi possível continuar. Tente novamente.');
-				return;
-			}
-
-			closeModal();
-			window.location.href = payload.redirectUrl;
-		} catch {
-			showError('Erro de conexão. Verifique sua internet e tente novamente.');
-		} finally {
-			submitButton.disabled = false;
+		if (!name || !phone || phone === PHONE_PREFIX.trim()) {
+			showError('Informe seu nome e WhatsApp para continuar.');
+			return;
 		}
+
+		openWhatsApp(buildWhatsAppUrl(name, pendingContext.propertyTitle));
+		closeModal();
+
+		registerLead({
+			name,
+			phone,
+			source: pendingContext.source,
+			pageUrl: pendingContext.pageUrl,
+			propertySlug: pendingContext.propertySlug,
+			propertyTitle: pendingContext.propertyTitle,
+		});
 	});
 </script>

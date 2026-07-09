@@ -8,18 +8,12 @@ import { dirname, join } from 'node:path';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const scripts = [
-	'rebuild-campeche-cluster-links.mjs',
-	'rebuild-jurere-cluster-links.mjs',
-	'rebuild-canasvieiras-cluster-links.mjs',
 	'rebuild-centro-cluster-links.mjs',
 	'rebuild-aririba-cluster-links.mjs',
 	'rebuild-nacoes-cluster-links.mjs',
 	'rebuild-barra-cluster-links.mjs',
 	'rebuild-barra-sul-cluster-links.mjs',
 	'rebuild-pioneiros-cluster-links.mjs',
-	'rebuild-ingleses-cluster-links.mjs',
-	'rebuild-itacorubi-cluster-links.mjs',
-	'rebuild-cachoeira-cluster-links.mjs',
 	'rebuild-compra-segura-cluster-links.mjs',
 	'rebuild-balneario-camboriu-cluster-links.mjs',
 	'rebuild-construtoras-cluster-links.mjs',

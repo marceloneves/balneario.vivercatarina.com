@@ -4,6 +4,7 @@ import PropertyListingTabs from './PropertyListingTabs.astro';
 import { buildLancamentosPageContext } from '../lib/lancamentos-page.mjs';
 import { getCategoryLabel } from '../lib/property-category.mjs';
 import { getKindLabel } from '../lib/property-kind.mjs';
+import { buildItemListSchema } from '../lib/site-schema.mjs';
 
 const { pageSlug, page } = Astro.props;
 const context = buildLancamentosPageContext(pageSlug, page);
@@ -13,6 +14,13 @@ if (!context) {
 }
 
 const title = context.kind ? getKindLabel(context.kind) : getCategoryLabel(context.category);
+const listingItemList = buildItemListSchema(
+	(context.properties ?? []).map((property) => ({
+		url: `/imovel/${property.slug}`,
+		name: property.title,
+	})),
+	{ name: title },
+);
 ---
 
 <PillerLayout
@@ -22,8 +30,24 @@ const title = context.kind ? getKindLabel(context.kind) : getCategoryLabel(conte
 	canonicalPath={context.seo.canonicalPath}
 	bodyClass="bairro-listing"
 	disableEffects
+	jsonLd={[listingItemList].filter(Boolean)}
 >
 	<Fragment set:html={context.shellBefore} />
+	{(context.intro || context.allProperties.length > 0) && (
+		<div class="row">
+			<div class="col-xl-8 col-lg-12">
+				{context.intro && (
+					<p class="lancamentos-intro">{context.intro}</p>
+				)}
+				{context.allProperties.length > 0 && (
+					<p class="lancamentos-intro-count">
+						Atualmente, o portal reúne <strong>{context.allProperties.length}</strong>{' '}
+						{context.allProperties.length === 1 ? 'lançamento' : 'lançamentos'} de {title.toLowerCase()} na planta cadastrados em Balneário Camboriú.
+					</p>
+				)}
+			</div>
+		</div>
+	)}
 	<PropertyListingTabs
 		properties={context.properties}
 		allProperties={context.allProperties}
@@ -31,6 +55,11 @@ const title = context.kind ? getKindLabel(context.kind) : getCategoryLabel(conte
 		totalPages={context.totalPages}
 		basePath={context.basePath}
 		sidebarHtml={context.sidebarHtml}
+		leadForm={{
+			formId: `lancamentos-lead-${pageSlug}`,
+			variant: 'bairro',
+			introText: `Receba oportunidades de ${title.toLowerCase()} na planta em Balneário Camboriú.`,
+		}}
 	/>
 	<Fragment set:html={context.shellAfter} />
 </PillerLayout>

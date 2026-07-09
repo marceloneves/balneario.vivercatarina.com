@@ -10,7 +10,7 @@ import { applySemanticHtml } from './semantic-html.mjs';
 import { buildPaginationMarkup, paginate } from './property-listings.mjs';
 import { patchSiteMenu } from './site-menu.mjs';
 
-export const BLOG_POSTS_PER_PAGE = 9;
+export const BLOG_POSTS_PER_PAGE = 12;
 
 const templatePath = join(process.cwd(), 'src/content/template-pages/blog.html');
 
@@ -65,7 +65,7 @@ function renderBlogPostCard(post) {
 
 	const clusterId = escapeHtml(post.clusterId ?? 'geral');
 
-	return `<div class="col-lg-4 col-md-6 d-flex" data-blog-cluster="${clusterId}">
+	return `<div class="col-xl-3 col-lg-3 col-md-6 d-flex" data-blog-cluster="${clusterId}">
 	<article class="blog-card blog-post-card">
 		<div class="blog-img">
 			<a href="${href}">
@@ -81,9 +81,9 @@ function renderBlogPostCard(post) {
 			<div class="blog-meta">
 				<a href="${categoryHref}"><i class="fa-regular fa-tag" aria-hidden="true"></i> ${category}</a>
 			</div>
-			<h3 class="box-title">
+			<h2 class="box-title">
 				<a href="${href}">${title}</a>
-			</h3>
+			</h2>
 			<p class="box-text">${excerpt}</p>
 			<a href="${href}" class="th-btn pill blog-post-card__read-btn">Ler artigo</a>
 		</div>

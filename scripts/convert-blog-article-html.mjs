@@ -11,42 +11,8 @@ if (!sourcePath || !outPath) {
 
 /** @type {Record<string, string>} */
 const RELATED_LINKS = {
-	'Morar no Campeche: guia completo do bairro mais promissor do sul de Balneário Camboriú':
-		'/blog/morar-no-campeche-guia-completo',
-	'Custo de vida no Campeche: quanto custa morar no bairro':
-		'/blog/custo-de-vida-campeche-quanto-custa-morar',
-	'Campeche em expansão: até onde vai a valorização do bairro':
-		'/blog/campeche-em-expansao-valorizacao',
 	'Quanto Custa Morar em Balneário Camboriú em 2026: Tabela Completa de Aluguel e Compra por Bairro':
 		'/blog/quanto-custa-morar-em-balneario-camboriu',
-	'Praias do Campeche: guia completo das melhores da região':
-		'/blog/praias-do-campeche-guia-completo',
-	'Segurança no Campeche: como é morar no bairro na prática':
-		'/blog/seguranca-campeche-como-e-morar',
-	'Vale a pena investir em imóvel no Campeche? ROI e potencial de retorno':
-		'/blog/investir-imovel-campeche-roi-valorizacao',
-	'Infraestrutura do Campeche: comércio, mobilidade e trânsito':
-		'/blog/infraestrutura-campeche-comercio-mobilidade',
-	'Inverno x verão no Campeche: como a sazonalidade afeta quem mora no bairro':
-		'/blog/inverno-verao-campeche-sazonalidade',
-	'Casas à venda no Campeche: características e sub-regiões do bairro':
-		'/blog/casas-a-venda-campeche-sub-regioes',
-	'Aluguel no Campeche: valores, temporada e como funciona o mercado':
-		'/blog/aluguel-campeche-valores-temporada',
-	'Como comprar imóvel no Campeche: financiamento, documentação e passo a passo':
-		'/blog/como-comprar-imovel-campeche-financiamento',
-	'Apartamentos à venda no Campeche: o que esperar em cada faixa de preço':
-		'/blog/apartamentos-a-venda-campeche-faixas-preco',
-	'Sub-regiões do Campeche: conheça Morro das Pedras, Rio Tavares, Novo Campeche e mais':
-		'/blog/sub-regioes-campeche-guia-completo',
-	'Campeche x outros bairros do sul de Balneário Camboriú: onde vale mais a pena morar':
-		'/blog/campeche-x-bairros-sul-comparativo',
-	'Custo de vida em Jurerê Internacional: quanto custa morar no bairro de luxo':
-		'/blog/custo-de-vida-jurere-internacional-quanto-custa-morar',
-	'Inverno x verão em Jurerê: como a sazonalidade afeta quem mora no bairro':
-		'/blog/inverno-verao-jurere-sazonalidade',
-	'Jurerê Internacional x Jurerê Tradicional: qual vale mais a pena':
-		'/blog/jurere-internacional-x-jurere-tradicional-comparativo',
 };
 
 function extractHeroLide(raw) {

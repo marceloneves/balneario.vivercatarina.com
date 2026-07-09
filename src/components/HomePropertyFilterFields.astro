@@ -2,6 +2,7 @@
 const {
 	kinds = [],
 	neighborhoods = [],
+	construtoras = [],
 	idPrefix = 'home-filter',
 	showSubmit = false,
 	submitLabel = 'Buscar imóvel',
@@ -10,9 +11,34 @@ const {
 
 const kindId = `${idPrefix}-kind`;
 const neighborhoodId = `${idPrefix}-neighborhood`;
+const construtoraId = `${idPrefix}-construtora`;
+const priceMinId = `${idPrefix}-price-min`;
+const searchId = `${idPrefix}-search`;
+
+const PRICE_OPTIONS = [
+	{ value: 300000, label: 'R$ 300.000' },
+	{ value: 400000, label: 'R$ 400.000' },
+	{ value: 500000, label: 'R$ 500.000' },
+	{ value: 700000, label: 'R$ 700.000' },
+	{ value: 1000000, label: 'R$ 1.000.000' },
+	{ value: 1500000, label: 'R$ 1.500.000' },
+	{ value: 2000000, label: 'R$ 2.000.000' },
+];
 ---
 
 <div class={`home-property-filter-fields select-group-wrapper ${formClass}`.trim()}>
+	<div class="form-group">
+		<label for={searchId}>Buscar por nome</label>
+		<input
+			type="search"
+			name="search"
+			id={searchId}
+			class="form-control home-property-filter-fields__search"
+			placeholder="Ex: Residencial, Perequê..."
+			autocomplete="off"
+			spellcheck="false"
+		/>
+	</div>
 	<div class="form-group">
 		<label for={kindId}>Tipo de imóvel</label>
 		<select name="kind" id={kindId} class="form-select">
@@ -39,6 +65,28 @@ const neighborhoodId = `${idPrefix}-neighborhood`;
 			}
 		</select>
 	</div>
+	<div class="form-group">
+		<label for={construtoraId}>Construtora</label>
+		<select name="construtora" id={construtoraId} class="form-select">
+			<option value="">Todas as construtoras</option>
+			{construtoras.map((option) => (
+				<option value={option.value}>{option.label}</option>
+			))}
+		</select>
+	</div>
+	<div class="form-group home-property-filter-fields__price-group">
+		<label for={priceMinId}>A partir de: <span class="home-property-filter-fields__price-label">Qualquer preço</span></label>
+		<input
+			type="range"
+			name="priceMin"
+			id={priceMinId}
+			class="home-property-filter-fields__price-slider"
+			min="50000"
+			max="5000000"
+			step="50000"
+			value="50000"
+		/>
+	</div>
 	{
 		showSubmit && (
 			<div class="advance-btn-wrapper home-property-filter-fields__submit">
@@ -61,17 +109,51 @@ const neighborhoodId = `${idPrefix}-neighborhood`;
 	.home-property-filter-fields .form-group label {
 		display: block;
 		margin-bottom: 10px;
+		font-size: 17px;
+		font-weight: 700;
 	}
 
-	.home-property-filter-fields .form-select {
+	.home-property-filter-fields .form-select,
+	.home-property-filter-fields .home-property-filter-fields__search {
 		width: 100%;
 		min-height: 56px;
 		padding: 12px 16px;
 		border: 1px solid var(--th-border-color);
-		border-radius: 8px;
+		border-radius: 0;
 		background-color: var(--white-color);
 		color: var(--title-color);
-		font-size: 15px;
+		font-size: 17px;
+	}
+
+	.home-property-filter-fields__search::placeholder {
+		color: #8a8383;
+	}
+
+	.home-property-filter-fields__search:focus {
+		outline: none;
+		border-color: var(--theme-color, #ffaf00);
+		box-shadow: 0 0 0 3px rgba(255, 175, 0, 0.18);
+	}
+
+	.home-property-filter-fields__price-group {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		min-height: 56px;
+	}
+
+	.home-property-filter-fields__price-label {
+		font-weight: 700;
+		color: var(--theme-color, #ffaf00);
+	}
+
+	.home-property-filter-fields__price-slider {
+		width: 100%;
+		height: 4px;
+		margin-top: 18px;
+		accent-color: var(--theme-color, #ffaf00);
+		cursor: pointer;
+		border-radius: 0;
 	}
 
 	.home-property-filter-fields__submit {
@@ -83,3 +165,30 @@ const neighborhoodId = `${idPrefix}-neighborhood`;
 		width: 100%;
 	}
 </style>
+
+<script>
+	function formatPriceBR(value: number): string {
+		return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+	}
+
+	function initPriceSliders() {
+		document.querySelectorAll<HTMLInputElement>('.home-property-filter-fields__price-slider').forEach((slider) => {
+			const label = slider.closest('.home-property-filter-fields__price-group')?.querySelector<HTMLElement>('.home-property-filter-fields__price-label');
+			if (!label) return;
+
+			const update = () => {
+				const val = Number(slider.value);
+				label.textContent = val <= Number(slider.min) ? 'Qualquer preço' : formatPriceBR(val);
+			};
+
+			slider.addEventListener('input', update);
+			update();
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initPriceSliders, { once: true });
+	} else {
+		initPriceSliders();
+	}
+</script>

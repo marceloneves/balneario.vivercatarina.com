@@ -1,0 +1,62 @@
+---
+import PropertyPlantaImage from './PropertyPlantaImage.astro';
+
+const { plantas, variant = 'default' } = Astro.props;
+const isLarge = variant === 'large';
+---
+
+{
+	plantas.map((planta) => (
+		<article class:list={['planta-card', isLarge && 'planta-card--large']}>
+			{
+				isLarge && planta.imageUrl && (
+					<div class="planta-card__visual">
+						<div class="planta-card__image">
+							<PropertyPlantaImage planta={planta} />
+						</div>
+					</div>
+				)
+			}
+
+			<div class="planta-card__summary">
+				<h3 class="planta-card__title">{planta.titulo}</h3>
+
+				{
+					planta.highlights.length > 0 && (
+						<ul class="planta-card__highlights">
+							{planta.highlights.map((item) => (
+								<li>{item}</li>
+							))}
+						</ul>
+					)
+				}
+
+				<div class="planta-card__price-block">
+					<span class="planta-card__price-label">A partir de</span>
+					<strong class="planta-card__price-value">{planta.precoAPartir}</strong>
+				</div>
+
+				{planta.unidadesResumo && <p class="planta-card__units-summary">{planta.unidadesResumo}</p>}
+			</div>
+
+			{
+				!isLarge && planta.imageUrl && (
+					<div class="planta-card__image">
+						<PropertyPlantaImage planta={planta} />
+					</div>
+				)
+			}
+
+			<dl class="ficha-list planta-card__ficha">
+				{
+					planta.specItems.map((item) => (
+						<div>
+							<dt>{item.label}</dt>
+							<dd>{item.value}</dd>
+						</div>
+					))
+				}
+			</dl>
+		</article>
+	))
+}

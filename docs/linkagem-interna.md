@@ -34,7 +34,7 @@ itens no Leia também = 1 (pilar) + min(3, total_de_satélites − 1)
 links /blog/ no corpo = 1 (pilar) + min(3, total_de_satélites − 1)
 ```
 
-Exemplo: **Cachoeira do Bom Jesus** (3 satélites) → corpo e Leia também com **1 pilar + 2 satélites**.
+Exemplo: **Nações** (4 satélites) → corpo e Leia também com **1 pilar + 2 satélites**.
 
 ### Tipos de link (destino × posição)
 
@@ -44,9 +44,9 @@ A auditoria (`scripts/audit-cluster-links.mjs`) classifica cada `<a>` assim:
 
 | Tipo | Exemplo | Permitido no cluster? |
 |------|---------|------------------------|
-| `pilar` | `/blog/morar-no-campeche-guia-completo` | Sim |
-| `satelite_cluster` | `/blog/preco-m2-campeche-…` (mesmo cluster) | Sim |
-| `hub_bairro` | `/bairro/campeche` | Sim — só satélites de bairro, no bloco hub |
+| `pilar` | `/blog/morar-no-centro-balneario-camboriu-guia-completo` | Sim |
+| `satelite_cluster` | `/blog/preco-m2-centro-…` (mesmo cluster) | Sim |
+| `hub_bairro` | `/bairro/centro` | Sim — só satélites de bairro, no bloco hub |
 | `blog_outro_cluster` | `/blog/` de outro cluster ou avulso | **Não** |
 | `lancamentos` | `/lancamentos` | **Não** |
 | `imovel` | `/imovel/`, `/property/` | **Não** nos clusters |
@@ -71,7 +71,7 @@ No **corpo** do artigo (parágrafos, listas, callouts), o texto visível do link
 |------|----------------|
 | **Corpo (clusters)** | ≤3 palavras (`resolveBodyFind()` + `BODY_FIND_SHORTCUTS`) |
 | **Leia também (todos os artigos)** | **Título completo** — no pilar: cada satélite; no satélite: pilar em 1º + 3 satélites |
-| **Hub comercial** | Frase do `HUB_TITLE` (ex.: “Veja imóveis em lançamento no Campeche”) |
+| **Hub comercial** | Frase do `HUB_TITLE` (ex.: “Veja imóveis em lançamento no Centro”) |
 | **Artigos fora do cluster** | Frases em `BLOG_PHRASE_RULES` normalizadas para ≤3 palavras no corpo |
 
 **Título do rodapé:** sempre `Leia também` — nunca `Explore cada tema…` nem outro rótulo.
@@ -94,13 +94,13 @@ node scripts/audit-blog-body-anchors.mjs     # âncoras ≤3 palavras em todo o 
 | Cluster | Pilar (slug) | Hub | Módulo |
 |---------|--------------|-----|--------|
 | Compra Segura | `guia-definitivo-burocracia-imoveis-balneario-camboriu` | — | `compra-segura-cluster.mjs` |
-| Campeche | `morar-no-campeche-guia-completo` | `/bairro/campeche` | `campeche-cluster-body-links.mjs` |
-| Cachoeira do Bom Jesus | `morar-na-cachoeira-do-bom-jesus-guia-completo` | `/bairro/canasvieiras` | `cachoeira-cluster.mjs` |
-| Canasvieiras | `morar-em-canasvieiras-guia-completo` | `/bairro/canasvieiras` | `canasvieiras-cluster.mjs` |
+| Construtoras e Incorporadoras | `grandes-incorporadoras-balneario-camboriu-guia-completo` | — | `construtoras-cluster.mjs` |
 | Centro | `morar-no-centro-balneario-camboriu-guia-completo` | `/bairro/centro` | `centro-cluster.mjs` |
-| Ingleses | `morar-nos-ingleses-guia-completo` | `/bairro/ingleses` | `ingleses-cluster.mjs` |
-| Itacorubi | `morar-no-itacorubi-guia-completo` | `/bairro/itacorubi` | `itacorubi-cluster.mjs` |
-| Jurerê Internacional | `morar-em-jurere-internacional-guia-completo` | `/bairro/jurereinternacional` | `jurere-internacional-cluster.mjs` |
+| Ariribá | `morar-no-aririba-balneario-camboriu-guia-completo` | `/bairros` | `aririba-cluster.mjs` |
+| Nações | `morar-no-nacoes-balneario-camboriu-guia-completo` | `/bairro/nacoes` | `nacoes-cluster.mjs` |
+| Barra | `morar-na-barra-balneario-camboriu-guia-completo` | `/bairros` | `barra-cluster.mjs` |
+| Barra Sul | `morar-na-barra-sul-balneario-camboriu-guia-completo` | `/bairro/barrasul` | `barra-sul-cluster.mjs` |
+| Pioneiros | `morar-nos-pioneiros-guia-completo` | `/bairro/pioneiros` | `pioneiros-cluster.mjs` |
 | Balneário Camboriú (geral) | `morar-em-balneario-camboriu-guia-completo` | — | `balneario-camboriu-cluster.mjs` |
 
 Slugs completos: `src/lib/blog-cluster-slugs.mjs`.  
@@ -116,17 +116,17 @@ No **corpo**, só envolver com `<a>` trechos que **já existem** no HTML, com **
 
 - usar frases inteiras ou títulos de artigo como texto do link;
 - trocar palavras só para encaixar um título longo;
-- acrescentar termos (ex.: “no Campeche” onde não havia);
+- acrescentar termos (ex.: “no Centro” onde não havia);
 - substituir o trecho pelo título completo do destino.
 
 ### 2. Modo wrap, não replace
 
 ```html
 <!-- Correto -->
-<a href="/blog/custo-de-vida-campeche-quanto-custa-morar">custo de vida real</a>
+<a href="/blog/custo-de-vida-centro-balneario-camboriu">custo de vida real</a>
 
 <!-- Incorreto -->
-<a href="/blog/custo-de-vida-campeche-quanto-custa-morar">Custo de vida no Campeche</a>
+<a href="/blog/custo-de-vida-centro-balneario-camboriu">Custo de vida no Centro</a>
 ```
 
 ### 3. Âncoras curtas e descritivas
@@ -229,8 +229,8 @@ O pilar aparece **no corpo** e de novo no Leia também — papéis diferentes (c
 <div class="blog-related">
   <p class="blog-related__title">Leia também</p>
   <ul>
-    <li><a href="/blog/morar-no-campeche-guia-completo">Morar no Campeche: Guia Completo do Bairro Mais Promissor do sul de Balneário Camboriú</a></li>
-    <li><a href="/blog/aluguel-campeche-valores-temporada">Aluguel no Campeche: Valores, Temporada e Como Funciona o Mercado</a></li>
+    <li><a href="/blog/morar-no-centro-balneario-camboriu-guia-completo">Morar no Centro de Balneário Camboriú: Guia do Coração da Cidade</a></li>
+    <li><a href="/blog/aluguel-centro-balneario-camboriu">Aluguel no Centro: Valores, Temporada e Como Funciona o Mercado</a></li>
     <!-- … título completo em cada satélite … -->
   </ul>
 </div>
@@ -241,8 +241,8 @@ O pilar aparece **no corpo** e de novo no Leia também — papéis diferentes (c
 ```html
 <div class="blog-related blog-property-hub-row">
   <div class="blog-property-hub-row__visual">
-    <p class="blog-related__title"><a href="/bairro/campeche">Veja imóveis em lançamento no Campeche</a></p>
-    <p class="blog-property-hub__media"><a href="/bairro/campeche"><img src="…" alt="Campeche, Balneário Camboriú" loading="lazy"></a></p>
+    <p class="blog-related__title"><a href="/bairro/centro">Veja imóveis em lançamento no Centro</a></p>
+    <p class="blog-property-hub__media"><a href="/bairro/centro"><img src="…" alt="Centro, Balneário Camboriú" loading="lazy"></a></p>
   </div>
   <aside class="blog-property-hub-lead">… formulário lead …</aside>
 </div>
@@ -254,7 +254,7 @@ O pilar aparece **no corpo** e de novo no Leia também — papéis diferentes (c
 <div class="blog-related">
   <p class="blog-related__title">Leia também</p>
   <ul>
-    <li><a href="/blog/preco-m2-campeche-quanto-custa-comprar">Preço do m² no Campeche: Quanto Custa Comprar um Imóvel no Bairro</a></li>
+    <li><a href="/blog/preco-m2-centro-balneario-camboriu">Preço do m² no Centro: Quanto Custa Comprar um Imóvel no Bairro</a></li>
     <!-- … um <li> por satélite publicado, título completo … -->
   </ul>
 </div>
@@ -280,7 +280,7 @@ Slugs de **todos** os clusters estão em `blog-cluster-slugs.mjs` — o automát
 |---------|------------------|
 | `src/lib/cluster-link-rebuild.mjs` | Regras unificadas: `trimSatelliteBodyPlan`, contadores de validação |
 | `src/lib/cluster-link-anchor.mjs` | Âncoras ≤3 palavras, `resolveBodyFind`, validação |
-| `src/lib/campeche-cluster-body-links.mjs` | Campeche: planos, hub, rebuild (referência para demais bairros) |
+| `src/lib/cluster-body-links.mjs` | Infra compartilhada de linkagem: planos, strip, applyPlan |
 | `src/lib/*-cluster.mjs` | Um módulo por cluster (planos + rebuild) |
 | `src/lib/blog-cluster-slugs.mjs` | Slugs e pilares — fonte única |
 | `src/lib/blog-clusters.mjs` | Metadados e filtro de listagem |
@@ -334,15 +334,6 @@ node scripts/audit-cluster-links.mjs
 node scripts/audit-blog-body-anchors.mjs
 ```
 
----
-
-## Referência: slugs do cluster Campeche
-
-**Pilar:** `morar-no-campeche-guia-completo`
-
-**Satélites:** `preco-m2-campeche-quanto-custa-comprar`, `apartamentos-a-venda-campeche-faixas-preco`, `casas-a-venda-campeche-sub-regioes`, `aluguel-campeche-valores-temporada`, `investir-imovel-campeche-roi-valorizacao`, `como-comprar-imovel-campeche-financiamento`, `campeche-em-expansao-valorizacao`, `campeche-e-bom-para-morar`, `sub-regioes-campeche-guia-completo`, `campeche-x-bairros-sul-comparativo`, `infraestrutura-campeche-comercio-mobilidade`, `seguranca-campeche-como-e-morar`, `praias-do-campeche-guia-completo`, `escolas-creches-campeche`, `saude-campeche-postos-hospitais-clinicas`, `custo-de-vida-campeche-quanto-custa-morar`, `inverno-verao-campeche-sazonalidade`
-
-Demais clusters: `src/lib/blog-cluster-slugs.mjs`.
 
 ---
 

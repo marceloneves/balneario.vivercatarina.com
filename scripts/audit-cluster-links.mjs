@@ -9,15 +9,9 @@ import { join } from 'node:path';
 import { getBlogPosts } from '../src/lib/blog-posts.mjs';
 import { BLOG_CLUSTERS, getBlogClusterIdForSlug } from '../src/lib/blog-clusters.mjs';
 import {
-	CAMPECHE_PILLAR,
-	CACHOEIRA_PILLAR,
-	CANASVIEIRAS_PILLAR,
 	CENTRO_PILLAR,
 	COMPRA_SEGURA_PILLAR,
 	BALNEARIO_CAMBORIU_PILLAR,
-	INGLESES_PILLAR,
-	ITACORUBI_PILLAR,
-	JURERE_INTERNACIONAL_PILLAR,
 } from '../src/lib/blog-cluster-slugs.mjs';
 import {
 	countBodyBlogLinks,
@@ -34,13 +28,7 @@ const publishedBySlug = new Map(posts.map((p) => [p.slug, p]));
 
 const PILLAR_BY_CLUSTER = {
 	'compra-segura-balneario-camboriu': COMPRA_SEGURA_PILLAR,
-	campeche: CAMPECHE_PILLAR,
-	'cachoeira-do-bom-jesus': CACHOEIRA_PILLAR,
-	canasvieiras: CANASVIEIRAS_PILLAR,
 	centro: CENTRO_PILLAR,
-	ingleses: INGLESES_PILLAR,
-	itacorubi: ITACORUBI_PILLAR,
-	'jurere-internacional': JURERE_INTERNACIONAL_PILLAR,
 	geral: BALNEARIO_CAMBORIU_PILLAR,
 };
 

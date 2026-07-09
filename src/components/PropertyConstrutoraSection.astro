@@ -1,4 +1,6 @@
 ---
+import { toTitleCase } from '../lib/title-case.mjs';
+
 const { construtora } = Astro.props;
 
 if (!construtora?.paragraphs?.length) {
@@ -7,7 +9,7 @@ if (!construtora?.paragraphs?.length) {
 ---
 
 <section class="section property-construtora">
-	<h2 class="section__title">A construtora</h2>
+	<h2 class="section__title landing-section-title">{toTitleCase('A construtora')}</h2>
 	{construtora.paragraphs.map((paragraph) => (
 		<p class="about-text" set:html={paragraph} />
 	))}

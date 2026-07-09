@@ -27,6 +27,7 @@ const emptyMessage = showEmptyMessage ? 'Nenhum lançamento encontrado neste bai
 	data-per-page={perPage}
 	data-total-items={allProperties.length}
 >
+	<h2 class="visually-hidden-listing-title">Imóveis disponíveis</h2>
 	<div class="tab-content" id="nav-tabContent">
 		<div class="tab-pane fade" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">
 			<div class="row gy-40 justify-content-center">
@@ -50,7 +51,7 @@ const emptyMessage = showEmptyMessage ? 'Nenhum lançamento encontrado neste bai
 					leadForm && (
 						<div class="col-xl-4 col-lg-6">
 							<aside class="sidebar-area" aria-label="Contato">
-								<SidebarLeadForm {...leadForm} />
+								<SidebarLeadForm {...leadForm} formId={`${leadForm.formId}-grid`} />
 							</aside>
 						</div>
 					)
@@ -81,7 +82,7 @@ const emptyMessage = showEmptyMessage ? 'Nenhum lançamento encontrado neste bai
 					{
 						leadForm ? (
 							<aside class="sidebar-area" aria-label="Contato">
-								<SidebarLeadForm {...leadForm} />
+								<SidebarLeadForm {...leadForm} formId={`${leadForm.formId}-list`} />
 							</aside>
 						) : (
 							<Fragment set:html={sidebarHtml} />

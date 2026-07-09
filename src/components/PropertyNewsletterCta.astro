@@ -1,0 +1,80 @@
+---
+const { propertySlug = null, propertyTitle = null } = Astro.props;
+---
+
+<section class="vivercatarina-block vivercatarina-newsletter" aria-labelledby="vivercatarina-newsletter-title">
+	<div class="property-regularity-guide__download-wrap">
+		<div class="property-regularity-guide__download-card property-regularity-guide__download-card--invert vivercatarina-newsletter__card">
+			<div class="property-regularity-guide__download-visual vivercatarina-newsletter__visual" aria-hidden="true">
+				<svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="property-regularity-guide__download-illustration">
+					<rect x="20" y="32" width="80" height="56" rx="6" fill="#fff" stroke="#03060e" stroke-width="3"></rect>
+					<path d="M22 36l38 30 38-30" stroke="#03060e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+					<circle cx="96" cy="34" r="12" fill="#FFAF00"></circle>
+					<path d="M91 34l3.5 3.5L102 30" stroke="#03060e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</div>
+			<div class="property-regularity-guide__download-content vivercatarina-newsletter__content">
+				<span class="vivercatarina-newsletter__badge">Novidades</span>
+				<span class="vivercatarina-newsletter__title" id="vivercatarina-newsletter-title">
+					Receba nossas novidades de lançamentos em Balneário Camboriú
+				</span>
+				<span class="vivercatarina-newsletter__text">
+					Informe abaixo nome, fone e email para receber mais novidades de lançamentos em Balneário Camboriú.
+				</span>
+				<form class="vivercatarina-newsletter__form" id="vivercatarina-newsletter-form" novalidate>
+					<input name="name" type="text" autocomplete="name" placeholder="Nome" required />
+					<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Telefone" required />
+					<input name="email" type="email" autocomplete="email" inputmode="email" placeholder="E-mail" required />
+					<button type="submit" class="th-btn radius vivercatarina-newsletter__submit">Quero receber novidades</button>
+					<p class="vivercatarina-newsletter__error" hidden></p>
+					<p class="form-consent-note" style="font-size:11px;line-height:1.45;margin:8px 0 0;color:var(--body-color);text-align:center;">Ao enviar, você concorda em ser contatado via WhatsApp/e-mail. Veja nossa <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
+				</form>
+				<p class="vivercatarina-newsletter__success" hidden>Pronto! Você receberá novidades de lançamentos em breve.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script define:vars={{ propertySlug, propertyTitle }}>
+	const form = document.getElementById('vivercatarina-newsletter-form');
+	if (form) {
+		const errorBox = form.querySelector('.vivercatarina-newsletter__error');
+		const successBox = document.querySelector('.vivercatarina-newsletter__success');
+		const submit = form.querySelector('[type="submit"]');
+
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			if (!form.reportValidity()) return;
+
+			errorBox.hidden = true;
+			submit.disabled = true;
+			try {
+				const response = await fetch('/api/whatsapp-leads.php', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({
+						name: form.querySelector('[name="name"]').value,
+						phone: form.querySelector('[name="phone"]').value,
+						email: form.querySelector('[name="email"]').value,
+						source: 'newsletter-lancamentos',
+						pageUrl: window.location.href,
+						propertySlug,
+						propertyTitle,
+					}),
+				});
+				if (!response.ok) {
+					errorBox.textContent = 'Não foi possível enviar. Tente novamente.';
+					errorBox.hidden = false;
+					return;
+				}
+				form.hidden = true;
+				if (successBox) successBox.hidden = false;
+			} catch {
+				errorBox.textContent = 'Erro de conexão. Tente novamente.';
+				errorBox.hidden = false;
+			} finally {
+				submit.disabled = false;
+			}
+		});
+	}
+</script>

@@ -3,21 +3,21 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url(../fonts/fontawesome/fa-brands-400.woff2) format("woff2");
+	src: url(../assets/fonts/fontawesome/fa-brands-400.woff2) format("woff2");
 }
 
 @font-face {
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 6 Pro";
 	font-style: normal;
 	font-weight: 900;
 	font-display: swap;
-	src: url(../fonts/fontawesome/fa-solid-900.woff2) format("woff2");
+	src: url(../assets/fonts/fontawesome/fa-solid-900.woff2) format("woff2");
 }
 
 .fa,
 .fas,
 .fa-solid {
-	font-family: "Font Awesome 6 Free";
+	font-family: "Font Awesome 6 Pro";
 	font-weight: 900;
 }
 
@@ -40,3 +40,46 @@
 	line-height: 1;
 	text-rendering: auto;
 }
+
+.fa::before,
+.fas::before,
+.fab::before,
+.fa-solid::before,
+.fa-brands::before {
+	display: inline-block;
+}
+
+.fa-phone:before{content:"\f095"}
+.fa-envelope:before{content:"\f0e0"}
+.fa-map-marker-alt:before{content:"\f3c5"}
+.fa-location-dot:before{content:"\f3c5"}
+.fa-facebook-f:before{content:"\f39e"}
+.fa-twitter:before{content:"\f099"}
+.fa-linkedin-in:before{content:"\f0e1"}
+.fa-whatsapp:before{content:"\f232"}
+.fa-bars:before{content:"\f0c9"}
+.fa-times:before{content:"\f00d"}
+.fa-xmark:before{content:"\f00d"}
+.fa-star:before{content:"\f005"}
+.fa-chevron-left:before{content:"\f053"}
+.fa-chevron-right:before{content:"\f054"}
+.fa-building:before{content:"\f1ad"}
+.fa-table-cells-large:before{content:"\f009"}
+.fa-bicycle:before{content:"\f206"}
+.fa-person-swimming:before{content:"\f5c4"}
+.fa-dumbbell:before{content:"\f44b"}
+.fa-fire:before{content:"\f06d"}
+.fa-car:before{content:"\f1b9"}
+.fa-shield-halved:before{content:"\f132"}
+.fa-hot-tub-person:before{content:"\f593"}
+.fa-wifi:before{content:"\f1eb"}
+.fa-umbrella-beach:before{content:"\f5ca"}
+.fa-plane:before{content:"\f072"}
+.fa-cart-shopping:before{content:"\f07a"}
+.fa-prescription-bottle-medical:before{content:"\f485"}
+.fa-water:before{content:"\f773"}
+.fa-city:before{content:"\f64f"}
+.fa-bag-shopping:before{content:"\f290"}
+.fa-hospital:before{content:"\f0f8"}
+.fa-bus:before{content:"\f207"}
+.fa-user:before{content:"\f007"}

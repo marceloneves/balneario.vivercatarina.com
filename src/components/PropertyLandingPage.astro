@@ -1,11 +1,17 @@
 ---
+import { toTitleCase } from '../lib/title-case.mjs';
 import PropertyConstrutoraSection from './PropertyConstrutoraSection.astro';
 import PropertyFinancingSimulator from './PropertyFinancingSimulator.astro';
 import PropertyNeighborhoodArticles from './PropertyNeighborhoodArticles.astro';
 import PropertyOffPlanPurchaseGuide from './PropertyOffPlanPurchaseGuide.astro';
+import PropertyPlantaCards from './PropertyPlantaCards.astro';
+import PropertyPlantaLightbox from './PropertyPlantaLightbox.astro';
 import PropertyRegularityGuide from './PropertyRegularityGuide.astro';
+import { attachPlantaLightboxIndexes } from '../lib/property-planta-lightbox.mjs';
+import { PHOTOS_ILLUSTRATIVE_DISCLAIMER } from '../lib/vivercatarina-landing-page.mjs';
 
 const { page } = Astro.props;
+const plantasWithLightbox = attachPlantaLightboxIndexes(page.plantas);
 ---
 
 <article class="property-details space imovel-detail" aria-labelledby="property-title">
@@ -130,7 +136,6 @@ const { page } = Astro.props;
 	<div class="container layout">
 		<div class="property-main">
 			<section class="section property-about">
-				<h2 class="section__title">Sobre o empreendimento</h2>
 				<dl class="ficha-list property-about__ficha">
 					{
 						page.ficha.items.map((item) => (
@@ -153,7 +158,7 @@ const { page } = Astro.props;
 			</section>
 
 			<section class="section">
-				<h2 class="section__title">Localização e entorno</h2>
+				<h2 class="section__title landing-section-title">{toTitleCase('Localização e entorno')}</h2>
 				<p class="about-text">
 					<strong>{page.location.address}</strong>
 				</p>
@@ -207,7 +212,9 @@ const { page } = Astro.props;
 			{
 				(page.highlights.length > 0 || page.comodidades.length > 0) && (
 					<section class="section">
-						<h2 class="section__title">Destaques do empreendimento</h2>
+						<h2 class="section__title landing-section-title">
+							{toTitleCase('Destaques do empreendimento')}
+						</h2>
 						<div class="highlights-grid">
 							{page.highlights.map((item) => (
 								<div class="highlight-card">
@@ -223,7 +230,9 @@ const { page } = Astro.props;
 									<i class={item.icone} aria-hidden="true"></i>
 									<div class="highlight-card__content">
 										<span class="highlight-card__label">{item.nome}</span>
-										<span class="highlight-card__description">Disponível no empreendimento.</span>
+										{item.descricao && (
+											<span class="highlight-card__description">{item.descricao}</span>
+										)}
 									</div>
 								</div>
 							))}
@@ -233,7 +242,9 @@ const { page } = Astro.props;
 			}
 
 			<section class="section invest-why">
-				<h2 class="section__title">Porque investir no {page.seo.h1}?</h2>
+				<h2 class="section__title landing-section-title">
+					{toTitleCase(`Porque investir no ${page.seo.h1}?`)}
+				</h2>
 				<div class="invest-why__card">
 					<p class="invest-why__intro" set:html={page.investWhy.intro} />
 					<ul class="invest-why__reasons">
@@ -249,7 +260,10 @@ const { page } = Astro.props;
 			{
 				page.hero.images.length > 0 && (
 					<section class="section">
-						<h2 class="section__title">Galeria de fotos ({page.hero.totalPhotos})</h2>
+						<h2 class="section__title landing-section-title">
+							{toTitleCase(`Galeria de fotos (${page.hero.totalPhotos})`)}
+						</h2>
+						<p class="about-text">{PHOTOS_ILLUSTRATIVE_DISCLAIMER}</p>
 						<div class="photo-grid">
 							{page.hero.images.map((image, index) => (
 								<button
@@ -279,55 +293,9 @@ const { page } = Astro.props;
 			{
 				page.plantas.length > 0 && (
 					<section class="section">
-						<h2 class="section__title">Plantas disponíveis</h2>
-						{page.plantas.map((planta) => (
-							<article class="planta-card">
-								<h3 class="planta-card__title">{planta.titulo}</h3>
-
-								{
-									planta.highlights.length > 0 && (
-										<ul class="planta-card__highlights">
-											{planta.highlights.map((item) => (
-												<li>{item}</li>
-											))}
-										</ul>
-									)
-								}
-
-								<div class="planta-card__price-block">
-									<span class="planta-card__price-label">A partir de</span>
-									<strong class="planta-card__price-value">{planta.precoAPartir}</strong>
-								</div>
-
-								{planta.unidadesResumo && (
-									<p class="planta-card__units-summary">{planta.unidadesResumo}</p>
-								)}
-
-								{
-									planta.imageUrl && (
-										<div class="planta-card__image">
-											<img
-												src={planta.imageUrl}
-												alt={planta.imageAlt}
-												title={planta.imageTitle}
-												loading="lazy"
-											/>
-										</div>
-									)
-								}
-
-								<dl class="ficha-list planta-card__ficha">
-									{
-										planta.specItems.map((item) => (
-											<div>
-												<dt>{item.label}</dt>
-												<dd>{item.value}</dd>
-											</div>
-										))
-									}
-								</dl>
-							</article>
-						))}
+						<h2 class="section__title landing-section-title">{toTitleCase('Plantas disponíveis')}</h2>
+						<PropertyPlantaCards plantas={plantasWithLightbox} />
+						<PropertyPlantaLightbox plantas={plantasWithLightbox} />
 					</section>
 				)
 			}
@@ -339,7 +307,7 @@ const { page } = Astro.props;
 			<PropertyRegularityGuide />
 
 			<section class="section">
-				<h2 class="section__title">Perguntas frequentes</h2>
+				<h2 class="section__title landing-section-title">{toTitleCase('Perguntas frequentes')}</h2>
 				{page.faq.map((item) => (
 					<details class="faq-item">
 						<summary set:html={item.pergunta} />
@@ -373,7 +341,7 @@ const { page } = Astro.props;
 					<label for="lead-name">Nome</label>
 					<input id="lead-name" name="name" type="text" placeholder="Seu nome" required />
 					<label for="lead-phone">WhatsApp</label>
-					<input id="lead-phone" name="phone" type="tel" placeholder="(48) 98810-5199" required />
+					<input id="lead-phone" name="phone" type="tel" placeholder="(48) 99999-9999" required />
 					<label for="lead-email">E-mail</label>
 					<input id="lead-email" name="email" type="email" placeholder="Seu e-mail" required />
 					<button type="submit" class="th-btn imovel-btn-submit radius w-100">Quero mais informações</button>
@@ -388,7 +356,7 @@ const { page } = Astro.props;
 						<i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
 					</button>
 				</form>
-				<p class="sidebar-note">Dados protegidos. Resposta em até 1 hora.</p>
+				<p class="sidebar-note">Dados protegidos. Resposta em até 15 minutos.</p>
 			</div>
 		</aside>
 	</div>

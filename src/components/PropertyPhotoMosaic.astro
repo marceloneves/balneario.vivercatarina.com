@@ -1,0 +1,32 @@
+---
+const { images } = Astro.props;
+const count = images.length;
+
+const mosaicVariant =
+	count === 1 ? 'count-1' : count === 2 ? 'count-2' : count === 4 ? 'count-4' : 'many';
+---
+
+<div class={`photo-mosaic photo-mosaic--${mosaicVariant}`}>
+	{
+		images.map((image, index) => (
+			<button
+				type="button"
+				class="photo-mosaic__item gallery-trigger"
+				data-gallery-index={index}
+				aria-label={`Ampliar foto ${index + 1}`}
+			>
+				<img
+					src={image.thumbUrl}
+					srcset={image.thumbSrcset}
+					sizes={image.thumbSizes}
+					alt={image.alt}
+					title={image.title}
+					width="320"
+					height="240"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+		))
+	}
+</div>

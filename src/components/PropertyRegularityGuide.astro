@@ -1,88 +1,219 @@
 ---
+import { toTitleCase } from '../lib/title-case.mjs';
+import PropertyRegularityChecklistDownloadCta from './PropertyRegularityChecklistDownloadCta.astro';
+
+const { layout = 'default', page } = Astro.props;
+const propertySlug = page?.slug ?? null;
+const propertyTitle = page?.seo?.h1 ?? null;
+const neighborhood = page?.nav?.neighborhood ?? 'Balneário Camboriú';
+const city = page?.nav?.city ?? 'Balneário Camboriú';
+// Sem bairro cadastrado, `neighborhood` cai para a cidade: evita "Em X, X".
+const locationHtml =
+	neighborhood === city
+		? `<strong>${city}</strong>`
+		: `<strong>${neighborhood}</strong>, <strong>${city}</strong>`;
+const construtoraName = page?.construtora?.articleName ?? null;
+const useGridLayout = layout === 'grid';
+const useContecLayout = layout === 'contec';
+const useSplitLayout = layout === 'split';
+
+const formatIndex = (index) => String(index + 1).padStart(2, '0');
+
 const items = [
 	{
 		title: 'Registro de Incorporação (RI)',
-		intro: 'Sem RI averbado no cartório competente, o lançamento não tem base legal para contratar.',
-		tasks: [
-			'Solicite o número do RI ao corretor ou à incorporadora antes de reservar a unidade.',
-			'Confira no cartório competente a matrícula do terreno, o projeto aprovado e o memorial de incorporação.',
-			'Valide se todas as unidades e áreas comuns do empreendimento constam no registro.',
-			'Não assine proposta nem contrato se o RI ainda não estiver averbado.',
-		],
+		intro: construtoraName
+			? `Solicite o número do <strong>RI</strong> da <strong>${construtoraName}</strong> e confira <strong>matrícula</strong>, <strong>projeto</strong> e <strong>memorial</strong> antes de reservar.`
+			: `Solicite o número do <strong>RI</strong> e confira <strong>matrícula</strong>, <strong>projeto</strong> e <strong>memorial descritivo</strong> antes de reservar.`,
 	},
 	{
 		title: 'Histórico da construtora e da incorporadora',
-		intro: 'Entregas anteriores e reputação da incorporadora revelam o risco real do negócio.',
-		tasks: [
-			'Pesquise há quanto tempo a incorporadora atua em Balneário Camboriú e quantas obras já entregou em Balneário Camboriú.',
-			'Visite empreendimentos anteriores da mesma construtora para avaliar acabamento e áreas comuns.',
-			'Consulte reclamações em órgãos de defesa do consumidor e atrasos em entregas recentes.',
-			'Verifique se há processos judiciais ou pendências relevantes envolvendo a empresa.',
-		],
+		intro: construtoraName
+			? `Pesquise obras entregues, reclamações e pendências da <strong>${construtoraName}</strong> antes de assinar.`
+			: `Pesquise obras entregues, reclamações e pendências da <strong>incorporadora</strong>.`,
 	},
 	{
 		title: 'Memorial descritivo',
-		intro: 'O memorial descritivo define o que será entregue — e prevalece sobre o material de vendas.',
-		tasks: [
-			'Peça o memorial descritivo completo e compare materiais, acabamentos e lazer com o material de vendas.',
-			'Confira se o projeto está alinhado ao zoneamento e ao Plano Diretor de Balneário Camboriú.',
-			'Exija comprovação de licenças ambientais quando o terreno estiver em área de APP ou orla.',
-			'Registre por escrito qualquer divergência entre o que foi prometido e o que consta no memorial.',
-		],
+		intro: `Compare os <strong>acabamentos</strong> e itens de lazer prometidos no <strong>${propertyTitle}</strong> com o que consta no documento.`,
 	},
 	{
 		title: 'Patrimônio de afetação, pagamento e custos',
-		intro: 'Afetação dos recursos e custos além do preço de tabela definem a segurança e o valor total da compra.',
-		tasks: [
-			'Confirme se o empreendimento possui patrimônio de afetação registrado.',
-			'Solicite tabela detalhada com entrada, parcelas, reforços, saldo na entrega e índice de correção.',
-			'Simule o impacto do INCC nas parcelas até a data prevista de entrega das chaves.',
-			'Some ITBI, escritura, registro, taxas bancárias, condomínio e fundo de reserva no custo total.',
-		],
+		intro: `Verifique o <strong>patrimônio de afetação</strong>, simule o <strong>INCC</strong> e some <strong>ITBI</strong>, registro e taxas no custo total do <strong>${propertyTitle}</strong>.`,
 	},
 	{
 		title: 'Prazo de entrega e minuta do contrato',
-		intro: 'Prazo, tolerância e cláusulas da minuta definem o que vale em atraso, correção ou distrato.',
-		tasks: [
-			'Confira a data de entrega prevista e a cláusula de tolerância de até 180 dias no contrato.',
-			'Leia índices de correção, multas por atraso, distrato e cessão de direitos na minuta.',
-			'Identifique obrigações da incorporadora e do comprador antes de assinar.',
-			'Consulte um advogado especializado em imóveis na planta se houver cláusula duvidosa.',
-		],
+		intro: `Leia correção, multas e cessão de direitos antes de assinar a <strong>minuta do contrato</strong> do <strong>${propertyTitle}</strong>.`,
 	},
 	{
 		title: 'Alvará de construção',
-		intro: 'Alvará da Prefeitura comprova que a obra está autorizada a ser executada no município.',
-		tasks: [
-			'Peça cópia do alvará de construção emitido pela Prefeitura Municipal de Balneário Camboriú.',
-			'Confira se o endereço e a identificação do empreendimento coincidem com o alvará apresentado.',
-			'Verifique se o alvará está válido e compatível com o projeto aprovado no RI.',
-			'Exija atualização do documento caso haja reformulação relevante do projeto da obra.',
-		],
+		intro: `Confira validade, endereço e compatibilidade do <strong>alvará de construção</strong> com o projeto do <strong>RI</strong>.`,
+	},
+];
+
+const splitGroups = [
+	{
+		phase: 1,
+		title: 'Documentação do empreendimento',
+		intro: `Confira os <strong>registros e documentos oficiais</strong> que comprovam a regularidade do <strong>${propertyTitle}</strong> antes de reservar uma unidade.`,
+		items: items.slice(0, 3),
+	},
+	{
+		phase: 2,
+		title: 'Incorporadora, custos e contrato',
+		intro: construtoraName
+			? `Avalie o histórico da <strong>${construtoraName}</strong>, simule o <strong>custo total da compra</strong> e leia a <strong>minuta do contrato</strong> com atenção antes de assinar.`
+			: `Avalie quem vende, simule o <strong>custo total da compra</strong> e leia a <strong>minuta do contrato</strong> com atenção antes de assinar.`,
+		items: items.slice(3),
 	},
 ];
 ---
 
-<section class="section property-regularity-guide" id="empreendimento-regular">
-	<h2 class="section__title">Antes de assinar o contrato</h2>
+<section
+	class:list={[
+		'section',
+		'property-regularity-guide',
+		useGridLayout && 'property-regularity-guide--grid',
+		useContecLayout && 'property-regularity-guide--contec',
+		useSplitLayout && 'property-regularity-guide--split',
+		useSplitLayout && 'property-offplan-guide--split',
+	]}
+	id="empreendimento-regular"
+>
+	{
+		useSplitLayout ? (
+			<>
+				<h2 class="section__title landing-section-title">
+					{toTitleCase('Antes de assinar o contrato')}
+				</h2>
 
-	<p class="about-text">
-		Seis verificações essenciais antes de assinar o contrato em Balneário Camboriú.
-	</p>
+				<p class="about-text" set:html={construtoraName
+					? `Antes de reservar ou assinar o contrato do <strong>${propertyTitle}</strong>, vale conferir se o empreendimento está regularizado, se a <strong>${construtoraName}</strong> tem histórico confiável e se o <strong>contrato</strong> reflete o que foi prometido na venda.`
+					: `Antes de reservar ou assinar o contrato do <strong>${propertyTitle}</strong>, vale conferir se o empreendimento está regularizado, se a <strong>incorporadora</strong> tem histórico confiável e se o <strong>contrato</strong> reflete o que foi prometido na venda.`
+				} />
 
-	<div class="property-regularity-guide__card">
-		{
-			items.map((item) => (
-				<article class="property-regularity-guide__item">
-					<h3 class="property-regularity-guide__item-title">{item.title}</h3>
-					<p class="property-regularity-guide__item-intro">{item.intro}</p>
-					<ul class="property-regularity-guide__tasks">
-						{item.tasks.map((task) => (
-							<li>{task}</li>
-						))}
-					</ul>
-				</article>
-			))
-		}
-	</div>
+				<p class="about-text" set:html={`Em ${locationHtml}, seis verificações ajudam a reduzir risco na compra na planta: <strong>documentação</strong>, <strong>memorial descritivo</strong>, <strong>alvará</strong>, <strong>patrimônio de afetação</strong>, <strong>condições de pagamento</strong> e <strong>minuta do contrato</strong>. Abaixo, resumimos cada ponto para você analisar com mais segurança.`} />
+
+				{
+					splitGroups.map((group) => (
+						<div class="property-offplan-guide__group property-offplan-guide__group--split property-offplan-guide__group--shade">
+							<div class="property-offplan-guide__group-header">
+								<h3 class="property-offplan-guide__group-title landing-section-title">
+									<span class="property-offplan-guide__phase" aria-hidden="true">{group.phase}</span>
+									{toTitleCase(group.title)}
+								</h3>
+								<p class="property-offplan-guide__group-intro" set:html={group.intro} />
+							</div>
+							<div class="property-offplan-guide__group-body property-regularity-guide__group-body">
+								<div class="property-offplan-guide__steps property-regularity-guide__steps">
+									{
+										group.items.map((item) => (
+											<article class="property-offplan-guide__item">
+												<h4 class="property-offplan-guide__item-title">
+													<span class="property-offplan-guide__step" aria-hidden="true">
+														<i class="fa-solid fa-check"></i>
+													</span>
+													<span class="property-offplan-guide__item-label">{item.title}</span>
+												</h4>
+												<p set:html={item.intro} />
+											</article>
+										))
+									}
+								</div>
+							</div>
+						</div>
+					))
+				}
+
+				<PropertyRegularityChecklistDownloadCta propertySlug={propertySlug} propertyTitle={propertyTitle} />
+			</>
+		) : useContecLayout ? (
+			<>
+				<p class="property-regularity-guide__eyebrow">Regularidade</p>
+				<h2 class="property-regularity-guide__title landing-section-title">
+					{toTitleCase('Antes de assinar o contrato')}
+				</h2>
+				<p class="property-regularity-guide__lead">
+					Seis verificações essenciais para avaliar a regularidade do empreendimento, o custo real da compra
+					e as condições do contrato antes de assinar em Balneário Camboriú.
+				</p>
+				<div class="property-regularity-guide__table">
+					{
+						items.map((item, index) => (
+							<article class="property-regularity-guide__table-cell">
+								<div class="property-regularity-guide__table-head">
+									<span class="property-regularity-guide__table-icon" aria-hidden="true">
+										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+											<path
+												d="M9 12l2 2 4-4"
+												stroke="currentColor"
+												stroke-width="1.7"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+											<path
+												d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+												stroke="currentColor"
+												stroke-width="1.7"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+										</svg>
+									</span>
+									<span class="property-regularity-guide__index" aria-hidden="true">
+										{formatIndex(index)}
+									</span>
+								</div>
+								<h3 class="property-regularity-guide__card-title">{item.title}</h3>
+								<p class="property-regularity-guide__card-intro" set:html={item.intro} />
+							</article>
+						))
+					}
+				</div>
+				<PropertyRegularityChecklistDownloadCta propertySlug={propertySlug} propertyTitle={propertyTitle} />
+			</>
+		) : (
+			<>
+				<h2 class="section__title landing-section-title">
+					{toTitleCase('Antes de assinar o contrato')}
+				</h2>
+
+				<p class="about-text">
+					{
+						useGridLayout
+							? 'Seis verificações essenciais para avaliar a regularidade do empreendimento, o custo real da compra e as condições do contrato antes de assinar em Balneário Camboriú.'
+							: 'Seis verificações essenciais antes de assinar o contrato em Balneário Camboriú.'
+					}
+				</p>
+			</>
+		)
+	}
+
+	{
+		useSplitLayout || useContecLayout ? null : useGridLayout ? (
+			<div class="property-regularity-guide__grid">
+				{
+					items.map((item, index) => (
+						<article class="property-regularity-guide__item">
+							<h3 class="property-regularity-guide__item-title">
+								<span class="property-regularity-guide__step" aria-hidden="true">{index + 1}</span>
+								{item.title}
+							</h3>
+							<p class="property-regularity-guide__item-intro" set:html={item.intro} />
+						</article>
+					))
+				}
+			</div>
+		) : (
+			<div class="property-regularity-guide__card">
+				{
+					items.map((item) => (
+						<article class="property-regularity-guide__item">
+							<h3 class="property-regularity-guide__item-title">{item.title}</h3>
+							<p class="property-regularity-guide__item-intro" set:html={item.intro} />
+						</article>
+					))
+				}
+			</div>
+		)
+	}
 </section>

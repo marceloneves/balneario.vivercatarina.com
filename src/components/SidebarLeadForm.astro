@@ -1,5 +1,5 @@
 ---
-import { SITE_PHONE_DISPLAY, SITE_WHATSAPP_NUMBER } from '../lib/site-contact.mjs';
+import { SITE_PHONE_DISPLAY } from '../lib/site-contact.mjs';
 
 const {
 	formId,
@@ -18,7 +18,7 @@ const whatsappSource = variant === 'property' ? 'property' : 'bairro';
 ---
 
 <div class="widget sidebar-contact-form sidebar-lead-form">
-	<h3 class="widget_title">{title}</h3>
+	<h2 class="widget_title">{title}</h2>
 	<div class="sidebar-lead-form__card">
 		{
 			variant === 'property' && price && (
@@ -41,11 +41,6 @@ const whatsappSource = variant === 'property' ? 'property' : 'bairro';
 				placeholder={SITE_PHONE_DISPLAY}
 				required
 			/>
-			<label for={`${formId}-email`}>E-mail</label>
-			<input id={`${formId}-email`} name="email" type="email" placeholder="Seu e-mail" required />
-			<button type="submit" class="th-btn sidebar-lead-form__submit radius w-100">
-				Quero mais informações
-			</button>
 			<button
 				type="button"
 				class="th-btn sidebar-lead-form__whatsapp radius w-100"
@@ -58,8 +53,9 @@ const whatsappSource = variant === 'property' ? 'property' : 'bairro';
 			>
 				<i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
 			</button>
+			<p class="form-consent-note" style="font-size:11px;line-height:1.45;margin:8px 0 0;color:var(--body-color);text-align:center;">Ao enviar, você concorda em ser contatado via WhatsApp. Veja nossa <a href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.</p>
 		</form>
-		<p class="sidebar-lead-form__note">Dados protegidos. Resposta em até 1 hora.</p>
+		<p class="sidebar-lead-form__note">Dados protegidos. Resposta em até 15 minutos.</p>
 	</div>
 </div>
 
@@ -87,15 +83,15 @@ const whatsappSource = variant === 'property' ? 'property' : 'bairro';
 
 	.sidebar-lead-form__price {
 		font-family: var(--title-font);
-		font-size: 30px;
-		font-weight: 700;
+		font-size: 36px;
+		font-weight: 400;
 		color: var(--white-color);
 		margin: 8px 0 0;
-		line-height: 1.2;
+		line-height: 1;
 	}
 
 	.sidebar-lead-form__alert {
-		background: rgba(254, 137, 0, 0.12);
+		background: rgba(255, 175, 0, 0.12);
 		color: var(--theme-color2);
 		padding: 12px 14px;
 		border-radius: 10px;
@@ -182,30 +178,14 @@ const whatsappSource = variant === 'property' ? 'property' : 'bairro';
 	}
 </style>
 
-<script
-	define:vars={{
-		formId,
-		whatsappNumber: SITE_WHATSAPP_NUMBER,
-		variant,
-		propertyTitle,
-		neighborhoodName,
-	}}
->
+<script define:vars={{ formId }}>
 	const form = document.getElementById(formId);
 
+	// Único CTA é o botão "Falar no WhatsApp" (data-whatsapp-lead), tratado pelo
+	// WhatsAppLeadGate global (captura nome+telefone no servidor e abre o WhatsApp).
+	// Aqui só garantimos que Enter no formulário aciona esse mesmo botão.
 	form?.addEventListener('submit', (event) => {
 		event.preventDefault();
-		const data = new FormData(form);
-		const name = data.get('name');
-		const phone = data.get('phone');
-		const email = data.get('email');
-		const interestLabel =
-			variant === 'property'
-				? `neste imóvel${propertyTitle ? ` (${propertyTitle})` : ''}`
-				: `em imóveis na planta em ${neighborhoodName || 'Balneário Camboriú'}`;
-		const message = encodeURIComponent(
-			`Olá! Meu nome é ${name}. Tenho interesse ${interestLabel}. WhatsApp: ${phone}. E-mail: ${email}.`,
-		);
-		window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+		form.querySelector('[data-whatsapp-lead]')?.click();
 	});
 </script>

@@ -1,0 +1,82 @@
+---
+import PropertyPlantaCards from './PropertyPlantaCards.astro';
+import PropertyPlantaLightbox from './PropertyPlantaLightbox.astro';
+import { attachPlantaLightboxIndexes } from '../lib/property-planta-lightbox.mjs';
+
+const { plantas, filterOptions = [] } = Astro.props;
+const plantasWithLightbox = attachPlantaLightboxIndexes(plantas);
+
+const options = plantasWithLightbox.map((planta, index) => ({
+	id: `planta-filter-${index}`,
+	label: filterOptions[index] || planta.titulo,
+}));
+---
+
+<div class="vivercatarina-plantas-filter" data-vivercatarina-plantas-filter>
+	<div class="vivercatarina-plantas-filter__tabs" role="tablist" aria-label="Filtrar plantas por quartos">
+		{
+			options.map((option, index) => (
+				<button
+					type="button"
+					class="vivercatarina-plantas-filter__tab"
+					role="tab"
+					id={option.id}
+					aria-selected={index === 0 ? 'true' : 'false'}
+					aria-controls={`${option.id}-panel`}
+					data-planta-tab={index}
+				>
+					{option.label}
+				</button>
+			))
+		}
+	</div>
+
+	<div class="vivercatarina-plantas-filter__panels">
+		{
+			plantasWithLightbox.map((planta, index) => (
+				<div
+					class="vivercatarina-plantas-filter__panel"
+					role="tabpanel"
+					id={`${options[index].id}-panel`}
+					aria-labelledby={options[index].id}
+					hidden={index !== 0}
+					data-planta-panel={index}
+				>
+					<div class="vivercatarina-plantas-grid">
+						<PropertyPlantaCards plantas={[planta]} variant="large" />
+					</div>
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<PropertyPlantaLightbox plantas={plantasWithLightbox} />
+
+<script>
+	document.querySelectorAll('[data-vivercatarina-plantas-filter]').forEach((root) => {
+		const tabs = [...root.querySelectorAll('[data-planta-tab]')];
+		const panels = [...root.querySelectorAll('[data-planta-panel]')];
+
+		const activate = (index) => {
+			tabs.forEach((tab, tabIndex) => {
+				const isActive = tabIndex === index;
+				tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+				tab.classList.toggle('is-active', isActive);
+			});
+
+			panels.forEach((panel, panelIndex) => {
+				if (panelIndex === index) {
+					panel.removeAttribute('hidden');
+				} else {
+					panel.setAttribute('hidden', '');
+				}
+			});
+		};
+
+		tabs.forEach((tab, index) => {
+			tab.classList.toggle('is-active', index === 0);
+			tab.addEventListener('click', () => activate(index));
+		});
+	});
+</script>

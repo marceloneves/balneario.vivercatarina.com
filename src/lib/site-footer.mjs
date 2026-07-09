@@ -5,7 +5,25 @@ import {
 	SITE_LOCATION,
 	SITE_PHONE_DISPLAY,
 	SITE_PHONE_TEL,
+	SITE_WHATSAPP_NUMBER,
 } from './site-contact.mjs';
+
+const SOCIAL_LINKS = {
+	facebook: 'https://www.facebook.com/vivercatarina',
+	twitter: 'https://twitter.com/vivercatarina',
+	instagram: 'https://www.instagram.com/vivercatarina',
+	linkedin: 'https://www.linkedin.com/company/vivercatarina',
+	whatsapp: `https://wa.me/${SITE_WHATSAPP_NUMBER}`,
+};
+
+function patchSocialLinks(html) {
+	return html
+		.replace(/href="https?:\/\/(?:www\.)?facebook\.com\/?"/g, `href="${SOCIAL_LINKS.facebook}"`)
+		.replace(/href="https?:\/\/(?:www\.)?(?:twitter|x)\.com\/?"/g, `href="${SOCIAL_LINKS.twitter}"`)
+		.replace(/href="https?:\/\/(?:www\.)?instagram\.com\/?"/g, `href="${SOCIAL_LINKS.instagram}"`)
+		.replace(/href="https?:\/\/(?:www\.)?linkedin\.com\/?"/g, `href="${SOCIAL_LINKS.linkedin}"`)
+		.replace(/href="https?:\/\/(?:www\.)?whatsapp\.com\/?"/g, `href="${SOCIAL_LINKS.whatsapp}"`);
+}
 import { patchGlossaryMenu } from './site-menu.mjs';
 import { patchFooterNavMenus } from './footer-nav.mjs';
 
@@ -230,6 +248,99 @@ ${regionsHtml}
 `;
 }
 
+// Subdomínio de cada cidade no padrão <slug>.vivercatarina.com.
+// "balneario" (Balneário Camboriú) confirmado pelo usuário; demais são
+// palpites e devem ser revisados conforme os sites realmente publicados.
+const CITY_SUBDOMAINS = {
+	'Balneário Camboriú': 'balneario-camboriu',
+	'São José': 'saojose',
+	'Palhoça': 'palhoca',
+	'Biguaçu': 'biguacu',
+	'Tijucas': 'tijucas',
+	'Joinville': 'joinville',
+	'Jaraguá do Sul': 'jaraguadosul',
+	'Barra Velha': 'barravelha',
+	'Penha': 'penha',
+	'Balneário Piçarras': 'picarras',
+	'Balneário Camboriú': 'balneario',
+	'Itajaí': 'itajai',
+	'Blumenau': 'blumenau',
+	'Brusque': 'brusque',
+	'Camboriú': 'camboriu',
+	'Itapema': 'itapema',
+	'Navegantes': 'navegantes',
+	'Balneário Camboriú': 'balneario',
+	'Bombinhas': 'bombinhas',
+	'Criciúma': 'criciuma',
+	'Tubarão': 'tubarao',
+	'Imbituba': 'imbituba',
+	'Chapecó': 'chapeco',
+};
+
+function cityHref(name) {
+	const slug = CITY_SUBDOMAINS[name];
+	return slug ? `https://${slug}.vivercatarina.com` : null;
+}
+
+const FOOTER_CITIES_BY_REGION = [
+	{ region: 'Grande Balneário Camboriú', cities: ['Balneário Camboriú', 'São José', 'Palhoça', 'Biguaçu', 'Tijucas'] },
+	{ region: 'Norte Catarinense', cities: ['Joinville', 'Jaraguá do Sul', 'Barra Velha', 'Penha', 'Balneário Piçarras'] },
+	{ region: 'Vale do Itajaí e Litoral', cities: ['Balneário Camboriú', 'Itajaí', 'Blumenau', 'Brusque', 'Camboriú', 'Itapema', 'Navegantes', 'Balneário Camboriú', 'Bombinhas'] },
+	{ region: 'Sul Catarinense', cities: ['Criciúma', 'Tubarão', 'Imbituba'] },
+	{ region: 'Oeste Catarinense', cities: ['Chapecó'] },
+];
+
+// Mega-menu "Outras cidades" para o cabeçalho (mesma rede de cidades do rodapé).
+// Estrutura de submenus alinhada ao tema Piller (menu-item-has-children + sub-menu).
+export function buildHeaderCitiesMenuHtml() {
+	const regionsHtml = FOOTER_CITIES_BY_REGION.map(({ region, cities }) => {
+		const items = cities
+			.map((name) => {
+				const href = cityHref(name);
+				return href
+					? `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${name}</a></li>`
+					: `<li><a href="#">${name}</a></li>`;
+			})
+			.join('');
+
+		return `<li class="menu-item-has-children"><a href="#">${region}</a><ul class="sub-menu">${items}</ul></li>`;
+	}).join('');
+
+	return `<li class="menu-item-has-children"><a href="#">Outras cidades</a><ul class="sub-menu">${regionsHtml}</ul></li>`;
+}
+
+export function buildFooterCitiesSectionHtml() {
+	const regionsHtml = FOOTER_CITIES_BY_REGION.map(({ region, cities }) => {
+		const items = cities
+			.map((name) => {
+				const href = cityHref(name);
+				return href
+					? `<li><a href="${href}" target="_blank" rel="noopener">${name}</a></li>`
+					: `<li>${name}</li>`;
+			})
+			.join('\n                                ');
+
+		return `                        <div class="footer-cities-region">
+                            <h4 class="footer-cities-region-title">${region}</h4>
+                            <ul class="footer-cities-list">
+                                ${items}
+                            </ul>
+                        </div>`;
+	}).join('\n');
+
+	return `        <section class="footer-cities-section" aria-label="${FOOTER_CITIES_TITLE}">
+            <div class="container">
+                <div class="footer-cities-wrap">
+                    <h3 class="widget_title">${FOOTER_CITIES_TITLE}</h3>
+                    <div class="footer-cities-regions">
+${regionsHtml}
+                    </div>
+                </div>
+            </div>
+        </section>
+`;
+}
+
 function removeFooterNeighborhoodsSection(html) {
 	return html
 		.replace(
@@ -272,32 +383,128 @@ function patchFooterNeighborhoodsSection(html) {
 	return output;
 }
 
+function unwrapFooterCitiesContainer(html) {
+	return html.replace(
+		/(<section class="footer-cities-section"[^>]*>)\s*<div class="container">\s*([\s\S]*?)<\/div>\s*<\/section>/,
+		'$1\n$2\n        </section>',
+	);
+}
+
+// Rodapé completo no padrão do site de origem (footer-default), com os dados
+// do Balneário Camboriú: bairros, cidades, contato e localização. Substitui por inteiro
+// o <footer> que vem do template do tema.
+export function buildSiteFooterHtml() {
+	const bairrosSectionHtml = buildFooterNeighborhoodsSectionHtml();
+	const citiesSectionHtml = buildFooterCitiesSectionHtml();
+
+	return `<footer class="footer-wrapper footer-default">
+	<div class="widget-area">
+		<div class="container">
+			<div class="footer-all-widget-wrapper">
+				<div class="footer-all-widget-item">
+					<div class="widget footer-widget">
+						<div class="th-widget-about">
+							<div class="about-logo">
+								<a href="/" aria-label="Viver Catarina Imóveis na Planta - página inicial"><img src="/assets/img/logo-white.svg" alt="Viver Catarina Imóveis na Planta" title="Viver Catarina Imóveis na Planta" width="220" height="44" /></a>
+							</div>
+							<p class="about-text">O maior portal de lançamentos imobiliários de Santa Catarina. Encontre apartamentos na planta, pré-lançamentos e imóveis prontos para morar nas 23 maiores cidades catarinenses. De Joinville a Criciúma, de Balneário Camboriú a Chapecó — cobrimos cada lançamento, cada bairro, cada oportunidade do mercado imobiliário de SC. Aqui você compara, pesquisa e encontra o imóvel novo ideal com informações completas, atualizadas e direto das construtoras.</p>
+						</div>
+					</div>
+				</div>
+				<div class="footer-all-widget-item">
+					<div class="footer-right-wrap">
+						<div class="footer-item-wrap">
+							<div class="footer-item">
+								<nav class="widget widget_nav_menu footer-widget" aria-labelledby="footer-nav-institucional">
+									<h3 class="widget_title" id="footer-nav-institucional">Institucional</h3>
+									<div class="menu-all-pages-container">
+										<ul class="menu">
+											<li><a href="/">Início</a></li>
+											<li><a href="/quem-somos">Quem Somos</a></li>
+											<li><a href="/bairros">Bairros</a></li>
+											<li><a href="/blog" rel="bookmark">Blog</a></li>
+											<li><a href="/contact">Contato</a></li>
+											<li><a href="/sitemap-index.xml">Mapa do Site</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+							<div class="footer-item">
+								<nav class="widget widget_nav_menu footer-widget" aria-labelledby="footer-nav-legal">
+									<h3 class="widget_title" id="footer-nav-legal">Legal e Transparência</h3>
+									<div class="menu-all-pages-container">
+										<ul class="menu">
+											<li><a href="/privacidade">Política de Privacidade</a></li>
+											<li><a href="/termos-de-uso">Termos de Uso</a></li>
+											<li><a href="/politica-de-cookies">Política de Cookies</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+							<div class="footer-item">
+								<section class="widget footer-widget footer-contact-widget" aria-labelledby="footer-nav-contato">
+									<h3 class="widget_title" id="footer-nav-contato">Contato</h3>
+									<address class="footer-info-wrap">
+										<div class="footer-info">
+											<i class="fab fa-whatsapp"></i>
+											<p class="info-box_link"><a href="tel:${SITE_PHONE_TEL}">${SITE_PHONE_DISPLAY}</a></p>
+										</div>
+										<div class="footer-info">
+											<i class="fas fa-envelope"></i>
+											<p class="info-box_link"><a href="mailto:${SITE_EMAIL}">${SITE_EMAIL}</a></p>
+										</div>
+										<div class="footer-info">
+											<i class="fas fa-location-dot"></i>
+											<p class="info-box_link"><span>${SITE_LOCATION}</span></p>
+										</div>
+									</address>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+${bairrosSectionHtml}
+${citiesSectionHtml}
+
+	<div class="copyright-wrap">
+		<div class="footer-bottom-top-shape animation-infinite" data-bg-src="/assets/img/icon/footer-bottom-top-shape.webp"></div>
+		<div class="container">
+			<p class="footer-disclaimer">As informações e imagens divulgadas neste site são de caráter informativo e pertencem às respectivas incorporadoras. O atendimento é realizado por corretores credenciados e devidamente registrados no CRECI. Viver Catarina é um portal de propriedade da PMTurbo Tecnologia Ltda. ME — CNPJ 54.008.386/0001-07.</p>
+			<div class="row gy-3 justify-content-lg-between justify-content-center align-items-center footer-copyright-row">
+				<div class="col-auto footer-copyright-email">
+					<p class="copyright-email"><a href="mailto:${SITE_EMAIL}">${SITE_EMAIL}</a></p>
+				</div>
+				<div class="col-lg-7 footer-copyright-center">
+					<p class="copyright-text">2025-2026 - <a href="/">Viver Catarina</a> - Todos os direitos reservados</p>
+				</div>
+				<div class="col-auto footer-copyright-social">
+					<div class="footer-default-copy-right">
+						<div class="th-social">
+							<a href="https://www.facebook.com/vivercatarina" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+							<a href="https://www.instagram.com/vivercatarina" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+							<a href="https://wa.me/${SITE_WHATSAPP_NUMBER}" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>`;
+}
+
 export function patchSiteFooter(html) {
-	if (!html || !html.includes('copyright-wrap')) {
+	if (!html || !html.includes('footer-wrapper')) {
 		return html;
 	}
 
-	let output = injectFooterContactColumn(html);
-
-	if (hasFooterContactColumn(output)) {
-		output = removeAboutWidgetContactInfo(output);
-	}
-
-	output = patchFooterAboutBranding(output);
-	output = patchCopyrightText(output);
-	output = patchGlossaryMenu(output);
-	output = patchFooterNavMenus(output);
-	output = patchFooterNeighborhoodsSection(output);
-	output = patchFooterCitiesTitle(output);
-
-	if (output.includes('footer-disclaimer')) {
-		output = output.replace(/<p class="footer-disclaimer">[\s\S]*?<\/p>/, FOOTER_DISCLAIMER_HTML);
-	} else {
-		output = output.replace(
-			/(<div class="copyright-wrap">[\s\S]*?<div class="container">\s*)/,
-			`$1${FOOTER_DISCLAIMER_HTML}\n                `,
-		);
-	}
-
-	return output;
+	// Substitui por inteiro o rodapé do template pelo rodapé padrão (footer-default),
+	// já com bairros e cidades do Balneário Camboriú.
+	return html.replace(
+		/<footer class="footer-wrapper[^"]*">[\s\S]*?<\/footer>/,
+		() => buildSiteFooterHtml(),
+	);
 }

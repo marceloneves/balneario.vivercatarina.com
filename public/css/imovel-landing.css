@@ -31,7 +31,8 @@
 .imovel-landing .imovel-detail h4 {
 	font-family: var(--title-font);
 	color: var(--title-color);
-	font-weight: 700;
+	font-weight: 400;
+	line-height: 1;
 }
 
 .imovel-landing .hero-gallery {
@@ -56,6 +57,7 @@
 }
 
 .imovel-landing .hero-gallery__trigger,
+.imovel-landing .hero-gallery__cover-trigger,
 .imovel-landing .gallery-trigger {
 	border: 0;
 	padding: 0;
@@ -67,11 +69,16 @@
 	color: inherit;
 	width: 100%;
 	height: 100%;
-	min-height: 420px;
 	display: block;
 }
 
+.imovel-landing .hero-gallery__trigger,
+.imovel-landing .hero-gallery__cover-trigger {
+	min-height: 420px;
+}
+
 .imovel-landing .hero-gallery__trigger:focus-visible,
+.imovel-landing .hero-gallery__cover-trigger:focus-visible,
 .imovel-landing .gallery-trigger:focus-visible {
 	outline: 3px solid var(--theme-color2);
 	outline-offset: 3px;
@@ -117,7 +124,7 @@
 	background: #9a3412;
 	color: var(--white-color);
 	padding: 6px 14px;
-	border-radius: 999px;
+	border-radius: 0;
 	font-size: 13px;
 	font-weight: 600;
 	font-family: var(--body-font);
@@ -210,10 +217,20 @@
 	margin-bottom: 36px;
 }
 
-.imovel-landing .section__title {
+.imovel-landing {
+	--section-title-font: "Arial Narrow", sans-serif;
+}
+
+.imovel-landing .section__title,
+.imovel-landing .landing-section-title {
+	font-family: var(--section-title-font) !important;
 	font-size: 28px;
+	font-weight: 700;
 	margin-bottom: 24px;
-	line-height: 1.25;
+	line-height: 1.1;
+	letter-spacing: 0.02em;
+	text-transform: none;
+	color: var(--black);
 }
 
 .imovel-landing .property-location-points {
@@ -379,6 +396,13 @@
 	line-height: 1.75;
 }
 
+.imovel-landing.imovel-landing-vivercatarina .about-text,
+.imovel-landing.imovel-landing-vivercatarina .property-description {
+	font-size: 16px;
+	line-height: 1.7;
+	letter-spacing: normal;
+}
+
 .imovel-landing .about-text a {
 	color: var(--theme-color);
 	font-weight: 600;
@@ -397,9 +421,9 @@
 	line-height: inherit;
 }
 
-.imovel-landing .property-description h5,
-.imovel-landing .property-description h6,
-.imovel-landing .property-description h4 {
+.imovel-landing:not(.imovel-landing-vivercatarina) .property-description h5,
+.imovel-landing:not(.imovel-landing-vivercatarina) .property-description h6,
+.imovel-landing:not(.imovel-landing-vivercatarina) .property-description h4 {
 	font-family: var(--title-font);
 	color: var(--title-color);
 	margin: 1.25rem 0 0.75rem;
@@ -412,10 +436,15 @@
 }
 
 .imovel-landing .photo-grid__item {
-	border-radius: 12px;
+	border-radius: 0;
 	overflow: hidden;
 	aspect-ratio: 4/3;
-	background: var(--smoke-color2);
+	background: transparent;
+}
+
+.imovel-landing .photo-grid__item.gallery-trigger {
+	min-height: 0;
+	height: auto;
 }
 
 .imovel-landing .photo-grid__item img {
@@ -653,6 +682,31 @@ body.gallery-lightbox-open {
 	width: 100%;
 	max-height: 200px;
 	object-fit: contain;
+}
+
+.imovel-landing .planta-card__image-trigger {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: zoom-in;
+}
+
+.imovel-landing .planta-card__image-trigger:focus-visible {
+	outline: 2px solid var(--theme-color);
+	outline-offset: 2px;
+}
+
+.imovel-landing .planta-card__image-trigger:hover img {
+	opacity: 0.92;
+}
+
+.imovel-landing .gallery-lightbox__caption {
+	margin: 12px 0 0;
+	color: var(--white-color);
+	font-size: 0.9375rem;
+	text-align: center;
 }
 
 .imovel-landing .planta-card__ficha {
@@ -962,10 +1016,41 @@ body.gallery-lightbox-open {
 }
 
 .imovel-landing .property-offplan-guide__group-title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
 	margin: 0 0 10px;
 	font-size: 22px;
 	line-height: 1.3;
 	color: var(--title-color);
+}
+
+.imovel-landing .property-offplan-guide__phase {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 999px;
+	background: var(--theme-color2);
+	color: var(--white-color);
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.imovel-landing .property-offplan-guide__group-image {
+	margin: 16px 0 0;
+	border-radius: 0;
+	overflow: hidden;
+	border: 3px solid var(--black-color);
+}
+
+.imovel-landing .property-offplan-guide__group-image img {
+	display: block;
+	width: 100%;
+	height: auto;
 }
 
 .imovel-landing .property-offplan-guide__group-intro {
@@ -1008,8 +1093,13 @@ body.gallery-lightbox-open {
 	border-radius: 999px;
 	background: #9a3412;
 	color: var(--white-color);
-	font-size: 12px;
+	font-size: 11px;
 	font-weight: 700;
+	line-height: 1;
+}
+
+.imovel-landing .property-offplan-guide__step i {
+	font-size: 0.72rem;
 	line-height: 1;
 }
 
@@ -1069,7 +1159,7 @@ body.gallery-lightbox-open {
 }
 
 .imovel-landing .sidebar-alert {
-	background: rgba(254, 137, 0, 0.12);
+	background: rgba(255, 175, 0, 0.12);
 	color: var(--theme-color2);
 	padding: 12px 14px;
 	border-radius: 10px;
@@ -1181,7 +1271,7 @@ body.gallery-lightbox-open {
 }
 
 .imovel-landing .sidebar-note {
-	font-size: 13px;
+	font-size: 9px;
 	color: var(--body-color);
 	margin: 12px 0 0;
 }
@@ -1203,7 +1293,7 @@ body.gallery-lightbox-open {
 	border: 1px solid var(--th-border-color);
 	border-radius: 12px;
 	overflow: hidden;
-	background: var(--white-color);
+	background: var(--smoke-color);
 	box-shadow: 0 2px 12px rgba(17, 24, 39, 0.05);
 	transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }

@@ -93,6 +93,85 @@ export function loadHomeFeaturedLancamentos(perKind = 4) {
 	return featured;
 }
 
+function slugifyConstrutora(value) {
+	return String(value || '')
+		.normalize('NFD')
+		.replace(/[̀-ͯ]/g, '')
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '');
+}
+
+function readPropertyIncorporadora(entry) {
+	const propertyPath = join(dataRoot, entry.dataPath);
+
+	if (!existsSync(propertyPath)) {
+		return '';
+	}
+
+	try {
+		const property = JSON.parse(readFileSync(propertyPath, 'utf8'));
+		// A construtora vem de `ficha.construtora` (o import não preenche
+		// `incorporadora`). Mantém os fallbacks por robustez.
+		return String(
+			property.incorporadora || property.ficha?.construtora || property.construtora || '',
+		).trim();
+	} catch {
+		return '';
+	}
+}
+
+export function loadAllHomeLancamentos(featuredPerKind = 4) {
+	const all = [];
+
+	for (const kind of PROPERTY_KINDS) {
+		const listing = loadLancamentosKindListing(kind);
+
+		if (!listing?.properties?.length) {
+			continue;
+		}
+
+		const enriched = sortPropertiesByPrice(
+			listing.properties.map((entry) => enrichProperty(entry)),
+			'price',
+		);
+		const featuredSlugs = new Set(enriched.slice(0, featuredPerKind).map((property) => property.slug));
+
+		for (const property of enriched) {
+			const neighborhoodSlug = resolvePropertyNeighborhoodSlug(property);
+			const incorporadora = readPropertyIncorporadora(property);
+			const construtoraSlug = incorporadora ? slugifyConstrutora(incorporadora) : '';
+
+			all.push({
+				...property,
+				kindFilterClass: KIND_FILTER_CLASS[kind] || KIND_FILTER_CLASS.apartamento,
+				neighborhoodSlug,
+				neighborhoodFilterClass: neighborhoodSlug ? `bairro-${neighborhoodSlug}` : '',
+				construtoraId: construtoraSlug,
+				construtoraName: incorporadora || null,
+				construtoraFilterClass: construtoraSlug ? `construtora-${construtoraSlug}` : '',
+				isFeatured: featuredSlugs.has(property.slug),
+			});
+		}
+	}
+
+	return all;
+}
+
+export function getAllHomeConstrutoraOptions(allLancamentos) {
+	const seen = new Map();
+
+	for (const property of allLancamentos || []) {
+		if (property.construtoraId && !seen.has(property.construtoraId)) {
+			seen.set(property.construtoraId, property.construtoraName || property.construtoraId);
+		}
+	}
+
+	return [...seen.entries()]
+		.map(([value, label]) => ({ value, label }))
+		.sort((a, b) => a.label.localeCompare(b.label, 'pt-BR'));
+}
+
 function normalizeImageToken(value) {
 	return String(value || '')
 		.normalize('NFD')
@@ -242,7 +321,7 @@ export function loadHomeNeighborhoodCards() {
 }
 
 export function getHomeHeroBackgroundUrl() {
-	return pickNeighborhoodCoverImage('centro') || FALLBACK_NEIGHBORHOOD_IMAGES[2];
+	return '/assets/img/hero/hero-balneario-camboriu.webp';
 }
 
 export function getHomePageShell() {

@@ -163,6 +163,23 @@ export function buildLocationLabel(property) {
 	return 'Santa Catarina';
 }
 
+export function buildFullAddressLabel(property) {
+	const street = property.address?.street?.trim();
+	const district = property.address?.district?.trim();
+	const city = property.address?.city?.name?.trim();
+	const state = property.address?.state?.name === 'Santa Catarina' ? 'SC' : property.address?.state?.name;
+	const zipcode = property.address?.zipcode?.trim();
+
+	if (!street) {
+		return buildLocationLabel(property);
+	}
+
+	const head = district ? `${street} - ${district}` : street;
+	const tail = [city && state ? `${city} - ${state}` : city, zipcode].filter(Boolean).join(', ');
+
+	return tail ? `${head}, ${tail}` : head;
+}
+
 export function buildPriceLabel(property) {
 	return formatPropertyPriceLabel(property?.price);
 }

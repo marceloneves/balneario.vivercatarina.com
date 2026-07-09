@@ -4,10 +4,10 @@ export const FOOTER_NAV_COLUMNS = [
 		id: 'footer-nav-institucional',
 		items: [
 			{ label: 'Início', href: '/' },
-			{ label: 'Quem Somos', href: '/about' },
+			{ label: 'Quem Somos', href: '/quem-somos' },
 			{ label: 'Contato', href: '/contact' },
 			{ label: 'Política de Privacidade', href: '/privacidade' },
-			{ label: 'Termos e Condições', href: '/termos' },
+			{ label: 'Termos e Condições', href: '/termos-de-uso' },
 			{ label: 'Mapa do Site', href: '/sitemap-index.xml' },
 		],
 	},

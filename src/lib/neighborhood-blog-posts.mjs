@@ -2,43 +2,11 @@ import { BLOG_CLUSTERS } from './blog-clusters.mjs';
 import { getBlogPosts } from './blog-posts.mjs';
 import { resolveNeighborhoodEntry } from './neighborhood-intro.mjs';
 
-const CAMPECHE_NEIGHBORHOOD_SLUG = 'campeche';
-const CANASVIEIRAS_NEIGHBORHOOD_SLUG = 'canasvieiras';
 const CENTRO_NEIGHBORHOOD_SLUG = 'centro';
-const ITACORUBI_NEIGHBORHOOD_SLUG = 'itacorubi';
-const JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG = 'jurereinternacional';
-const INGLESES_NEIGHBORHOOD_SLUG = 'ingleses';
 const PIONEIROS_NEIGHBORHOOD_SLUG = 'pioneiros';
 const BARRA_SUL_NEIGHBORHOOD_SLUG = 'barrasul';
 const ARIRIBA_NEIGHBORHOOD_SLUG = 'aririba';
 const NACOES_NEIGHBORHOOD_SLUG = 'nacoes';
-
-/** Artigo pilar do cluster Ingleses. */
-const INGLESES_PILLAR_SLUG = 'morar-nos-ingleses-guia-completo';
-
-const INGLESES_SATELLITE_SLUGS = [
-	'preco-m2-ingleses-quanto-custa-comprar-imovel',
-	'apartamentos-a-venda-ingleses-faixas-preco',
-	'casas-a-venda-ingleses-sub-regioes',
-	'aluguel-ingleses-valores-temporada',
-	'investir-imovel-ingleses-locacao-valorizacao',
-	'como-comprar-imovel-ingleses-financiamento',
-	'ingleses-e-bom-para-morar',
-	'sub-regioes-ingleses-guia-completo',
-	'regiao-gaivotas-ingleses-guia-completo',
-	'condominios-rua-das-gaivotas-ingleses-guia-completo',
-	'quanto-rende-apartamento-rua-das-gaivotas-ingleses',
-	'ingleses-x-norte-cidade-onde-morar-balneario-camboriu',
-	'infraestrutura-ingleses-comercio-mobilidade',
-	'seguranca-ingleses-como-e-morar',
-	'praias-ingleses-santinho-guia-completo',
-	'escolas-creches-ingleses-opcoes',
-	'saude-ingleses-postos-hospitais-clinicas',
-	'custo-de-vida-ingleses-quanto-custa-morar',
-	'inverno-verao-ingleses-sazonalidade',
-];
-
-const INGLESES_PROPERTY_ARTICLE_SLUGS = [INGLESES_PILLAR_SLUG, ...INGLESES_SATELLITE_SLUGS];
 
 /** Artigo pilar do cluster Centro. */
 const CENTRO_PILLAR_SLUG = 'morar-no-centro-balneario-camboriu-guia-completo';
@@ -122,82 +90,10 @@ const PIONEIROS_PROPERTY_ARTICLE_SLUGS = [
 	'custo-de-vida-pioneiros',
 ];
 
-/** Artigo pilar do cluster Itacorubi. */
-const ITACORUBI_PILLAR_SLUG = 'morar-no-itacorubi-guia-completo';
-
-const ITACORUBI_SATELLITE_SLUGS = [
-	'preco-m2-itacorubi-quanto-custa-comprar-imovel',
-	'apartamentos-a-venda-itacorubi-faixas-preco',
-	'itacorubi-e-bom-para-morar',
-	'custo-de-vida-itacorubi-quanto-custa-morar',
-];
-
-const ITACORUBI_PROPERTY_ARTICLE_SLUGS = [ITACORUBI_PILLAR_SLUG, ...ITACORUBI_SATELLITE_SLUGS];
-
-/** Artigo pilar do cluster Canasvieiras. */
-const CANASVIEIRAS_PILLAR_SLUG = 'morar-em-canasvieiras-guia-completo';
-
-const CANASVIEIRAS_SATELLITE_SLUGS = [
-	'canasvieiras-e-bom-para-morar',
-	'preco-m2-canasvieiras-quanto-custa-comprar-imovel',
-	'apartamentos-a-venda-canasvieiras-faixas-preco',
-	'aluguel-temporada-canasvieiras-mercado',
-	'custo-de-vida-canasvieiras-quanto-custa-morar',
-];
-
-const CANASVIEIRAS_PROPERTY_ARTICLE_SLUGS = [
-	CANASVIEIRAS_PILLAR_SLUG,
-	...CANASVIEIRAS_SATELLITE_SLUGS,
-];
-
-/** Artigo pilar do cluster Campeche — sempre primeiro na seção do bairro. */
-const CAMPECHE_PILLAR_SLUG = 'morar-no-campeche-guia-completo';
-
-/** Artigo pilar do cluster Jurerê Internacional. */
-const JURERE_INTERNACIONAL_PILLAR_SLUG = 'morar-em-jurere-internacional-guia-completo';
-
-const JURERE_INTERNACIONAL_SATELLITE_SLUGS = [
-	'preco-m2-jurere-internacional-quanto-custa-imovel-luxo',
-	'apartamentos-a-venda-jurere-internacional-faixas-preco',
-	'casas-mansoes-a-venda-jurere-internacional-alto-padrao',
-	'aluguel-jurere-internacional-temporada-luxo',
-	'investir-imovel-jurere-internacional-valorizacao-retorno',
-	'como-comprar-imovel-jurere-internacional-alto-padrao',
-	'jurere-internacional-e-bom-para-morar',
-	'jurere-internacional-x-jurere-tradicional-comparativo',
-	'infraestrutura-jurere-internacional-seguranca-comercio-open-shopping',
-	'seguranca-jurere-internacional-como-e-morar',
-	'praia-jurere-internacional-guia-completo',
-	'vida-noturna-beach-clubs-jurere-verao',
-	'custo-de-vida-jurere-internacional-quanto-custa-morar',
-	'inverno-verao-jurere-sazonalidade',
-];
-
-const JURERE_INTERNACIONAL_PROPERTY_ARTICLE_SLUGS = [
-	JURERE_INTERNACIONAL_PILLAR_SLUG,
-	...JURERE_INTERNACIONAL_SATELLITE_SLUGS,
-];
-
-/** Satélites em ordem de prioridade para as landings de lançamento (exibidos após o pilar). */
-const CAMPECHE_SATELLITE_SLUGS = [
-	'campeche-e-bom-para-morar',
-	'preco-m2-campeche-quanto-custa-comprar',
-	'sub-regioes-campeche-guia-completo',
-	'investir-imovel-campeche-roi-valorizacao',
-	'como-comprar-imovel-campeche-financiamento',
-];
-
-const CAMPECHE_PROPERTY_ARTICLE_SLUGS = [CAMPECHE_PILLAR_SLUG, ...CAMPECHE_SATELLITE_SLUGS];
-
 const NEIGHBORHOOD_SLUG_TO_CLUSTER_ID = {
-	[CAMPECHE_NEIGHBORHOOD_SLUG]: 'campeche',
-	[CANASVIEIRAS_NEIGHBORHOOD_SLUG]: 'canasvieiras',
 	[CENTRO_NEIGHBORHOOD_SLUG]: 'centro',
 	[BARRA_SUL_NEIGHBORHOOD_SLUG]: 'barra-sul',
 	[PIONEIROS_NEIGHBORHOOD_SLUG]: 'pioneiros',
-	[INGLESES_NEIGHBORHOOD_SLUG]: 'ingleses',
-	[ITACORUBI_NEIGHBORHOOD_SLUG]: 'itacorubi',
-	[JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG]: 'jurere-internacional',
 	[ARIRIBA_NEIGHBORHOOD_SLUG]: 'aririba',
 	[NACOES_NEIGHBORHOOD_SLUG]: 'nacoes',
 };
@@ -214,37 +110,6 @@ function isCentroNeighborhood(neighborhoodName, neighborhoodSlug) {
 	const name = normalizeText(neighborhoodName);
 
 	return slug === CENTRO_NEIGHBORHOOD_SLUG || name === 'centro';
-}
-
-function isItacorubiNeighborhood(neighborhoodName, neighborhoodSlug) {
-	const slug = normalizeText(neighborhoodSlug);
-	const name = normalizeText(neighborhoodName);
-
-	return slug === ITACORUBI_NEIGHBORHOOD_SLUG || name === 'itacorubi';
-}
-
-function isCanasvieirasNeighborhood(neighborhoodName, neighborhoodSlug) {
-	const slug = normalizeText(neighborhoodSlug);
-	const name = normalizeText(neighborhoodName);
-
-	return slug === CANASVIEIRAS_NEIGHBORHOOD_SLUG || name === 'canasvieiras';
-}
-
-function isCampecheNeighborhood(neighborhoodName, neighborhoodSlug) {
-	const slug = normalizeText(neighborhoodSlug);
-	const name = normalizeText(neighborhoodName);
-
-	return slug === CAMPECHE_NEIGHBORHOOD_SLUG || name === 'campeche';
-}
-
-function isJurereInternacionalNeighborhood(neighborhoodName, neighborhoodSlug) {
-	const slug = normalizeText(neighborhoodSlug);
-	const name = normalizeText(neighborhoodName);
-
-	return (
-		slug === JURERE_INTERNACIONAL_NEIGHBORHOOD_SLUG ||
-		name === 'jurere internacional'
-	);
 }
 
 function isAriribaNeighborhood(neighborhoodName, neighborhoodSlug) {
@@ -273,13 +138,6 @@ function isPioneirosNeighborhood(neighborhoodName, neighborhoodSlug) {
 	const name = normalizeText(neighborhoodName);
 
 	return slug === PIONEIROS_NEIGHBORHOOD_SLUG || name === 'pioneiros';
-}
-
-function isInglesesNeighborhood(neighborhoodName, neighborhoodSlug) {
-	const slug = normalizeText(neighborhoodSlug);
-	const name = normalizeText(neighborhoodName);
-
-	return slug === INGLESES_NEIGHBORHOOD_SLUG || name === 'ingleses';
 }
 
 function getPostsBySlugs(slugs, limit = 3) {
@@ -393,26 +251,6 @@ export function getNeighborhoodBlogPosts(neighborhoodName, limit = 3, neighborho
 
 	if (isPioneirosNeighborhood(neighborhoodName, neighborhoodSlug)) {
 		return getPostsBySlugs(PIONEIROS_PROPERTY_ARTICLE_SLUGS, limit);
-	}
-
-	if (isItacorubiNeighborhood(neighborhoodName, neighborhoodSlug)) {
-		return getPostsBySlugs(ITACORUBI_PROPERTY_ARTICLE_SLUGS, limit);
-	}
-
-	if (isCanasvieirasNeighborhood(neighborhoodName, neighborhoodSlug)) {
-		return getPostsBySlugs(CANASVIEIRAS_PROPERTY_ARTICLE_SLUGS, limit);
-	}
-
-	if (isCampecheNeighborhood(neighborhoodName, neighborhoodSlug)) {
-		return getPostsBySlugs(CAMPECHE_PROPERTY_ARTICLE_SLUGS, limit);
-	}
-
-	if (isJurereInternacionalNeighborhood(neighborhoodName, neighborhoodSlug)) {
-		return getPostsBySlugs(JURERE_INTERNACIONAL_PROPERTY_ARTICLE_SLUGS, limit);
-	}
-
-	if (isInglesesNeighborhood(neighborhoodName, neighborhoodSlug)) {
-		return getPostsBySlugs(INGLESES_PROPERTY_ARTICLE_SLUGS, limit);
 	}
 
 	const posts = getBlogPosts();

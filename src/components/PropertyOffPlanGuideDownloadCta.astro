@@ -1,0 +1,434 @@
+---
+import { toTitleCase } from '../lib/title-case.mjs';
+
+const { propertySlug = null, propertyTitle = null } = Astro.props;
+
+const guideTitle = toTitleCase('Guia completo de compra de um imóvel na planta');
+---
+
+<div class="property-offplan-guide__download-wrap">
+	<button type="button" class="property-offplan-guide__download-card" data-guide-download-open>
+		<div class="property-offplan-guide__download-visual" aria-hidden="true">
+			<svg
+				class="property-offplan-guide__download-ebook"
+				viewBox="0 0 120 150"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<rect x="18" y="8" width="88" height="118" rx="6" fill="#f4f5f7" stroke="#d8dde5" stroke-width="2"></rect>
+				<rect x="24" y="14" width="76" height="106" rx="4" fill="#fff" stroke="#e5e8ec" stroke-width="1.5"></rect>
+				<path d="M24 20h76v12H24z" fill="#FFAF00"></path>
+				<rect x="32" y="40" width="44" height="4" rx="2" fill="#d8dde5"></rect>
+				<rect x="32" y="50" width="56" height="3" rx="1.5" fill="#eceff3"></rect>
+				<rect x="32" y="58" width="52" height="3" rx="1.5" fill="#eceff3"></rect>
+				<rect x="32" y="66" width="48" height="3" rx="1.5" fill="#eceff3"></rect>
+				<rect x="32" y="74" width="54" height="3" rx="1.5" fill="#eceff3"></rect>
+				<rect x="32" y="82" width="40" height="3" rx="1.5" fill="#eceff3"></rect>
+				<path d="M18 20c0-4 4-8 10-8h4v114h-4c-6 0-10-4-10-8V20z" fill="#e8ebf0"></path>
+				<rect x="34" y="96" width="28" height="14" rx="3" fill="#FFAF00"></rect>
+				<text x="48" y="106" text-anchor="middle" fill="#fff" font-size="7" font-weight="700" font-family="Inter, sans-serif">PDF</text>
+				<ellipse cx="88" cy="118" rx="22" ry="22" fill="#fff" stroke="#FFAF00" stroke-width="2.5"></ellipse>
+				<path d="M80 118l6 6 12-14" stroke="#FFAF00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+		<span class="property-offplan-guide__download-content">
+			<span class="property-offplan-guide__download-badge">{toTitleCase('E-book gratuito')}</span>
+			<span class="property-offplan-guide__download-title">{guideTitle}</span>
+			<span class="property-offplan-guide__download-text">
+				Material exclusivo com todas as etapas explicadas para você comprar com mais segurança.
+			</span>
+			<span class="property-offplan-guide__download-action">
+				{toTitleCase('Baixar agora')}
+				<i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+			</span>
+		</span>
+	</button>
+</div>
+
+<div
+	id="guide-download-modal"
+	class="whatsapp-lead-modal guide-download-modal"
+	hidden
+>
+	<div class="whatsapp-lead-modal__backdrop" data-guide-download-close></div>
+	<div
+		class="whatsapp-lead-modal__dialog"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="guide-download-title"
+	>
+		<button type="button" class="whatsapp-lead-modal__close" data-guide-download-close aria-label="Fechar">
+			&times;
+		</button>
+		<h2 id="guide-download-title" class="whatsapp-lead-modal__title">
+			{guideTitle}
+		</h2>
+		<p class="whatsapp-lead-modal__text">
+			Informe seus dados para receber o {guideTitle.toLocaleLowerCase('pt-BR')}.
+		</p>
+		<form id="guide-download-form" class="whatsapp-lead-modal__form" novalidate>
+			<label for="guide-download-name">Nome</label>
+			<input
+				id="guide-download-name"
+				name="name"
+				type="text"
+				autocomplete="name"
+				placeholder="Seu nome"
+				required
+			/>
+			<label for="guide-download-phone">Telefone</label>
+			<input
+				id="guide-download-phone"
+				name="phone"
+				type="tel"
+				autocomplete="tel"
+				inputmode="tel"
+				placeholder="+55 48 99999-9999"
+				required
+			/>
+			<label for="guide-download-email">E-mail</label>
+			<input
+				id="guide-download-email"
+				name="email"
+				type="email"
+				autocomplete="email"
+				inputmode="email"
+				placeholder="seu@email.com"
+				required
+			/>
+			<p id="guide-download-error" class="whatsapp-lead-modal__error" hidden></p>
+			<button type="submit" class="whatsapp-lead-modal__submit guide-download-modal__submit">
+				{toTitleCase('Baixar guia')}
+			</button>
+		</form>
+		<div id="guide-download-success" class="guide-download-modal__success" hidden>
+			<p>Obrigado! Em breve você receberá o guia no seu e-mail.</p>
+			<button type="button" class="guide-download-modal__done" data-guide-download-close>Fechar</button>
+		</div>
+	</div>
+</div>
+
+<style is:global>
+	.property-offplan-guide__download-card .property-offplan-guide__download-title,
+	#guide-download-modal .whatsapp-lead-modal__title {
+		font-family: var(--section-title-font, "Arial Narrow", sans-serif) !important;
+		font-weight: 700 !important;
+		text-transform: none !important;
+		letter-spacing: 0.02em !important;
+	}
+
+	.property-offplan-guide__download-card .property-offplan-guide__download-title {
+		font-size: clamp(1.25rem, 2.2vw, 1.6rem) !important;
+		line-height: 1.15 !important;
+		color: var(--white-color) !important;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__title {
+		font-size: 1.25rem !important;
+		line-height: 1.15 !important;
+		color: var(--title-color, #03060e) !important;
+	}
+
+	#guide-download-modal.whatsapp-lead-modal {
+		position: fixed;
+		inset: 0;
+		z-index: 10000;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+	}
+
+	#guide-download-modal.whatsapp-lead-modal[hidden] {
+		display: none;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(3, 6, 14, 0.62);
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__dialog {
+		position: relative;
+		width: min(100%, 26rem);
+		padding: 1.5rem;
+		border-radius: 0;
+		background: #fff;
+		box-shadow: 0 24px 48px rgba(3, 6, 14, 0.18);
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__close {
+		position: absolute;
+		top: 0.75rem;
+		right: 0.75rem;
+		border: 0;
+		background: transparent;
+		font-size: 1.75rem;
+		line-height: 1;
+		color: #667085;
+		cursor: pointer;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__title {
+		margin: 0 0 0.5rem;
+		font-size: 1.25rem;
+		color: var(--title-color, #03060e);
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__text {
+		margin: 0 0 1.25rem;
+		color: var(--body-color, #667085);
+		font-size: 0.95rem;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__form {
+		display: grid;
+		gap: 0.65rem;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__form label {
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--title-color, #03060e);
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__form input {
+		width: 100%;
+		padding: 0.75rem 0.875rem;
+		border: 1px solid var(--th-border-color, #e5e8ec);
+		border-radius: 0;
+		font: inherit;
+		box-sizing: border-box;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__form input:focus {
+		outline: 2px solid color-mix(in srgb, var(--theme-color2, #ffaf00) 35%, transparent);
+		border-color: var(--theme-color2, #ffaf00);
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__error {
+		margin: 0;
+		color: #c0392b;
+		font-size: 0.875rem;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__submit {
+		margin-top: 0.35rem;
+		border: 0;
+		border-radius: 999px;
+		padding: 0.85rem 1rem;
+		background: var(--theme-color2, #ffaf00);
+		color: #fff;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	#guide-download-modal .whatsapp-lead-modal__submit:disabled {
+		opacity: 0.7;
+		cursor: wait;
+	}
+
+	#guide-download-modal .guide-download-modal__success {
+		display: grid;
+		gap: 1rem;
+	}
+
+	#guide-download-modal .guide-download-modal__success p {
+		margin: 0;
+		color: var(--body-color, #667085);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	#guide-download-modal .guide-download-modal__done {
+		border: 0;
+		border-radius: 999px;
+		padding: 0.85rem 1rem;
+		background: var(--theme-color2, #ffaf00);
+		color: #fff;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+</style>
+
+<script define:vars={{ propertySlug, propertyTitle }}>
+	const modal = document.getElementById('guide-download-modal');
+	const form = document.getElementById('guide-download-form');
+	const successBox = document.getElementById('guide-download-success');
+	const nameInput = document.getElementById('guide-download-name');
+	const phoneInput = document.getElementById('guide-download-phone');
+	const emailInput = document.getElementById('guide-download-email');
+	const errorBox = document.getElementById('guide-download-error');
+	const submitButton = form?.querySelector('[type="submit"]');
+	const openButton = document.querySelector('[data-guide-download-open]');
+
+	const PHONE_PREFIX = '+55 ';
+
+	function formatPhoneMask(value) {
+		let digits = String(value || '').replace(/\D/g, '');
+
+		if (digits.startsWith('55')) {
+			digits = digits.slice(2);
+		}
+
+		digits = digits.slice(0, 11);
+
+		if (digits.length === 0) {
+			return PHONE_PREFIX;
+		}
+
+		let formatted = `${PHONE_PREFIX}${digits.slice(0, 2)}`;
+
+		if (digits.length <= 2) {
+			return formatted;
+		}
+
+		const number = digits.slice(2);
+
+		if (number.length <= 5) {
+			return `${formatted} ${number}`;
+		}
+
+		return `${formatted} ${number.slice(0, 5)}-${number.slice(5, 9)}`;
+	}
+
+	function resetPhoneInput() {
+		if (phoneInput) {
+			phoneInput.value = PHONE_PREFIX;
+		}
+	}
+
+	function showForm() {
+		form.hidden = false;
+		successBox.hidden = true;
+	}
+
+	function showSuccess() {
+		form.hidden = true;
+		successBox.hidden = false;
+	}
+
+	function openModal() {
+		if (!modal || !form) {
+			return;
+		}
+
+		errorBox.hidden = true;
+		errorBox.textContent = '';
+		form.reset();
+		resetPhoneInput();
+		showForm();
+		modal.hidden = false;
+		modal.setAttribute('aria-hidden', 'false');
+		nameInput?.focus();
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeModal() {
+		if (!modal) {
+			return;
+		}
+
+		modal.hidden = true;
+		modal.setAttribute('aria-hidden', 'true');
+		document.body.style.overflow = '';
+	}
+
+	function showError(message) {
+		if (!errorBox) {
+			return;
+		}
+
+		errorBox.textContent = message;
+		errorBox.hidden = false;
+	}
+
+	openButton?.addEventListener('click', openModal);
+
+	modal?.querySelectorAll('[data-guide-download-close]').forEach((element) => {
+		element.addEventListener('click', closeModal);
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && modal && !modal.hidden) {
+			closeModal();
+		}
+	});
+
+	phoneInput?.addEventListener('input', () => {
+		if (!phoneInput) {
+			return;
+		}
+
+		phoneInput.value = formatPhoneMask(phoneInput.value);
+	});
+
+	phoneInput?.addEventListener('keydown', (event) => {
+		if (!phoneInput) {
+			return;
+		}
+
+		const { selectionStart, selectionEnd } = phoneInput;
+
+		if (
+			(event.key === 'Backspace' || event.key === 'Delete') &&
+			selectionStart !== null &&
+			selectionEnd !== null &&
+			selectionStart <= PHONE_PREFIX.length &&
+			selectionEnd <= PHONE_PREFIX.length
+		) {
+			event.preventDefault();
+		}
+	});
+
+	phoneInput?.addEventListener('focus', () => {
+		if (!phoneInput?.value || phoneInput.value === '+55') {
+			resetPhoneInput();
+		}
+	});
+
+	resetPhoneInput();
+
+	form?.addEventListener('submit', async (event) => {
+		event.preventDefault();
+
+		if (!submitButton) {
+			return;
+		}
+
+		errorBox.hidden = true;
+		errorBox.textContent = '';
+		submitButton.disabled = true;
+
+		try {
+			const response = await fetch('/api/whatsapp-leads.php', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					name: nameInput?.value,
+					phone: phoneInput?.value,
+					email: emailInput?.value,
+					source: 'offplan-guide-download',
+					pageUrl: window.location.href,
+					propertySlug,
+					propertyTitle,
+				}),
+			});
+
+			const payload = await response.json();
+
+			if (!response.ok) {
+				showError(payload.error || 'Não foi possível enviar seus dados. Tente novamente.');
+				return;
+			}
+
+			showSuccess();
+		} catch {
+			showError('Erro de conexão. Verifique sua internet e tente novamente.');
+		} finally {
+			submitButton.disabled = false;
+		}
+	});
+</script>

@@ -1,5 +1,6 @@
 ---
 const { post } = Astro.props;
+const categoryHref = post.clusterId ? `/blog?cluster=${post.clusterId}` : '/blog';
 ---
 
 <article class="blog-card blog-post-card">
@@ -8,6 +9,9 @@ const { post } = Astro.props;
 			<img
 				src={post.imageUrl}
 				alt={`${post.title} — imóveis na planta em Balneário Camboriú`}
+				title={post.title}
+				width="370"
+				height="220"
 				loading="lazy"
 			/>
 		</a>
@@ -19,15 +23,7 @@ const { post } = Astro.props;
 	</div>
 	<div class="blog-content">
 		<div class="blog-meta">
-			<a
-				href={
-					post.clusterId && post.clusterId !== 'geral'
-						? `/blog?cluster=${post.clusterId}`
-						: post.clusterId === 'geral'
-							? '/blog?cluster=geral'
-							: '/blog'
-				}
-			>
+			<a href={categoryHref}>
 				<i class="fa-regular fa-tag" aria-hidden="true"></i> {post.category}
 			</a>
 		</div>
@@ -48,7 +44,7 @@ const { post } = Astro.props;
 		border: 1px solid var(--th-border-color);
 		border-radius: 12px;
 		overflow: hidden;
-		background: var(--white-color);
+		background: var(--smoke-color);
 		box-shadow: 0 2px 12px rgba(17, 24, 39, 0.05);
 		transition:
 			box-shadow 0.2s ease,
@@ -74,6 +70,7 @@ const { post } = Astro.props;
 
 	.blog-post-card :global(.blog-img .date) {
 		padding: 12px 14px;
+		border-radius: 0;
 	}
 
 	.blog-post-card :global(.blog-img .date a) {

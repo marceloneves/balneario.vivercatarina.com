@@ -10,7 +10,7 @@ const { posts } = Astro.props;
 			<div class="col-xl-7">
 				<div class="title-area text-center">
 					<p class="sub-title"><span class="double-line"></span> Blog</p>
-					<h2 class="sec-title" id="home-blog-title">Últimos Artigos</h2>
+					<h2 class="sec-title bairro-listing-title" id="home-blog-title">Guias <span class="bairro-name-accent">Completos</span></h2>
 				</div>
 			</div>
 		</div>
@@ -18,7 +18,7 @@ const { posts } = Astro.props;
 		<div class="row gy-30 justify-content-center">
 			{
 				posts.map((post) => (
-					<div class="col-lg-4 col-md-6 d-flex">
+					<div class="col-xl-3 col-lg-4 col-md-6 d-flex">
 						<BlogPostCard post={post} />
 					</div>
 				))

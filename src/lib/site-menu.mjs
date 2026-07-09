@@ -1,4 +1,22 @@
 import { patchHeaderSocial } from './site-social.mjs';
+import { buildHeaderCitiesMenuHtml } from './site-footer.mjs';
+
+// Insere o mega-menu "Outras cidades" antes do item "Blog" (mobile e desktop).
+// IMPORTANTE: só dentro dos navs do cabeçalho (main-menu / th-mobile-menu),
+// NUNCA no breadcrumb (breadcumb-menu também tem um item "Blog"). Idempotente.
+const HEADER_NAV_PATTERN = /(<nav class="(?:main-menu|th-mobile-menu)[^>]*>[\s\S]*?<\/nav>)/g;
+const BLOG_ANCHOR_PATTERN = /(<li[^>]*><a href="\/blog"[^>]*>Blog<\/a><\/li>)/;
+
+export function patchOutrasCidadesMenu(html) {
+	if (!html || html.includes('>Outras cidades<') || !html.includes('href="/blog"')) {
+		return html;
+	}
+
+	const menu = buildHeaderCitiesMenuHtml();
+	return html.replace(HEADER_NAV_PATTERN, (navBlock) =>
+		navBlock.replace(BLOG_ANCHOR_PATTERN, `${menu}$1`),
+	);
+}
 
 const BAIRROS_SUBMENU_PATTERN =
 	/<li class="menu-item-has-children(?: active)?">\s*<a href="\/bairros">Bairros<\/a>\s*<ul class="sub-menu">[\s\S]*?<\/ul>\s*<\/li>/g;
@@ -71,15 +89,27 @@ export function patchBairrosMenu(html, currentPath = '/') {
 	return html.replace(BAIRROS_SUBMENU_PATTERN, item);
 }
 
-export function patchLancamentosSubmenu(html) {
-	if (html.includes('/lancamentos/loteamento')) {
+const LANCAMENTOS_MAIN_LINK_PATTERN = /<a href="\/lancamentos">Lançamentos<\/a>/g;
+
+export function patchLancamentosMainLink(html) {
+	if (!html || !html.includes('href="/lancamentos">Lançamentos</a>')) {
 		return html;
 	}
 
 	return html.replace(
-		CASAS_MENU_PATTERN,
-		`$1$2${LOTEAMENTO_MENU_ITEM}$2`,
+		LANCAMENTOS_MAIN_LINK_PATTERN,
+		'<a href="/lancamentos/apartamentos">Lançamentos</a>',
 	);
+}
+
+export function patchLancamentosSubmenu(html) {
+	let output = patchLancamentosMainLink(html);
+
+	if (!output.includes('/lancamentos/loteamento')) {
+		output = output.replace(CASAS_MENU_PATTERN, `$1$2${LOTEAMENTO_MENU_ITEM}$2`);
+	}
+
+	return output;
 }
 
 export function patchGlossaryMenu(html, currentPath = '/') {
@@ -110,13 +140,15 @@ export function patchListingHeaderBranding(html) {
 }
 
 export function patchSiteMenu(html, currentPath = '/') {
-	let output = patchHeaderSocial(
-		patchGlossaryMenu(
-			patchLancamentosSubmenu(
-				patchBlogMenu(patchBairrosMenu(removeHeaderAddListingButton(html), currentPath), currentPath),
+	let output = patchOutrasCidadesMenu(
+		patchHeaderSocial(
+			patchGlossaryMenu(
+				patchLancamentosSubmenu(
+					patchBlogMenu(patchBairrosMenu(removeHeaderAddListingButton(html), currentPath), currentPath),
+					currentPath,
+				),
 				currentPath,
 			),
-			currentPath,
 		),
 	);
 

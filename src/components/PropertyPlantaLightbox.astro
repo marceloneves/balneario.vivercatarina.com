@@ -1,0 +1,140 @@
+---
+const { plantas } = Astro.props;
+
+const plantaImages = plantas
+	.filter((planta) => planta.imageUrl)
+	.map((planta) => ({
+		url: planta.imageUrl,
+		alt: planta.imageAlt,
+		title: planta.imageTitle || planta.titulo,
+		caption: planta.titulo,
+	}));
+---
+
+{
+	plantaImages.length > 0 && (
+		<>
+			<div id="planta-lightbox" class="gallery-lightbox gallery-lightbox--plantas" hidden aria-hidden="true">
+				<div class="gallery-lightbox__backdrop" data-planta-lightbox-close></div>
+				<button
+					type="button"
+					class="gallery-lightbox__close"
+					aria-label="Fechar planta"
+					data-planta-lightbox-close
+				>
+					&times;
+				</button>
+				{
+					plantaImages.length > 1 && (
+						<>
+							<button
+								type="button"
+								class="gallery-lightbox__nav gallery-lightbox__nav--prev"
+								aria-label="Planta anterior"
+								data-planta-lightbox-prev
+							>
+								<i class="fa-solid fa-chevron-left"></i>
+							</button>
+							<button
+								type="button"
+								class="gallery-lightbox__nav gallery-lightbox__nav--next"
+								aria-label="Próxima planta"
+								data-planta-lightbox-next
+							>
+								<i class="fa-solid fa-chevron-right"></i>
+							</button>
+						</>
+					)
+				}
+				<div class="gallery-lightbox__content">
+					<img class="gallery-lightbox__image" src={plantaImages[0].url} alt={plantaImages[0].alt} />
+					<p class="gallery-lightbox__caption"></p>
+					{
+						plantaImages.length > 1 && (
+							<p class="gallery-lightbox__counter"></p>
+						)
+					}
+				</div>
+			</div>
+
+			<script define:vars={{ plantaImages }}>
+				const lightbox = document.getElementById('planta-lightbox');
+
+				if (lightbox && plantaImages.length > 0 && lightbox.dataset.initialized !== 'true') {
+					lightbox.dataset.initialized = 'true';
+					const imageEl = lightbox.querySelector('.gallery-lightbox__image');
+					const captionEl = lightbox.querySelector('.gallery-lightbox__caption');
+					const counterEl = lightbox.querySelector('.gallery-lightbox__counter');
+					const prevButton = lightbox.querySelector('[data-planta-lightbox-prev]');
+					const nextButton = lightbox.querySelector('[data-planta-lightbox-next]');
+					let currentIndex = 0;
+
+					const showImage = (index) => {
+						currentIndex = (index + plantaImages.length) % plantaImages.length;
+						const item = plantaImages[currentIndex];
+						imageEl.src = item.url;
+						imageEl.alt = item.alt;
+						imageEl.title = item.title;
+						if (captionEl) {
+							captionEl.textContent = item.caption || '';
+						}
+						if (counterEl) {
+							counterEl.textContent = `${currentIndex + 1} / ${plantaImages.length}`;
+						}
+					};
+
+					const openLightbox = (index) => {
+						showImage(index);
+						lightbox.hidden = false;
+						lightbox.setAttribute('aria-hidden', 'false');
+						document.body.classList.add('gallery-lightbox-open');
+					};
+
+					const closeLightbox = () => {
+						lightbox.hidden = true;
+						lightbox.setAttribute('aria-hidden', 'true');
+						document.body.classList.remove('gallery-lightbox-open');
+					};
+
+					document.querySelectorAll('.planta-lightbox-trigger').forEach((trigger) => {
+						trigger.addEventListener('click', () => {
+							openLightbox(Number(trigger.dataset.plantaLightboxIndex));
+						});
+					});
+
+					prevButton?.addEventListener('click', (event) => {
+						event.stopPropagation();
+						showImage(currentIndex - 1);
+					});
+
+					nextButton?.addEventListener('click', (event) => {
+						event.stopPropagation();
+						showImage(currentIndex + 1);
+					});
+
+					lightbox.querySelectorAll('[data-planta-lightbox-close]').forEach((element) => {
+						element.addEventListener('click', closeLightbox);
+					});
+
+					document.addEventListener('keydown', (event) => {
+						if (lightbox.hidden) {
+							return;
+						}
+
+						if (event.key === 'Escape') {
+							closeLightbox();
+						}
+
+						if (event.key === 'ArrowLeft') {
+							showImage(currentIndex - 1);
+						}
+
+						if (event.key === 'ArrowRight') {
+							showImage(currentIndex + 1);
+						}
+					});
+				}
+			</script>
+		</>
+	)
+}

@@ -14,7 +14,7 @@ import {
 	stripClusterBridge,
 	stripHeadingAnchors,
 	stripRelatedBlocks,
-} from './campeche-cluster-body-links.mjs';
+} from './cluster-body-links.mjs';
 import { CONSTRUTORAS_CLUSTER_SLUGS, CONSTRUTORAS_PILLAR } from './blog-cluster-slugs.mjs';
 import { shortLinkLabel } from './cluster-link-anchor.mjs';
 import { buildLeiaTambemSlugs } from './cluster-link-rebuild.mjs';

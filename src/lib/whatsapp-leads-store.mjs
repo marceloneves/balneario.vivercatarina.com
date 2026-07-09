@@ -19,7 +19,7 @@ export function getBrazilianLocalPhoneDigits(phone) {
 	return digits;
 }
 
-export function validateCampecheNewsletterLead({ name, email }) {
+export function validateNewsletterLead({ name, email }) {
 	const trimmedName = String(name || '').trim();
 
 	if (trimmedName.length < 2) {

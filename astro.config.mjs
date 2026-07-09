@@ -9,7 +9,7 @@ export default defineConfig({
 	vite: {
 		server: {
 			watch: {
-				ignored: ['**/src/data/imoveis/**', '**/dist/**', '**/.vercel/**'],
+				ignored: ['**/src/data/imoveis/**', '**/dist/**'],
 			},
 		},
 	},

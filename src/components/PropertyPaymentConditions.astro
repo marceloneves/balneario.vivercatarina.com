@@ -1,0 +1,101 @@
+---
+interface Props {
+	financing: any;
+}
+
+const { financing } = Astro.props;
+const d = financing?.defaults ?? {};
+const brl = (v) =>
+	typeof v === 'number'
+		? new Intl.NumberFormat('pt-BR', {
+				style: 'currency',
+				currency: 'BRL',
+				maximumFractionDigits: 0,
+			}).format(v)
+		: null;
+
+const propertyValue = Number(d.propertyValue) || 0;
+const entradaPercent = Number(d.entradaPercent) || 0;
+const entradaValor = propertyValue && entradaPercent ? (propertyValue * entradaPercent) / 100 : null;
+const parcelasMensais = Number(d.parcelasMensais) || 0;
+const reforcos = Number(d.reforcos) || 0;
+
+// Passos do fluxo de pagamento, montados a partir do que foi extraído do anúncio.
+const steps = [
+	{
+		titulo: 'Entrada',
+		valor: entradaPercent ? `${entradaPercent}%` : null,
+		detalhe: entradaValor ? `≈ ${brl(entradaValor)}` : 'Valor a combinar com o corretor',
+	},
+	parcelasMensais > 0
+		? {
+				titulo: 'Parcelas durante a obra',
+				valor: `até ${parcelasMensais}x`,
+				detalhe: 'Mensais, diretamente com a incorporadora',
+			}
+		: {
+				titulo: 'Parcelas durante a obra',
+				valor: null,
+				detalhe: 'Condições parceladas — consulte o corretor',
+			},
+	reforcos > 0
+		? {
+				titulo: 'Reforços / balões',
+				valor: `${reforcos}`,
+				detalhe: 'Parcelas intermediárias previstas no cronograma',
+			}
+		: null,
+	financing?.aceitaFinanciamento
+		? {
+				titulo: 'Financiamento na entrega',
+				valor: 'Bancário',
+				detalhe: 'Saldo financiável após o habite-se',
+			}
+		: null,
+].filter(Boolean);
+
+const badges = [
+	financing?.fgts && financing.fgts !== 'Não informado' ? `FGTS: ${financing.fgts}` : null,
+	financing?.mcmv && financing.mcmv !== 'Não informado' ? `MCMV: ${financing.mcmv}` : null,
+	financing?.permuta ? 'Estuda permuta' : null,
+].filter(Boolean);
+
+const show = financing?.enabled && (financing?.aceita || parcelasMensais > 0 || entradaPercent > 0);
+---
+
+{show && (
+	<section class="vivercatarina-block vivercatarina-payment" aria-labelledby="vivercatarina-payment-title">
+		<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-payment-title">
+			Condições de Pagamento
+		</h2>
+		{financing.resumo && <p class="vivercatarina-text">{financing.resumo}</p>}
+
+		<ol class="vivercatarina-payment__flow">
+			{steps.map((step, index) => (
+				<li class="vivercatarina-payment__step">
+					<span class="vivercatarina-payment__num">{index + 1}</span>
+					<div class="vivercatarina-payment__body">
+						<p class="vivercatarina-payment__step-title">
+							{step.titulo}
+							{step.valor && <strong class="vivercatarina-payment__value">{step.valor}</strong>}
+						</p>
+						<p class="vivercatarina-payment__detail">{step.detalhe}</p>
+					</div>
+				</li>
+			))}
+		</ol>
+
+		{badges.length > 0 && (
+			<div class="vivercatarina-payment__badges">
+				{badges.map((b) => (
+					<span class="vivercatarina-payment__badge">{b}</span>
+				))}
+			</div>
+		)}
+
+		<p class="vivercatarina-text vivercatarina-payment__note">
+			Condições extraídas do anúncio e sujeitas a confirmação. Fale com um corretor para
+			a tabela de pagamento atualizada.
+		</p>
+	</section>
+)}

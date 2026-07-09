@@ -1,10 +1,7 @@
 import { formatBlogDatePtBr } from './blog-date.mjs';
 import {
-	CACHOEIRA_CLUSTER_SLUGS,
 	COMPRA_SEGURA_CLUSTER_SLUGS,
 	CONSTRUTORAS_CLUSTER_SLUGS,
-	CAMPECHE_CLUSTER_SLUGS,
-	CANASVIEIRAS_CLUSTER_SLUGS,
 	CENTRO_CLUSTER_SLUGS,
 	ARIRIBA_CLUSTER_SLUGS,
 	NACOES_CLUSTER_SLUGS,
@@ -12,17 +9,11 @@ import {
 	BALNEARIO_CAMBORIU_CLUSTER_SLUGS,
 	BARRA_SUL_CLUSTER_SLUGS,
 	PIONEIROS_CLUSTER_SLUGS,
-	INGLESES_CLUSTER_SLUGS,
-	ITACORUBI_CLUSTER_SLUGS,
-	JURERE_INTERNACIONAL_CLUSTER_SLUGS,
 } from './blog-cluster-slugs.mjs';
 
 export {
-	CACHOEIRA_CLUSTER_SLUGS,
 	COMPRA_SEGURA_CLUSTER_SLUGS,
 	CONSTRUTORAS_CLUSTER_SLUGS,
-	CAMPECHE_CLUSTER_SLUGS,
-	CANASVIEIRAS_CLUSTER_SLUGS,
 	CENTRO_CLUSTER_SLUGS,
 	ARIRIBA_CLUSTER_SLUGS,
 	NACOES_CLUSTER_SLUGS,
@@ -30,9 +21,6 @@ export {
 	BALNEARIO_CAMBORIU_CLUSTER_SLUGS,
 	BARRA_SUL_CLUSTER_SLUGS,
 	PIONEIROS_CLUSTER_SLUGS,
-	INGLESES_CLUSTER_SLUGS,
-	ITACORUBI_CLUSTER_SLUGS,
-	JURERE_INTERNACIONAL_CLUSTER_SLUGS,
 } from './blog-cluster-slugs.mjs';
 
 /** Artigos fora de cluster de bairro (filtro e categoria na listagem). */
@@ -46,22 +34,12 @@ export const BLOG_CLUSTERS = [
 		slugSet: CONSTRUTORAS_CLUSTER_SLUGS,
 	},
 	{ id: 'compra-segura-balneario-camboriu', label: 'Compra Segura em Balneário Camboriú', slugSet: COMPRA_SEGURA_CLUSTER_SLUGS },
-	{ id: 'campeche', label: 'Campeche', slugSet: CAMPECHE_CLUSTER_SLUGS },
-	{ id: 'cachoeira-do-bom-jesus', label: 'Cachoeira do Bom Jesus', slugSet: CACHOEIRA_CLUSTER_SLUGS },
-	{ id: 'canasvieiras', label: 'Canasvieiras', slugSet: CANASVIEIRAS_CLUSTER_SLUGS },
 	{ id: 'centro', label: 'Centro', slugSet: CENTRO_CLUSTER_SLUGS },
 	{ id: 'aririba', label: 'Ariribá', slugSet: ARIRIBA_CLUSTER_SLUGS },
 	{ id: 'nacoes', label: 'Nações', slugSet: NACOES_CLUSTER_SLUGS },
 	{ id: 'barra', label: 'Barra', slugSet: BARRA_CLUSTER_SLUGS },
 	{ id: 'barra-sul', label: 'Barra Sul', slugSet: BARRA_SUL_CLUSTER_SLUGS },
 	{ id: 'pioneiros', label: 'Pioneiros', slugSet: PIONEIROS_CLUSTER_SLUGS },
-	{ id: 'ingleses', label: 'Ingleses', slugSet: INGLESES_CLUSTER_SLUGS },
-	{ id: 'itacorubi', label: 'Itacorubi', slugSet: ITACORUBI_CLUSTER_SLUGS },
-	{
-		id: 'jurere-internacional',
-		label: 'Jurerê Internacional',
-		slugSet: JURERE_INTERNACIONAL_CLUSTER_SLUGS,
-	},
 	{ id: 'geral', label: BLOG_GENERAL_CLUSTER_LABEL, slugSet: BALNEARIO_CAMBORIU_CLUSTER_SLUGS },
 ];
 

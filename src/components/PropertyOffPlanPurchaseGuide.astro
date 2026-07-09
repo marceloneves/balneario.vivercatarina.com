@@ -1,140 +1,267 @@
 ---
+import { toTitleCase } from '../lib/title-case.mjs';
+import PropertyOffPlanGuideDownloadCta from './PropertyOffPlanGuideDownloadCta.astro';
+
+const { layout = 'default', page } = Astro.props;
+const useSplitLayout = layout === 'split';
+const propertySlug = page?.slug ?? null;
+const propertyTitle = page?.seo?.h1 ?? null;
+const neighborhood = page?.nav?.neighborhood ?? 'Balneário Camboriú';
+const city = page?.nav?.city ?? 'Balneário Camboriú';
+const construtoraName = page?.construtora?.articleName ?? null;
+
 const groups = [
 	{
 		title: 'Antes da compra',
-		intro:
-			'Nesta fase, o comprador escolhe a unidade, reserva o imóvel e formaliza o negócio com a incorporadora antes de iniciar os pagamentos da obra.',
+		intro: construtoraName
+			? `Para comprar o <strong>${propertyTitle}</strong>, você escolhe a unidade, faz a reserva e formaliza o contrato com a <strong>${construtoraName}</strong>. Já nessa fase, vale conferir o <strong>Registro de Incorporação</strong>.`
+			: `Nesta fase, você escolhe a unidade do <strong>${propertyTitle}</strong>, reserva o imóvel e formaliza o contrato com a <strong>incorporadora</strong> antes de iniciar os pagamentos da obra.`,
+		image: {
+			src: '/images/vivercatarina/antes-da-compra-na-planta.webp',
+			alt: `Casal analisando plantas do ${propertyTitle} com consultor imobiliário antes da compra`,
+		},
 		items: [
 			{
 				title: 'Escolha da unidade',
-				paragraphs: [
-					'Defina planta, andar, vista, metragem e vagas. Em bairros de orla em Balneário Camboriú, confira também o enquadramento urbanístico do projeto.',
-				],
+				paragraphs: [`Escolha planta, andar, metragem e vagas no <strong>${propertyTitle}</strong>.`],
 			},
 			{
 				title: 'Reserva da unidade',
-				paragraphs: [
-					'Muitos lançamentos permitem reservar a unidade temporariamente enquanto são analisadas as condições comerciais e o Registro de Incorporação (RI).',
-				],
+				paragraphs: ['Reserve enquanto analisa as condições e o <strong>Registro de Incorporação</strong>.'],
 			},
 			{
-				title: 'Assinatura da proposta e do contrato',
-				paragraphs: [
-					'Assine a proposta e o contrato de promessa de compra e venda com valores, pagamentos, correção, prazo de entrega e tolerância previstos em contrato.',
-				],
+				title: 'Proposta e contrato',
+				paragraphs: ['Assine proposta e contrato com todos os valores conferidos.'],
 			},
 		],
 	},
 	{
 		title: 'Durante a construção',
-		intro:
-			'Com o contrato assinado, começam os pagamentos previstos e o acompanhamento da obra até a data de entrega prevista em Balneário Camboriú.',
+		intro: `Com o contrato assinado, começam os pagamentos e o acompanhamento da obra do <strong>${propertyTitle}</strong> em <strong>${neighborhood}</strong>. O prazo de entrega fica registrado em contrato — atrasos geram multa contratual.`,
+		image: {
+			src: '/images/vivercatarina/durante-a-construcao-na-planta.webp',
+			alt: `Casal com capacete acompanhando a construção do ${propertyTitle} em ${neighborhood}`,
+		},
 		items: [
 			{
-				title: 'Pagamento da entrada',
-				paragraphs: [
-					'Parte do valor é paga como entrada, em geral parcelada diretamente com a incorporadora durante a obra.',
-				],
-			},
-			{
-				title: 'Parcelas durante a obra',
-				paragraphs: [
-					'Pagamentos mensais à incorporadora ao longo da construção, com possíveis reforços conforme o cronograma do empreendimento.',
-				],
+				title: 'Pagamentos na obra',
+				paragraphs: ['Pague entrada, mensais e reforços conforme o cronograma do empreendimento.'],
 			},
 			{
 				title: 'Correção pelo INCC',
-				paragraphs: [
-					'Parcelas e saldo devedor costumam ser corrigidos pelo INCC na fase de obras — planeje o impacto desse reajuste no orçamento.',
-				],
+				paragraphs: ['Preveja a correção pelo <strong>INCC</strong> sobre as parcelas até a entrega.'],
 			},
 			{
-				title: 'Acompanhamento da construção',
-				paragraphs: [
-					'A incorporadora informa o andamento da obra; quando permitido, visitas ao canteiro ajudam a acompanhar a evolução até a entrega.',
-				],
+				title: 'Acompanhamento da obra',
+				paragraphs: [construtoraName
+					? `Acompanhe o andamento da obra junto à <strong>${construtoraName}</strong>.`
+					: 'Acompanhe o andamento da obra com a <strong>incorporadora</strong>.'],
 			},
 		],
 	},
 	{
 		title: 'Depois da entrega',
-		intro:
-			'Após a conclusão da obra, o comprador recebe as chaves, quita o saldo, regulariza a documentação no cartório e passa a usar o imóvel com as garantias legais.',
+		intro: `Ao receber as chaves do <strong>${propertyTitle}</strong>, você quita o saldo devedor, registra a escritura no cartório de <strong>${city}</strong> e exerce a posse com todas as garantias legais da entrega.`,
+		image: {
+			src: '/images/vivercatarina/depois-da-entrega-na-planta.webp',
+			alt: `Casal recebendo as chaves do ${propertyTitle} no lobby do prédio recém-entregue`,
+		},
 		items: [
 			{
 				title: 'Entrega das chaves',
-				paragraphs: [
-					'Após a obra, o Habite-se da Prefeitura de Balneário Camboriú e a averbação da construção, as chaves são entregues conforme o contrato.',
-				],
+				paragraphs: ['Receba as chaves com o <strong>Habite-se</strong> em dia.'],
 			},
 			{
-				title: 'Financiamento do saldo devedor',
-				paragraphs: [
-					'O saldo restante pode ser quitado com recursos próprios ou financiamento bancário, sujeito à análise de crédito na data da contratação.',
-				],
+				title: 'Quitação e registro',
+				paragraphs: [`Quite o saldo e registre a escritura no cartório de <strong>${city}</strong>.`],
 			},
 			{
-				title: 'Pagamento das despesas de transferência',
-				paragraphs: [
-					'ITBI em Balneário Camboriú, escritura e registro do imóvel formalizam a transferência da propriedade.',
-				],
-			},
-			{
-				title: 'Registro do imóvel em nome do comprador',
-				paragraphs: [
-					'A escritura ou o contrato de financiamento é registrado no 1º ou 2º RI de Balneário Camboriú, passando o imóvel oficialmente para o comprador.',
-				],
-			},
-			{
-				title: 'Garantias após a entrega',
-				paragraphs: [
-					'Após a entrega, valem as garantias legais e a assistência técnica da construtora para vícios ou defeitos, nos prazos previstos em lei.',
-				],
+				title: 'Garantias legais',
+				paragraphs: ['Acione as garantias legais nos prazos previstos em lei.'],
 			},
 		],
 	},
 ];
 
-let stepNumber = 0;
-const numberedGroups = groups.map((group) => ({
+const numberedGroups = groups.map((group, groupIndex) => ({
 	title: group.title,
 	intro: group.intro,
-	items: group.items.map((item) => ({
-		...item,
-		step: ++stepNumber,
-	})),
+	image: group.image,
+	phase: groupIndex + 1,
+	items: group.items,
 }));
 ---
 
-<section class="section property-offplan-guide" id="compra-na-planta">
-	<h2 class="section__title">Como funciona a compra de um imóvel na planta?</h2>
+<section
+	class={`section property-offplan-guide${useSplitLayout ? ' property-offplan-guide--split' : ''}`}
+	id="compra-na-planta"
+>
+	<h2 class="section__title landing-section-title">
+		{toTitleCase('Como funciona a compra de um imóvel na planta?')}
+	</h2>
 
-	<p class="about-text">
-		A compra na planta em Balneário Camboriú segue etapas próprias, diferentes de um imóvel pronto. Conhecer o fluxo
-		ajuda a planejar o orçamento e fechar negócio com mais segurança.
-	</p>
+	<p class="about-text" set:html={construtoraName
+		? `A compra do <strong>${propertyTitle}</strong> na planta segue etapas próprias, bem diferentes de um imóvel pronto. O comprador reserva o apartamento, formaliza <strong>proposta e contrato</strong> com a <strong>${construtoraName}</strong>, acompanha a obra e só recebe as chaves após a entrega — com <strong>pagamentos distribuídos</strong> ao longo desse período.`
+		: `A compra do <strong>${propertyTitle}</strong> na planta segue etapas próprias, bem diferentes de um imóvel pronto. O comprador reserva o apartamento, formaliza <strong>proposta e contrato</strong>, acompanha a obra e só recebe as chaves após a entrega — com <strong>pagamentos distribuídos</strong> ao longo desse período.`
+	} />
+
+	<p class="about-text" set:html={`Conhecer esse fluxo ajuda a planejar o orçamento, prever correções como o <strong>INCC</strong>, conferir a documentação da <strong>incorporadora</strong> e fechar negócio com mais segurança. Abaixo, resumimos as três fases do processo de compra do <strong>${propertyTitle}</strong> em <strong>${neighborhood}</strong>.`} />
 
 	{
-		numberedGroups.map((group) => (
-			<div class="property-offplan-guide__group">
-				<h3 class="property-offplan-guide__group-title">{group.title}</h3>
-				<p class="property-offplan-guide__group-intro">{group.intro}</p>
-				<div class="property-offplan-guide__grid">
-					{
-						group.items.map((item) => (
-							<article class="property-offplan-guide__item">
-								<h4 class="property-offplan-guide__item-title">
-									<span class="property-offplan-guide__step" aria-hidden="true">{item.step}</span>
-									{item.title}
-								</h4>
-								{item.paragraphs.map((paragraph) => (
-									<p>{paragraph}</p>
-								))}
-							</article>
-						))
-					}
+		numberedGroups.map((group, index) =>
+			useSplitLayout ? (
+				<div class="property-offplan-guide__group property-offplan-guide__group--split">
+					<div class="property-offplan-guide__group-header">
+						<h3 class="property-offplan-guide__group-title landing-section-title">
+							<span class="property-offplan-guide__phase" aria-hidden="true">{group.phase}</span>
+							{toTitleCase(group.title)}
+						</h3>
+						<p class="property-offplan-guide__group-intro" set:html={group.intro} />
+					</div>
+					<div class="property-offplan-guide__group-body">
+						{
+							group.image && (
+								<figure class="property-offplan-guide__group-image property-offplan-guide__group-media">
+									<img
+										src={group.image.src}
+										alt={group.image.alt}
+										loading="lazy"
+										decoding="async"
+									/>
+								</figure>
+							)
+						}
+						<div class="property-offplan-guide__steps">
+							{
+								group.items.map((item) => (
+									<article class="property-offplan-guide__item">
+										<h4 class="property-offplan-guide__item-title">
+											<span class="property-offplan-guide__step" aria-hidden="true">
+												<i class="fa-solid fa-check"></i>
+											</span>
+											<span class="property-offplan-guide__item-label">{item.title}</span>
+										</h4>
+										{item.paragraphs.map((paragraph) => (
+											<p set:html={paragraph} />
+										))}
+									</article>
+								))
+							}
+						</div>
+					</div>
 				</div>
-			</div>
-		))
+			) : (
+				<div class="property-offplan-guide__group">
+					<h3 class="property-offplan-guide__group-title landing-section-title">
+						<span class="property-offplan-guide__phase" aria-hidden="true">{group.phase}</span>
+						{toTitleCase(group.title)}
+					</h3>
+					<p class="property-offplan-guide__group-intro" set:html={group.intro} />
+					{
+						group.image && (
+							<figure class="property-offplan-guide__group-image">
+								<img src={group.image.src} alt={group.image.alt} loading="lazy" decoding="async" />
+							</figure>
+						)
+					}
+					<div class="property-offplan-guide__grid">
+						{
+							group.items.map((item) => (
+								<article class="property-offplan-guide__item">
+									<h4 class="property-offplan-guide__item-title">
+										<span class="property-offplan-guide__step" aria-hidden="true">
+											<i class="fa-solid fa-check"></i>
+										</span>
+										<span class="property-offplan-guide__item-label">{item.title}</span>
+									</h4>
+									{item.paragraphs.map((paragraph) => (
+										<p set:html={paragraph} />
+									))}
+								</article>
+							))
+						}
+					</div>
+				</div>
+			),
+		)
+	}
+
+	{
+		useSplitLayout && (
+			<PropertyOffPlanGuideDownloadCta propertySlug={propertySlug} propertyTitle={propertyTitle} />
+		)
 	}
 </section>
+
+{
+	useSplitLayout && (
+		<script>
+			function syncPropertyOffplanGuideStepsWidth() {
+				const section = document.querySelector('.property-offplan-guide--split');
+
+				if (!section) {
+					return;
+				}
+
+				const steps = [...section.querySelectorAll('.property-offplan-guide__steps')];
+				const items = [...section.querySelectorAll('.property-offplan-guide__steps .property-offplan-guide__item')];
+
+				if (!steps.length) {
+					return;
+				}
+
+				const isMobile = window.matchMedia('(max-width: 899px)').matches;
+
+				section.style.removeProperty('--offplan-guide-steps-width');
+
+				if (isMobile) {
+					return;
+				}
+
+				items.forEach((item) => {
+					item.style.setProperty('width', 'max-content', 'important');
+					item.style.setProperty('min-width', 'max-content', 'important');
+				});
+
+				let maxWidth = 0;
+
+				items.forEach((item) => {
+					maxWidth = Math.max(maxWidth, item.getBoundingClientRect().width);
+				});
+
+				items.forEach((item) => {
+					item.style.removeProperty('width');
+					item.style.removeProperty('min-width');
+				});
+
+				if (maxWidth <= 0) {
+					return;
+				}
+
+				section.style.setProperty('--offplan-guide-steps-width', `${Math.ceil(maxWidth)}px`);
+			}
+
+			const runSync = () => {
+				requestAnimationFrame(() => {
+					requestAnimationFrame(syncPropertyOffplanGuideStepsWidth);
+				});
+			};
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', runSync, { once: true });
+			} else {
+				runSync();
+			}
+
+			window.addEventListener('resize', runSync);
+			document.fonts?.ready?.then(runSync);
+
+			const section = document.querySelector('.property-offplan-guide--split');
+
+			if (section && 'ResizeObserver' in window) {
+				const observer = new ResizeObserver(runSync);
+				observer.observe(section);
+			}
+		</script>
+	)
+}

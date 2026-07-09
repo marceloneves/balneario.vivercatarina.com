@@ -1,0 +1,582 @@
+---
+import { buildMysideDisplayPlantas } from '../lib/vivercatarina-landing-page.mjs';
+import { toTitleCase } from '../lib/title-case.mjs';
+import ListingBreadcrumb from './ListingBreadcrumb.astro';
+import PropertyLeadSidebar from './PropertyLeadSidebar.astro';
+import PropertyFinancingSimulator from './PropertyFinancingSimulator.astro';
+import PropertyPaymentConditions from './PropertyPaymentConditions.astro';
+import PropertyOffPlanPurchaseGuide from './PropertyOffPlanPurchaseGuide.astro';
+import PropertyPhotoMosaic from './PropertyPhotoMosaic.astro';
+import PropertyPlantaFilter from './PropertyPlantaFilter.astro';
+import PropertyRegularityGuide from './PropertyRegularityGuide.astro';
+import PropertyNewsletterCta from './PropertyNewsletterCta.astro';
+
+const { page, breadcrumbParent } = Astro.props;
+const vivercatarina = page.vivercatarina;
+const displayName = page.seo.h1;
+const stripHtml = (html) => html?.replace(/<[^>]+>/g, '').trim() ?? '';
+
+// Números institucionais da rede Viver Catarina (fixos).
+const REDE_STATS = [
+	{
+		num: '20',
+		label: 'cidades de atuação',
+		text: 'Cobertura em toda Santa Catarina — da Grande Balneário Camboriú ao Norte e ao Vale do Itajaí.',
+	},
+	{
+		num: '+50',
+		label: 'imobiliárias parceiras',
+		text: 'Rede de imobiliárias e corretores credenciados que amplia suas opções de imóvel.',
+	},
+	{
+		num: '+15',
+		label: 'incorporadoras e construtoras parceiras',
+		text: 'Acesso direto aos lançamentos das principais construtoras da região.',
+	},
+];
+const propertyDescriptionHtml = page.descriptionHtml?.trim() || '';
+const propertyDescriptionSobre = page.sobre?.trim() || '';
+const propertyDescriptionParagraphs = (vivercatarina.descriptionParagraphs || []).filter(Boolean);
+const hasPropertyDescription =
+	stripHtml(propertyDescriptionHtml).length > 0 ||
+	stripHtml(propertyDescriptionSobre).length > 0 ||
+	propertyDescriptionParagraphs.length > 0;
+const propertyDescriptionFallback = `Mais detalhes do lançamento ${displayName} em breve.`;
+const hasGalleryPhotos = page.hero.images.length > 0;
+const displayPlantas = buildMysideDisplayPlantas(page);
+const showPlantaPlaceholderNotice = vivercatarina.floorPlansNote === 'Plantas ainda não divulgadas';
+const photosNote = vivercatarina.photosNote || 'Fotos ainda não divulgadas';
+const photosLead =
+	vivercatarina.photosLead ||
+	'As imagens oficiais do empreendimento serão publicadas assim que forem liberadas pela incorporadora.';
+const photosIntro = vivercatarina.photosIntro ?? vivercatarina.photosDisclaimer;
+const stripTrailingPeriod = (text) =>
+	typeof text === 'string' ? text.replace(/\.\s*$/, '').trimEnd() : text;
+const structuredDestaques = [
+	...page.highlights.map((item) => ({
+		titulo: stripTrailingPeriod(item.titulo),
+		descricao: stripTrailingPeriod(item.descricao),
+		icone: item.icone,
+	})),
+	...page.comodidades.map((item) => ({
+		titulo: stripTrailingPeriod(item.nome),
+		descricao: stripTrailingPeriod(item.descricao),
+		icone: item.icone,
+	})),
+];
+const destaqueItems =
+	structuredDestaques.length > 0
+		? structuredDestaques
+		: vivercatarina.featureHighlights.map((item) => ({
+				titulo: stripTrailingPeriod(item),
+				descricao: null,
+				icone: 'fa-solid fa-star',
+			}));
+---
+
+<article class="vivercatarina-page" aria-labelledby="vivercatarina-property-title">
+	<section class="hero-gallery hero-gallery--with-lead hero-gallery--cover" aria-label="Galeria de fotos e contato">
+		<div class="hero-gallery__cover">
+			{
+				page.hero.images[0] ? (
+					<div class="hero-gallery__cover-trigger">
+						<img
+							src={page.hero.images[0].lcpUrl}
+							srcset={page.hero.images[0].srcset}
+							sizes={page.hero.images[0].sizes}
+							alt={page.hero.images[0].alt}
+							title={page.hero.images[0].title}
+							width="1600"
+							height="900"
+							fetchpriority="high"
+							decoding="async"
+						/>
+					</div>
+				) : (
+					<img
+						class="hero-gallery__cover-image"
+						src="/assets/img/explore-cites/explore-cites-bg-1.webp"
+						alt={`Vista de referência do empreendimento ${page.nav.title} em ${page.nav.neighborhood}, Balneário Camboriú — imóvel na planta`}
+						title={page.imageTitle}
+						width="1600"
+						height="900"
+						fetchpriority="high"
+						decoding="async"
+					/>
+				)
+			}
+
+			{
+				page.hero.videoUrl && (
+					<div class="hero-gallery__cover-footer">
+						<a
+							href={page.hero.videoUrl}
+							class="th-btn style2 radius"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Ver vídeo
+						</a>
+					</div>
+				)
+			}
+		</div>
+
+		<div class="hero-gallery__head">
+			<p class="hero-gallery__title-overlay" aria-hidden="true">{displayName}</p>
+			<div class="hero-gallery__meta">
+				<span class="hero-gallery__badge">{page.hero.situacao}</span>
+				<span class="hero-gallery__badge">{page.hero.padrao}</span>
+			</div>
+			<ListingBreadcrumb pageLabel={page.seo.h1} parent={breadcrumbParent} overlay />
+		</div>
+
+		<div class="container hero-gallery__overlay">
+			<PropertyLeadSidebar page={page} placement="hero" />
+		</div>
+	</section>
+
+	<section class="stats-bar" aria-labelledby="stats-bar-title">
+		<h2 class="imovel-landing__sr-only" id="stats-bar-title">Resumo do empreendimento</h2>
+		<div class="container stats-bar__grid">
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Preço a partir de</div>
+				<div class="stats-bar__value">{page.stats.price}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Quartos</div>
+				<div class="stats-bar__value">{page.stats.bedrooms}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Área</div>
+				<div class="stats-bar__value">{page.stats.area}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Situação</div>
+				<div class="stats-bar__value">{page.stats.situacao}</div>
+			</div>
+			<div class="stats-bar__item">
+				<div class="stats-bar__label">Unidades</div>
+				<div class={`stats-bar__value${page.sidebar.showUrgency ? ' stats-bar__value--urgent' : ''}`}>
+					{page.stats.unidadesRestantes ?? 'Sob consulta'}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="vivercatarina-wrap">
+		<div class="vivercatarina-layout">
+			<div class="vivercatarina-main">
+		<header class="vivercatarina-intro">
+			<div class="vivercatarina-intro__title-block">
+				<h1
+					class:list={[
+						'vivercatarina-intro__title',
+						vivercatarina.titleScale && vivercatarina.titleScale !== 1 && 'vivercatarina-intro__title--scaled',
+					]}
+					id="vivercatarina-property-title"
+					style={
+						vivercatarina.titleScale && vivercatarina.titleScale !== 1
+							? `--vivercatarina-title-scale: ${vivercatarina.titleScale}`
+							: undefined
+					}
+				>
+					{displayName}
+				</h1>
+				<div class="vivercatarina-intro__divider" aria-hidden="true"></div>
+			</div>
+			{page.lastUpdated && (
+				<p class="vivercatarina-intro__updated">
+					Última atualização: <time datetime={page.lastUpdatedIso}>{page.lastUpdated}</time>
+				</p>
+			)}
+
+		</header>
+
+		<section class="vivercatarina-block vivercatarina-block--commerce" aria-labelledby="vivercatarina-commerce-title">
+			<h2 class="vivercatarina-sr-only" id="vivercatarina-commerce-title">Preço, descrição e características do {displayName}</h2>
+
+			{page.sidebar.showUrgency && <p class="vivercatarina-urgency">Últimas unidades disponíveis</p>}
+
+			<div class="vivercatarina-about">
+				{
+					hasPropertyDescription ? (
+						propertyDescriptionHtml ? (
+							<div class="vivercatarina-text property-description" set:html={propertyDescriptionHtml} />
+						) : propertyDescriptionSobre ? (
+							<div class="vivercatarina-text property-description" set:html={propertyDescriptionSobre} />
+						) : (
+							propertyDescriptionParagraphs.map((paragraph) => (
+								<p class="vivercatarina-text">{paragraph}</p>
+							))
+						)
+					) : (
+						<p class="vivercatarina-text">{propertyDescriptionFallback}</p>
+					)
+				}
+			</div>
+
+			{page.listingAgency?.name && (
+				<aside class="vivercatarina-listing-agency" aria-label="Imobiliária responsável">
+					<span class="vivercatarina-listing-agency__icon" aria-hidden="true">
+						<i class="fa-solid fa-building" />
+					</span>
+					<span class="vivercatarina-listing-agency__body">
+						<span class="vivercatarina-listing-agency__label">Imobiliária responsável</span>
+						<span class="vivercatarina-listing-agency__name">{page.listingAgency.name}</span>
+					</span>
+					{page.listingAgency.creci && (
+						<span class="vivercatarina-listing-agency__creci">{page.listingAgency.creci}</span>
+					)}
+				</aside>
+			)}
+
+			{
+				destaqueItems.length > 0 && (
+					<section class="vivercatarina-highlights" aria-labelledby="vivercatarina-highlights-title">
+						<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-highlights-title">
+							{toTitleCase('Destaques do empreendimento')}
+						</h2>
+						<div class="highlights-grid">
+							{
+								destaqueItems.map((item) => (
+									<div class="highlight-card">
+										<i class={item.icone} aria-hidden="true"></i>
+										<div class="highlight-card__content">
+											<span class="highlight-card__label">{item.titulo}</span>
+											{item.descricao && (
+												<span class="highlight-card__description">{item.descricao}</span>
+											)}
+										</div>
+									</div>
+								))
+							}
+						</div>
+					</section>
+				)
+			}
+		</section>
+
+		<section class="vivercatarina-block vivercatarina-block--units" aria-labelledby="vivercatarina-units-title">
+			<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-units-title">
+				{toTitleCase(`Plantas do ${displayName}`)}
+			</h2>
+
+			{vivercatarina.unitsLead && <p class="vivercatarina-text vivercatarina-units__intro">{vivercatarina.unitsLead}</p>}
+
+			{
+				showPlantaPlaceholderNotice && (
+					<div class="vivercatarina-plans-empty vivercatarina-plans-empty--above-card">
+						<svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<path
+								d="M4 4h16v16H4V4Zm2 2v12h12V6H6Zm2 2h8v1.5H8V8Zm0 3h8v1.5H8V11Zm0 3h5v1.5H8V14Z"
+								fill="currentColor"
+							/>
+						</svg>
+						<strong>{vivercatarina.floorPlansNote}</strong>
+					</div>
+				)
+			}
+			<PropertyPlantaFilter plantas={displayPlantas} filterOptions={vivercatarina.bedroomTabs} />
+		</section>
+
+		<section class="vivercatarina-block vivercatarina-block--location" aria-labelledby="vivercatarina-location-title">
+			<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-location-title">
+				{toTitleCase(`Localização do ${displayName}`)}
+			</h2>
+
+			<div class="vivercatarina-location">
+				<div class="vivercatarina-location__intro">
+					<p class="vivercatarina-text" set:html={vivercatarina.locationParagraph + (page.location.address ? ` O empreendimento está situado na <strong>${page.location.address}</strong>.` : '')} />
+				</div>
+
+				{
+					page.location.mapEmbedUrl && (
+						<div class="vivercatarina-location__map">
+							<div
+								class="vivercatarina-map"
+								data-map-src={page.location.mapEmbedUrl}
+								data-map-title={`Mapa — ${displayName}`}
+							>
+								<iframe
+									src={page.location.mapEmbedUrl}
+									title={`Mapa — ${displayName}`}
+									loading="lazy"
+									allowfullscreen
+								/>
+							</div>
+						</div>
+					)
+				}
+
+				{
+					vivercatarina.locationPoints?.length > 0 && (
+						<ul class="vivercatarina-location__points">
+							{vivercatarina.locationPoints.map((point) => (
+								<li class="vivercatarina-location__point">
+									<span class="vivercatarina-location__point-icon" aria-hidden="true">
+										<i class={point.icon || 'fa-solid fa-location-dot'} />
+									</span>
+									<span class="vivercatarina-location__point-text">
+										{
+											point.label ? (
+												<>
+													<span class="vivercatarina-location__point-distance">{point.distance}</span>{' '}
+													<span class="vivercatarina-location__point-label">{point.label}</span>
+												</>
+											) : (
+												<span class="vivercatarina-location__point-distance">{point.distance}</span>
+											)
+										}
+									</span>
+								</li>
+							))}
+						</ul>
+					)
+				}
+			</div>
+		</section>
+
+		<section class="section vivercatarina-section--photos" aria-labelledby="vivercatarina-photos-title">
+			<h2 class="section__title landing-section-title" id="vivercatarina-photos-title">
+				{
+					toTitleCase(
+						hasGalleryPhotos
+							? `Galeria de fotos (${page.hero.totalPhotos})`
+							: 'Galeria de fotos',
+					)
+				}
+			</h2>
+
+			{
+				hasGalleryPhotos && photosIntro && <p class="about-text" set:html={photosIntro} />
+			}
+
+			{
+				hasGalleryPhotos ? (
+					<PropertyPhotoMosaic images={page.hero.images} />
+				) : (
+					<p class="about-text">
+						<strong>{photosNote}.</strong> {photosLead}
+					</p>
+				)
+			}
+		</section>
+
+		{
+			page.construtora?.paragraphs?.length > 0 && (
+				<section class="vivercatarina-block vivercatarina-block--builder" aria-labelledby="vivercatarina-builder-title">
+					<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-builder-title">
+						{
+							toTitleCase(
+								page.construtora.name !== 'Não informado'
+									? `Sobre a incorporadora ${page.construtora.name}`
+									: 'Sobre a incorporadora',
+							)
+						}
+					</h2>
+					{page.construtora.paragraphs.map((paragraph) => (
+						<p class="vivercatarina-text" set:html={paragraph} />
+					))}
+					{page.construtora.facts?.length > 0 && (
+						<ul class="vivercatarina-location__points">
+							{page.construtora.facts.map((fact) => (
+								<li class="vivercatarina-location__point">
+									<span class="vivercatarina-location__point-icon" aria-hidden="true">
+										<i class={fact.icon || 'fa-solid fa-building'} />
+									</span>
+									<span class="vivercatarina-location__point-text">
+										<span class="vivercatarina-location__point-label">{fact.label}</span>{' '}
+										<span class="vivercatarina-location__point-distance">{fact.value}</span>
+									</span>
+								</li>
+							))}
+						</ul>
+					)}
+				</section>
+			)
+		}
+
+		<PropertyOffPlanPurchaseGuide layout="split" page={page} />
+
+		<PropertyRegularityGuide layout="split" page={page} />
+
+		<section class="vivercatarina-block vivercatarina-block--why">
+			<h2 class="vivercatarina-block__title landing-section-title">{vivercatarina.whyUsTitle}</h2>
+			{vivercatarina.whyUsParagraphs.map((paragraph) => <p class="vivercatarina-text" set:html={paragraph} />)}
+			<div class="property-offplan-guide__steps vivercatarina-rede-stats">
+				{REDE_STATS.map((stat) => (
+					<article class="property-offplan-guide__item vivercatarina-rede-stat">
+						<h4 class="property-offplan-guide__item-title">
+							<span class="property-offplan-guide__step vivercatarina-rede-stat__num" aria-hidden="true">
+								{stat.num}
+							</span>
+							<span class="property-offplan-guide__item-label">{stat.label}</span>
+						</h4>
+						<p>{stat.text}</p>
+					</article>
+				))}
+			</div>
+		</section>
+
+		{page.financing && <PropertyPaymentConditions financing={page.financing} />}
+
+		{page.financing && <PropertyFinancingSimulator financing={page.financing} />}
+
+		<section class="vivercatarina-block" aria-labelledby="vivercatarina-faq-title">
+			<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-faq-title">
+				Dúvidas Frequentes
+			</h2>
+			<div class="vivercatarina-faq">
+				{page.faq.map((item) => (
+					<details class="vivercatarina-faq__item">
+						<summary set:html={item.pergunta} />
+						<div class="vivercatarina-faq__answer" set:html={item.resposta} />
+					</details>
+				))}
+			</div>
+		</section>
+
+		<PropertyNewsletterCta propertySlug={page.slug} propertyTitle={page.seo.h1} />
+
+		{page.similarProperties?.length > 0 && (
+			<section class="vivercatarina-block vivercatarina-similar" aria-labelledby="vivercatarina-similar-title">
+				<h2 class="vivercatarina-block__title landing-section-title" id="vivercatarina-similar-title">
+					Outros imóveis em {page.nav.neighborhood}
+				</h2>
+				<div class="vivercatarina-similar-grid">
+					{page.similarProperties.slice(0, 3).map((item) => (
+						<a class="vivercatarina-similar-card" href={item.detailUrl}>
+							<div class="vivercatarina-similar-card__media">
+								<img
+									src={item.imageUrl}
+									srcset={item.imageSrcset ?? undefined}
+									sizes={item.imageSizes ?? undefined}
+									alt={item.imageAlt ?? item.title}
+									loading="lazy"
+									decoding="async"
+								/>
+							</div>
+							<div class="vivercatarina-similar-card__body">
+								<span class="vivercatarina-similar-card__tag">{item.categoryLabel}</span>
+								<h3>{item.title}</h3>
+								<p>{item.priceLabel}</p>
+							</div>
+						</a>
+					))}
+				</div>
+			</section>
+		)}
+
+		<aside class="vivercatarina-page-notice" aria-label="Aviso legal do empreendimento">
+			{vivercatarina.disclaimer && <p>{vivercatarina.disclaimer}</p>}
+			{vivercatarina.legalDisclaimer && <p>{vivercatarina.legalDisclaimer}</p>}
+			{vivercatarina.incorporationDisclaimer && <p>{vivercatarina.incorporationDisclaimer}</p>}
+		</aside>
+			</div>
+
+			<div class="vivercatarina-sidebar-sticky">
+				<PropertyLeadSidebar page={page} placement="sidebar" />
+			</div>
+		</div>
+	</div>
+</article>
+
+{
+	page.hero.images.length > 0 && (
+		<div id="gallery-lightbox" class="gallery-lightbox" hidden>
+			<div class="gallery-lightbox__backdrop" data-gallery-close></div>
+			<button type="button" class="gallery-lightbox__close" aria-label="Fechar galeria" data-gallery-close>
+				&times;
+			</button>
+			<button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" aria-label="Foto anterior">
+				<i class="fa-solid fa-chevron-left"></i>
+			</button>
+			<button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" aria-label="Próxima foto">
+				<i class="fa-solid fa-chevron-right"></i>
+			</button>
+			<div class="gallery-lightbox__content">
+				<img
+					class="gallery-lightbox__image"
+					src={page.hero.images[0].url}
+					alt={page.hero.images[0].alt}
+					title={page.hero.images[0].title}
+				/>
+				<p class="gallery-lightbox__counter"></p>
+			</div>
+		</div>
+	)
+}
+
+<script define:vars={{ galleryImages: page.hero.images }}>
+	const lightbox = document.getElementById('gallery-lightbox');
+
+	if (lightbox && galleryImages.length > 0 && lightbox.dataset.initialized !== 'true') {
+		lightbox.dataset.initialized = 'true';
+		const imageEl = lightbox.querySelector('.gallery-lightbox__image');
+		const counterEl = lightbox.querySelector('.gallery-lightbox__counter');
+		const prevButton = lightbox.querySelector('.gallery-lightbox__nav--prev');
+		const nextButton = lightbox.querySelector('.gallery-lightbox__nav--next');
+		let currentIndex = 0;
+
+		const showImage = (index) => {
+			currentIndex = (index + galleryImages.length) % galleryImages.length;
+			const item = galleryImages[currentIndex];
+			imageEl.src = item.url;
+			imageEl.alt = item.alt;
+			imageEl.title = item.title;
+			counterEl.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+		};
+
+		const openLightbox = (index) => {
+			showImage(index);
+			lightbox.hidden = false;
+			lightbox.setAttribute('aria-hidden', 'false');
+			document.body.classList.add('gallery-lightbox-open');
+		};
+
+		const closeLightbox = () => {
+			lightbox.hidden = true;
+			lightbox.setAttribute('aria-hidden', 'true');
+			document.body.classList.remove('gallery-lightbox-open');
+		};
+
+		document.querySelectorAll('.gallery-trigger').forEach((trigger) => {
+			trigger.addEventListener('click', () => {
+				openLightbox(Number(trigger.dataset.galleryIndex));
+			});
+		});
+
+		prevButton?.addEventListener('click', (event) => {
+			event.stopPropagation();
+			showImage(currentIndex - 1);
+		});
+
+		nextButton?.addEventListener('click', (event) => {
+			event.stopPropagation();
+			showImage(currentIndex + 1);
+		});
+
+		lightbox.querySelectorAll('[data-gallery-close]').forEach((element) => {
+			element.addEventListener('click', closeLightbox);
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (lightbox.hidden) {
+				return;
+			}
+
+			if (event.key === 'Escape') {
+				closeLightbox();
+			}
+
+			if (event.key === 'ArrowLeft') {
+				showImage(currentIndex - 1);
+			}
+
+			if (event.key === 'ArrowRight') {
+				showImage(currentIndex + 1);
+			}
+		});
+	}
+</script>

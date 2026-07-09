@@ -7,7 +7,7 @@ export const GLOSSARY_INCORPORADORAS = [
 		slug: 'cba-empreendimentos',
 		websiteUrl: 'https://cbaempreendimentos.com.br/',
 		definition:
-			'Incorporadora catarinense de alto padrão com empreendimentos em Balneário Camboriú de Balneário Camboriú, incluindo lançamentos residenciais em bairros como Jurerê, Ponta das Canas, Centro e João Paulo.',
+			'Incorporadora catarinense de alto padrão com empreendimentos em Balneário Camboriú, incluindo lançamentos residenciais de perfil residencial e de veraneio.',
 	},
 	{
 		term: 'Coral Construtora',
@@ -42,7 +42,7 @@ export const GLOSSARY_INCORPORADORAS = [
 		slug: 'gpinheiro-empreendimentos',
 		websiteUrl: 'https://www.gpinheiro.com.br/',
 		definition:
-			'Incorporadora e construtora com sede na Trindade e mais de 40 anos de atuação, presente em Balneário Camboriú, Itajaí e Porto Alegre.',
+			'Incorporadora e construtora com mais de 40 anos de atuação, presente em Balneário Camboriú, Itajaí e Porto Alegre.',
 	},
 	{
 		term: 'GND Incorporadora',
@@ -91,14 +91,14 @@ export const GLOSSARY_INCORPORADORAS = [
 		slug: 'tetra-incorporadora',
 		websiteUrl: 'https://www.tetraincorporadora.com.br/',
 		definition:
-			'Incorporadora com atuação em empreendimentos sustentáveis em Balneário Camboriú, incluindo projetos residenciais e urbanísticos no Campeche e região sul de Balneário Camboriú.',
+			'Incorporadora com atuação em empreendimentos sustentáveis em Balneário Camboriú, incluindo projetos residenciais e urbanísticos.',
 	},
 	{
 		term: 'WOA Empreendimentos',
 		slug: 'woa-empreendimentos',
 		websiteUrl: 'https://www.woa.com.br/',
 		definition:
-			'Incorporadora de alto padrão com tradição em Balneário Camboriú, responsável por empreendimentos de frente para o mar e projetos de grande impacto urbano na Beira-Mar Norte.',
+			'Incorporadora de alto padrão com tradição em Balneário Camboriú, responsável por empreendimentos de frente para o mar e projetos de grande impacto urbano.',
 	},
 	{
 		term: 'WKoerich',

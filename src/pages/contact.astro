@@ -23,6 +23,41 @@ const html = patchSiteMenu(applySemanticHtml(bodyHtml), '/contact');
 
 <style is:global>
 	.contact-form-area .contact-all-wrapper {
-		border-radius: 24px;
+		border-radius: 0;
+	}
+
+	.contact-form-area .contact-form input,
+	.contact-form-area .contact-form textarea,
+	.contact-form-area .contact-form select,
+	.contact-form-area .contact-form button {
+		border-radius: 0 !important;
+	}
+
+	.contact-form-area .contact-form .form-title-sub-font {
+		font-family: var(--body-font);
+	}
+
+	.contact-form .form-control,
+	.contact-form .form-control::placeholder,
+	.contact-form textarea.form-control {
+		font-size: 18px;
+	}
+
+	/* Remove cantos arredondados de TODA a página de contato (cards, form, inputs, botão). */
+	.contact-area-2,
+	.contact-area-2 *,
+	.contact-area-2 *::before,
+	.contact-area-2 *::after,
+	.contact-form-area,
+	.contact-form-area *,
+	.contact-form-area *::before,
+	.contact-form-area *::after {
+		border-radius: 0 !important;
+	}
+
+	/* Cards de contato + card do formulário de mensagem com moldura preta. */
+	.contact-feature,
+	.contact-form-wrap {
+		border: 1px solid #000000 !important;
 	}
 </style>

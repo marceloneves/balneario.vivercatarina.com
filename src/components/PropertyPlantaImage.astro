@@ -1,0 +1,28 @@
+---
+const { planta } = Astro.props;
+---
+
+{
+	planta.lightboxIndex != null ? (
+		<button
+			type="button"
+			class="planta-card__image-trigger planta-lightbox-trigger"
+			data-planta-lightbox-index={planta.lightboxIndex}
+			aria-label={`Ampliar planta ${planta.titulo}`}
+		>
+			<img
+				src={planta.imageUrl}
+				alt={planta.imageAlt}
+				title={planta.imageTitle}
+				loading="lazy"
+			/>
+		</button>
+	) : (
+		<img
+			src={planta.imageUrl}
+			alt={planta.imageAlt}
+			title={planta.imageTitle}
+			loading="lazy"
+		/>
+	)
+}

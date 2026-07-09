@@ -6,7 +6,7 @@
 }
 
 .footer-cities-section {
-	padding: 2.25rem 0 4rem;
+	padding: 2.25rem 0 1.5rem;
 	border-top: 1px solid rgba(255, 255, 255, 0.12);
 	color: #ffffff;
 }
@@ -29,7 +29,7 @@
 
 .footer-cities-regions {
 	display: grid;
-	grid-template-columns: repeat(6, minmax(0, 1fr));
+	grid-template-columns: repeat(5, minmax(0, 1fr));
 	gap: 1.25rem 1rem;
 	align-items: start;
 }
@@ -41,73 +41,50 @@
 	align-items: start;
 }
 
-@media (min-width: 1200px) {
-	.footer-all-widget-wrapper {
-display: grid;
-grid-template-columns: repeat(6, minmax(0, 1fr));
-gap: 1.25rem 1rem;
-align-items: start;
-	}
+.footer-all-widget-wrapper {
+	display: grid;
+	grid-template-columns: minmax(260px, 1fr) 2fr;
+	gap: 1.25rem 2.5rem;
+	align-items: start;
+}
 
-	.footer-all-widget-wrapper > .footer-all-widget-item:first-child {
-grid-column: 1 / span 2;
-	}
+.footer-all-widget-item {
+	min-width: 0;
+}
 
-	.footer-all-widget-wrapper > .footer-all-widget-item:last-child {
-grid-column: 3 / -1;
-display: grid;
-grid-template-columns: subgrid;
-min-width: 0;
-	}
+.footer-all-widget-wrapper .footer-right-wrap {
+	min-width: 0;
+}
 
-	.footer-all-widget-wrapper .footer-right-wrap,
-	.footer-all-widget-wrapper .footer-right-wrap .footer-item-wrap,
-	.footer-all-widget-wrapper .footer-item-wrap {
-display: grid;
-grid-template-columns: subgrid;
-grid-column: 1 / -1;
-min-width: 0;
-	}
+.footer-all-widget-wrapper .footer-right-wrap .footer-item-wrap {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.25rem 2rem;
+	align-items: start;
 }
 
 @media (max-width: 1199px) {
 	.footer-all-widget-wrapper {
-display: grid;
-grid-template-columns: repeat(3, minmax(0, 1fr));
-gap: 1.25rem 1rem;
-align-items: start;
+		grid-template-columns: 1fr;
+		gap: 2rem;
 	}
 
-	.footer-all-widget-wrapper > .footer-all-widget-item:first-child {
-grid-column: 1 / -1;
-	}
-
-	.footer-all-widget-wrapper > .footer-all-widget-item:last-child {
-grid-column: 1 / -1;
-display: grid;
-grid-template-columns: subgrid;
-min-width: 0;
-	}
-
-	.footer-all-widget-wrapper .footer-right-wrap,
-	.footer-all-widget-wrapper .footer-right-wrap .footer-item-wrap,
-	.footer-all-widget-wrapper .footer-item-wrap {
-display: grid;
-grid-template-columns: subgrid;
-grid-column: 1 / -1;
-min-width: 0;
+	.footer-all-widget-wrapper .footer-right-wrap .footer-item-wrap {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }
 
 @media (max-width: 767px) {
-	.footer-all-widget-wrapper {
-grid-template-columns: repeat(2, minmax(0, 1fr));
+	.footer-all-widget-wrapper .footer-right-wrap .footer-item-wrap {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.5rem;
 	}
 }
 
 @media (max-width: 575px) {
-	.footer-all-widget-wrapper {
-grid-template-columns: 1fr;
+	.footer-all-widget-wrapper .footer-right-wrap .footer-item-wrap {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
 	}
 }
 
@@ -124,19 +101,25 @@ grid-template-columns: 1fr;
 	line-height: 1.3;
 	color: #ffffff !important;
 	position: relative;
-	padding-left: 30px;
+	padding-left: 20px;
 }
 
 .footer-cities-region-title::before,
 .footer-bairros-region-title::before {
-	content: '\e3af';
+	content: '';
 	position: absolute;
-	left: 0;
-	top: 0;
-	font-weight: 400;
-	font-family: var(--icon-font);
+	left: 2px;
+	top: 0.35em;
+	width: 0.42em;
+	height: 0.42em;
+	border-right: 1.5px solid var(--theme-color);
+	border-bottom: 1.5px solid var(--theme-color);
+	transform: rotate(-45deg);
+	font-family: inherit;
+	font-weight: normal;
 	font-size: 16px;
-	color: var(--theme-color);
+	background: none;
+	border-radius: 0;
 }
 
 .footer-cities-list,
@@ -215,6 +198,18 @@ grid-template-columns: 1fr;
 	text-align: center;
 }
 
+.visually-hidden-listing-title {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
 .footer-default .widget-area,
 .footer-wrapper.footer-layout1 .widget-area {
 	padding-top: 80px;
@@ -238,7 +233,7 @@ padding-bottom: 8px;
 }
 
 .footer-all-widget-wrapper > .footer-all-widget-item:first-child {
-	padding-right: 1.25rem;
+	padding-right: 3rem;
 }
 
 .footer-all-widget-wrapper .th-widget-about .about-logo {
@@ -272,7 +267,7 @@ padding-bottom: 8px;
 
 .footer-all-widget-wrapper .footer-item-wrap .widget_title {
 	margin: 0 0 0.85rem;
-	padding: 0 0 0 30px;
+	padding: 0 0 0 20px;
 	max-width: none;
 	font-size: 1.0625rem;
 	font-weight: 700;
@@ -282,20 +277,22 @@ padding-bottom: 8px;
 }
 
 .footer-all-widget-wrapper .footer-item-wrap .widget_title::before {
-	content: '\e3af';
+	content: '';
 	display: block;
 	position: absolute;
-	left: 0;
-	top: 0;
-	width: auto;
-	height: auto;
-	border-radius: 0;
+	left: 2px;
+	top: 0.35em;
+	width: 0.42em;
+	height: 0.42em;
+	border-right: 1.5px solid var(--theme-color);
+	border-bottom: 1.5px solid var(--theme-color);
+	transform: rotate(-45deg);
+	font-family: inherit;
+	font-weight: normal;
+	font-size: 16px;
 	background: none;
 	background-image: none;
-	font-weight: 400;
-	font-family: var(--icon-font);
-	font-size: 16px;
-	color: var(--theme-color);
+	border-radius: 0;
 }
 
 .footer-all-widget-wrapper .footer-item-wrap .widget_nav_menu a {
@@ -403,7 +400,7 @@ padding-bottom: 8px;
 }
 
 .copyright-wrap .copyright-email a {
-	color: inherit;
+	color: #ffffff !important;
 }
 
 .copyright-wrap .copyright-email a:hover {
@@ -421,6 +418,19 @@ padding-bottom: 8px;
 
 .copyright-wrap .footer-default-copy-right p {
 	white-space: nowrap;
+}
+
+.copyright-wrap .copyright-credit a {
+	display: inline-block;
+	padding: 2px 8px;
+	background: #5eaee0;
+	color: #ffffff !important;
+	border-radius: 0;
+	text-decoration: none;
+}
+
+.copyright-wrap .copyright-credit a:hover {
+	background: #3a8ec7;
 }
 
 .copyright-wrap .footer-default-copy-right .th-social {
@@ -533,7 +543,7 @@ body.site-dark-header .th-blog-wrapper.space-top {
 
 body.blog-listing #conteudo-principal,
 body.blog-listing .blog-listing-section {
-	background: #f7f6f4;
+	background: var(--paper);
 }
 
 body.site-dark-header .breadcumb-wrapper.single-inventory .breadcumb-content {
@@ -545,6 +555,30 @@ body.site-dark-header .breadcumb-wrapper.single-inventory .breadcumb-menu {
 	text-align: left;
 }
 
+/* Alias FA6 — location-dot não existe no bundle Pro deste template */
+.fa-location-dot::before {
+	content: '\f3c5';
+}
+
+/* Separador do breadcrumb — chevron CSS (FA Pro não carrega em slimScripts) */
+body.site-dark-header .breadcumb-wrapper.single-inventory .breadcumb-menu li::after {
+	content: '';
+	display: inline-block;
+	width: 0.42em;
+	height: 0.42em;
+	margin-left: 8px;
+	border-right: 1.5px solid currentColor;
+	border-bottom: 1.5px solid currentColor;
+	transform: rotate(-45deg);
+	vertical-align: 0.12em;
+	font-family: inherit;
+	font-weight: normal;
+	font-size: 0.65em;
+	position: relative;
+	top: -0.02em;
+	color: var(--theme-color);
+}
+
 @media (max-width: 767px) {
 	body.site-dark-header .breadcumb-wrapper.single-inventory {
 padding-top: 10px;
@@ -554,4 +588,873 @@ padding-top: 10px;
 	body.site-dark-header .th-blog-wrapper.space-top {
 padding-top: 14px;
 	}
+}
+
+/* Menu dropdown indicators — CSS chevrons (Font Awesome webfonts ausentes no repo) */
+.main-menu ul li:has(.sub-menu) > a::after,
+.main-menu ul li:has(.mega-menu) > a::after,
+.main-menu ul li.menu-item-has-children > a::after {
+	content: "";
+	display: inline-block;
+	width: 0.42em;
+	height: 0.42em;
+	margin-left: 5px;
+	border-right: 1.5px solid currentColor;
+	border-bottom: 1.5px solid currentColor;
+	transform: rotate(45deg);
+	vertical-align: 0.15em;
+	font-family: inherit;
+	font-weight: normal;
+	font-size: 0.75em;
+	position: relative;
+	top: -0.05em;
+	transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.main-menu ul li:has(.sub-menu) > a:hover::after,
+.main-menu ul li:has(.mega-menu) > a:hover::after,
+.main-menu ul li.menu-item-has-children > a:hover::after {
+	content: "";
+	border-color: var(--theme-color);
+	transform: rotate(-135deg);
+}
+
+.main-menu ul.sub-menu li.menu-item-has-children > a::after {
+	content: "";
+	display: inline-block;
+	width: 0.38em;
+	height: 0.38em;
+	margin-left: 0;
+	border-right: 1.5px solid currentColor;
+	border-bottom: 1.5px solid currentColor;
+	transform: rotate(-45deg);
+	float: right;
+	top: 0.55em;
+	font-family: inherit;
+	font-weight: normal;
+	font-size: 0.75em;
+	transition: border-color 0.3s ease-in-out;
+}
+
+.main-menu ul.sub-menu li.menu-item-has-children > a:hover::after {
+	content: "";
+	border-color: var(--theme-color);
+	transform: rotate(-45deg);
+}
+
+.th-mobile-menu ul .menu-item-has-children > a::after,
+.th-mobile-menu ul .th-item-has-children > a::after {
+	content: "+";
+	font-family: inherit;
+	font-weight: 600;
+	line-height: 22px;
+}
+
+.th-mobile-menu ul .menu-item-has-children.th-active > a::after,
+.th-mobile-menu ul .th-item-has-children.th-active > a::after {
+	content: "−";
+	font-family: inherit;
+}
+
+/* CLS: reserva altura do thumb dos cards de imóvel. O tema só define max-height
+   no .thumb-wrapper, então o wrapper colapsa antes da imagem carregar e salta no
+   load (layout shift). Altura fixa = mesmo teto de 270px, sem regressão visual. */
+.popular-list-1 .thumb-wrapper {
+	height: 270px;
+}
+
+/* Contraste AA: .th-btn tem fundo amarelo (#FFAF00) em repouso e no hover (::before
+   também vira theme-color), mas o texto era branco → ~1.46:1, falha WCAG. Texto
+   escuro sobre o amarelo dá ~11.7:1. Variantes outline/style2 já usam texto escuro. */
+.th-btn:not(.outline):not(.style2),
+.th-btn:not(.outline):not(.style2):hover,
+.th-btn:not(.outline):not(.style2).active {
+	color: var(--title-color);
+}
+.th-btn:not(.outline):not(.style2) i {
+	color: var(--title-color);
+}
+
+/* Badge de categoria sobre a imagem fica laranja no hover; o texto era branco
+   (~1.5:1 sobre #FFAF00). Texto preto = legível. */
+.popular-list-1:hover .thumb-wrapper .popular-badge p,
+.popular-list-1.style-2:hover .thumb-wrapper .popular-badge p {
+	color: var(--title-color);
+}
+
+/* CTA "Seja um Parceiro" ao lado do menu (item botão) */
+.main-menu ul li.menu-cta {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 12px;
+	padding: 0;
+}
+.main-menu ul li.menu-cta > a.th-btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 18px;
+	font-size: 14px;
+	font-weight: 700 !important;
+	line-height: 1;
+	color: var(--title-color, #15171a) !important;
+	border-radius: 0 !important;
+}
+.th-mobile-menu ul li a.th-btn,
+.th-mobile-menu ul li.menu-cta > a {
+	color: var(--title-color, #15171a) !important;
+	border-radius: 0 !important;
+}
+
+/* Estilo da landing aplicado à listagem de bairro */
+.bairro-listing .popular-list-1 {
+	border: 1px solid var(--black-color) !important;
+	border-radius: 0 !important;
+	overflow: hidden;
+	box-shadow: none !important;
+}
+.bairro-listing .popular-list-1 .thumb-wrapper,
+.bairro-listing .popular-list-1 .thumb-wrapper img,
+.bairro-listing .popular-list-1 .thumb-link {
+	border-radius: 0 !important;
+}
+.bairro-listing .sidebar-lead-form__card input,
+.bairro-listing .sidebar-lead-form__card textarea,
+.bairro-listing .th-btn {
+	border-radius: 0 !important;
+}
+
+/* Fale Conosco: card único com título dentro, borda amarela + sombra,
+   mais estreito, como na landing. */
+.bairro-listing .widget.sidebar-contact-form {
+	background: var(--white-color) !important;
+	border: 4px solid var(--safety) !important;
+	border-radius: 0 !important;
+	padding: 24px !important;
+	box-shadow: 0 16px 40px rgba(17, 24, 39, 0.18) !important;
+	max-width: 400px !important;
+	margin-left: auto !important;
+}
+.bairro-listing .sidebar-lead-form__card {
+	background: transparent !important;
+	border: 0 !important;
+	padding: 0 !important;
+	box-shadow: none !important;
+}
+
+/* Fale Conosco: fontes maiores no intro e nos campos */
+.bairro-listing .sidebar-lead-form__intro {
+	font-size: 17px !important;
+	line-height: 1.55 !important;
+}
+.bairro-listing .sidebar-lead-form label,
+.bairro-listing .sidebar-lead-form__form label {
+	font-size: 17px !important;
+}
+.bairro-listing .sidebar-lead-form input,
+.bairro-listing .sidebar-lead-form__form input {
+	font-size: 17px !important;
+	padding: 13px 15px !important;
+}
+
+/* Fale Conosco: título maior */
+.bairro-listing .widget.sidebar-contact-form .widget_title {
+	font-size: 28px !important;
+	margin-bottom: 14px !important;
+}
+
+/* Nome do imóvel na lista: fonte limpa em vez da display condensada */
+.bairro-listing .popular-list-1 .box-title:not(.property-price),
+.bairro-listing .popular-list-1 .box-title:not(.property-price) a {
+	font-family: var(--body-font) !important;
+	font-weight: 600 !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+}
+
+/* Preço na lista: mesma fonte limpa do nome */
+.bairro-listing .popular-list-1 .box-title.property-price {
+	font-family: var(--body-font) !important;
+	font-weight: 700 !important;
+	font-size: 18px !important;
+	letter-spacing: normal !important;
+}
+
+/* Card lista: imagem preenche o thumb (cobre), sem alterar o card */
+.bairro-listing .popular-list-1.list-style .thumb-link {
+	display: block;
+	height: 100% !important;
+}
+.bairro-listing .popular-list-1.list-style .thumb-wrapper img {
+	height: 100% !important;
+	object-fit: cover !important;
+}
+
+/* Ver Mais: efeito de hover preenche o botão inteiro */
+.bairro-listing .popular-list-1 .th-btn {
+	overflow: hidden !important;
+	position: relative !important;
+}
+.bairro-listing .popular-list-1 .th-btn::before {
+	border-radius: 0 !important;
+	top: 0 !important;
+	left: 0 !important;
+	height: 100% !important;
+}
+.bairro-listing .popular-list-1 .th-btn:hover::before,
+.bairro-listing .popular-list-1 .th-btn.active::before {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+/* Card: aproxima quartos/banheiros/área (sem space-between) */
+.bairro-listing .popular-list-1 .property-featured {
+	justify-content: flex-start !important;
+	column-gap: 22px !important;
+}
+
+
+/* Contagem de lançamentos (páginas de lançamentos) */
+.lancamentos-intro-count {
+	margin: 0 0 24px;
+	font-size: 16px;
+	color: var(--title-color);
+}
+
+/* Localização do card (bairro/lançamentos): fonte do nome + itálico */
+.bairro-listing .popular-list-1 .box-text {
+	font-family: var(--body-font) !important;
+	font-style: italic !important;
+}
+
+/* Nome do bairro no título da página: estilo distinto (Fraunces itálico, acento) */
+.bairro-listing-title .bairro-name-accent {
+	font-family: var(--body-font) !important;
+	font-style: italic !important;
+	font-weight: 700 !important;
+	color: var(--theme-color) !important;
+	text-transform: none !important;
+}
+
+/* Título do bairro inteiro na fonte de acento (Fraunces), "Imóveis na planta em" em preto */
+.bairro-listing .bairro-listing-title {
+	font-family: var(--body-font) !important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	color: var(--title-color) !important;
+	text-transform: none !important;
+}
+
+/* Parágrafos do intro do bairro maiores */
+.bairro-listing .bairro-intro-panel__text {
+	font-size: 18px !important;
+	line-height: 1.7 !important;
+}
+
+/* Home: título com a mesma fonte/cores do título dos bairros */
+.home-lancamentos-section .sec-title.bairro-listing-title {
+	font-family: var(--body-font) !important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	color: var(--title-color) !important;
+	text-transform: none !important;
+}
+.home-lancamentos-section .bairro-name-accent {
+	font-family: var(--body-font) !important;
+	font-style: italic !important;
+	font-weight: 700 !important;
+	color: var(--theme-color) !important;
+	text-transform: none !important;
+}
+
+/* Home: cards dentro de retângulo com moldura preta */
+.home-lancamentos-section .popular-list-1 {
+	border: 1px solid var(--black-color) !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	overflow: hidden;
+}
+.home-lancamentos-section .popular-list-1 .thumb-wrapper,
+.home-lancamentos-section .popular-list-1 .thumb-wrapper img,
+.home-lancamentos-section .popular-list-1 .thumb-link {
+	border-radius: 0 !important;
+}
+
+/* Home: títulos das seções (bairros, blog, faq) no padrão dos bairros */
+.home-bairros-section .bairro-listing-title,
+.home-bairros-section .sec-title,
+.home-blog-section .sec-title,
+.home-faq-section .sec-title {
+	font-family: var(--body-font) !important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	color: var(--title-color) !important;
+	text-transform: none !important;
+}
+.home-bairros-section .bairro-name-accent,
+.home-blog-section .bairro-name-accent,
+.home-faq-section .bairro-name-accent {
+	font-family: var(--body-font) !important;
+	font-style: italic !important;
+	font-weight: 700 !important;
+	color: var(--theme-color) !important;
+	text-transform: none !important;
+}
+
+/* Home: cards de bairros e de artigos com moldura preta */
+.home-bairros-section .gallery-card,
+.home-blog-section .blog-card {
+	border: 1px solid var(--black-color) !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	overflow: hidden;
+}
+.home-bairros-section .gallery-card .gallery-img,
+.home-bairros-section .gallery-card .gallery-img img,
+.home-blog-section .blog-card .blog-img,
+.home-blog-section .blog-card .blog-img img {
+	border-radius: 0 !important;
+}
+
+/* Imagem do header do artigo sem bordas arredondadas */
+.blog-details .blog-img,
+.blog-details .blog-img img,
+.blog-single .blog-img,
+.blog-single .blog-img img {
+	border-radius: 0 !important;
+}
+
+/* Link interno em texto (fundo claro): laranja mais escuro p/ contraste */
+.blog-article-body a,
+.blog-details .blog-content a:not(.th-btn),
+.blog-article-body a:visited {
+	color: #b36b00 !important;
+}
+.blog-article-body a:hover,
+.blog-details .blog-content a:not(.th-btn):hover {
+	color: #8f5500 !important;
+}
+
+/* Lide (primeiro parágrafo do artigo): itálico, sem bold */
+.blog-article-body > p:first-child,
+.blog-article-body > p:first-child strong {
+	font-style: italic !important;
+	font-weight: 400 !important;
+}
+
+/* Título principal do artigo: fonte da home, sem caixa alta */
+.blog-details .blog-title,
+.blog-title {
+	font-family: var(--body-font) !important;
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+
+/* Corpo do artigo: mesma fonte usada na home (body-font), texto e títulos */
+.blog-article-body,
+.blog-article-body p,
+.blog-article-body li,
+.blog-article-body td,
+.blog-article-body th,
+.blog-article-body h1,
+.blog-article-body h2,
+.blog-article-body h3,
+.blog-article-body h4,
+.blog-article-body h5,
+.blog-article-body h6,
+.blog-article-body .blog-inner-title,
+.blog-article-body .blog-subsection-title,
+.blog-article-body .blog-table-lead {
+	font-family: var(--body-font) !important;
+}
+
+/* Títulos do artigo sem caixa alta + espaço acima (não colar no parágrafo) */
+.blog-article-body h1,
+.blog-article-body h2,
+.blog-article-body h3,
+.blog-article-body h4,
+.blog-article-body h5,
+.blog-article-body h6,
+.blog-article-body .blog-inner-title,
+.blog-article-body .blog-subsection-title {
+	text-transform: none !important;
+	letter-spacing: normal !important;
+}
+.blog-article-body h2,
+.blog-article-body .blog-inner-title {
+	margin-top: 2.25rem !important;
+}
+.blog-article-body h3,
+.blog-article-body h4,
+.blog-article-body h5,
+.blog-article-body h6,
+.blog-article-body .blog-subsection-title {
+	margin-top: 1.5rem !important;
+}
+
+/* Tamanhos seguindo a hierarquia h2 > h3 > h4 > h5 > h6, peso consistente */
+.blog-article-body h2,
+.blog-article-body h2.blog-inner-title {
+	font-size: 30px !important;
+	font-weight: 700 !important;
+	line-height: 1.25 !important;
+}
+.blog-article-body h3,
+.blog-article-body h3.blog-subsection-title {
+	font-size: 24px !important;
+	font-weight: 700 !important;
+	line-height: 1.3 !important;
+}
+.blog-article-body h4,
+.blog-article-body h4.blog-subsection-title {
+	font-size: 20px !important;
+	font-weight: 700 !important;
+	line-height: 1.35 !important;
+}
+.blog-article-body h5,
+.blog-article-body h5.blog-subsection-title {
+	font-size: 18px !important;
+	font-weight: 700 !important;
+	line-height: 1.4 !important;
+}
+.blog-article-body h6,
+.blog-article-body h6.blog-subsection-title {
+	font-size: 16px !important;
+	font-weight: 700 !important;
+	line-height: 1.45 !important;
+}
+
+/* Página blog: cards idênticos aos "Últimos artigos" da home.
+   Réplica dos estilos scoped de BlogPostCard.astro (que não chegam à
+   página blog, montada via HTML string) + overrides da home (borda preta,
+   cantos retos, fonte do título e zoom no hover). */
+.blog-listing .sec-title,
+.about-page .sec-title {
+	font-family: var(--body-font) !important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	color: var(--title-color) !important;
+	text-transform: none !important;
+}
+
+.blog-listing .blog-card.blog-post-card {
+	display: flex !important;
+	flex-direction: column !important;
+	width: 100% !important;
+	height: 100% !important;
+	border: 1px solid var(--black-color) !important;
+	border-radius: 0 !important;
+	overflow: hidden !important;
+	background: var(--smoke-color) !important;
+	box-shadow: none !important;
+}
+.blog-listing .blog-card .blog-img {
+	flex-shrink: 0 !important;
+	height: 220px !important;
+	border-radius: 0 !important;
+	overflow: hidden !important;
+}
+.blog-listing .blog-card .blog-img img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+	border-radius: 0 !important;
+	transition: transform 0.4s ease !important;
+}
+.blog-listing .blog-card:hover .blog-img img {
+	transform: scale(1.08) !important;
+}
+.blog-listing .blog-card .blog-img .date {
+	padding: 12px 14px !important;
+}
+.blog-listing .blog-card .blog-img .date a {
+	font-size: 14px !important;
+}
+.blog-listing .blog-card .blog-content {
+	display: flex !important;
+	flex: 1 !important;
+	flex-direction: column !important;
+	padding: 20px 20px 24px !important;
+}
+.blog-listing .blog-card .box-title,
+.blog-listing .blog-card .box-title a {
+	font-family: var(--body-font) !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+	font-weight: 700 !important;
+}
+.blog-listing .blog-card .box-title {
+	display: -webkit-box !important;
+	overflow: hidden !important;
+	margin-bottom: 12px !important;
+	font-size: 18px !important;
+	line-height: 1.35 !important;
+	-webkit-box-orient: vertical !important;
+	-webkit-line-clamp: 3 !important;
+	line-clamp: 3 !important;
+}
+.blog-listing .blog-card .box-text {
+	display: -webkit-box !important;
+	overflow: hidden !important;
+	margin-bottom: 0 !important;
+	font-size: 15px !important;
+	line-height: 1.55 !important;
+	-webkit-box-orient: vertical !important;
+	-webkit-line-clamp: 3 !important;
+	line-clamp: 3 !important;
+}
+.blog-listing .blog-card .blog-content .th-btn.blog-post-card__read-btn {
+	align-self: flex-start !important;
+	margin-top: auto !important;
+	padding: 9px 18px !important;
+	min-width: 0 !important;
+	font-size: 13px !important;
+	font-weight: 600 !important;
+	line-height: 1.2 !important;
+	text-transform: none !important;
+	border-radius: 0 !important;
+}
+
+/* Home: perguntas frequentes com a fonte do bairro */
+.home-faq-section .accordion-button {
+	font-family: var(--body-font) !important;
+}
+
+/* Home: itens da FAQ sem bordas arredondadas */
+.home-faq-section .accordion-card,
+.home-faq-section .accordion-item,
+.home-faq-section .accordion-button,
+.home-faq-section .accordion-button.collapsed,
+.home-faq-section .accordion-header,
+.home-faq-section .accordion-collapse,
+.home-faq-section .accordion-body {
+	border-radius: 0 !important;
+}
+
+/* Home: cards de empreendimento e bairros com a fonte do título "Imóveis na planta em" */
+.home-lancamentos-section .popular-list-1 .box-title,
+.home-lancamentos-section .popular-list-1 .box-text,
+.home-bairros-section .gallery-card .box-title {
+	font-family: var(--body-font) !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+}
+
+/* Home: título do post (artigo) na fonte do título */
+.home-blog-section .blog-card .box-title,
+.home-blog-section .blog-card .box-title a {
+	font-family: var(--body-font) !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+}
+
+
+/* Ver Mais nos cards (todas as páginas): retangular + hover preenche o botão */
+.popular-list-1 .th-btn {
+	border-radius: 0 !important;
+	overflow: hidden !important;
+	position: relative !important;
+}
+.popular-list-1 .th-btn::before {
+	border-radius: 0 !important;
+	top: 0 !important;
+	left: 0 !important;
+	height: 100% !important;
+}
+.popular-list-1 .th-btn:hover::before,
+.popular-list-1 .th-btn.active::before {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+/* Ver Mais (todos os cards): fundo amarelo + texto preto; hover inverte
+   (fundo preto via ::before + texto amarelo). */
+.popular-list-1 .th-btn {
+	background-color: var(--theme-color) !important;
+	border-color: var(--theme-color) !important;
+	color: var(--black-color) !important;
+}
+.popular-list-1 .th-btn::before {
+	background-color: var(--black-color) !important;
+}
+.popular-list-1 .th-btn:hover,
+.popular-list-1 .th-btn.active {
+	color: var(--theme-color) !important;
+	border-color: var(--black-color) !important;
+}
+
+/* Home: cards de bairro - remove retângulo branco no hover; só zoom + fonte laranja */
+.home-bairros-section .gallery-card .gallery-content-wrapper::before {
+	display: none !important;
+}
+.home-bairros-section .gallery-card .gallery-img:hover img {
+	transform: scale(1.08) !important;
+}
+.home-bairros-section .gallery-card .gallery-img:hover .box-title,
+.home-bairros-section .gallery-card .gallery-img:hover .box-text {
+	color: var(--theme-color) !important;
+}
+
+
+/* Home: zoom no hover dos cards de imóveis e artigos */
+.home-lancamentos-section .popular-list-1 .thumb-wrapper,
+.home-blog-section .blog-card .blog-img {
+	overflow: hidden !important;
+}
+.home-lancamentos-section .popular-list-1 .thumb-wrapper .thumb-link > img,
+.home-blog-section .blog-card .blog-img img {
+	transition: transform 0.4s ease !important;
+}
+.home-lancamentos-section .popular-list-1:hover .thumb-wrapper .thumb-link > img,
+.home-blog-section .blog-card:hover .blog-img img {
+	transform: scale(1.08) !important;
+}
+
+/* Home: hero 25% mais baixo */
+.home-page .hero-inner {
+	padding-top: 236px !important;
+	padding-bottom: 142px !important;
+}
+
+/* Home: todos os botões sem cantos arredondados */
+.home-page .th-btn {
+	border-radius: 0 !important;
+}
+
+/* Home: nome e valor dos cards de imóveis menores */
+.home-lancamentos-section .popular-list-1 .box-title:not(.property-price) {
+	font-size: 21px !important;
+	line-height: 1.35 !important;
+}
+.home-lancamentos-section .popular-list-1 .box-title.property-price {
+	font-size: 16px !important;
+}
+
+
+/* Home: hero title com a fonte do "Imóveis na planta em" */
+.home-page .hero-title {
+	font-family: var(--body-font) !important;
+	text-transform: none !important;
+	font-size: 56px !important;
+}
+@media (max-width: 1399px) {
+	.home-page .hero-title {
+		font-size: 52px !important;
+	}
+}
+@media (max-width: 575px) {
+	.home-page .hero-title {
+		font-size: 40px !important;
+	}
+}
+.home-page .hero-title .title2 {
+	font-family: var(--body-font) !important;
+	font-style: italic !important;
+}
+
+/* Home: centraliza os campos do filtro de lançamentos (sobrepõe select-group-wrapper) */
+.home-lancamentos-section .home-lancamentos-section__filter-fields {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: center !important;
+	gap: 16px !important;
+}
+
+/* Rodapé: títulos das colunas com a fonte do "Imóveis na planta em" */
+.footer-wrapper .widget_title,
+.footer-cities-wrap > .widget_title,
+.footer-bairros-wrap > .widget_title,
+.footer-cities-region-title,
+.footer-bairros-region-title {
+	font-family: var(--body-font) !important;
+}
+
+.home-page .hero-title .title2 {
+	font-style: italic !important;
+	font-weight: 700 !important;
+	color: var(--safety) !important;
+}
+
+/* Home: largura maior dos campos do filtro de lançamentos */
+.home-lancamentos-section .home-lancamentos-section__filter-fields .form-group {
+	flex: 0 0 300px;
+	max-width: 300px;
+}
+.home-lancamentos-section .home-lancamentos-section__filter-fields .form-select {
+	width: 100% !important;
+}
+
+
+/* Rodapé: títulos das colunas sem caixa alta */
+.footer-wrapper .widget_title,
+.footer-cities-wrap > .widget_title,
+.footer-bairros-wrap > .widget_title,
+.footer-cities-region-title,
+.footer-bairros-region-title {
+	text-transform: none !important;
+}
+
+/* Home: espaçamento entre seções reduzido (padrão: 120px) */
+body.home-page {
+	--section-space: 72px;
+	--section-space-mobile: 52px;
+}
+
+/* Home: filtro de busca — sem bordas arredondadas em nenhum elemento */
+body.home-page .search-wrap,
+body.home-page .search-wrap.home-search-filter {
+	border-radius: 0 !important;
+}
+body.home-page .search-wrap::before,
+body.home-page .search-wrap::after {
+	display: none !important;
+}
+body.home-page .form-select,
+body.home-page .form-control {
+	border-radius: 0 !important;
+}
+
+/* Home: sticky footer - garante que o rodapé cole no fim da viewport
+   mesmo quando o conteúdo é mais curto que a tela. */
+body.home-page {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+body.home-page > main {
+	flex: 1 0 auto;
+}
+body.home-page > .footer-wrapper {
+	margin-top: auto;
+}
+
+/* Rodapé: última linha (copyright + efeito) full width (edge-to-edge). */
+.footer-wrapper .copyright-wrap {
+	margin-left: calc(50% - 50vw) !important;
+	margin-right: calc(50% - 50vw) !important;
+}
+html,
+body {
+	overflow-x: clip;
+}
+
+/* Rodapé: todas as linhas usam .container, alinhando a margem esquerda
+   exatamente com as seções da home. Wraps internos sem padding extra. */
+.footer-wrapper .footer-bairros-wrap,
+.footer-wrapper .footer-cities-wrap {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+/* Blog: linha de sugestão de Topic Cluster ao fim de cada seção */
+.blog-cluster-hint {
+	border-left: 3px solid var(--theme-color);
+	padding: 8px 0 8px 14px;
+	margin: 8px 0 24px;
+	font-size: 0.95em;
+	font-style: italic;
+	color: #555;
+}
+.blog-cluster-hint strong {
+	font-style: normal;
+	color: var(--title-color);
+}
+
+/* Menu (desktop e mobile): mesma fonte dos cards de empreendimento da home */
+.main-menu a,
+.th-mobile-menu a {
+	font-family: var(--body-font) !important;
+	text-transform: none !important;
+	font-weight: 400 !important;
+}
+.main-menu > ul > li > a {
+	font-size: 17px !important;
+}
+
+/* Acessibilidade: área de toque mínima nos links sociais (touch targets >= 40px). */
+.th-social a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	min-height: 40px;
+}
+
+/* Contraste AA: o âmbar da marca (#FFAF00) como TEXTO sobre fundo claro não atinge
+   4.5:1. Escurece apenas o texto-accent das headings (não muda fundos/botões). */
+.bairro-listing-title .bairro-name-accent,
+.home-lancamentos-section .bairro-name-accent,
+.home-bairros-section .bairro-name-accent,
+.home-blog-section .bairro-name-accent,
+.home-faq-section .bairro-name-accent,
+.bairro-name-accent {
+	color: var(--safety) !important;
+}
+
+/* Contraste AA: o badge de data do blog tem fundo âmbar (#FFAF00); texto branco
+   não atinge contraste. Usa texto escuro (mesmo padrão dos botões .th-btn). */
+.blog-img .date,
+.blog-img .date a,
+.blog-img .date a span {
+	color: #1a1a1a !important;
+}
+
+/* Sort bar: botões de visualização e select de ordenação sem radius */
+.th-sort-bar .nav a,
+.th-sort-bar.property-style .nav a,
+.th-sort-bar select,
+.th-sort-bar.property-style select {
+	border-radius: 0 !important;
+}
+
+/* Tags e ícones de compartilhar sem radius */
+.blog-article-page .tagcloud a,
+.th-social a {
+	border-radius: 0 !important;
+}
+
+.blog-article-page .share-links {
+	border-top: none !important;
+}
+
+.popular-list-1 .thumb-wrapper .popular-badge p {
+	border-radius: 0;
+}
+
+.popular-list-1 .thumb-wrapper .popular-badge {
+	z-index: 5;
+}
+
+.popular-list-1 .thumb-wrapper .popular-badge img {
+	position: absolute;
+	top: -24px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 54px;
+	height: 30px;
+	max-width: 54px;
+	object-fit: contain;
+	display: block;
+}
+
+/* list-style: especificidade maior (0,4,1) para garantir badge correto no modo lista */
+.popular-list-1.list-style .thumb-wrapper .popular-badge {
+	position: absolute;
+	top: 23px;
+	left: 30px;
+	z-index: 5;
+	overflow: visible;
+}
+
+.popular-list-1.list-style .thumb-wrapper .popular-badge img {
+	position: absolute !important;
+	top: -24px !important;
+	left: 50% !important;
+	transform: translateX(-50%) !important;
+	width: 54px !important;
+	height: 30px !important;
+	max-width: 54px !important;
+	object-fit: contain !important;
+	display: block !important;
+	border-radius: 0 !important;
+	clip-path: none !important;
 }
